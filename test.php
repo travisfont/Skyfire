@@ -1,6 +1,6 @@
 <?php
 
-class abc123
+class TFont
 {
 
 	public static function a($array)
@@ -23,3 +23,13 @@ class abc123
 
 // make this work
 #<a href="http://www.facebook.com" onclick="window.open(this.href,'_blank'); return false;">Facebook</a>
+
+
+/*
+$array = array(
+			'onclick'	=> JavaScript::alert('test');
+			'href'		=> 'http://www.facebook.com';
+			);
+
+TFont::href('Facebook.com', $array);
+*/
