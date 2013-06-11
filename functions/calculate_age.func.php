@@ -1,5 +1,13 @@
 <?php
 
+function calculate_age($date, $format = 'm/d/Y')
+{
+	return floor((strtotime(date($format)) - strtotime($date)) / 31556926);
+}
+
+# calculate_age('6/12/1970');
+
+/*
 function calculate_age($birthday)
 {
     $today = new DateTime();
@@ -9,5 +17,4 @@ function calculate_age($birthday)
 
     return $diff->y;
 }
-
-# calculate_age('6/12/1970');
+*/
