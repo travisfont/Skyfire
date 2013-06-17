@@ -1,6 +1,6 @@
 <?php
 
-function distance($lat1, $lng1, $lat2, $lng2, $miles = true)
+function distance($lat1, $lng1, $lat2, $lng2, $miles = TRUE)
 {
 	$pi80 = M_PI / 180;
 	$lat1 *= $pi80;
