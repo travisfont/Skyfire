@@ -1,5 +1,7 @@
 <?php
 
+// note: query limit of 2,500 requests per da
+
 function get_coordinates_by_address($address)
 {
     $api_location  = 'http://maps.googleapis.com/maps/api/geocode/json?address='.urlencode(trim($address)).'&sensor=true';
