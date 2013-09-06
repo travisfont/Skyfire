@@ -107,6 +107,8 @@ class cURL
 	} 
 } 
 
+// EXAMPLE:
+
 $cc = new cURL(); 
 $tss1 = $cc->get('http://www.healthspace.ca/Clients/VDH/LFairfax/LFairfax_Website.nsf/Food-FacilityHistory?OpenView&RestrictToCategory=57727DA855A77D1E85257508007515D7'); 
 #$cc->post('http://www.example.com','foo=bar'); 
