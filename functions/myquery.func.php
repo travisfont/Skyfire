@@ -6,7 +6,7 @@ define('USER',		'root');
 define('PASSWORD',	NULL);
 define('DATABASE', 	'data_table_example1');
 
-function open_connection($query, $write_error = FALSE)
+function myquery($query, $write_error = FALSE)
 {
 	if(!$link = mysql_connect(HOST, USER, PASSWORD))
 	{
@@ -19,7 +19,7 @@ function open_connection($query, $write_error = FALSE)
 	$result = mysql_query($query);
 	if(mysql_error())
 	{
-		f($write_error === TRUE)
+		if($write_error === TRUE)
 		{
 			write_error($query);
 			write_error(mysql_error());
@@ -29,9 +29,23 @@ function open_connection($query, $write_error = FALSE)
 	}
 	else
 	{
-		return $result;
+		if(strpos($query, 'SELECT') !== FALSE)
+		{
+			$output = array();
+			while($row = mysql_fetch_assoc($result))
+			{
+				$output[] = $row;
+			}
+	
+			mysql_close($link);
+			return $output;
+		}
+		else
+		{
+			mysql_close($link);
+			return $result;
+		}
 	}
-	mysql_close($link);
 }
 
-# $array = mysql_fetch_assoc(open_connection("SELECT * FROM table_name LIMIT 1"));
+# $array = myquery("SELECT * FROM table_name LIMIT 1");
