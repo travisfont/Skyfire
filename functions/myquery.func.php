@@ -25,7 +25,7 @@ function myquery($query, $write_error = FALSE)
 			write_error(mysql_error());
 		}
 		echo mysql_error() ."\n";
-		//exit;
+		return FALSE;
 	}
 	else
 	{
