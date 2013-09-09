@@ -6,7 +6,7 @@ define('USER',			'root');
 define('PASSWORD',	NULL);
 define('DATABASE', 	'data_table_example1');
 
-function open_connection($query)
+function open_connection($query, $write_error = FALSE)
 {
 	if(!$link = mysql_connect(HOST, USER, PASSWORD))
 	{
@@ -19,8 +19,11 @@ function open_connection($query)
 	$result = mysql_query($query);
 	if(mysql_error())
 	{
-		write_error($query);
-		write_error(mysql_error());
+		f($write_error === TRUE)
+		{
+			write_error($query);
+			write_error(mysql_error());
+		}
 		echo mysql_error() ."\n";
 		//exit;
 	}
