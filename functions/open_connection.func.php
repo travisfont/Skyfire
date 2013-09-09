@@ -1,8 +1,8 @@
 <?php
 
 
-define('HOST',			'localhost');
-define('USER',			'root');
+define('HOST',		'localhost');
+define('USER',		'root');
 define('PASSWORD',	NULL);
 define('DATABASE', 	'data_table_example1');
 
