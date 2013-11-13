@@ -4,14 +4,19 @@ TLF-PHP is an extension of Travis van der Font's awesome PHP coding adventures a
 Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ##Library:
+###Library:
 
-** *arrays* ** 
+***arrays*** 
 
 ** *database* ** 
 
 ** *date* ** 
 
 ** *html* ** 
+
+** *math* ** 
+
+- **[leading_zero](https://github.com/tfont/TLFPHP/blob/master/functions/math/leading_zero.func.php)() -**  Adds leading zeros to any integer value
 
 ** *misc* ** 
 
