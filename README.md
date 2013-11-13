@@ -6,6 +6,13 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 **Library**
 
+
+*arrays*
+*database*
+*date*
+*html*
 *misc*
+*social*
+*strings*
 
 - **[list_directory](https://github.com/tfont/TLFPHP/blob/master/functions/misc/list_directory.func.php)() -**  List of folders and files in a directory and/or sub-directories
