@@ -20,7 +20,7 @@ function simple_address_verify($address)
 		$fulladdress .= ', '.$address['zip'];
 
 		$api_location  = 'http://maps.googleapis.com/maps/api/geocode/json?address='.urlencode(trim($fulladdress)).'&sensor=true';
-		$data            = json_decode(file_get_contents($api_location));
+		$data          = json_decode(file_get_contents($api_location));
 
 		// checking if the 5th level array exists first
 		if (isset($data->results[0]->address_components[4]))
