@@ -39,9 +39,6 @@ function simple_address_verify($address)
 		{
 			return FALSE;
 		}
-
-
-		var_dump($data);
 	}
 	else
 	{
