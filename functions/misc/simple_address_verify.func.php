@@ -9,7 +9,7 @@ function simple_address_verify($address)
 		isset($address['zip'])
 	)
 	{
-		if(strlen((int) $address['zip']) != 5)
+		if (strlen((int) $address['zip']) != 5)
 		{
 			return FALSE;
 		}
