@@ -14,7 +14,7 @@ function simple_address_verify($address)
 			return FALSE;
 		}
 
-		$fulladdress = preg_replace('/^[0-9]+\ +/', '', $address['address']);
+		$fulladdress  = preg_replace('/^[0-9]+\ +/', '', $address['address']);
 		$fulladdress .= ', '.$address['city'];
 		$fulladdress .= ', '.$address['state'];
 		$fulladdress .= ', '.$address['zip'];
