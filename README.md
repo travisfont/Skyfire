@@ -16,7 +16,11 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ***math*** 
 
-- **[leading_zero](https://github.com/tfont/TLFPHP/blob/master/functions/math/leading_zero.func.php)() -**  Adds leading zeros to any integer value
+- **[crypto_rand](https://github.com/tfont/TLFPHP/blob/master/functions/math/crypto_rand.func.php)() -** A secure replacement for number randomizing using OpenSSL
+
+- **[leading_zero](https://github.com/tfont/TLFPHP/blob/master/functions/math/leading_zero.func.php)() -** Adds leading zeros to any integer value
+
+- **[random_numbers](https://github.com/tfont/TLFPHP/blob/master/functions/math/random_numbers.func.php)() -** Basic number randomiser (includes leading zeros parameter)
 
 ***misc*** 
 
