@@ -20,7 +20,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 - **[leading_zero](https://github.com/tfont/TLFPHP/blob/master/functions/math/leading_zero.func.php)() -** Adds leading zeros to any integer value
 
-- **[random_numbers](https://github.com/tfont/TLFPHP/blob/master/functions/math/random_numbers.func.php)() -** Basic number randomiser (includes leading zeros parameter)
+- **[random_number](https://github.com/tfont/TLFPHP/blob/master/functions/math/random_number.func.php)() -** Basic number randomiser (includes leading zeros parameter)
 
 ***misc*** 
 

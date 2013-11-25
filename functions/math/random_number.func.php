@@ -1,6 +1,6 @@
 <?php
 
-function random_numbers($digits, $leading_zeros = FALSE)
+function random_number($digits, $leading_zeros = FALSE)
 {
 	if($leading_zeros === FALSE)
 	{
