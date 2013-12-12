@@ -33,3 +33,5 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 ***social*** 
 
 ***strings*** 
+
+- **[csv_to_array](https://github.com/tfont/TLFPHP/blob/master/functions/strings.csv_to_array.func.php)() -**  A simple address verification (USA only)
