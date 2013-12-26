@@ -4,8 +4,8 @@
 
 function get_coordinates_by_address($address)
 {
-    $api_location  = 'http://maps.googleapis.com/maps/api/geocode/json?address='.urlencode(trim($address)).'&sensor=true';
-    $data            = json_decode(file_get_contents($api_location));
+    $api_location = 'http://maps.googleapis.com/maps/api/geocode/json?address='.urlencode(trim($address)).'&sensor=false';
+    $data         = json_decode(file_get_contents($api_location));
 
     if (isset($data->results[0]->geometry->location->lat) && isset($data->results[0]->geometry->location->lng))
     {
