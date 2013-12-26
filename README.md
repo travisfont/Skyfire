@@ -42,4 +42,6 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 - **[get_exec_time] (https://github.com/tfont/TLFPHP/blob/master/classes/get_exec_time.class.php) -**  php timer class (see how long a script takes to execute)
 
- * test1
+ * get_exec_time::start()
+ * get_exec_time::end()
+ * get_exec_time::$display
