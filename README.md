@@ -34,6 +34,9 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ***strings*** 
 
+- **[str_to_slug](https://github.com/tfont/TLFPHP/blob/master/functions/strings/str_to_slug.func.php)() -**  Convert a string into a url slug
+
+
 - **[csv_to_array](https://github.com/tfont/TLFPHP/blob/master/functions/strings/csv_to_array.func.php)() -**  Convert a CSV file to an associated array
 
 
