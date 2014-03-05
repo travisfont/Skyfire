@@ -1,6 +1,6 @@
-# TLF-PHP
+# Skyfire
 
-TLF-PHP is an extension of Travis van der Font's awesome PHP coding adventures and finds.
+Skyfire is an extension of Travis van der Font's awesome PHP coding adventures and finds.
 
 Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
