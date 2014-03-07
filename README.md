@@ -30,6 +30,8 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 - **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)() -** A secure replacement for number randomizing using OpenSSL
 
+- **[display_percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)() -** Calculates the percentage from original price to a new savings price
+
 - **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)() -** Adds leading zeros to any integer value
 
 - **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)() -** Basic number randomiser (includes leading zeros parameter)
@@ -37,6 +39,8 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 ***misc*** 
 
 - **[get_coordinates_by_address](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_coordinates_by_address.func.php)() -**  Gets Coordinates from an address
+
+- **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)() -**  Returns true if the input string is valid UTF-8 and false otherwise
 
 - **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)() -**  List of folders and files in a directory and/or sub-directories
 
