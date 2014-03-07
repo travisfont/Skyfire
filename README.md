@@ -22,6 +22,8 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 - **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)() -** Months difference between two dates
 
+- **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)() -** Displays the remain time (including day) from the input date
+
 ***html*** 
 
 ***math*** 
