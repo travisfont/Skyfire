@@ -2,7 +2,11 @@
 
 Skyfire is an extension of Travis van der Font's awesome PHP coding adventures and finds.
 
+This is not a micro-framework but simply a library.
+
 Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
+
+----------------------------
 
 ###Library:
 
@@ -40,6 +44,8 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ***strings*** 
 
+- **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)() -**  Generate a password based on length and crack strength
+
 - **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)() -**  Convert a string into a url slug
 
 
@@ -54,3 +60,6 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
  * get_exec_time::start()
  * get_exec_time::end()
  * get_exec_time::$display
+ 
+ 
+ 
