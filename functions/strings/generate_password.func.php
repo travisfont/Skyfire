@@ -23,7 +23,7 @@ function generate_password($length = 9, $strength = 4)
     }
 
     $password = '';
-    $alt      = time() % 2;
+    $alt = time() % 2;
     
     for ($i = 0; $i < $length; $i++)
     {
