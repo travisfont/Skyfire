@@ -16,11 +16,11 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ***date*** 
 
-- **[dateTimeDiff](https://github.com/tfont/Skyfire/blob/master/functions/date/dateTimeDiff.func.php)() -** ....
+- **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)() -** ....
 
-- **[daysDiff](https://github.com/tfont/Skyfire/blob/master/functions/date/daysDiff.func.php)() -** Days difference between two dates
+- **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)() -** Days difference between two dates
 
-- **[monthsDiff](https://github.com/tfont/Skyfire/blob/master/functions/date/monthsDiff.func.php)() -** Months difference between two dates
+- **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)() -** Months difference between two dates
 
 ***html*** 
 
