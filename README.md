@@ -68,4 +68,10 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
  * get_exec_time::$display
  
  
+ ___________________________________________________________
  
+ **useage:**
+ 
+ load::library('date'); // will load all date library functions
+ 
+load::library('date')->function('nextWeek'); // will load the nextWeek() from date library
