@@ -2,7 +2,7 @@
 
 Skyfire is an extension of Travis van der Font's awesome PHP coding adventures and finds.
 
-This is not a micro-framework but simply a library.
+This is not a micro-framework but simply a library. Well, soon it'll be yet another PHP framework.
 
 Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
@@ -70,8 +70,18 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
  
  ___________________________________________________________
  
+ 
+ 
  **useage:**
+ 
  
  load::library('date'); // will load all date library functions
  
 load::library('date')->function('nextWeek'); // will load the nextWeek() from date library
+
+
+Routes:
+
+route::url('news/{title}-{date}/{id}', POST)->controller('news');
+ 
+// url(string, boolean) -> default boolean is false value constant get, and post is true
