@@ -52,6 +52,8 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 - **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)() -**  Generate a password based on length and crack strength
 
+- **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)() -**  Removes the first line of a string
+
 - **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)() -**  Convert a string into a url slug
 
 
