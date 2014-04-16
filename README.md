@@ -12,6 +12,8 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ***arrays*** 
 
+- **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)() -** Detects if an array is associative
+
 ***database*** 
 
 ***date*** 
@@ -50,14 +52,25 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ***strings*** 
 
-- **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)() -**  Generate a password based on length and crack strength
+- **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)() -**  Generates a password based on length and crack strength
 
 - **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)() -**  Removes the first line of a string
 
-- **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)() -**  Convert a string into a url slug
+- **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)() -**  Converts a string into a url slug
 
+- **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/strings/csv_to_array.func.php)() -**  Converts a CSV file to an associated array
 
-- **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/strings/csv_to_array.func.php)() -**  Convert a CSV file to an associated array
+***xml*** 
+
+- **[format_xml_string](https://github.com/tfont/Skyfire/blob/master/functions/xml/format_xml_string.func.php)() -**  Formats XML
+
+- **[is_atom](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_atom.func.php)() -**  Detects if the XML is a possible ATOM XML feed.
+
+- **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)() -**  Detects if the XML is a possible RSS XML feed.
+
+- **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)() -**  Removes the parent node from the XML
+
+- **[xml2array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)() -**  Converts XML to an array
 
 
 ####Class objects:
