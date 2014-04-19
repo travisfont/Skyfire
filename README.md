@@ -87,16 +87,18 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
  
  
  
- **useage:**
+**useage (concept still):**
  
- 
- load::library('date'); // will load all date library functions
+```php
+load::library('date'); // will load all date library functions
  
 load::library('date')->function('nextWeek'); // will load the nextWeek() from date library
+```
 
 
 Routes:
-
+```php
 route::url('news/{title}-{date}/{id}', POST)->controller('news');
  
 // url(string, boolean) -> default boolean is false value constant get, and post is true
+```
