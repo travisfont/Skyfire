@@ -12,6 +12,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 | Parameter | Type | Description
 | --- | --- | ---
+| ***arrays*** | | 
 | **domElement** | `!HTMLElement` | The DOM element to apply the shine effect to.
 
 
