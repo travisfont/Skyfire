@@ -39,15 +39,15 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)()** | 1.`$address` | *`bool`* | A simple address verification (USA only)
 | ***social*** | | | 
 | ***strings*** | | | 
-| **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)()** | 1.`$length = 9` <br />2.`$strength = 4` | `abc` | Generates a password based on length and crack strength
-| **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)()** | 1.`$str` | `abc` | Removes the first line of a string
-| **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)()** | 1.`$string` | `abc` | Converts a string into a url slug
+| **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)()** | 1.`$length = 9` <br />2.`$strength = 4` | *`string`* | Generates a password based on length and crack strength
+| **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)()** | 1.`$str` | *`string`* | Removes the first line of a string
+| **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)()** | 1.`$string` | *`string`* | Converts a string into a url slug
 | ***xml*** | | | 
-| **[format_xml_string](https://github.com/tfont/Skyfire/blob/master/functions/xml/format_xml_string.func.php)()** | 1.`$xml` | `abc` | Formats XML
-| **[is_atom](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_atom.func.php)()** | 1.`$feedxml` | `abc` | Detects if the XML is a possible ATOM XML feed.
-| **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)()** | 1.`$feedxml` | `abc` | Detects if the XML is a possible RSS XML feed.
-| **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)()** | 1.`&$xml` <br />2.`$node` | `abc` | Removes the parent node from the XML
-| **[xml_to_array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_to_array.func.php)()** | 1.`$xml` | `abc` | Converts XML to an array
+| **[format_xml_string](https://github.com/tfont/Skyfire/blob/master/functions/xml/format_xml_string.func.php)()** | 1.`$xml` | *`string`* | Formats XML
+| **[is_atom](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_atom.func.php)()** | 1.`$feedxml` | *`bool`* | Detects if the XML is a possible ATOM XML feed.
+| **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)()** | 1.`$feedxml` | *`bool`* | Detects if the XML is a possible RSS XML feed.
+| **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)()** | 1.`&$xml` <br />2.`$node` | *`object`*  | Removes the parent node from the XML
+| **[xml_to_array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_to_array.func.php)()** | 1.`$xml` | *`array`*  | Converts XML to an array
 
 ####Class objects:
 
