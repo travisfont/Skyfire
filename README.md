@@ -12,14 +12,14 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 | Function | Parameter(s) | Return | Description
 | --- | --- | --- | ---
-| ***__arrays__*** | | | 
-| **[array_multi_subsort](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_multi_subsort.func.php)()** | 1.`$array` <br />2.`$subkey` | *`array`* | ...
-| **[array_random](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_random.func.php)()** | 1.`$arr` <br />2.`$amount = 1` | *`array`* | Returns random element(s) from an array
-| **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)()** | 1.`$filename` <br />2.`$delimiter = ','`| *`array`* | Converts a CSV file to an associated array
-| **[in_multi_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/in_multi_array.func.php)()** | 1.`$needle` <br />2.`$haystack` 3.`$strict = FALSE`| *`bool`* | ...
-| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | 1.`$array` | *`bool`*| Detects if an array is associative
-| **[objects_to_arrays](https://github.com/tfont/Skyfire/blob/master/functions/arrays/objects_to_arrays.func.php)()** | 1.`$obj` <br />2.`&$arr` | *`array`*| Converts objects to an array
-| **[rand_array_element](https://github.com/tfont/Skyfire/blob/master/functions/arrays/rand_array_element.func.php)()** | 1.`$array` | *`string`* | Returns a random element from an array
+| ***arrays*** | | | 
+| **[array_multi_subsort](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_multi_subsort.func.php)()** | **1.**$array <br />**2.**$subkey | *`array`* | ...
+| **[array_random](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_random.func.php)()** | **1.**$arr <br />**2.**$amount  <br/>*= 1** | *`array`* | Returns random element(s) from an array
+| **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)()** | **1.**$filename <br />**2.**$delimiter <br>*= ','*| *`array`* | Converts a CSV file to an associated array
+| **[in_multi_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/in_multi_array.func.php)()** | **1.**$needle <br />**2.**$haystack <br />**3.**$strict <br />*= FALSE* | *`bool`* | ...
+| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | **1.**$array | *`bool`*| Detects if an array is associative
+| **[objects_to_arrays](https://github.com/tfont/Skyfire/blob/master/functions/arrays/objects_to_arrays.func.php)()** | **1.**$obj <br />**2.**&$arr | *`array`*| Converts objects to an array
+| **[rand_array_element](https://github.com/tfont/Skyfire/blob/master/functions/arrays/rand_array_element.func.php)()** | **1.**$array | *`string`* | Returns a random element from an array
 | ***database*** | | | 
 | ***date*** | | | 
 | **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | 1.`$date1` <br />2.`$date2` |  *`object`* | ...
