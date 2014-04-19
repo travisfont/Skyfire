@@ -13,7 +13,8 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | Function | Parameter(s) | Return | Description
 | --- | --- | --- | ---
 | ***arrays*** | | | 
-| **[array_multi_subsort](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_multi_subsort.func.php)(**`$array, $subkey`**)** | | `abc` | ...
+| **[array_multi_subsort](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_multi_subsort.func.php)()** | 1. `$array`
+1. `$subkey` | `abc` | ...
 | **[array_random](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_random.func.php)(**`$arr, $num = 1`**)** | | `abc` | ...
 | **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)(**`$filename, $delimiter = ','`**)** | | `abc` | Converts a CSV file to an associated array
 | **[in_multi_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/in_multi_array.func.php)(**`$needle, $haystack, $strict = FALSE`**)** | | `abc` | ...
@@ -48,8 +49,6 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)(**`$feedxml`**)** | | `abc` | Detects if the XML is a possible RSS XML feed.
 | **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)(**`&$xml, $node`**)** | | `abc` | Removes the parent node from the XML
 | **[xml_to_array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_to_array.func.php)(**`$xml`**)** | | `abc` | Converts XML to an array
-| ________________________________________________| | 
-
 
 ####Class objects:
 
