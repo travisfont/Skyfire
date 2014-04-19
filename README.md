@@ -20,13 +20,11 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)(**`$date1, $date2, $accuracy_day = FALSE`**)** | `abc` | Days difference between two dates
 | **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)(**`$date1, $date2 = FALSE`**)** | `abc` | Months difference between two dates
 | **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)(**`$dbdate`**)** | `abc` | Displays the remain time (including day) from the input date
+| ***html*** | | 
+| ***math*** | | 
 
 
 
-
-***html*** 
-
-***math*** 
 
 - **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)() -** A secure replacement for number randomizing using OpenSSL
 
