@@ -13,7 +13,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | Function & Parameter(s) | Return | Description
 | --- | --- | ---
 | ***arrays*** | | 
-| **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)(**`xxxxx`**)** | `abc` | Converts a CSV file to an associated array
+| **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)(**`$filename, $delimiter = ','`**)** | `abc` | Converts a CSV file to an associated array
 | **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)(**`$array`**)** | `abc` | Detects if an array is associative
 | ***database*** | | 
 | ***date*** | | 
