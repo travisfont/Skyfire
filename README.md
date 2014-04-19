@@ -28,27 +28,27 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)(**`$dbdate`**)** | `abc` | Displays the remain time (including day) from the input date
 | ***html*** | | 
 | ***math*** | | 
-| **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)(**`xxxxx`**)** | `abc` | A secure replacement for number randomizing using OpenSSL
-| **[display_percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)(**`xxxxx`**)** | `abc` | Calculates the percentage from original price to a new savings price
-| **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)(**`xxxxx`**)** | `abc` | Adds leading zeros to any integer value
-| **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)(**`xxxxx`**)** | `abc` | Basic number randomiser (includes leading zeros parameter)
+| **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)(**`$min, $max`**)** | `abc` | A secure replacement for number randomizing using OpenSSL
+| **[display_percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)(**`$original_price, $current_price`**)** | `abc` | Calculates the percentage from original price to a new savings price
+| **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)(**`$num, $places = 0`**)** | `abc` | Adds leading zeros to any integer value
+| **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)(**`$digits, $leading_zeros = FALSE`**)** | `abc` | Basic number randomiser (includes leading zeros parameter)
 | ***misc*** | | 
-| **[get_coordinates_by_address](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_coordinates_by_address.func.php)(**`xxxxx`**)** | `abc` | Gets Coordinates from an address
-| **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)(**`xxxxx`**)** | `abc` | Returns true if the input string is valid UTF-8 and false otherwise
-| **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)(**`xxxxx`**)** | `abc` | List of folders and files in a directory and/or sub-directories
-| **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)(**`xxxxx`**)** | `abc` | A simple address verification (USA only)
+| **[get_coordinates_by_address](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_coordinates_by_address.func.php)(**`$address`**)** | `abc` | Gets Coordinates from an address
+| **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)(**`$string`**)** | `abc` | Returns true if the input string is valid UTF-8 and false otherwise
+| **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)(**`$directory, $recursive = FALSE`**)** | `abc` | List of folders and files in a directory and/or sub-directories
+| **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)(**`$address`**)** | `abc` | A simple address verification (USA only)
 | ***social*** | | 
 | ***strings*** | | 
-| **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)(**`xxxxx`**)** | `abc` | Generates a password based on length and crack strength
-| **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)(**`xxxxx`**)** | `abc` | Removes the first line of a string
-| **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)(**`xxxxx`**)** | `abc` | Converts a string into a url slug
+| **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)(**`$length = 9, $strength = 4`**)** | `abc` | Generates a password based on length and crack strength
+| **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)(**`$str`**)** | `abc` | Removes the first line of a string
+| **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)(**`$string`**)** | `abc` | Converts a string into a url slug
 | ***xml*** | | 
-| **[format_xml_string](https://github.com/tfont/Skyfire/blob/master/functions/xml/format_xml_string.func.php)(**`xxxxx`**)** | `abc` | Formats XML
-| **[is_atom](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_atom.func.php)(**`xxxxx`**)** | `abc` | Detects if the XML is a possible ATOM XML feed.
-| **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)(**`xxxxx`**)** | `abc` | Detects if the XML is a possible RSS XML feed.
-| **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)(**`xxxxx`**)** | `abc` | Removes the parent node from the XML
-| **[xml_to_array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_to_array.func.php)(**`xxxxx`**)** | `abc` | Converts XML to an array
-| ____________________________________________| | 
+| **[format_xml_string](https://github.com/tfont/Skyfire/blob/master/functions/xml/format_xml_string.func.php)(**`$xml`**)** | `abc` | Formats XML
+| **[is_atom](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_atom.func.php)(**`$feedxml`**)** | `abc` | Detects if the XML is a possible ATOM XML feed.
+| **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)(**`$feedxml`**)** | `abc` | Detects if the XML is a possible RSS XML feed.
+| **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)(**`&$xml, $node`**)** | `abc` | Removes the parent node from the XML
+| **[xml_to_array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_to_array.func.php)(**`$xml`**)** | `abc` | Converts XML to an array
+| ________________________________________________| | 
 
 
 ####Class objects:
