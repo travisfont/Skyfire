@@ -22,7 +22,10 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)(**`$dbdate`**)** | `abc` | Displays the remain time (including day) from the input date
 | ***html*** | | 
 | ***math*** | | 
-| **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php))(**`xxxxx**)** | `abc` | A secure replacement for number randomizing using OpenSSL
+| **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)(**`xxxxx`**)** | `abc` | A secure replacement for number randomizing using OpenSSL
+| **[display_percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)(**`xxxxx`**)** | `abc` | Calculates the percentage from original price to a new savings price
+| **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)(**`xxxxx`**)** | `abc` | Adds leading zeros to any integer value
+| **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)(**`xxxxx`**)** | `abc` | Basic number randomiser (includes leading zeros parameter)
 
 
 
