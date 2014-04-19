@@ -9,6 +9,13 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 ----------------------------
 
 ###Library:
+
+| Parameter | Type | Description
+| --- | --- | ---
+| **domElement** | `!HTMLElement` | The DOM element to apply the shine effect to.
+
+
+
  
 | Parameter    | Type | Description
 | ***arrays*** |      |
