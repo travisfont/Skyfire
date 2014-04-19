@@ -10,7 +10,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ###Library:
 
-| Function & Parameter(s) ......| Return | Description
+| Function & Parameter(s) | Return | Description
 | --- | --- | ---
 | ***arrays*** | | 
 | **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)(**`$array`**)** | `abc` | Detects if an array is associative
@@ -22,17 +22,6 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)(**`$date1, $date2`**)** | `abc` | Displays the remain time (including day) from the input date
 
 
- 
-| Parameter    | Type | Description
-| ***arrays*** |      |
-| ---          | ---  | ---
-| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | ... | 
-| ***database*** |     |
-| ***date***     |     |
-| **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | n/a | ....
-| **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)()** | n/a | Days difference between two dates
-| **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)()** | n/a| Months difference between two dates
-| **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)()** | n/a| Displays the remain time (including day) from the input date
 
 
 ***html*** 
