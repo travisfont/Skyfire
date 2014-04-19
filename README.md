@@ -12,7 +12,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 | Function | Parameter(s) | Return | Description
 | --- | --- | --- | ---
-| ***arrays*** | | | 
+| ***• arrays*** | | | 
 | **[array_multi_subsort](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_multi_subsort.func.php)()** | **1.** $array <br />**2.** $subkey | *`array`* | ...
 | **[array_random](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_random.func.php)()** | **1.** $arr <br />**2.** $amount  <br/>`= 1` | *`array`* | Returns random element(s) from an array
 | **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)()** | **1.** $filename <br />**2.** $delimiter <br>`= ','`| *`array`* | Converts a CSV file to an associated array
@@ -20,29 +20,29 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | **1.** $array | *`bool`*| Detects if an array is associative
 | **[objects_to_arrays](https://github.com/tfont/Skyfire/blob/master/functions/arrays/objects_to_arrays.func.php)()** | **1.** $obj <br />**2.** &$arr | *`array`*| Converts objects to an array
 | **[rand_array_element](https://github.com/tfont/Skyfire/blob/master/functions/arrays/rand_array_element.func.php)()** | **1.** $array | *`string`* | Returns a random element from an array
-| ***database*** | | | 
-| ***date*** | | | 
+| ***• database*** | | | 
+| ***• date*** | | | 
 | **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | **1.** $date1 <br />**2.** $date2 |  *`object`* | ...
 | **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)()** | **1.** $date1 <br />**2.** $date2 <br />**3.**$accuracy_day <br /> `= FALSE` | *`integer`* | Days difference between two dates
 | **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)()** | **1.** $date1 <br />**2.** $date2 <br />`= FALSE` | *`integer`* | Months difference between two dates
 | **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)()** | **1.** $dbdate | *`string`* | Displays the remain time (including day) from the input date
-| ***html*** | | | 
-| ***math*** | | | 
+| ***• html*** | | | 
+| ***• math*** | | | 
 | **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)()** | **1.** $min <br />**2.** $max | *`integer`* | A secure replacement for number randomizing using OpenSSL
 | **[percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)()** | **1.** $original_price <br />**2.** $current_price | *`string`* | Calculates the percentage from original price to a new savings price
 | **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)()** | **1.** $num <br />**2.** $places <br />`= 0` | *`string`* | Adds leading zeros to any integer value
 | **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)()** | **1.** $digits <br />**2.** $leading_zeros <br />`= FALSE` | *`string`* | Basic number randomiser (includes leading zeros parameter)
-| ***misc*** | | | 
+| ***• misc*** | | | 
 | **[get_address_coordinates](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_address_coordinates.func.php)()** | **1.** $address | *`array`* | Gets Coordinates from an address
 | **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)()** | **1.** $string | *`bool`* | Returns true if the input string is valid UTF-8 and false otherwise
 | **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)()** | **1.** $directory <br />**2.** $recursive <br />`= FALSE` | *`array`* | List of folders and files in a directory and/or sub-directories
 | **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)()** | **1.**$address | *`bool`* | A simple address verification (USA only)
-| ***social*** | | | 
-| ***strings*** | | | 
+| ***• social*** | | | 
+| ***• strings*** | | | 
 | **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)()** | **1.** $length <br/>`= 9` <br />**2.** $strength <br />`= 4` | *`string`* | Generates a password based on length and crack strength
 | **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)()** | **1.** $str | *`string`* | Removes the first line of a string
 | **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)()** | **1.** $string | *`string`* | Converts a string into a url slug
-| ***xml*** | | | 
+| ***• xml*** | | | 
 | **[format_xml_string](https://github.com/tfont/Skyfire/blob/master/functions/xml/format_xml_string.func.php)()** | **1.** $xml | *`string`* | Formats XML
 | **[is_atom](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_atom.func.php)()** | **1.** $feedxml | *`bool`* | Detects if the XML is a possible ATOM XML feed.
 | **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)()** | **1.** $feedxml | *`bool`* | Detects if the XML is a possible RSS XML feed.
