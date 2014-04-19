@@ -70,7 +70,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 - **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)() -**  Removes the parent node from the XML
 
-- **[xml2array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)() -**  Converts XML to an array
+- **[xml_to_array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_to_array.func.php)() -**  Converts XML to an array
 
 
 ####Class objects:
@@ -85,18 +85,18 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
  
  ___________________________________________________________
  
+####Useage:
  
- 
-**useage (concept still):**
+**Libraries (concept still):**
  
 ```php
 load::library('date'); // will load all date library functions
  
-load::library('date')->function('nextWeek'); // will load the nextWeek() from date library
+load::library('date')->function('next_week'); // will load the next_week() from date library
 ```
 
 
-Routes:
+**Routes (concept still):**
 ```php
 route::url('contact/{department}')->controller('contact')::POST;
 route::url('news/{title}-{date}/{id}')->controller('news'); // 'GET' isn't required (default method)
