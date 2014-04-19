@@ -26,19 +26,13 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[display_percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)(**`xxxxx`**)** | `abc` | Calculates the percentage from original price to a new savings price
 | **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)(**`xxxxx`**)** | `abc` | Adds leading zeros to any integer value
 | **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)(**`xxxxx`**)** | `abc` | Basic number randomiser (includes leading zeros parameter)
+| ***misc*** | | 
+| **[get_coordinates_by_address](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_coordinates_by_address.func.php)(**`xxxxx`**)** | `abc` | Gets Coordinates from an address
+| **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)(**`xxxxx`**)** | `abc` | Returns true if the input string is valid UTF-8 and false otherwise
+| **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)(**`xxxxx`**)** | `abc` | List of folders and files in a directory and/or sub-directories
+| **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)(**`xxxxx`**)** | `abc` | A simple address verification (USA only)
 
 
-
-
-- **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)() -** A secure replacement for number randomizing using OpenSSL
-
-- **[display_percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)() -** Calculates the percentage from original price to a new savings price
-
-- **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)() -** Adds leading zeros to any integer value
-
-- **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)() -** Basic number randomiser (includes leading zeros parameter)
-
-***misc*** 
 
 - **[get_coordinates_by_address](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_coordinates_by_address.func.php)() -**  Gets Coordinates from an address
 
