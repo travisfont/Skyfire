@@ -12,7 +12,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 | Function | Parameter(s) | Return | Description
 | --- | --- | --- | ---
-| ***• arrays*** | | | 
+| #### • arrays | | | 
 | **[array_multi_subsort](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_multi_subsort.func.php)()** | **1.** $array <br />**2.** $subkey | *`array`* | ...
 | **[array_random](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_random.func.php)()** | **1.** $arr <br />**2.** $amount  <br/>`= 1` | *`array`* | Returns random element(s) from an array
 | **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)()** | **1.** $filename <br />**2.** $delimiter <br>`= ','`| *`array`* | Converts a CSV file to an associated array
