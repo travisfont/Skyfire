@@ -11,7 +11,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 ###Library:
 
 | Function | Parameter(s) | Return | Description
-| --- | --- | ---
+| --- | --- | --- | ---
 | ***arrays*** | | | 
 | **[array_multi_subsort](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_multi_subsort.func.php)(**`$array, $subkey`**)** | | `abc` | ...
 | **[array_random](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_random.func.php)(**`$arr, $num = 1`**)** | | `abc` | ...
