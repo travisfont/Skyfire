@@ -10,11 +10,11 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ###Library:
 
-| Parameter | Type | Description
+| Function | Parameter(s) | Description
 | --- | --- | ---
 | ***arrays*** | | 
 | **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | `!HTMLElement` | The DOM element to apply the shine effect to.
-
+| ***database*** | | 
 
 
  
