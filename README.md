@@ -48,7 +48,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)(**`xxxxx`**)** | `abc` | Detects if the XML is a possible RSS XML feed.
 | **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)(**`xxxxx`**)** | `abc` | Removes the parent node from the XML
 | **[xml_to_array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_to_array.func.php)(**`xxxxx`**)** | `abc` | Converts XML to an array
-| ________________________________________| | 
+| __________________________________________| | 
 
 
 ####Class objects:
