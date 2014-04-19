@@ -10,9 +10,16 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ###Library:
 
-***arrays*** 
+| Parameter | Type | Description
+| ---       | ---  | ---
+| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)() | ... | Detects if an array is associative
+| ***date*** |
+| **aaa** | n/a | gdsgdsgdsgsgssgds
+| **sss** | n/a |fdsffsfsfsd
+| **fff** | n/a| fdsfs fsd fs ds fds
 
-- **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)() -** Detects if an array is associative
+
+***arrays*** 
 
 ***database*** 
 
