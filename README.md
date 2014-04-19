@@ -31,18 +31,14 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)(**`xxxxx`**)** | `abc` | Returns true if the input string is valid UTF-8 and false otherwise
 | **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)(**`xxxxx`**)** | `abc` | List of folders and files in a directory and/or sub-directories
 | **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)(**`xxxxx`**)** | `abc` | A simple address verification (USA only)
+| ***social*** | | 
+| ***strings*** | | 
+| **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)(**`xxxxx`**)** | `abc` | Generates a password based on length and crack strength
+| **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)(**`xxxxx`**)** | `abc` | Removes the first line of a string
+| **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)(**`xxxxx`**)** | `abc` | Converts a string into a url slug
+| **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/strings/csv_to_array.func.php)(**`xxxxx`**)** | `abc` | Converts a CSV file to an associated array
 
 
-
-- **[get_coordinates_by_address](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_coordinates_by_address.func.php)() -**  Gets Coordinates from an address
-
-- **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)() -**  Returns true if the input string is valid UTF-8 and false otherwise
-
-- **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)() -**  List of folders and files in a directory and/or sub-directories
-
-- **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)() -**  A simple address verification (USA only)
-
-***social*** 
 
 ***strings*** 
 
