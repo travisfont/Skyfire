@@ -22,14 +22,14 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[rand_array_element](https://github.com/tfont/Skyfire/blob/master/functions/arrays/rand_array_element.func.php)()** | 1.`$array` | *`string`* | Returns a random element from an array
 | ***database*** | | | 
 | ***date*** | | | 
-| **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)(****)** | 1.`$date1` <br />2.`$date2` | `abc` | ...
-| **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)()** | 1.`$date1` <br />2.`$date2` <br />3.`$accuracy_day = FALSE` | `abc` | Days difference between two dates
-| **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)()** | 1.`$date1` <br />2.`$date2 = FALSE` | `abc` | Months difference between two dates
-| **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)()** | 1.`$dbdate` | `abc` | Displays the remain time (including day) from the input date
+| **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | 1.`$date1` <br />2.`$date2` |  *`object`* | ...
+| **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)()** | 1.`$date1` <br />2.`$date2` <br />3.`$accuracy_day = FALSE` | *`integer`* | Days difference between two dates
+| **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)()** | 1.`$date1` <br />2.`$date2 = FALSE` | *`integer`* | Months difference between two dates
+| **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)()** | 1.`$dbdate` | *`string`* | Displays the remain time (including day) from the input date
 | ***html*** | | | 
 | ***math*** | | | 
 | **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)()** | 1.`$min` <br />2.`$max` | `abc` | A secure replacement for number randomizing using OpenSSL
-| **[display_percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)()** | `1.`$original_price <br />2.`$current_price` | `abc` | Calculates the percentage from original price to a new savings price
+| **[percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)()** | `1.`$original_price <br />2.`$current_price` | *`string`* | Calculates the percentage from original price to a new savings price
 | **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)()** | 1.`$num` <br />2.`$places = 0` | `abc` | Adds leading zeros to any integer value
 | **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)()** | 1.`$digits` <br />2.`$leading_zeros = FALSE` | `abc` | Basic number randomiser (includes leading zeros parameter)
 | ***misc*** | | | 
