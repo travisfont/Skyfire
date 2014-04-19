@@ -11,11 +11,11 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 ###Library:
  
 | Parameter    | Type | Description
-| ***arrays*** |
+| ***arrays*** |      |
 | ---          | ---  | ---
 | **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | ... | Detects if an array is associative
-| ***database*** |
-| ***date***     |
+| ***database*** |     |
+| ***date***     |     |
 | **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | n/a | ....
 | **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)()** | n/a | Days difference between two dates
 | **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)()** | n/a| Months difference between two dates
