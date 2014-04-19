@@ -16,6 +16,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | `abc` | Detects if an array is associative
 | ***database*** | | 
 | ***date*** | | 
+| **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | `abc` | dsadadsadasdsa
 
 
  
