@@ -99,7 +99,7 @@ load::library('date')->function('nextWeek'); // will load the nextWeek() from da
 Routes:
 ```php
 route::url('contact/{department}')->controller('contact')::POST;
-route::url('news/{title}-{date}/{id}')->controller('news'); // get isn't required (default method)
+route::url('news/{title}-{date}/{id}')->controller('news'); // 'GET' isn't required (default method)
 route::url('news/{title}-{date}/{id}')->controller('news')::GET;
  
 // url(string, boolean) -> default boolean is false value constant get, and post is true
