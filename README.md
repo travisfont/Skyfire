@@ -17,9 +17,9 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[array_random](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_random.func.php)()** | 1.`$arr` <br />2.`$amount = 1` | *`array`* | Returns random element(s) from an array
 | **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)()** | 1.`$filename` <br />2.`$delimiter = ','`| *`array`* | Converts a CSV file to an associated array
 | **[in_multi_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/in_multi_array.func.php)()** | 1.`$needle` <br />2.`$haystack` 3.`$strict = FALSE`| *`bool`* | ...
-| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | 1.`$array` | `abc` | Detects if an array is associative
-| **[objects_to_arrays](https://github.com/tfont/Skyfire/blob/master/functions/arrays/objects_to_arrays.func.php)()** | 1.`$obj` <br />2.`&$arr` | `abc` | Converts objects to an array
-| **[rand_array_element](https://github.com/tfont/Skyfire/blob/master/functions/arrays/rand_array_element.func.php)()** | 1.`$array` | `abc` | ...
+| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | 1.`$array` | *`bool`*| Detects if an array is associative
+| **[objects_to_arrays](https://github.com/tfont/Skyfire/blob/master/functions/arrays/objects_to_arrays.func.php)()** | 1.`$obj` <br />2.`&$arr` | *`array`*| Converts objects to an array
+| **[rand_array_element](https://github.com/tfont/Skyfire/blob/master/functions/arrays/rand_array_element.func.php)()** | 1.`$array` | *`string`* | Returns a random element from an array
 | ***database*** | | | 
 | ***date*** | | | 
 | **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)(****)** | 1.`$date1` <br />2.`$date2` | `abc` | ...
@@ -33,7 +33,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)()** | 1.`$num` <br />2.`$places = 0` | `abc` | Adds leading zeros to any integer value
 | **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)()** | 1.`$digits` <br />2.`$leading_zeros = FALSE` | `abc` | Basic number randomiser (includes leading zeros parameter)
 | ***misc*** | | | 
-| **[get_coordinates_by_address](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_coordinates_by_address.func.php)()** | 1.`$address` | `abc` | Gets Coordinates from an address
+| **[get_address_coordinates](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_address_coordinates.func.php)()** | 1.`$address` | *`array`* | Gets Coordinates from an address
 | **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)()** | 1.`$string` | `abc` | Returns true if the input string is valid UTF-8 and false otherwise
 | **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)()** | 1.`$directory` <br />2.`$recursive = FALSE` | `abc` | List of folders and files in a directory and/or sub-directories
 | **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)()** | 1.`$address` | `abc` | A simple address verification (USA only)
