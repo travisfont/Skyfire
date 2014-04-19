@@ -12,7 +12,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 | Function | Parameter(s) | Return | Description
 | --- | --- | --- | ---
-| ***arrays*** | | | 
+| ***__arrays__*** | | | 
 | **[array_multi_subsort](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_multi_subsort.func.php)()** | 1.`$array` <br />2.`$subkey` | *`array`* | ...
 | **[array_random](https://github.com/tfont/Skyfire/blob/master/functions/arrays/array_random.func.php)()** | 1.`$arr` <br />2.`$amount = 1` | *`array`* | Returns random element(s) from an array
 | **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/csv_to_array.func.php)()** | 1.`$filename` <br />2.`$delimiter = ','`| *`array`* | Converts a CSV file to an associated array
@@ -28,15 +28,15 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)()** | 1.`$dbdate` | *`string`* | Displays the remain time (including day) from the input date
 | ***html*** | | | 
 | ***math*** | | | 
-| **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)()** | 1.`$min` <br />2.`$max` | `abc` | A secure replacement for number randomizing using OpenSSL
+| **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php)()** | 1.`$min` <br />2.`$max` | *`integer`* | A secure replacement for number randomizing using OpenSSL
 | **[percentage_saved](https://github.com/tfont/Skyfire/blob/master/functions/math/display_percentage_saved.func.php)()** | `1.`$original_price <br />2.`$current_price` | *`string`* | Calculates the percentage from original price to a new savings price
-| **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)()** | 1.`$num` <br />2.`$places = 0` | `abc` | Adds leading zeros to any integer value
-| **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)()** | 1.`$digits` <br />2.`$leading_zeros = FALSE` | `abc` | Basic number randomiser (includes leading zeros parameter)
+| **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)()** | 1.`$num` <br />2.`$places = 0` | *`string`* | Adds leading zeros to any integer value
+| **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)()** | 1.`$digits` <br />2.`$leading_zeros = FALSE` | *`string`* | Basic number randomiser (includes leading zeros parameter)
 | ***misc*** | | | 
 | **[get_address_coordinates](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_address_coordinates.func.php)()** | 1.`$address` | *`array`* | Gets Coordinates from an address
-| **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)()** | 1.`$string` | `abc` | Returns true if the input string is valid UTF-8 and false otherwise
-| **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)()** | 1.`$directory` <br />2.`$recursive = FALSE` | `abc` | List of folders and files in a directory and/or sub-directories
-| **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)()** | 1.`$address` | `abc` | A simple address verification (USA only)
+| **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)()** | 1.`$string` | *`bool`* | Returns true if the input string is valid UTF-8 and false otherwise
+| **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)()** | 1.`$directory` <br />2.`$recursive = FALSE` | *`array`* | List of folders and files in a directory and/or sub-directories
+| **[simple_address_verify](https://github.com/tfont/Skyfire/blob/master/functions/misc/simple_address_verify.func.php)()** | 1.`$address` | *`bool`* | A simple address verification (USA only)
 | ***social*** | | | 
 | ***strings*** | | | 
 | **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)()** | 1.`$length = 9` <br />2.`$strength = 4` | `abc` | Generates a password based on length and crack strength
