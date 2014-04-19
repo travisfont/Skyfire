@@ -37,18 +37,13 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)(**`xxxxx`**)** | `abc` | Removes the first line of a string
 | **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)(**`xxxxx`**)** | `abc` | Converts a string into a url slug
 | **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/strings/csv_to_array.func.php)(**`xxxxx`**)** | `abc` | Converts a CSV file to an associated array
+| ***xml*** | | 
+| **[format_xml_string](https://github.com/tfont/Skyfire/blob/master/functions/xml/format_xml_string.func.php)(**`xxxxx`**)** | `abc` | Formats XML
+| **[is_atom](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_atom.func.php)(**`xxxxx`**)** | `abc` | Detects if the XML is a possible ATOM XML feed.
+| **[is_rss](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_rss.func.php)(**`xxxxx`**)** | `abc` | Detects if the XML is a possible RSS XML feed.
+| **[xml_remove_parent_node](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_remove_parent_node.func.php)(**`xxxxx`**)** | `abc` | Removes the parent node from the XML
+| **[xml_to_array](https://github.com/tfont/Skyfire/blob/master/functions/xml/xml_to_array.func.php)(**`xxxxx`**)** | `abc` | Converts XML to an array
 
-
-
-***strings*** 
-
-- **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)() -**  Generates a password based on length and crack strength
-
-- **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)() -**  Removes the first line of a string
-
-- **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)() -**  Converts a string into a url slug
-
-- **[csv_to_array](https://github.com/tfont/Skyfire/blob/master/functions/strings/csv_to_array.func.php)() -**  Converts a CSV file to an associated array
 
 ***xml*** 
 
