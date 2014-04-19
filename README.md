@@ -17,9 +17,9 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | ***database*** | | 
 | ***date*** | | 
 | **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)(**`$date1, $date2`**)** | `abc` | dsadadsadasdsa
-| **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)(**`$date1, $date2`**)** | `abc` | Days difference between two dates
-| **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)(**`$date1, $date2`**)** | `abc` | Months difference between two dates
-| **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)(**`$date1, $date2`**)** | `abc` | Displays the remain time (including day) from the input date
+| **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)(**`$date1, $date2, $accuracy_day = FALSE`**)** | `abc` | Days difference between two dates
+| **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)(**`$date1, $date2 = FALSE`**)** | `abc` | Months difference between two dates
+| **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)(**`$dbdate`**)** | `abc` | Displays the remain time (including day) from the input date
 
 
 
