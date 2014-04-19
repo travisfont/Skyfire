@@ -13,7 +13,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | Parameter | Type | Description
 | --- | --- | ---
 | ***arrays*** | | 
-| **domElement** | `!HTMLElement` | The DOM element to apply the shine effect to.
+| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | `!HTMLElement` | The DOM element to apply the shine effect to.
 
 
 
