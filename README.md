@@ -22,6 +22,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)(**`$dbdate`**)** | `abc` | Displays the remain time (including day) from the input date
 | ***html*** | | 
 | ***math*** | | 
+| **[crypto_rand](https://github.com/tfont/Skyfire/blob/master/functions/math/crypto_rand.func.php))(**`xxxxx**)** | `abc` | A secure replacement for number randomizing using OpenSSL
 
 
 
