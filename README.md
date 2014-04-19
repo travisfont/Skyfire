@@ -13,14 +13,6 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | Parameter  | Type | Description
 | ***arrays*** |
 | ---        | ---  | ---
-| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | ... | Detects if an array is associative
-| ***database*** |
-| ***date***     |
-| **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | n/a | ....
-| **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)()** | n/a | Days difference between two dates
-| **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)()** | n/a| Months difference between two dates
-| **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)()** | n/a| Displays the remain time (including day) from the input date
-
 
 ***html*** 
 
