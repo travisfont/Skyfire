@@ -13,15 +13,16 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | Function | Parameter(s) | Description
 | --- | --- | ---
 | ***arrays*** | | 
-| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | `!HTMLElement` | The DOM element to apply the shine effect to.
+| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | `abc` | Detects if an array is associative
 | ***database*** | | 
+| ***date*** | | 
 
 
  
 | Parameter    | Type | Description
 | ***arrays*** |      |
 | ---          | ---  | ---
-| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | ... | Detects if an array is associative
+| **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | ... | 
 | ***database*** |     |
 | ***date***     |     |
 | **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | n/a | ....
