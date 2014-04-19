@@ -10,7 +10,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 
 ###Library:
 
-| Function & Parameter(s) | Return | Description
+| Function & Parameter(s) ......| Return | Description
 | --- | --- | ---
 | ***arrays*** | | 
 | **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)(**`$array`**)** | `abc` | Detects if an array is associative
