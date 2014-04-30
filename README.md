@@ -33,6 +33,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[leading_zero](https://github.com/tfont/Skyfire/blob/master/functions/math/leading_zero.func.php)()** | **1.** $num <br />**2.** $places <br />`= 0` | *`string`* | Adds leading zeros to any integer value
 | **[random_number](https://github.com/tfont/Skyfire/blob/master/functions/math/random_number.func.php)()** | **1.** $digits <br />**2.** $leading_zeros <br />`= FALSE` | *`string`* | Basic number randomiser (includes leading zeros parameter)
 | ***» misc*** | | | 
+| **[ddf](https://github.com/tfont/Skyfire/blob/master/functions/misc/ddf.func.php)()** | **1.** ??? | N/A | Creates a file that displays the elements data
 | **[get_address_coordinates](https://github.com/tfont/Skyfire/blob/master/functions/misc/get_address_coordinates.func.php)()** | **1.** $address | *`array`* | Gets Coordinates from an address
 | **[is_utf8](https://github.com/tfont/Skyfire/blob/master/functions/misc/is_utf8.func.php)()** | **1.** $string | *`bool`* | Returns true if the input string is valid UTF-8 and false otherwise
 | **[list_directory](https://github.com/tfont/Skyfire/blob/master/functions/misc/list_directory.func.php)()** | **1.** $directory <br />**2.** $recursive <br />`= FALSE` | *`array`* | List of folders and files in a directory and/or sub-directories
