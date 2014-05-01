@@ -41,8 +41,10 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | ***» social*** | | | 
 | ***» strings*** | | | 
 | **[generate_password](https://github.com/tfont/Skyfire/blob/master/functions/strings/generate_password.func.php)()** | **1.** $length <br/>`= 9` <br />**2.** $strength <br />`= 4` | *`string`* | Generates a password based on length and crack strength
+| **[get_file_ext](https://github.com/tfont/Skyfire/blob/master/functions/strings/get_file_ext.func.php)()** | **1.** $string | *`string`* | returns only the file extension (without the period) from the string
 | **[remove_first_line](https://github.com/tfont/Skyfire/blob/master/functions/strings/remove_first_line.func.php)()** | **1.** $str | *`string`* | Removes the first line of a string
 | **[str_to_slug](https://github.com/tfont/Skyfire/blob/master/functions/strings/str_to_slug.func.php)()** | **1.** $string | *`string`* | Converts a string into a url slug
+| **[strip_file_ext](https://github.com/tfont/Skyfire/blob/master/functions/strings/strip_file_ext.func.php)()** | **1.** $string | *`string`* | Strips out the file extension from the string
 | ***» xml*** | | | 
 | **[format_xml_string](https://github.com/tfont/Skyfire/blob/master/functions/xml/format_xml_string.func.php)()** | **1.** $xml | *`string`* | Formats XML
 | **[is_atom](https://github.com/tfont/Skyfire/blob/master/functions/xml/is_atom.func.php)()** | **1.** $feedxml | *`bool`* | Detects if the XML is a possible ATOM XML feed.
