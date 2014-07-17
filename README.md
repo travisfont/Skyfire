@@ -86,3 +86,9 @@ route::url('news/{title}-{date}/{id}')->controller('news')::GET;
  
 // url(string, boolean) -> default boolean is false value constant get, and post is true
 ```
+___________________________________________________________
+
+####Todo:
+
+- Add googlePlaces class
+- Probably add "HTM-PHP" class
