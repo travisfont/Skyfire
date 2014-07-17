@@ -22,6 +22,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[is_associative_array](https://github.com/tfont/Skyfire/blob/master/functions/arrays/is_associative_array.func.php)()** | **1.** $array | *`bool`*| Detects if an array is associative
 | **[objects_to_arrays](https://github.com/tfont/Skyfire/blob/master/functions/arrays/objects_to_arrays.func.php)()** | **1.** $obj <br />**2.** &$arr | *`array`*| Converts objects to an array
 | **[rand_array_element](https://github.com/tfont/Skyfire/blob/master/functions/arrays/rand_array_element.func.php)()** | **1.** $array | *`string`* | Returns a random element from an array
+| **[trim_array_values](https://github.com/tfont/Skyfire/blob/master/functions/arrays/trim_array_values.func.php)()** | **1.** $array | Returns trim (removes white spaces) from arrays including multi-dimensional arrays
 | ***» database*** | | | 
 | ***» date*** | | | 
 | **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | **1.** $date1 <br />**2.** $date2 |  *`object`* | ...
