@@ -5,7 +5,6 @@ function trim_array_values($array)
 {
     foreach ($array as $key => $subarray)
     {
-        
         if (is_array($subarray))
         {
             $result[$key] = trim_array_values($subarray);
@@ -14,12 +13,11 @@ function trim_array_values($array)
         {
             $result[$key] = trim($subarray);
         }
-        
-        
     }
 
     return $result;
 }
+
 
 // Example:
 
