@@ -85,7 +85,17 @@ route::url('contact/{department}')->controller('contact')::METHOD('POST');
 route::url('news/{title}-{date}/{id}')->controller('news'); // 'GET' isn't required (default method)
 route::url('news/{title}-{date}/{id}')->controller('news')::METHOD('GET');
  
-// url(string, boolean) -> default boolean is false value constant get, and post is true
+..//controllers/news.php
+
+news.php:
+
+class news
+{
+    function GET($title, $date, $id)
+    {
+        // ....
+    }
+}
 ```
 ___________________________________________________________
 
