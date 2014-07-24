@@ -81,9 +81,9 @@ load::library('date')->function('next_week'); // will load the next_week() from 
 
 **Routes (concept still):**
 ```php
-route::url('contact/{department}')->controller('contact')::POST;
+route::url('contact/{department}')->controller('contact')::METHOD('POST');
 route::url('news/{title}-{date}/{id}')->controller('news'); // 'GET' isn't required (default method)
-route::url('news/{title}-{date}/{id}')->controller('news')::GET;
+route::url('news/{title}-{date}/{id}')->controller('news')::METHOD('GET');
  
 // url(string, boolean) -> default boolean is false value constant get, and post is true
 ```
