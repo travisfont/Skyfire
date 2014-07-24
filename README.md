@@ -28,6 +28,7 @@ Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
 | **[datetime_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/datetime_diff.func.php)()** | **1.** $date1 <br />**2.** $date2 |  *`object`* | ...
 | **[days_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/days_diff.func.php)()** | **1.** $date1 <br />**2.** $date2 <br />**3.**$accuracy_day <br /> `= FALSE` | *`integer`* | Days difference between two dates
 | **[months_diff](https://github.com/tfont/Skyfire/blob/master/functions/date/months_diff.func.php)()** | **1.** $date1 <br />**2.** $date2 <br />`= FALSE` | *`integer`* | Months difference between two dates
+| **[MySqlDateTime::NOW](https://github.com/tfont/Skyfire/blob/master/functions/date/MySqlDateTime_NOW.func.php)()** | | *`string`*  | Returns the equivalent of MySQL NOW()
 | **[show_time_left](https://github.com/tfont/Skyfire/blob/master/functions/date/show_time_left.func.php)()** | **1.** $dbdate | *`string`* | Displays the remain time (including day) from the input date
 | ***» html*** | | | 
 | ***» math*** | | | 
