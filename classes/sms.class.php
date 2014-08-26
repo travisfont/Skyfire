@@ -1,8 +1,4 @@
 <?php
-
-SMS::send('simple-sms::welcome', $data, function() {
-    $sms->to();
-    
     
 class SMS
 {
