@@ -27,5 +27,5 @@ if (SMS::send($msg, '+15555555555', 'att'))
 }
 else
 {
-    var_dump(SMS::error)
+    var_dump(SMS::error);
 }
