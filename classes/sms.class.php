@@ -1,8 +1,4 @@
 <?php
-
-SMS::send('simple-sms::welcome', $data, function() {
-    $sms->to();
-    
     
 class SMS
 {
@@ -27,5 +23,5 @@ if (SMS::send($msg, '+15555555555', 'att'))
 }
 else
 {
-    var_dump(SMS::error)
+    var_dump(SMS::error);
 }
