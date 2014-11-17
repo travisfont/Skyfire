@@ -57,6 +57,9 @@ class Validator extends dataFields
 #load::library('Input');
 #load::library('Validator');
 
+// Review:
+// http://www.phpclasses.org/package/8818-PHP-Validate-array-of-submitted-form-values.html#usage
+
 $array = array
 (
     'email'    => array('data' => Input::get( 'email' ),    'type' => 'email',    'required' => TRUE),
