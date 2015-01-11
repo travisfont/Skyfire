@@ -13,6 +13,11 @@ class System
     {
         return empty($var) ? $default : $var;
     }
+    
+    static public function includeIfExist($path){}
+    static public function includ_onceIfExist($path){}
+    static public function requireIfExist($path){}
+    static public function require_onceIfExist($path){}
 }
 
 
