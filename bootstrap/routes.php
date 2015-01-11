@@ -41,7 +41,6 @@ class route
             if (file_exists($full_path))
             {
                 require_once $full_path;
-                var_dump($_SERVER);
             }
             else
             {
