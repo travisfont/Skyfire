@@ -17,7 +17,7 @@ class dataFields
 class Validator extends dataFields
 {
     private $_credentials;
-    public $errors = NULL;
+    public  $errors = NULL;
     
     public function __construct($credentials)
     {
@@ -46,7 +46,7 @@ class Validator extends dataFields
     
     public function success()
     {
-        return $this->check()
+        return $this->check();
     }
 }
 
@@ -62,8 +62,8 @@ class Validator extends dataFields
 
 $array = array
 (
-    'email'    => array('data' => Input::get( 'email' ),    'type' => 'email',    'required' => TRUE),
-    'password' => array('data' => Input::get( 'password' ), 'type' => 'password', 'required' => TRUE),
+    'email'    => array('value' => Input::get('email'),    'type' => 'email',    'required' => TRUE),
+    'password' => array('value' => Input::get('password'), 'type' => 'password', 'required' => TRUE),
 );
 $validation = new Validator($array);
 
