@@ -26,7 +26,7 @@ class cURL
 	
 	private function cookie($cookie_file)
 	{
-		if(file_exists($cookie_file))
+		if (file_exists($cookie_file))
 		{
 			$this->cookie_file=$cookie_file; 
 		}
@@ -109,8 +109,26 @@ class cURL
 
 // EXAMPLE:
 
+/*
+$options = array
+(
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+);
+$cc = new cURL($options); 
+*/
+
 $cc = new cURL(); 
 $tss1 = $cc->get('http://www.healthspace.ca/Clients/VDH/LFairfax/LFairfax_Website.nsf/Food-FacilityHistory?OpenView&RestrictToCategory=57727DA855A77D1E85257508007515D7'); 
+
+/*
+$parameters = array
+(
+    'foo' => 'bar'
+);
+$cc->post('http://www.example.com', $parameters); 
+*/
+
 #$cc->post('http://www.example.com','foo=bar'); 
 
 echo $tss1;
