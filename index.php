@@ -2,6 +2,8 @@
 
 $parameters = explode('/', $_SERVER['REQUEST_URI']);
 
+var_dump($parameters);
+
 // sets the main controller
 define('CURRENT_CONTROLLER', $parameters[2]);
 

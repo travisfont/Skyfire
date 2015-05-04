@@ -18,6 +18,7 @@ class route
     {
         $self = new self;
         $self->public_url_path = $url;
+
         return $self;
     }
 
@@ -26,26 +27,39 @@ class route
         if ($this->public_url_path)
         {
             $this->request_controller = $class;
+
             return $this;
         }
     }
 
-    public function METHOD($type)
+    public function method($type = FALSE)
     {
         if ($this->request_controller)
         {
-            // cleans the request controller string and removes anything that isn't alphanumeric
-            $controller = preg_replace('#\W#', '', strtolower($this->request_controller));;
-            $full_path  = dirname(__DIR__).'/controllers/'.$controller.'/index.php';
-
-            if (file_exists($full_path))
+            // checking if the request method is set (this is required for the controller)
+            if (!empty($type) && in_array($type, array('GET', 'POST')))
             {
-                require_once $full_path;
+                // cleans the request controller string and removes anything that isn't alphanumeric
+                $controller = preg_replace('#\W#', '', strtolower($this->request_controller));;
+                $full_path  = dirname(__DIR__).'/controllers/'.$controller.'/index.php';
+
+                // checking if the controller path and file exist
+                if (file_exists($full_path))
+                {
+                    require_once $full_path;
+                }
+                else
+                {
+                    die ('Controller <strong>'.$controller.'</strong> folder and/or index file doesn\'t exist!');
+                }
             }
             else
             {
-                die ('Controller <strong>'.$controller.'</strong> folder and/or index file doesn\'t exist!');
+                die ('Pease define <strong>->method()</strong> with either SF::GET or SF::POST!');
             }
+
+
+
         }
     }
 
