@@ -2,7 +2,7 @@
 
 $parameters = explode('/', $_SERVER['REQUEST_URI']);
 
-var_dump($parameters);
+var_dump($parameters); // paraemter three is the controller
 
 // sets the main controller
 define('CURRENT_CONTROLLER', $parameters[2]);

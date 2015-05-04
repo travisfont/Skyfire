@@ -48,20 +48,18 @@ class route
                 {
                     require_once $full_path;
 
+                    // extracts the path for the controller and function
                     $elements =  array_reverse(explode('/', $full_path));
+                    // retrieves the index function
+                    //$index_method = str_replace('.php', '', $elements[0]);
 
-                    $index_method = str_replace('.php', '', $elements[0]);
-
+                    // formats the extracted controller object
                     $object = ucwords(strtolower($elements[1]));
                     $class = new $object;
 
-                    $class->{$index_method}();
-
-
-                    //$class->{$index_method}.'()';
-
-
-
+                    // calls the dynamic method with define class
+                    //$class->{$index_method}();
+                    $class->index();
                 }
                 else
                 {
