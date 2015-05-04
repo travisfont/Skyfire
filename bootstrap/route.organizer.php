@@ -47,6 +47,21 @@ class route
                 if (file_exists($full_path))
                 {
                     require_once $full_path;
+
+                    $elements =  array_reverse(explode('/', $full_path));
+
+                    $index_method = str_replace('.php', '', $elements[0]);
+
+                    $object = ucwords(strtolower($elements[1]));
+                    $class = new $object;
+
+                    $class->{$index_method}();
+
+
+                    //$class->{$index_method}.'()';
+
+
+
                 }
                 else
                 {
