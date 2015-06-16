@@ -4,6 +4,6 @@ class Contact
 {
     public function index()
     {
-        echo 'controller works';
+        echo 'contact controller works';
     }
 }
