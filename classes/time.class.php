@@ -35,8 +35,9 @@ class time
     }
 }
 
+/*
 $userDateTime   = time::getDefineTimeZone('America/Curacao');
-$serverDateTime = time::ggetServerTimeZone();
+$serverDateTime = time::getServerTimeZone();
 $timeOffset     = time::gserverTimeZone_offset('America/Curacao');
 
 var_dump($userDateTime);
@@ -46,3 +47,4 @@ var_dump($timeOffset);
 $userDateTime->add(new DateInterval('PT'.$timeOffset.'S'));
 
 var_dump($userDateTime);
+*/

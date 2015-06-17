@@ -4,6 +4,7 @@ define('BASE_DIRECTORY', 'localhost/Skyfire');
 
 require_once 'bootstrap/global.constants.php';
 require_once 'bootstrap/route.organizer.php';
+require_once 'bootstrap/class.loader.php';
 
 // automatically scan and register the entire class folder
 // ....
