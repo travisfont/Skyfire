@@ -6,9 +6,13 @@ class Contact
     {
         load::library('constants');
 
+        echo '######################';
         var_dump(Days::FRI);
 
-        var_dump(time::getUTCTimeZone());
+        load::library('strings');
+        $test_string = Strings::generatePassword();
+
+        var_dump($test_string);
 
         echo 'contact controller works';
     }

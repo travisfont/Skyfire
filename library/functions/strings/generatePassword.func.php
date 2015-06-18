@@ -1,6 +1,6 @@
 <?php
 
-function generate_password($length = 9, $strength = 4)
+function generatePassword($length = 9, $strength = 4)
 {
     $vowels     = 'aeuy';
     $consonants = 'bdghjmnpqrstvz';
