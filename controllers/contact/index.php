@@ -4,12 +4,12 @@ class Contact
 {
     public function index()
     {
-        load::library('constants');
+        load::library(SF::CONSTANTS);
 
         echo '######################';
         var_dump(Days::FRI);
 
-        load::library('strings');
+        load::library(SF::STRINGS);
         $test_string = Strings::generatePassword();
 
         var_dump($test_string);
