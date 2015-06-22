@@ -24,7 +24,8 @@ function ddf($data, $name, $display = FALSE, $file_type = 'txt')
 }
 
 // example
-
+/*
 $lineData = array(...);
 ddf($lineData, 'lineData');
 ddf($lineData, 'lineData', TRUE); // will display the array data
+*/
