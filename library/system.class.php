@@ -4,6 +4,22 @@
 
 class System
 {
+    public static function __callStatic($function, $arguments)
+    {
+        $class = get_called_class();
+        require_once 'functions/'.strtolower($class).'/'.$function.'.func.php';
+        $instance = new $class();
+
+        if (count($arguments) > 0)
+        {
+            return $instance->$function(implode(',', $arguments));
+        }
+        else
+        {
+            return $instance->$function();
+        }
+    }
+
     /*
     * 
     * Check if a value is empty (...) if so then replaces with an empty string by default

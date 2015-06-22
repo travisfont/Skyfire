@@ -4,13 +4,14 @@ class Contact
 {
     public function index()
     {
-        load::library(SF::CONSTANTS);
+        //load::library(SF::CONSTANTS);
+        //var_dump(Days::FRI);
 
         echo '######################';
-        var_dump(Days::FRI);
 
+        load::library(SF::SYSTEM);
         load::library(SF::STRINGS);
-        $test_string = Strings::generatePassword();
+        $test_string = Strings::generatePassword(); // doesn't work when empty parameters
 
         var_dump($test_string);
 
