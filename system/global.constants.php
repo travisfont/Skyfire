@@ -6,6 +6,7 @@ class SF
     const POST = 'POST';
 
     const SYSTEM    = 'system';
-    const STRINGS   = 'strings';
     const CONSTANTS = 'constants';
+    const STRINGS   = 'strings';
+    const ARRAYS    = 'arrays';
 }

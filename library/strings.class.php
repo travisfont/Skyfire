@@ -1,5 +1,6 @@
 <?php
 
+// String interface and function into object inherence
 
 class Strings extends System
 {
