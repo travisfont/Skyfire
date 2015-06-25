@@ -1,6 +1,6 @@
 <?php
 
-function array_multi_subsort($array, $subkey)
+function arraySubsort($array, $subkey)
 {
 	$b = array(); $c = array();
 
@@ -19,5 +19,5 @@ function array_multi_subsort($array, $subkey)
 }
 
 // sorting through "created" element in the arrays
-$data = array_muti_subsort($array, 'created');
-print_r($data);
+//$data = arraySubsort($array, 'created');
+//print_r($data);
