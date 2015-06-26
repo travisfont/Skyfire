@@ -9,4 +9,5 @@ class SF
     const CONSTANTS = 'constants';
     const STRINGS   = 'strings';
     const ARRAYS    = 'arrays';
+    const CSV       = 'csv';
 }
