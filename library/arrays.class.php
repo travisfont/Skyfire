@@ -4,13 +4,13 @@
 
 class Arrays extends System
 {
-    protected function arrayRandom($arr, $amount = 1)
+    protected function randomArray($arr, $amount = 1)
     {
-        return arrayRandom($arr, $amount);
+        return randomArray($arr, $amount);
     }
 
-    protected function arraySubsort($array, $subkey)
+    protected function subsortArray($array, $subkey)
     {
-        return arraySubsort($array, $subkey);
+        return subsortArray($array, $subkey);
     }
 }

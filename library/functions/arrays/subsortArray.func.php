@@ -1,6 +1,6 @@
 <?php
 
-function arraySubsort($array, $subkey)
+function subsortArray($array, $subkey)
 {
 	$b = array(); $c = array();
 
