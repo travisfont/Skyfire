@@ -1,5 +1,6 @@
 <?php
-function crypto_rand($min, $max)
+
+function randomizeCrypto($min, $max)
 {
     $range = $max - $min;
     if ($range == 0)
@@ -23,5 +24,4 @@ function crypto_rand($min, $max)
 }
 
 // Example - randomizes a 5 digital number
-#var_dump(crypto_rand(10000, 99999));
-?>
+#var_dump(randomizeCrypto(10000, 99999));

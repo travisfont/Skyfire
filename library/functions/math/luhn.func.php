@@ -1,6 +1,6 @@
 <?php
 
-lfunction uhn($number)
+function luhn($number)
 {
 	$number = (string) $number;
 
