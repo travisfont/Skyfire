@@ -2,21 +2,39 @@
 
 /* Main Skyfire System Library */
 
-class System
+abstract class Response
+{
+    protected static function api($service_name) {}
+    protected static function view($view_name) {}
+    protected static function json() {}
+    protected static function xml() {}
+    protected function with($data) {}
+}
+
+class System extends Response
 {
     public static function __callStatic($function, $arguments)
     {
         $class = get_called_class();
-        require_once 'functions/'.strtolower($class).'/'.$function.'.func.php';
-        $instance = new $class();
 
-        if (count($arguments) > 0)
+        if (is_file('./library/functions/'.strtolower($class).'/'.$function.'.func.php'))
         {
-            return $instance->$function(implode(',', $arguments));
+            require_once 'functions/'.strtolower($class).'/'.$function.'.func.php';
+            $instance = new $class();
+
+            if (count($arguments) > 0)
+            {
+                return $instance->$function(implode(',', $arguments));
+            }
+            else
+            {
+                return $instance->$function();
+            }
         }
         else
         {
-            return $instance->$function();
+            // return FALSE;
+            throw new Exception('Failed to load: functions/'.strtolower($class).'/'.$function.'.func.php');
         }
     }
 
@@ -25,7 +43,7 @@ class System
     * Check if a value is empty (...) if so then replaces with an empty string by default
     * or define set variable in the second parameter.
     */
-    static public function is_notset($var, $default = '')
+    static public function isNotSet($var, $default = '')
     {
         return empty($var) ? $default : $var;
     }
