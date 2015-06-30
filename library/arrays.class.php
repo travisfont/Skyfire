@@ -13,4 +13,9 @@ class Arrays extends System
     {
         return subsortArray($array, $subkey);
     }
+
+    protected function convertArrayToObject(array $array)
+    {
+        return convertArrayToObject($array);
+    }
 }
