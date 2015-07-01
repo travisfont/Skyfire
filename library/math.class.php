@@ -13,4 +13,19 @@ class Math extends System
     {
         return randomizeCrypto($min, $max);
     }
+
+    protected function calculateAge($date, $format = 'm/d/Y')
+    {
+        return calculateAge($date, $format);
+    }
+
+    protected function calculateDistance($lat1, $lng1, $lat2, $lng2, $miles = TRUE)
+    {
+        return calculateDistance($lat1, $lng1, $lat2, $lng2, $miles);
+    }
+
+    protected function roundDollar($amount)
+    {
+        return roundDollar($amount);
+    }
 }
