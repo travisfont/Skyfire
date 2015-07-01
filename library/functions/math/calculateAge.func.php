@@ -1,6 +1,6 @@
 <?php
 
-function calculate_age($date, $format = 'm/d/Y')
+function calculateAge($date, $format = 'm/d/Y')
 {
 	return floor((strtotime(date($format)) - strtotime($date)) / 31556926);
 }
