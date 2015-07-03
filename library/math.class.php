@@ -28,4 +28,9 @@ class Math extends System
     {
         return roundDollar($amount);
     }
+
+    protected function getPercentageOf($percentage, $number)
+    {
+        return getPercentageOf($percentage, $number);
+    }
 }
