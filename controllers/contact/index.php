@@ -1,6 +1,6 @@
 <?php
 
-class Contact
+class Contact extends Controller
 {
     public function index()
     {
@@ -9,7 +9,7 @@ class Contact
 
         echo '######################';
 
-        load::library(SF::SYSTEM);
+        //load::library(SF::SYSTEM);
         load::library(SF::STRINGS);
         $test_string = Strings::generatePassword(); // doesn't work when empty parameters
 

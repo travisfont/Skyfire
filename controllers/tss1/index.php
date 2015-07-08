@@ -1,6 +1,6 @@
 <?php
 
-class Tss1 extends System
+class Tss1 extends Controller
 {
     public function index()
     {
