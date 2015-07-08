@@ -1,6 +1,7 @@
 <?php
 
-function isAssociativeArray($array)
+// isAssociativeArray
+function is_associate_array($array)
 {
     if (!is_array($array))
     {

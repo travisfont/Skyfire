@@ -1,7 +1,6 @@
 <?php
 
-
-function trim_array_values($array)
+function trimArrayValues($array)
 {
     foreach ($array as $key => $subarray)
     {
@@ -20,7 +19,7 @@ function trim_array_values($array)
 
 
 // Example:
-
+/*
 $array = array
 (
     array('  fdsfsd', 'vlvlvl vl', ' ererere'),
@@ -31,4 +30,4 @@ $array = array
 $results = trim_array_values($array);
 
 echo '<pre>';
-print_r($results);
+print_r($results);*/
