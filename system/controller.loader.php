@@ -38,6 +38,21 @@ class Controller extends Response
         }
     }
 
+    // in any controller: $this->installServices()
+    protected function installServices()
+    {
+        // will parse the services.ini file and download any service folder not exiting
+        // once finish function will return true else will return false
+    }
+
+    // in any controller: $this->deleteServices()
+    protected function deleteServices()
+    {
+        // will parse the services.ini file and delete and services in the folder listed in the servies config file
+        // once finish function will return true else will return false
+    }
+
+
     /*
     * 
     * Check if a value is empty (...) if so then replaces with an empty string by default
