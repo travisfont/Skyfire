@@ -1,8 +1,8 @@
 <?php
 
-function remove_first_line($str)
+function remove_first_line($string)
 {
-    return preg_replace('/^.+\n/', '', $str);
+    return preg_replace('/^.+\n/', '', $string);
 }
 
 /*

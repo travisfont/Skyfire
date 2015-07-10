@@ -17,6 +17,7 @@ function remove_diacritics($string)
     }
     else
     {
+        // need to integrate the is_utf8 function
         if (is_utf8($string))
         {
             $chars = array
@@ -139,10 +140,10 @@ function remove_diacritics($string)
 
             $chars['out'] = "EfSZszYcYuAAAAAACEEEEIIIINOOOOOOUUUUYaaaaaaceeeeiiiinoooooouuuuyy";
 
-            $string = strtr($string, $chars['in'], $chars['out']);
-            $double_chars['in'] = array(chr(140), chr(156), chr(198), chr(208), chr(222), chr(223), chr(230), chr(240), chr(254));
+            $string              = strtr($string, $chars['in'], $chars['out']);
+            $double_chars['in']  = array(chr(140), chr(156), chr(198), chr(208), chr(222), chr(223), chr(230), chr(240), chr(254));
             $double_chars['out'] = array('OE', 'oe', 'AE', 'DH', 'TH', 'ss', 'ae', 'dh', 'th');
-            $string = str_replace($double_chars['in'], $double_chars['out'], $string);
+            $string              = str_replace($double_chars['in'], $double_chars['out'], $string);
         }
 
         return $string;

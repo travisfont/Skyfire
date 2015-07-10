@@ -1,7 +1,8 @@
 <?php
 
-//Function to clean the string of tags and html entities
-function clean_string($string)
+// Function to clean the string of tags and html entities
+
+function clean_str($string)
 {
 	//Get rid of tags
 	$string = strip_tags($string);
