@@ -1,6 +1,6 @@
 <?php
 
-function roundDollar($amount)
+function round_dollar($amount)
 {
     (float) $amount = str_replace('$', '', $amount);
 

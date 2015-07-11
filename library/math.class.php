@@ -2,35 +2,62 @@
 
 // Math interface and function into object inherence
 
-class Math extends System
+class Math extends Controller
 {
     protected function luhn($number)
     {
         return luhn($number);
     }
 
-    protected function randomizeCrypto($min, $max)
+    // randomizeCrypto
+    protected function randomize_crypto($min, $max)
     {
-        return randomizeCrypto($min, $max);
+        return randomize_crypto($min, $max);
     }
 
-    protected function calculateAge($date, $format = 'm/d/Y')
+    // calculateAge
+    protected function calculate_age($date, $format = 'm/d/Y')
     {
-        return calculateAge($date, $format);
+        return calculate_age($date, $format);
     }
 
-    protected function calculateDistance($lat1, $lng1, $lat2, $lng2, $miles = TRUE)
+    // calculateDistance
+    protected function calculate_distance($lat1, $lng1, $lat2, $lng2, $miles = TRUE)
     {
-        return calculateDistance($lat1, $lng1, $lat2, $lng2, $miles);
+        return calculate_distance($lat1, $lng1, $lat2, $lng2, $miles);
     }
 
-    protected function roundDollar($amount)
+    // roundDollar
+    protected function round_dollar($amount)
     {
-        return roundDollar($amount);
+        return round_dollar($amount);
     }
 
-    protected function getPercentageOf($percentage, $number)
+    // rondomNumber
+    protected function random_number($digits, $leading_zeros = FALSE)
     {
-        return getPercentageOf($percentage, $number);
+        return random_number($digits, $leading_zeros);
+    }
+
+    // getPercentageOf
+    protected function get_percentage_of($percentage, $number)
+    {
+        return get_percentage_of($percentage, $number);
+    }
+
+    // leadingZero
+    protected function leading_zero($num, $places = 0)
+    {
+        return leading_zero($num, $places);
+    }
+
+    protected function round_mins($hour, $minutes = '1', $format = "H:i")
+    {
+        return round_mins($hour, $minutes, $format);
+    }
+
+    protected function saved_percentage($original_price, $current_price)
+    {
+        return saved_percentage($original_price, $current_price);
     }
 }
