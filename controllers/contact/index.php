@@ -9,9 +9,9 @@ class Contact extends Controller
 
         echo '######################';
 
-        //load::library(SF::SYSTEM);
         load::library(SF::STRINGS);
-        $test_string = Strings::generatePassword(); // doesn't work when empty parameters
+        //$test_string = Strings::generatePassword();
+        $test_string = Strings::generate_password();
 
         var_dump($test_string);
 
