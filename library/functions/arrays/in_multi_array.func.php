@@ -2,7 +2,7 @@
 
 // in_array version of multi-dim arrays
 
-function inMultiArray($needle, $haystack, $strict = FALSE)
+function in_multi_array($needle, $haystack, $strict = FALSE)
 {
     foreach ($haystack as $item)
     {

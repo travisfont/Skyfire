@@ -2,7 +2,7 @@
 
 // returns random element(s) from array
 
-function randomArray($arr, $amount = 1)
+function randomize_array($arr, $amount = 1)
 {
     shuffle($arr);
     

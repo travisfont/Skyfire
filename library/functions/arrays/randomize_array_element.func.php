@@ -1,8 +1,9 @@
 <?php
 
-function randomizeArrayElement($array)
+function randomize_array_element($array)
 {
 	shuffle($array);
+
 	return end($array);
 }
 
@@ -10,7 +11,7 @@ function randomizeArrayElement($array)
 /*
 $images = array('bg2.jpg', 'bg3.jpg', 'bg4.jpg', 'bg5.jpg');
 
-$data = randomizeArrayElement($images);
+$data = randomize_array_element($images);
 
 print_r($data);
 */

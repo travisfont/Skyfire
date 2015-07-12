@@ -1,6 +1,6 @@
 <?php
 
-function trimArrayValues($array)
+function trim_array_values($array)
 {
     foreach ($array as $key => $subarray)
     {

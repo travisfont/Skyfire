@@ -2,26 +2,36 @@
 
 // Array interface and function into object inherence
 
-class Arrays extends System
+class Arrays extends Controller
 {
-    protected function randomArray($arr, $amount = 1)
+    // randomizeArray
+    protected function randomize_array($arr, $amount = 1)
     {
-        return randomArray($arr, $amount);
+        return randomize_array($arr, $amount);
     }
 
-    protected function subsortArray($array, $subkey)
+    // randomizeArrayElement
+    protected function randomize_array_element($array)
     {
-        return subsortArray($array, $subkey);
+        return randomize_array_element($array);
     }
 
-    protected function convertArrayToObject(array $array)
+    // subsortArray
+    protected function subsort_array($array, $subkey)
     {
-        return convertArrayToObject($array);
+        return subsort_array($array, $subkey);
     }
 
-    protected function inMultiArray($needle, $haystack, $strict = FALSE)
+    // convertArrayToObject
+    protected function convert_array_t_object(array $array)
     {
-        return inMultiArray($needle, $haystack, $strict);
+        return convert_array_t_object($array);
+    }
+
+    // inMultiArray
+    protected function in_multi_array($needle, $haystack, $strict = FALSE)
+    {
+        return in_multi_array($needle, $haystack, $strict);
     }
 
     // isAssociativeArray
@@ -30,13 +40,9 @@ class Arrays extends System
         return is_associate_array($array);
     }
 
-    protected function randomizeArrayElement($array)
+    // trimArrayValues
+    protected function trim_array_values($array)
     {
-        return randomizeArrayElement($array);
-    }
-
-    protected function trimArrayValues($array)
-    {
-        return trimArrayValues($array);
+        return trim_array_values($array);
     }
 }
