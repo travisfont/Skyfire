@@ -6,5 +6,6 @@ function get_file_ext($filename)
     {
         return FALSE;
     }
+
     return preg_replace('/^.*\./', '', $filename);
 }
