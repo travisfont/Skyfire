@@ -1,9 +1,10 @@
 <?php
 
-//abbreviations  and acronym
+//abbreviations and acronym
+
 function color_abbr($abbr)
 {
-	switch(strtoupper($abbr))
+	switch (strtoupper($abbr))
 	{
 		case 'BRO': return 'BROWN';
 		case 'BLK': return 'BLACK';
