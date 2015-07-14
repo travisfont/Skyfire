@@ -1,10 +1,6 @@
 # Skyfire
 
-Skyfire is an extension of Travis van der Font's awesome PHP coding concepts, adventures, and finds.
-
-This is not a micro-framework but simply a library. Well, soon it'll be yet another PHP framework.
-
-Want to lurk a bit more? [See his twitter](https://twitter.com/travisfont)!
+Skyfire is an extensive module MVC PHP framework.
 
 ----------------------------
 

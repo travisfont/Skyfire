@@ -1,7 +1,5 @@
 <?php
 
-// add to "debug" function list (create)
-
 function ddf($data, $name, $display = FALSE, $file_type = 'txt')
 {
     $additional = '1';
