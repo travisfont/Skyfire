@@ -15,7 +15,3 @@ function get_client_ip()
         return $_SERVER['REMOTE_ADDR'];
     }
 }
-
-# alias:
-function getClientIP()    {
-  return get_client_ip(); }
