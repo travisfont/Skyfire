@@ -15,7 +15,6 @@ class SF
     const FILE      = 'file';
     const OBJECTS   = 'objects';
     const DATES     = 'dates';
-    const DATABASE  = 'database';
     const CURL      = 'curl';
     const TIME      = 'time';
     const XML       = 'xml';
