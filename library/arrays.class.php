@@ -23,9 +23,9 @@ class Arrays extends Controller
     }
 
     // convertArrayToObject
-    protected function convert_array_t_object(array $array)
+    protected function convert_array_to_object(array $array)
     {
-        return convert_array_t_object($array);
+        return convert_array_to_object($array);
     }
 
     // inMultiArray
