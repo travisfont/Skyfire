@@ -3,9 +3,9 @@
 function csv_to_assoc_array($data)
 {
     $array = array();
-    $data = str_getcsv($data, "\n");
+    $data  = str_getcsv($data, "\n");
 
-    if(count($data) > 0)
+    if (count($data) > 0)
     {
         $sHeader = $data[0];
         unset($data[0]);

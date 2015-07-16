@@ -2,7 +2,7 @@
 
 // Convert CSV file to an array
 
-function convertCsvFileToArray($data)
+function array_getcsv($data)
 {
     return array_map('str_getcsv', file($data));
 }
