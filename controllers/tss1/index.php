@@ -2,6 +2,10 @@
 
 class Tss1 extends Controller
 {
+    /**
+     * @func   void
+     * @return void
+     */
     public function index()
     {
         echo 'tss1 controller works';

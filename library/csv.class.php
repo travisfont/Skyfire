@@ -5,6 +5,10 @@
 class Csv extends Controller
 {
     // arrayGetCsv
+    /**
+     * @var    file
+     * @return array
+     */
     protected function array_getcsv($data)
     {
         return array_getcsv($data);
