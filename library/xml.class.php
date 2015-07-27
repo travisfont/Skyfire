@@ -22,4 +22,22 @@ class XML extends Controller
         return format_xml_string($xml);
     }
 
+    // isXml
+    protected function is_xml(&$response)
+    {
+        return is_xml($response);
+    }
+
+    // isRss
+    protected function is_rss($feedxml)
+    {
+        return is_rss($feedxml);
+    }
+
+    // isAtom
+    protected function is_atom($feedxml)
+    {
+        return is_atom($feedxml);
+    }
+
 }

@@ -1,31 +1,30 @@
 <?php
 
-function is_xml( &$sResponse )
+function is_xml(&$response)
 {
-    if( strlen($sResponse) < 2  ) {
-        return false;
+    if (strlen($response) < 2)
+    {
+        return FALSE;
     }
 
     libxml_clear_errors();
     libxml_use_internal_errors(true);
 
-    $oDoc = new DOMDocument('1.0', 'utf-8');
-    $oDoc->loadXML( $sResponse );
+    $doc = new DOMDocument('1.0', 'utf-8');
+    $doc->loadXML($response);
 
-    $aErrors = libxml_get_errors();
+    $errors = libxml_get_errors();
 
-    switch( true )
+    switch (TRUE)
     {
-        case( strlen($oDoc->saveXML()) < 100 ):
-            return false;
-        break;
-
-        case( empty($aErrors) ):
-            return true;
-        break;
-
+        case (strlen($doc->saveXML()) < 100):
+            return FALSE;
+            break;
+        case (empty($errors)):
+            return TRUE;
+            break;
         default:
-            return false;
-        break;
+            return FALSE;
+            break;
     }
 }

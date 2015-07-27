@@ -4,9 +4,12 @@ function is_atom($feedxml)
 { 
     @$feed = new SimpleXMLElement($feedxml); 
 
-    if ($feed->entry) { 
-        return true; 
-    } else { 
-        return false; 
+    if ($feed->entry)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
     } 
 } 
