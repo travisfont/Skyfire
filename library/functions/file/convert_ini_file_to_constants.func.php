@@ -1,6 +1,6 @@
 <?php 
 
-function convertIniFile2Constants($path)
+function convert_ini_file_to_constants($path)
 {
     foreach (parse_ini_file($path) as $element => $value)
     {
@@ -11,4 +11,4 @@ function convertIniFile2Constants($path)
     }
 }
 
-convertIniFile2Constants('../config.ini');
+//convertIniFile2Constants('../config.ini');

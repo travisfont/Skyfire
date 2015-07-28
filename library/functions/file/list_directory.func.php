@@ -11,7 +11,7 @@ function list_directory($directory, $recursive = FALSE)
             {
                 if (is_dir($directory. "/" . $file))
                 {
-                    if($recursive)
+                    if ($recursive)
                     {
                         $array_items = array_merge($array_items, list_directory($directory. "/" . $file, $recursive));
                     }
