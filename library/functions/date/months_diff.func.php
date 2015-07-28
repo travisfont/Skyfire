@@ -8,10 +8,10 @@
  * @return int
  */
  
-function months_diff($date1, $date2 = FALSE )
+function months_diff($date1, $date2 = FALSE)
 {
-    $date1 = is_int($date1) ? $date1 : strtotime($date1);
-    $date2 = ($date2 == FALSE) ? time() : (is_int($date2) ? $date2 : strtotime($date2));
+    $date1 = is_int($date1)     ? $date1 : strtotime($date1);
+    $date2 = ($date2 === FALSE) ? time() : (is_int($date2) ? $date2 : strtotime($date2));
 
     return floor(abs($date2 - $date1) / (30*60*60*24));;
 }
