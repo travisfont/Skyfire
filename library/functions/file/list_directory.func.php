@@ -1,36 +1,43 @@
 <?php
 
-function list_directory($directory, $recursive = FALSE)
-{
-    $array_items = array();
-    if ($handle = opendir($directory))
-    {
-        while (FALSE !== ($file = readdir($handle)))
-        {
-            if ($file != "." && $file != "..")
-            {
-                if (is_dir($directory. "/" . $file))
-                {
-                    if ($recursive)
-                    {
-                        $array_items = array_merge($array_items, list_directory($directory. "/" . $file, $recursive));
-                    }
+// str_replace('.func.php', '', dirname(__FILE__))
 
-                    $file = $directory . "/" . $file;
-                    $array_items[] = preg_replace("/\/\//si", "/", $file);
-                }
-                else
+if (!function_exists('list_directory'))
+{
+
+    function list_directory($directory, $recursive = FALSE)
+    {
+        $array_items = array();
+        if ($handle = opendir($directory))
+        {
+            while (($file = readdir($handle)) !== FALSE)
+            {
+                if ($file != "." && $file != "..")
                 {
-                    $file = $directory . "/" . $file;
-                    $array_items[] = preg_replace("/\/\//si", "/", $file);
+                    if (is_dir($directory. "/" . $file))
+                    {
+                        if ($recursive)
+                        {
+                            $array_items = array_merge($array_items, list_directory($directory. "/" . $file, $recursive));
+                        }
+
+                        $file = $directory . "/" . $file;
+                        $array_items[] = preg_replace("/\/\//si", "/", $file);
+                    }
+                    else
+                    {
+                        $file = $directory . "/" . $file;
+                        $array_items[] = preg_replace("/\/\//si", "/", $file);
+                    }
                 }
             }
+
+            closedir($handle);
         }
 
-        closedir($handle);
+        return $array_items;
     }
 
-    return $array_items;
 }
 
 /*
