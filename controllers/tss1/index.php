@@ -11,6 +11,7 @@ class Tss1 extends Controller
         echo 'tss1 controller works';
 
         load::library(SF::DEBUG);
+
         ExecuteTime::start();
 
         $parameters = array
