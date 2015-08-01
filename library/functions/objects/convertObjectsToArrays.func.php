@@ -2,11 +2,12 @@
 
 //  converts multi-dim objects into multi-arrays
 
-function convertObjectsToArrays($obj, &$arr)
+function convert_objects_to_arrays($obj, &$arr)
 {
     if (!is_object($obj) && !is_array($obj))
     {
         $arr = $obj;
+
         return $arr;
     }
 
@@ -16,7 +17,7 @@ function convertObjectsToArrays($obj, &$arr)
         {
             $arr[$key] = array();
 
-            convertObjectsToArrays($value, $arr[$key]);
+            convert_objects_to_arrays($value, $arr[$key]);
         }
         else
         {

@@ -2,10 +2,11 @@
 
 // Object interface and function into object inherence
 
-class Objects extends System
+class Objects extends Controller
 {
-    protected function convertObjectsToArrays($obj, &$arr)
+    // convertObjectsToArrays
+    protected function convert_objects_to_arrays($obj, &$arr)
     {
-        return convertObjectsToArrays($obj, $arr);
+        return convert_objects_to_arrays($obj, $arr);
     }
 }
