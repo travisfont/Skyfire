@@ -45,4 +45,10 @@ class Arrays extends Controller
     {
         return trim_array_values($array);
     }
+
+    // transposeData
+    protected function transpose_data(array $array)
+    {
+        return transpose_data($array);
+    }
 }
