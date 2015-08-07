@@ -4,11 +4,43 @@
 
 class Strings extends Controller
 {
+    /*
+    function __construct()
+    {
+        return array
+        (
+            'generate_password' => array
+            (
+                'length'   => DT::UTINYINT,
+                'strength' => DT::UTINYINT
+
+            ), DT::STRING,
+
+            'clean_str' => array
+            (
+                '$string' => DT::STRING
+
+            ), DT::STRING
+        );
+    }
+    */
+
     // generatePassword
     protected function generate_password($length = 9, $strength = 4)
     {
+        /*
+        return self::define_parameters(array
+        (
+            'length'   => DT::UTINYINT,
+            'strength' => DT::UTINYINT,
+                          DT::STRING
+        ),
+        generate_password($length, $strength));
+        */
         return generate_password($length, $strength);
     }
+
+    // review: http://stackoverflow.com/questions/17455043/how-to-get-functions-parameters-names-in-php
 
     // cleanStr
     protected function clean_str($string)
@@ -48,6 +80,12 @@ class Strings extends Controller
     protected function strip_to_numeric($string)
     {
         return strip_to_numeric($string);
+    }
+
+    // stripToInt
+    protected function strip_to_int($string)
+    {
+        return strip_to_int($string);
     }
 
     // strStartsUpperCase
