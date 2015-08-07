@@ -1,6 +1,11 @@
 <?php
 
-class dataFields
+class customFieldTypes
+{
+
+}
+
+class dataFieldTypes
 {
     static protected function email()
     {
@@ -12,9 +17,8 @@ class dataFields
         return 'password';
     }
 }
-}
 
-class Validator extends dataFields
+class Validator extends dataFieldTypes
 {
     private $_credentials;
     public  $errors = NULL;
@@ -60,12 +64,12 @@ class Validator extends dataFields
 // Review:
 // http://www.phpclasses.org/package/8818-PHP-Validate-array-of-submitted-form-values.html#usage
 
-$array = array
+$data = array
 (
     'email'    => array('value' => Input::get('email'),    'type' => 'email',    'required' => TRUE),
     'password' => array('value' => Input::get('password'), 'type' => 'password', 'required' => TRUE),
 );
-$validation = new Validator($array);
+$validation = new Validator($data);
 
 if ($validation->success())
 {
