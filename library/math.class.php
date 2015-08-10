@@ -33,6 +33,12 @@ class Math extends Controller
         return round_dollar($amount);
     }
 
+    // formatCurrency
+    protected function format_currency($floatcurr, $curr = 'USD')
+    {
+        return format_currency($floatcurr, $curr);
+    }
+
     // rondomNumber
     protected function random_number($digits, $leading_zeros = FALSE)
     {
