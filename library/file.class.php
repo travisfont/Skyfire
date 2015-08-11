@@ -30,5 +30,15 @@ class File extends Controller
         return list_directory($directory, $recursive);
     }
 
+    // getHttpResponseCode
+    protected function get_http_response_code($url)
+    {
+        return get_http_response_code($url);
+    }
 
+    // fileContentsExist
+    protected function file_contents_exist($url, $response_code = 200)
+    {
+        return file_contents_exist($url, $response_code);
+    }
 }
