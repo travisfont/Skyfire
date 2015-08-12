@@ -51,4 +51,10 @@ class Arrays extends Controller
     {
         return transpose_data($array);
     }
+
+    // multiExplode
+    protected function multi_explode($delimiters, $string)
+    {
+        return multi_explode($delimiters, $string);
+    }
 }
