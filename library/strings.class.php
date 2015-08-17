@@ -118,4 +118,35 @@ class Strings extends Controller
     {
         return str_length_cutoff($string, $limit, $subtext);
     }
+
+    protected function count_str($delimiter, $string)
+    {
+        return count_str($delimiter, $string);
+    }
+
+    protected function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
+    {
+        return csubstr($string, $start, $length, $safe_quotes);
+    }
+
+    protected function strip_carriage_returns($string)
+    {
+        return strip_carriage_returns($string);
+    }
+
+    protected function replace_carriage_return($replace, $string)
+    {
+        return replace_carriage_return($replace, $string);
+    }
+
+    protected function strip_tabspaces($string)
+    {
+        return strip_tabspaces($string);
+    }
+
+    protected function remove_first_occurrence($string, $search, $times)
+    {
+        return remove_first_occurrence($string, $search, $times);
+    }
+
 }
