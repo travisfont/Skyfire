@@ -149,4 +149,13 @@ class Strings extends Controller
         return remove_first_occurrence($string, $search, $times);
     }
 
+    protected function split_number_str($string)
+    {
+        return split_number_str($string);
+    }
+
+    protected function split_number_str_to_array($string)
+    {
+        return split_number_str_to_array($string);
+    }
 }
