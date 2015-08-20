@@ -28,7 +28,7 @@ function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
 
     $pattern = str_replace(chr(1),'(.*?)', preg_quote($str));
 
-    if ($safe_quotes === TRUE || strpos($pattern, '/') !== FALSE)
+    if ($safe_quotes === TRUE)
     {
         $pattern = preg_quote($pattern, '/');
     }

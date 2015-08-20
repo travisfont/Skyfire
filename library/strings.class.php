@@ -29,13 +29,14 @@ class Strings extends Controller
     protected function generate_password($length = 9, $strength = 4)
     {
         /*
-        return self::define_parameters(array
+        return self::param(array
         (
             'length'   => DT::UTINYINT,
             'strength' => DT::UTINYINT,
                           DT::STRING
         ),
-        generate_password($length, $strength));
+        generate_password($length, $strength),
+        'return' => DT::STRING);
         */
         return generate_password($length, $strength);
     }
@@ -114,11 +115,6 @@ class Strings extends Controller
         return str_to_slug($text);
     }
 
-    protected function str_length_cutoff($string, $limit, $subtext = '...')
-    {
-        return str_length_cutoff($string, $limit, $subtext);
-    }
-
     protected function count_str($delimiter, $string)
     {
         return count_str($delimiter, $string);
@@ -127,6 +123,11 @@ class Strings extends Controller
     protected function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
     {
         return csubstr($string, $start, $length, $safe_quotes);
+    }
+
+    protected function html_substr($text, $length, $ending = '...', $exact = TRUE, $consider_html = FALSE)
+    {
+        return html_substr($text, $length, $ending, $exact, $consider_html);
     }
 
     protected function strip_carriage_returns($string)
@@ -157,5 +158,15 @@ class Strings extends Controller
     protected function split_number_str_to_array($string)
     {
         return split_number_str_to_array($string);
+    }
+
+    protected function length_cutoff_str($string, $limit, $subtext = '...')
+    {
+        return length_cutoff_str($string, $limit, $subtext);
+    }
+
+    protected function length_cutoff_word($string, $limit, $end_char = '...')
+    {
+        return length_cutoff_word($string, $limit, $end_char);
     }
 }

@@ -2,7 +2,7 @@
 
 // Strings::str_length_cutoff()
 
-function str_length_cutoff($string, $limit, $subtext = '...')
+function length_cutoff_str($string, $limit, $subtext = '...')
 {
     return (strlen($string) > $limit) ? substr($string, 0, ($limit-strlen($subtext))).$subtext : $string;
 }
