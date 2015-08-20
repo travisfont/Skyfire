@@ -7,20 +7,17 @@ class Strings extends Controller
     /*
     function __construct()
     {
-        return array
+        return defineInterface
         (
             'generate_password' => array
             (
-                'length'   => DT::UTINYINT,
-                'strength' => DT::UTINYINT
-
-            ), DT::STRING,
-
-            'clean_str' => array
-            (
-                '$string' => DT::STRING
-
-            ), DT::STRING
+                'return' => DT::STRING,
+                'param'  => array
+                (
+                    'length'   => DT::UTINYINT,
+                    'strength' => DT::UTINYINT
+                )
+            )
         );
     }
     */
