@@ -7,7 +7,7 @@ class Strings extends Controller
     /*
     function __construct()
     {
-        return defineInterface
+        return self::defineInterface
         (
             'generate_password' => array
             (
@@ -29,16 +29,13 @@ class Strings extends Controller
         return self::param(array
         (
             'length'   => DT::UTINYINT,
-            'strength' => DT::UTINYINT,
-                          DT::STRING
+            'strength' => DT::UTINYINT
         ),
-        generate_password($length, $strength),
-        'return' => DT::STRING);
+        generate_password($length, $strength))
+        ->return(DT::STRING);
         */
-        return generate_password($length, $strength);
+        // review: http://stackoverflow.com/questions/17455043/how-to-get-functions-parameters-names-in-php
     }
-
-    // review: http://stackoverflow.com/questions/17455043/how-to-get-functions-parameters-names-in-php
 
     // cleanStr
     protected function clean_str($string)
@@ -92,76 +89,91 @@ class Strings extends Controller
         return str_starts_uppercase($string);
     }
 
+    // removeDiacritics
     protected function remove_diacritics($string)
     {
         return remove_diacritics($string);
     }
 
+    // removeFirstLine
     protected function remove_first_line($string)
     {
         return remove_first_line($string);
     }
 
+    // sstToSlug
     protected function sstr_to_slug($string)
     {
         return sstr_to_slug($string);
     }
 
+    // strToSlug
     protected function str_to_slug($text, $strict = FALSE)
     {
         return str_to_slug($text);
     }
 
+    // countStr
     protected function count_str($delimiter, $string)
     {
         return count_str($delimiter, $string);
     }
 
+    // csubstr
     protected function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
     {
         return csubstr($string, $start, $length, $safe_quotes);
     }
 
+    // htmlSubstr
     protected function html_substr($text, $length, $ending = '...', $exact = TRUE, $consider_html = FALSE)
     {
         return html_substr($text, $length, $ending, $exact, $consider_html);
     }
 
+    // stripCarriageReturns
     protected function strip_carriage_returns($string)
     {
         return strip_carriage_returns($string);
     }
 
+    // replcaeCarriageReturn
     protected function replace_carriage_return($replace, $string)
     {
         return replace_carriage_return($replace, $string);
     }
 
+    // stripTabspaces
     protected function strip_tabspaces($string)
     {
         return strip_tabspaces($string);
     }
 
+    // removeFirstOccurrence
     protected function remove_first_occurrence($string, $search, $times)
     {
         return remove_first_occurrence($string, $search, $times);
     }
 
+    // SplitNumberStr
     protected function split_number_str($string)
     {
         return split_number_str($string);
     }
 
+    // splitNumberStrToArray
     protected function split_number_str_to_array($string)
     {
         return split_number_str_to_array($string);
     }
 
+    // lengthCutoffStr
     protected function length_cutoff_str($string, $limit, $subtext = '...')
     {
         return length_cutoff_str($string, $limit, $subtext);
     }
 
+    // lengthCutoffWord
     protected function length_cutoff_word($string, $limit, $end_char = '...')
     {
         return length_cutoff_word($string, $limit, $end_char);
