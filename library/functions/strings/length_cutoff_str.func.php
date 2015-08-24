@@ -4,7 +4,7 @@
 
 function length_cutoff_str($string, $limit, $subtext = '...')
 {
-    return (strlen($string) > $limit) ? substr($string, 0, ($limit-strlen($subtext))).$subtext : $string;
+    return (strlen($string) > $limit) ? substr($string, 0, ($limit - strlen($subtext))).$subtext : $string;
 }
 
 // example usage:

@@ -2,7 +2,7 @@
 
 function count_html_output_lines($string)
 {
-    function count_str($delimiter, $string)
+    $count_str = function ($delimiter, $string)
     {
         if (is_string($delimiter))
         {
@@ -16,11 +16,11 @@ function count_html_output_lines($string)
         }
 
         return (count($array) - 1);
-    }
+    };
 
     $str = strtolower(str_replace(' ', '', $string));
-    $br  = count_str('<br', $str) + 1;
-    $p   = count_str('<p>', $str) * 2;
+    $br  = $count_str('<br', $str) + 1;
+    $p   = $count_str('<p>', $str) * 2;
 
     return ($br + $p);
 }
