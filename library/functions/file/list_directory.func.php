@@ -2,43 +2,38 @@
 
 // str_replace('.func.php', '', dirname(__FILE__))
 
-if (!function_exists('list_directory'))
+function list_directory($directory, $recursive = FALSE)
 {
+    $array_items = array();
 
-    function list_directory($directory, $recursive = FALSE)
+    if ($handle = opendir($directory))
     {
-        $array_items = array();
-        if ($handle = opendir($directory))
+        while (($file = readdir($handle)) !== FALSE)
         {
-            while (($file = readdir($handle)) !== FALSE)
+            if ($file != '.' && $file != '..')
             {
-                if ($file != "." && $file != "..")
+                if (is_dir($directory.'/'.$file))
                 {
-                    if (is_dir($directory. "/" . $file))
+                    if ($recursive)
                     {
-                        if ($recursive)
-                        {
-                            $array_items = array_merge($array_items, list_directory($directory. "/" . $file, $recursive));
-                        }
+                        $array_items = array_merge($array_items, list_directory($directory.'/'.$file, $recursive));
+                    }
 
-                        $file = $directory . "/" . $file;
-                        $array_items[] = preg_replace("/\/\//si", "/", $file);
-                    }
-                    else
-                    {
-                        $file = $directory . "/" . $file;
-                        $array_items[] = preg_replace("/\/\//si", "/", $file);
-                    }
+                    $array_items[] = preg_replace("/\/\//si", "/", $directory.'/'.$file);
+                }
+                else
+                {
+                    $array_items[] = preg_replace("/\/\//si", "/", $directory.'/'.$file);
                 }
             }
-
-            closedir($handle);
         }
 
-        return $array_items;
+        closedir($handle);
     }
 
+    return $array_items;
 }
+
 
 /*
 // Example:

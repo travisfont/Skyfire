@@ -19,7 +19,11 @@ class Controller extends Response
 
         if (is_file('./library/functions/'.strtolower($class).'/'.$function.'.func.php'))
         {
-            require_once './library/functions/'.strtolower($class).'/'.$function.'.func.php';
+            if (!function_exists($function))
+            {
+                require_once './library/functions/'.strtolower($class).'/'.$function.'.func.php';
+            }
+
             $instance = new $class();
 
             if (count($arguments) > 0)
