@@ -141,4 +141,9 @@ class Debug extends Controller
         return ddf($data, $name, $display, $file_type);
     }
 
+    protected function get_define_constants($type = 'user')
+    {
+        return get_define_constants();
+    }
+
 }
