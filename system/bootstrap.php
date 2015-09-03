@@ -2,7 +2,6 @@
 
 if (class_exists('cfg'))
 {
-
     // scans the entire config directory (/config/..)
     $config_files = cfg::scanDirectory();
 
