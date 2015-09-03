@@ -8,6 +8,7 @@ class Contact extends Controller
         //var_dump(Days::FRI);
 
         echo '######################';
+        //load::package('csmoth/ggoener')->as_('Ggoener');
 
         load::library(SF::STRINGS);
         //$test_string = Strings::generatePassword();

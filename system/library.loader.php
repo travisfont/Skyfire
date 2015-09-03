@@ -22,6 +22,24 @@ class load
     {
         require_once '/library/services/'.strtolower($class).'.php';
     }
+
+    // will load vendor library (from composer)
+    public static function package($namespace)
+    {
+        require_once '/vender/'.$namespace.'/src/xxxx.php';
+
+        return new load_as();
+    }
+}
+
+class load_as
+{
+    public function __construct()
+    {
+        return $this;
+    }
+
+    public function as_($new_name) {}
 }
 
 // Autoloading
