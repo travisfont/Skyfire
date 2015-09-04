@@ -18,9 +18,13 @@ class load
         return new extender();
     }
 
+    // scan for a folder name and searches for skyfire.index.php
+    // if not found then it will search for index.php
+    // if not found then it will search for folder name again as file.php
+    // if not load error will return
     public static function service($class)
     {
-        require_once '/library/services/'.strtolower($class).'.php';
+        require_once '/library/services/'.trim($class).'/index.php';
     }
 
     // will load vendor library (from composer)

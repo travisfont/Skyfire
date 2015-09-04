@@ -28,7 +28,8 @@ class Controller extends Response
 
             if (count($arguments) > 0)
             {
-                return $instance->$function(implode(',', $arguments));
+                //return $instance->$function(implode(',', $arguments));
+                return call_user_func_array(array($instance, $function), $arguments);
             }
             else
             {
