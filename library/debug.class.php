@@ -143,7 +143,7 @@ class Debug extends Controller
 
     protected function get_define_constants($type = 'user')
     {
-        return get_define_constants();
+        return get_define_constants($type);
     }
 
 }
