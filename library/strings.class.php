@@ -179,4 +179,10 @@ class Strings extends Controller
     {
         return length_cutoff_word($string, $limit, $end_char);
     }
+
+    // joinNaturalLanguage
+    protected function join_natural_language(array $list, $conjunction = 'and')
+    {
+        return join_natural_language($list, $conjunction);
+    }
 }
