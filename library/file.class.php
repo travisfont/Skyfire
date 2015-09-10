@@ -41,4 +41,10 @@ class File extends Controller
     {
         return file_contents_exist($url, $response_code);
     }
+
+    // checkFileExt
+    protected function check_file_ext($file_name, $extensions)
+    {
+        return check_file_ext($file_name, $extensions);
+    }
 }
