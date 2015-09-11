@@ -29,6 +29,12 @@ class Dates extends Controller
         return show_time_left($dbdate);
     }
 
+    // timeAge
+    protected function time_ago($date)
+    {
+        return time_ago($date);
+    }
+
     // ConvertUtcOffsetAbbr()
     protected function convert_utc_offset_abbr($offset)
     {
