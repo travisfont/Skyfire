@@ -47,4 +47,16 @@ class File extends Controller
     {
         return check_file_ext($file_name, $extensions);
     }
+
+    // getFileUriScheme
+    protected function get_file_uri_scheme($uri)
+    {
+        return get_file_uri_scheme($uri);
+    }
+
+    // getFileUriTarget
+    protected function get_file_uri_target($uri)
+    {
+        return get_file_uri_target($uri);
+    }
 }
