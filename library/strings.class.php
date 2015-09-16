@@ -61,9 +61,9 @@ class Strings extends Controller
         return is_utf8($str);
     }
 
-    protected function is_valid_url($url)
+    protected function is_valid_url($url, $absolute = FALSE)
     {
-        return is_valid_url($url);
+        return is_valid_url($url, $absolute);
     }
 
     // isSerialized
