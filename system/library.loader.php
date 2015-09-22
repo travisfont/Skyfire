@@ -4,7 +4,7 @@ class extender
 {
     public function func($function_name)
     {
-        /// load the seperate function
+        // load the seperate function and unset the class object
     }
 }
 
@@ -13,7 +13,15 @@ class load
 {
     public static function library($class)
     {
-        require_once '/library/'.strtolower($class).'.class.php';
+
+        spl_autoload_register(function ($class)
+        {
+            $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.'../library/'.strtolower($class).'.class.php';
+            if (is_readable($filename))
+            {
+                require_once $filename;
+            }
+        }, TRUE, TRUE);
 
         return new extender();
     }
@@ -24,7 +32,14 @@ class load
     // if not load error will return
     public static function service($class)
     {
-        require_once '/library/services/'.trim($class).'/index.php';
+        spl_autoload_register(function ($class)
+        {
+            $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.'../library/services/'.trim($class).'/index.php';
+            if (is_readable($filename))
+            {
+                require_once $filename;
+            }
+        }, TRUE, TRUE);
     }
 
     // will load vendor library (from composer)
@@ -43,7 +58,7 @@ class load_as
         return $this;
     }
 
-    public function as_($new_name) {}
+    public function use_as($new_name) {}
 }
 
 // Autoloading
