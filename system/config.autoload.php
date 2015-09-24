@@ -51,5 +51,8 @@ class cfg
         }
     }
 
-    public static function registerRoutesConfig() {}
+    public static function registerRoutesConfig()
+    {
+        return parse_ini_file('config/routes.ini', TRUE);
+    }
 }
