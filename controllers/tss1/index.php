@@ -6,7 +6,7 @@ class Tss1 extends Controller
      * @func   void
      * @return void
      */
-    public function index()
+    public function __construct()
     {
         echo 'tss1 controller works';
 
