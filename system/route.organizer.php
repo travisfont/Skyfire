@@ -1,106 +1,85 @@
 <?php
 
-class route
+class RouteOrganizer
 {
-    private $public_url_path;
-    private $request_controller;
-    private $method;
-
-    public static $parameters;
-
-    /*
-    public static $instances = array();
-    public function __construct()
+    public static function Process($routes, $path, $parameters)
     {
-        self::$instances[] = $this;
-    }
-    */
-
-    public static function url($url)
-    {
-        $self = new self;
-        $self->public_url_path = $url;
-
-        return $self;
-    }
-
-    public function controller($class)
-    {
-        if ($this->public_url_path)
+        foreach ($routes as $route)
         {
-            $this->request_controller = $class;
+            if ($route['METHOD'] == $_SERVER['REQUEST_METHOD'])
+            {
+                $removed_variables_url = rtrim(preg_replace("/{[^}]*}/", '', ltrim($route['REQUEST'], '/')), '/');
+                #var_dump($removed_variables_url);
 
-            return $this;
+                if (!empty($removed_variables_url) && strpos($path, $removed_variables_url) !== FALSE)
+                {
+                    #echo '----> '.$removed_variables_url;
+                    $live_url_parameters = explode('/', trim(str_replace($removed_variables_url, '', $path), '/'));
+                    // var_dump($live_url_parameters);
+
+                    #var_dump($route['CONTROLLER']);
+                    #exit;
+
+                    self::CallController($route['CONTROLLER']);
+                }
+
+                // finds all url variables that are like {string}
+                #preg_match_all("/{[^}]*}/", $route['REQUEST'], $matches);
+                //explode($route['REQUEST'])
+                #var_dump($matches);
+            }
         }
     }
 
-    public function method($type = FALSE)
+    public static function CallController($controller_name, $response_code = 200)
     {
-        // if both url and controller are define before method
-        if ($this->public_url_path && $this->request_controller)
+        // cleans the request controller string and removes anything that isn't alphanumeric
+        $controller = preg_replace('#\W#', '', strtolower($controller_name));
+        $full_path  = dirname(__DIR__).'/controllers/'.$controller.'/index.php';
+
+        // checking if the controller path and file exist
+        if (file_exists($full_path))
         {
-            // checking if the request method is set (this is required for the controller)
-            if (!empty($type) && in_array($type, array('GET', 'POST')))
+            require_once $full_path;
+
+            // extracts the path for the controller and function
+            $elements =  array_reverse(explode('/', $full_path));
+            // retrieves the index function
+            //$index_method = str_replace('.php', '', $elements[0]);
+
+            // formats the extracted controller object
+            //$object = ucwords(strtolower($elements[1]));
+            $object = ucwords(strtolower($elements[1]));
+            if (class_exists($object))
             {
+                // calls the controller constructor
+                // NOTE: currently no error detection if constructor doesn't exist
+                //http_response_code($response_code);
 
-                //$route_path = array_reverse(explode('/', $this->public_url_path));
-                $route_path = explode('/', $this->public_url_path);
+                // setting the global status code
+                http_response_code($response_code);
+                $_SERVER['REDIRECT_STATUS'] = $response_code;
 
-                var_dump($route_path);
-
-                foreach ($route_path as $key => $path)
-                {
-                    // if the path is not empty or isn't a variable value
-                    if (!empty($path) && $path[0] != '{')
-                    {
-                        var_dump($path);
-
-                        // routes url matches real request url path
-                        if (static::$parameters[$key] == $path)
-                        {
-                            // cleans the request controller string and removes anything that isn't alphanumeric
-                            $controller = preg_replace('#\W#', '', strtolower($this->request_controller));
-                            $full_path  = dirname(__DIR__).'/controllers/'.$controller.'/index.php';
-
-                            // checking if the controller path and file exist
-                            if (file_exists($full_path))
-                            {
-                                require_once $full_path;
-
-                                // extracts the path for the controller and function
-                                $elements =  array_reverse(explode('/', $full_path));
-                                // retrieves the index function
-                                //$index_method = str_replace('.php', '', $elements[0]);
-
-                                // formats the extracted controller object
-                                $object = ucwords(strtolower($elements[1]));
-                                $class = new $object;
-
-                                // calls the dynamic method with define class
-                                //$class->{$index_method}();
-                                $class->index();
-
-                                // no need to run (check) anymore routes
-                                exit;
-                            }
-                            else
-                            {
-                                die ('Controller <strong>'.$controller.'</strong> folder and/or index file doesn\'t exist!');
-                            }
-                        }
-                    }
-                }
-
-
+                new $object;
             }
             else
             {
-                die ('Pease define <strong>->method()</strong> with either SF::GET or SF::POST!');
+                die ('Controller class <strong>'.$object.'</strong> does not exist. Cannot continue.');
             }
+            //$class  = new $object;echo '<pre>';
 
 
+            // calls the dynamic method with define class
+            //$class->{$index_method}();
+            //$class->index();
 
+            // no need to run (check) anymore routes
+            // echo'<pre>'; print_r(get_defined_vars()); exit;
+            exit;
+        }
+        else
+        {
+            die ('Controller <strong>'.$controller.'</strong> folder and/or index file doesn\'t exist!');
         }
     }
-
 }

@@ -55,4 +55,19 @@ class cfg
     {
         return parse_ini_file('config/routes.ini', TRUE);
     }
+
+    public static function registerErrorsConfig()
+    {
+        $errors = array();
+        foreach (parse_ini_file('config/errors.ini', TRUE) as $label => $config_values)
+        {
+            if (isset($config_values['REQUEST']) && isset($config_values['METHOD']) && isset($config_values['CONTROLLER']))
+            {
+                $errors[$config_values['REQUEST']][$config_values['METHOD']]
+                    = (object) array_merge(array('label' => $label), array_change_key_case($config_values, CASE_LOWER));
+            }
+        }
+
+        return $errors;
+    }
 }
