@@ -35,7 +35,7 @@ class RouteOrganizer
     {
         // cleans the request controller string and removes anything that isn't alphanumeric
         $controller = preg_replace('#\W#', '', strtolower($controller_name));
-        $full_path  = dirname(__DIR__).'/controllers/'.$controller.'/index.php';
+        $full_path  = PARENT_DIRECTORY.'/controllers/'.$controller.'/index.php';
 
         // checking if the controller path and file exist
         if (file_exists($full_path))

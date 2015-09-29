@@ -6,7 +6,7 @@ class cfg
 {
     public static function scanDirectory()
     {
-        $directory    = 'config';
+        $directory    = PARENT_DIRECTORY.'/config';
         $config_files = array();
 
         if (is_dir($directory))
@@ -42,7 +42,7 @@ class cfg
 
     public static function registerConfig($file)
     {
-        foreach (parse_ini_file('config/'.$file) as $element => $value)
+        foreach (parse_ini_file(PARENT_DIRECTORY.'/config/'.$file) as $element => $value)
         {
             if (!defined(strtoupper($element)))
             {
@@ -53,13 +53,13 @@ class cfg
 
     public static function registerRoutesConfig()
     {
-        return parse_ini_file('config/routes.ini', TRUE);
+        return parse_ini_file(PARENT_DIRECTORY.'/config/routes.ini', TRUE);
     }
 
     public static function registerErrorsConfig()
     {
         $errors = array();
-        foreach (parse_ini_file('config/errors.ini', TRUE) as $label => $config_values)
+        foreach (parse_ini_file(PARENT_DIRECTORY.'/config/errors.ini', TRUE) as $label => $config_values)
         {
             if (isset($config_values['REQUEST']) && isset($config_values['METHOD']) && isset($config_values['CONTROLLER']))
             {

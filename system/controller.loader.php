@@ -162,11 +162,11 @@ class Controller extends Response
     {
         $class = get_called_class();
 
-        if (is_file('./library/functions/'.strtolower($class).'/'.$function.'.func.php'))
+        if (is_file(PARENT_DIRECTORY.'/library/functions/'.strtolower($class).'/'.$function.'.func.php'))
         {
             if (!function_exists($function))
             {
-                require_once './library/functions/'.strtolower($class).'/'.$function.'.func.php';
+                require_once PARENT_DIRECTORY.'/library/functions/'.strtolower($class).'/'.$function.'.func.php';
             }
 
             $instance = new $class();
