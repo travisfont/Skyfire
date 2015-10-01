@@ -40,6 +40,28 @@ class Contact extends Controller
         ))->execute();
         */
 
+        /*
+        // row creation
+        $test = DB::table('test');
+        $test->id   = 11;
+        $test->text = 'bla blah';
+        $test->create();
+
+        // row updating
+        $test = DB::table('test');
+        $test->text = 'bla blah';
+        $test->update('id = 1');
+
+        // row deletes
+        $test = DB::table('test');
+        $test->delete('id = 1');
+
+        // soft deletes
+        $test = DB::table('test');
+        $test->softdelete('id = 1', 'timestamp_field');
+        */
+
+
         //$this->view('test')->with('sdadsa')->statusCode(255);
 
         echo '<br/>contact controller works';
