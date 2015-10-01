@@ -20,7 +20,7 @@ else
 }
 
 // sysem files (all require to load)
-$system_files = array
+foreach (array
 (
     'config.autoload',
     'global.constants',
@@ -28,9 +28,7 @@ $system_files = array
     'library.loader',
     'controller.loader',
     'bootstrap',
-);
-
-foreach ($system_files as $file)
+) as $file)
 {
     require_once PARENT_DIRECTORY.'/system/'.$file.'.php';
 }
