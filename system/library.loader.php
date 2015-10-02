@@ -17,7 +17,7 @@ class load
         spl_autoload_register(function ($class)
         {
             //$filename = PARENT_DIRECTORY.'/library/'.strtolower($class).'.class.php';
-            $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.'../library/'.strtolower($class).'.class.php';
+            $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
             if (is_readable($filename))
             {
                 require_once $filename;
