@@ -33,8 +33,17 @@ class load
     // if not load error will return
     public static function service($class)
     {
+        // if the service is loaded AND the class is called
         spl_autoload_register(function ($class)
         {
+            // class alias (conversion to locate folder)
+            switch ($class)
+            {
+                case 'S':
+                    $class = 'STRING';
+                    break;
+            }
+
             //$filename = PARENT_DIRECTORY.'/library/services/'.trim($class).'/index.php';
             $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.'../library/services/'.trim($class).'/index.php';
             if (is_readable($filename))
