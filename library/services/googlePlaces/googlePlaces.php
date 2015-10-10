@@ -2,15 +2,15 @@
 
 class googlePlaces
 {
-    public $error = array();
+    public    $error = array();
 
     protected $apiKey;
-    protected $url = FALSE;
     protected $query;
+    protected $url    = FALSE;
     protected $sensor = 'true';
     protected $radius = 50000;
 
-    function __construct($apiKey)
+    public function __construct($apiKey)
     {
         if (strlen($apiKey) > 38)
         {
@@ -20,6 +20,7 @@ class googlePlaces
         else
         {
             $this->error[] = 'less than 38 character key length';
+
             return FALSE;
         }
 
@@ -57,40 +58,32 @@ class googlePlaces
     public function Search()
     {
         $this->url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?'
-        .'query='.$this->query
-        .'&sensor='.$this->sensor
-        .'&radius='.$this->radius
-        .'&key='.$this->apiKey;
+                    .'query='.$this->query
+                    .'&sensor='.$this->sensor
+                    .'&radius='.$this->radius
+                    .'&key='.$this->apiKey;
 
-        if ($this->url)
+        if ($string = file_get_contents($this->url))
         {
-            if ($string = file_get_contents($this->url))
-            {
-                $results = json_decode($string);
-                if (isset($results->results))
-                {
-                    return $results->results;
-                }
-                elseif (isset($results))
-                {
-                    return $results;
-                }
-                else
-                {
-                    //return FALSE;
-                }
+            $results = json_decode($string);
 
+            if (isset($results->results))
+            {
+                return $results->results;
+            }
+            elseif (isset($results))
+            {
+                return $results;
             }
             else
             {
-                return FALSE;
+                //return FALSE;
             }
         }
         else
         {
             return FALSE;
         }
-
     }
     
     // get zipcode from query and retrieve the coordinates
@@ -102,11 +95,11 @@ class googlePlaces
     
     public function display()
     {
-        return $this->centerUSA();
+        return self::centerUSA();
     }
     
     // turn this into a static variable if possible (using 'googlePlaces->display->centerUSA')
-    public function centerUSA()
+    public static function centerUSA()
     {
         return 'new google.maps.LatLng(39.828175, -98.5795)';
     }
