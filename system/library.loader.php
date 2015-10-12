@@ -11,18 +11,34 @@ class extender
 // System Autoloader
 class load
 {
+    // can i turn this into private?
+    public static function __callStatic($service, $arguments)
+    {
+        // ONLY allow calls within self 'load' class
+        if (get_called_class() == 'load')
+        {
+            // class alias (conversion to locate folder)
+            $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/services/'.trim($service).'/index.php';
+            if (is_readable($filename))
+            {
+                require_once $filename;
+            }
+        }
+    }
+
     public static function library($class)
     {
 
         spl_autoload_register(function ($class)
         {
             //$filename = PARENT_DIRECTORY.'/library/'.strtolower($class).'.class.php';
-            $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
+            $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
             if (is_readable($filename))
             {
                 require_once $filename;
             }
-        }, TRUE, TRUE);
+        //}, TRUE, TRUE);
+        });
 
         return new extender();
     }
@@ -34,23 +50,8 @@ class load
     public static function service($class)
     {
         // if the service is loaded AND the class is called
-        spl_autoload_register(function ($class)
-        {
-            // class alias (conversion to locate folder)
-            switch ($class)
-            {
-                case 'S':
-                    $class = 'STRING';
-                    break;
-            }
-
-            //$filename = PARENT_DIRECTORY.'/library/services/'.trim($class).'/index.php';
-            $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.'../library/services/'.trim($class).'/index.php';
-            if (is_readable($filename))
-            {
-                require_once $filename;
-            }
-        }, TRUE, TRUE);
+        //spl_autoload_register('self::'.$class, TRUE, TRUE);
+        spl_autoload_register('self::'.$class);
     }
 
     // will load vendor library (from composer)
@@ -71,6 +72,3 @@ class load_as
 
     public function use_as($new_name) {}
 }
-
-// Autoloading
-// http://php.net/manual/en/language.oop5.autoload.php
