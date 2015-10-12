@@ -12,6 +12,7 @@ class extender
 class load
 {
     // can i turn this into private?
+    /*
     public static function __callStatic($service, $arguments)
     {
         // ONLY allow calls within self 'load' class
@@ -25,6 +26,7 @@ class load
             }
         }
     }
+    */
 
     public static function library($class)
     {
@@ -37,8 +39,8 @@ class load
             {
                 require_once $filename;
             }
-        //}, TRUE, TRUE);
-        });
+        }, TRUE, TRUE);
+        //});
 
         return new extender();
     }
@@ -51,7 +53,15 @@ class load
     {
         // if the service is loaded AND the class is called
         //spl_autoload_register('self::'.$class, TRUE, TRUE);
-        spl_autoload_register('self::'.$class);
+        spl_autoload_register(function ($service) use ($class)
+        {
+            // class alias (conversion to locate folder)
+            $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/services/'.trim($class).'/index.php';
+            if (is_readable($filename))
+            {
+                require_once $filename;
+            }
+        }, TRUE, TRUE);
     }
 
     // will load vendor library (from composer)

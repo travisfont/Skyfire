@@ -22,14 +22,13 @@ if (!defined('PARENT_DIRECTORY'))
 // SPL autoloader
 spl_autoload_register(function ($classname)
 {
-    // __DIR__ is only in PHP 5.3+
-    // closures / anonymous functions only in PHP 5.3+
     $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.$classname.'.php';
     if (is_readable($filename))
     {
         require_once $filename;
     }
-}, TRUE, TRUE);
+});
+//}, TRUE, TRUE);
 
 final class DB extends DB_Connector
 {
