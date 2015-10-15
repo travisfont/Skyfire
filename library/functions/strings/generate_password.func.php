@@ -39,5 +39,5 @@ function generate_password($length = 9, $strength = 4)
         }
     }
     
-    return $password;
+    return (string) $password;
 }
