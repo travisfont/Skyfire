@@ -35,7 +35,7 @@ class Strings extends Controller
         ->return(DT::STRING);
         */
         // review: http://stackoverflow.com/questions/17455043/how-to-get-functions-parameters-names-in-php
-        return generate_password($length, $strength);
+        return (string) generate_password($length, $strength);
     }
 
     // cleanStr
