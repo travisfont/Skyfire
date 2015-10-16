@@ -10,7 +10,7 @@ class ResponseStatusCode
     }
 }
 
-class ResponseWtih
+class DisplayWith
 {
 
     public function with(array $data)
@@ -19,7 +19,7 @@ class ResponseWtih
     }
 }
 
-abstract class Response
+abstract class Display
 {
     // resposne status codes
     public static $status = array
@@ -74,11 +74,11 @@ abstract class Response
     protected function api($service_name) {}
     protected function json()
     {
-        return new ResponseWtih;
+        return new DisplayWith;
     }
     protected function xml()
     {
-        return new ResponseWtih;
+        return new DisplayWith;
     }
     public function redirect($path, $code)
     {
@@ -115,11 +115,11 @@ abstract class Response
         307 - Temporary Redirect (HTTP/1.1)
          */
 
-        return new ResponseWtih;
+        return new DisplayWith;
     }
     protected function view($view_name)
     {
-        return new ResponseWtih;
+        return new DisplayWith;
     }
 
     /**
@@ -156,8 +156,9 @@ abstract class Response
 
 }
 
-class Controller extends Response
+class Controller extends Display
 {
+    //public $request;
     public static function __callStatic($function, $arguments)
     {
         $class = get_called_class();
