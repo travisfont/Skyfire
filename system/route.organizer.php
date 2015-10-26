@@ -9,14 +9,25 @@ class RouteOrganizer
             // if a define method exist in the specific route (else look for a CRUD)
             if (isset($route['METHOD']) && ($route['METHOD'] == $_SERVER['REQUEST_METHOD']))
             {
-                $removed_variables_url = rtrim(preg_replace("/{[^}]*}/", '', ltrim($route['REQUEST'], '/')), '/');
-                #var_dump($removed_variables_url);
+                // searching for '/' main route first
+                if ($path === '' && ltrim(HOST_PATH, BASE_DIRECTORY))
+                {
+                    self::CallController($route['CONTROLLER']);
+                }
+                // if (str_replace('/', '', ltrim(HOST_PATH, BASE_DIRECTORY)) === '')
 
-                if (!empty($removed_variables_url) && strpos($path, $removed_variables_url) !== FALSE)
+                //$removed_variables_url = (string) rtrim(preg_replace("/{[^}]*}/", '', ltrim($route['REQUEST'], '/')), '/');
+                $removed_variables_url = (string) trim(preg_replace('/{[^}]*}/', '', $route['REQUEST']), '/');
+
+                #var_dump('$path: '.$path);
+                //var_dump('$removed_variables_url: '.$removed_variables_url);
+
+                #echo '!empty('.$removed_variables_url.') && strpost('.$path.', '.$removed_variables_url.') !== FALSE)<br>';
+                if (!empty($removed_variables_url) && strpos($path, $removed_variables_url.'/') !== FALSE)
                 {
                     #echo '----> '.$removed_variables_url;
                     $live_url_parameters = explode('/', trim(str_replace($removed_variables_url, '', $path), '/'));
-                    // var_dump($live_url_parameters);
+                    //var_dump($live_url_parameters);
 
                     #var_dump($route['CONTROLLER']);
                     #exit;

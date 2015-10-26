@@ -25,10 +25,18 @@ if (class_exists('cfg'))
         define('HOST_PATH', $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
         // remove the base directory path and removing any / characters from left or right of the path
-        $parameters = explode('/', trim(str_replace(BASE_DIRECTORY, '', HOST_PATH), '/'));
+        $parameters = explode('/', trim(str_replace(strtolower(BASE_DIRECTORY), '', HOST_PATH), '/'));
 
         // registering the users request parameters (url path)
-        $path = trim(str_replace(BASE_DIRECTORY.'/', '', HOST_PATH));
+        $path = trim(str_replace(strtolower(BASE_DIRECTORY).'/', '', HOST_PATH));
+
+
+        #var_dump(HOST_PATH);
+        #var_dump($_SERVER['REQUEST_URI']);
+        //var_dump(BASE_DIRECTORY); // $_SERVER['REQUEST_URI']
+        //var_dump($_SERVER); // $_SERVER['REQUEST_URI']
+        //var_dump($path); // $_SERVER['REQUEST_URI']
+        //var_dump(ltrim($path, $_SERVER['HTTP_HOST'].'/'));
 
         // Processing the routes with the current request
         RouteOrganizer::Process($routes, $path, $parameters);
