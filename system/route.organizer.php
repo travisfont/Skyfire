@@ -6,7 +6,8 @@ class RouteOrganizer
     {
         foreach ($routes as $route)
         {
-            if ($route['METHOD'] == $_SERVER['REQUEST_METHOD'])
+            // if a define method exist in the specific route (else look for a CRUD)
+            if (isset($route['METHOD']) && ($route['METHOD'] == $_SERVER['REQUEST_METHOD']))
             {
                 $removed_variables_url = rtrim(preg_replace("/{[^}]*}/", '', ltrim($route['REQUEST'], '/')), '/');
                 #var_dump($removed_variables_url);
@@ -27,6 +28,10 @@ class RouteOrganizer
                 #preg_match_all("/{[^}]*}/", $route['REQUEST'], $matches);
                 //explode($route['REQUEST'])
                 #var_dump($matches);
+            }
+            elseif (isset($route['CRUD']))
+            {
+                // process CRUD controller by specific method
             }
         }
     }
