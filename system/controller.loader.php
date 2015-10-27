@@ -159,6 +159,7 @@ abstract class Display
 class Controller extends Display
 {
     //public $request;
+    protected $DB;
     public static function __callStatic($function, $arguments)
     {
         $class = get_called_class();
@@ -188,6 +189,13 @@ class Controller extends Display
             // return FALSE;
             throw new Exception('Failed to load: functions/'.strtolower($class).'/'.$function.'.func.php');
         }
+    }
+
+    protected function __construct()
+    {
+        load::service('DB');
+        
+        $this->DB = new DB;
     }
 
     // in any controller: $this->installServices()

@@ -4,10 +4,23 @@ class Contact extends Controller
 {
     public function __construct()
     {
+        /* ACTIVE DB CONNECTION
+        parent::__construct();
+        $data = $this->DB->select('get.AllHomeTextData')->execute();
+        var_dump($data); exit;
+        */
+
         //load::library(SF::CONSTANTS);
         //var_dump(Days::FRI);
 
-        echo '######################';
+        load::service('HTTP');
+
+        /*
+        $request = Request::createFromGlobals();
+        echo $request->getPathInfo();
+        */
+
+        echo '<br/>######################';
         //load::package('csmoth/ggoener')->use_as('Ggoener');
 
         load::library(SF::STRINGS);

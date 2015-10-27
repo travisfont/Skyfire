@@ -34,6 +34,11 @@ final class DB extends DB_Connector
 {
     public static $exceptionType;
 
+    public function ____construct()
+    {
+        return self::connect();
+    }
+
     // allows instances to be created with static calls still existing
     /*
     public function __call($name, $arguments)
