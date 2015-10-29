@@ -84,7 +84,6 @@ class RouteOrganizer
             }
             //$class  = new $object;echo '<pre>';
 
-
             // calls the dynamic method with define class
             //$class->{$index_method}();
             //$class->index();
