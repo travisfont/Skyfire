@@ -185,4 +185,9 @@ class Strings extends Controller
     {
         return join_natural_language($list, $conjunction);
     }
+
+    protected function emoji($text)
+    {
+        return emoji($text);
+    }
 }
