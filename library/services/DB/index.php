@@ -66,6 +66,11 @@ final class DB extends DB_Connector
         return new ProcessQuery($sql_file, 'select');
     }
 
+    public static function table($table_name)
+    {
+        return new ProcessCUD($table_name);
+    }
+
     // this type needs to be a display type (e.g. DISPLAY_TEST)
     public static function setExceptionType($type)
     {

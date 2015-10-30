@@ -1,5 +1,6 @@
 <?php
 
+//abstract class DB_Connector extends PDO
 abstract class DB_Connector
 {
     protected static function PDOException(PDOException $exception, $display_type)
