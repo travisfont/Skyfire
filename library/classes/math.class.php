@@ -57,13 +57,20 @@ class Math extends Controller
         return leading_zero($num, $places);
     }
 
+    // roundMins
     protected function round_mins($hour, $minutes = '1', $format = "H:i")
     {
         return round_mins($hour, $minutes, $format);
     }
 
+    // savedPercentage
     protected function saved_percentage($original_price, $current_price)
     {
         return saved_percentage($original_price, $current_price);
+    }
+
+    protected function absint($data)
+    {
+        return absint($data);
     }
 }
