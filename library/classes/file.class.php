@@ -59,4 +59,16 @@ class File extends Controller
     {
         return get_file_uri_target($uri);
     }
+
+    // isPathAbsolute
+    protected function is_path_absolute($path)
+    {
+        return is_path_absolute($path);
+    }
+
+    // getCurrentPageUrl
+    protected function get_current_page_url()
+    {
+        return get_current_page_url();
+    }
 }
