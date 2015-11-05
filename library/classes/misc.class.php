@@ -52,4 +52,21 @@ class Misc extends Controller
         return scale_image_to_width($filename, $target_width);
     }
 
+    // isSsl
+    protected function is_ssl()
+    {
+        return is_ssl();
+    }
+
+    // getClientLang
+    protected function get_client_lang()
+    {
+        return get_client_lang();
+    }
+
+    // darkerHex
+    protected function darker_hex($hex, $amount = 30)
+    {
+        return darker_hex($hex, $amount);
+    }
 }
