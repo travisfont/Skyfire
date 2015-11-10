@@ -12,7 +12,8 @@ class RouteOrganizer
                 // searching for '/' main route first
                 if ($path === '' && ltrim(HOST_PATH, BASE_DIRECTORY))
                 {
-                    self::CallController($route['CONTROLLER']);
+                    # if (isset($route['MODELS']))
+                    self::CallController($route['CONTROLLER'], array_map('trim', explode(',', $route['MODELS'])));
                 }
                 // if (str_replace('/', '', ltrim(HOST_PATH, BASE_DIRECTORY)) === '')
 
@@ -32,7 +33,8 @@ class RouteOrganizer
                     #var_dump($route['CONTROLLER']);
                     #exit;
 
-                    self::CallController($route['CONTROLLER']);
+                    # if (isset($route['MODELS']))
+                    self::CallController($route['CONTROLLER'], array_map('trim', explode(',', $route['MODELS'])));
                 }
 
                 // finds all url variables that are like {string}
@@ -47,7 +49,7 @@ class RouteOrganizer
         }
     }
 
-    public static function CallController($controller_name, $response_code = 200)
+    public static function CallController($controller_name, $controller_models = array(), $response_code = 200)
     {
         // cleans the request controller string and removes anything that isn't alphanumeric
         $controller = preg_replace('#\W#', '', strtolower($controller_name));
@@ -68,6 +70,16 @@ class RouteOrganizer
             $object = ucwords(strtolower($elements[1]));
             if (class_exists($object))
             {
+                // calling all the models classes
+                if (!empty($controller_models) && is_array($controller_models))
+                {
+                    require_once PARENT_DIRECTORY.'/system/abstract.model.php';
+                    foreach ($controller_models as $model)
+                    {
+                        require_once PARENT_DIRECTORY.'/models/'.strtolower($model).'.php';
+                    }
+                }
+
                 // calls the controller constructor
                 // NOTE: currently no error detection if constructor doesn't exist
                 //http_response_code($response_code);
