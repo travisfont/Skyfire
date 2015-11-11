@@ -57,4 +57,11 @@ class Arrays extends Controller
     {
         return multi_explode($delimiters, $string);
     }
+
+    // trimExplode
+    protected function trim_explode($delimiter, $string, $trim = 'trim', $limit = NULL)
+    {
+        return trim_explode($delimiter, $string, $trim, $limit);
+    }
+
 }
