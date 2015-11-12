@@ -14,6 +14,7 @@ class RouteOrganizer
                 {
                     # if (isset($route['MODELS']))
                     self::CallController($route['CONTROLLER'], array_map('trim', explode(',', $route['MODELS'])));
+                    # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
                 }
                 // if (str_replace('/', '', ltrim(HOST_PATH, BASE_DIRECTORY)) === '')
 
@@ -35,6 +36,7 @@ class RouteOrganizer
 
                     # if (isset($route['MODELS']))
                     self::CallController($route['CONTROLLER'], array_map('trim', explode(',', $route['MODELS'])));
+                    # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
                 }
 
                 // finds all url variables that are like {string}
