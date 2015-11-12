@@ -4,14 +4,40 @@
 
 class ResponseStatusCode
 {
+    public $view_name;
+    public $data = array(); // pass along through the constructors each time
+
+    public function __construct($view_name = FALSE)
+    {
+        $this->view_name = $view_name;
+    }
+
     public function statusCode($code)
     {
+        require_once PARENT_DIRECTORY.'/library/services/TWIG/Autoloader.php';
+        Twig_Autoloader::register();
 
+        $loader = new Twig_Loader_Filesystem(PARENT_DIRECTORY.'/views');
+        $twig   = new Twig_Environment($loader, array('cache' => PARENT_DIRECTORY.'/views/_cache', 'auto_reload' => TRUE));
+
+        echo $twig->render($this->view_name.'.twig.php', $this->data);
     }
 }
 
 class DisplayWith
 {
+    //public $view_name;
+
+    public function __construct($view_name = FALSE)
+    {
+        // if a view exist - load template
+        if ($view_name)
+        {
+            $view = new ResponseStatusCode($view_name);
+
+            return $view->statusCode(200);
+        }
+    }
 
     public function with(array $data)
     {
@@ -115,11 +141,13 @@ abstract class Display
         307 - Temporary Redirect (HTTP/1.1)
          */
 
-        return new DisplayWith;
+        // TODO: is this needed?!
+        # return new DisplayWith;
     }
+
     protected function view($view_name)
     {
-        return new DisplayWith;
+        return new DisplayWith($view_name);
     }
 
     /**
