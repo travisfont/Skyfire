@@ -11,7 +11,7 @@ else
     // defines the root directory of Skyfire
     define('ROOT_DIRECTORY',   getcwd());
     define('PARENT_DIRECTORY', dirname(getcwd()));
-    define('WHOOPS_DIRECTORY', '../library/packages/whoops/src/');
+    define('WHOOPS_DIRECTORY', '../library/packages/filp/whoops/src/');
 
     // TODO: eventually move this into the system process
     spl_autoload_register(function ($class)
@@ -21,7 +21,6 @@ else
         {
             if (is_readable(WHOOPS_DIRECTORY.$class.'.php'))
             {
-
                 //require_once WHOOPS_DIRECTORY.'Whoops\Util\TemplateHelper.php';
                 //require_once WHOOPS_DIRECTORY.'Whoops\Util\Misc.php';
                 require_once WHOOPS_DIRECTORY.$class.'.php';
