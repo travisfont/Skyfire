@@ -1,0 +1,24 @@
+{
+    "name": "tfont/skyfire",
+    "type": "framework",
+    "description": "An extensive modular MVC PHP framework.",
+    "keywords": ["framework", "mvc", "annotations", "docblock", "parser"],
+    "homepage": "https://github.com/tfont/Skyfire",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+    {
+      "name":  "Travis van der Font",
+      "email": "travis.font@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.4",
+        "filp/whoops": "^1.1"
+    },
+    "require-dev": {
+        "php": ">=5.4"
+    },
+    "config": {
+        "vendor-dir": "library/packages"
+    }
+}
