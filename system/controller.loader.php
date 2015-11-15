@@ -246,7 +246,7 @@ class Controller extends Display
     * Check if a value is empty (...) if so then replaces with an empty string by default
     * or define set variable in the second parameter.
     */
-    public function isNotSet($var, $default = TRUE)
+    public function is_not_set($var, $default = TRUE)
     {
         return empty($var) ? $default : $var;
     }
