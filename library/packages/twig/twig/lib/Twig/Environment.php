@@ -16,7 +16,7 @@
  */
 class Twig_Environment
 {
-    const VERSION = '1.23.2-DEV';
+    const VERSION = '1.23.1';
 
     protected $charset;
     protected $loader;
@@ -988,7 +988,7 @@ class Twig_Environment
     /**
      * Gets the registered Filters.
      *
-     * Be warned that this method cannot return filters defined with registerUndefinedFilterCallback.
+     * Be warned that this method cannot return filters defined with registerUndefinedFunctionCallback.
      *
      * @return Twig_FilterInterface[] An array of Twig_FilterInterface instances
      *
