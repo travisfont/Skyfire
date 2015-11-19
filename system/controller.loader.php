@@ -14,7 +14,11 @@ class ResponseStatusCode
 
     public function statusCode($code)
     {
-        require_once PARENT_DIRECTORY.'/library/services/TWIG/Autoloader.php';
+        if (is_readable(PARENT_DIRECTORY.'/library/packages/twig/twig/lib/Twig/Autoloader.php'))
+        {
+            require_once PARENT_DIRECTORY.'/library/packages/twig/twig/lib/Twig/Autoloader.php';
+        }
+
         Twig_Autoloader::register();
 
         $loader = new Twig_Loader_Filesystem(PARENT_DIRECTORY.'/views');
