@@ -9,12 +9,17 @@ class RouteOrganizer
             // if a define method exist in the specific route (else look for a CRUD)
             if (isset($route['METHOD']) && ($route['METHOD'] == $_SERVER['REQUEST_METHOD']))
             {
+                if (!isset($route['MODELS']))
+                {
+                    $route['MODELS'] = NULL;
+                }
+
                 // searching for '/' main route first
                 if ($path === '' && ltrim(HOST_PATH, BASE_DIRECTORY))
                 {
-                    # if (isset($route['MODELS']))
-                    self::CallController($route['CONTROLLER'], array_map('trim', explode(',', $route['MODELS'])));
+                    self::CallController($route['CONTROLLER'], 200, $route['MODELS']);
                     # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
+                    break; // end foreach loop
                 }
                 // if (str_replace('/', '', ltrim(HOST_PATH, BASE_DIRECTORY)) === '')
 
@@ -35,8 +40,9 @@ class RouteOrganizer
                     #exit;
 
                     # if (isset($route['MODELS']))
-                    self::CallController($route['CONTROLLER'], array_map('trim', explode(',', $route['MODELS'])));
+                    self::CallController($route['CONTROLLER'], 200, $route['MODELS']);
                     # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
+                    break; // end foreach loop
                 }
 
                 // finds all url variables that are like {string}
@@ -51,7 +57,7 @@ class RouteOrganizer
         }
     }
 
-    public static function CallController($controller_name, $controller_models = array(), $response_code = 200)
+    public static function CallController($controller_name, $response_code = 200, $controller_models = NULL)
     {
         // cleans the request controller string and removes anything that isn't alphanumeric
         $controller = preg_replace('#\W#', '', strtolower($controller_name));
@@ -73,13 +79,21 @@ class RouteOrganizer
             if (class_exists($object))
             {
                 // calling all the models classes
-                if (!empty($controller_models) && is_array($controller_models))
+                if (!empty($controller_models))
                 {
+                    $controller_models = array_map('trim', explode(',', $controller_models));
+
                     require_once PARENT_DIRECTORY.'/system/abstract.model.php';
                     foreach ($controller_models as $model)
                     {
                         require_once PARENT_DIRECTORY.'/models/'.strtolower($model).'.php';
                     }
+                }
+
+                // composer autoloader - if exist
+                if (is_readable(PARENT_DIRECTORY.'/library/packages/autoload.php'))
+                {
+                    require_once PARENT_DIRECTORY.'/library/packages/autoload.php';
                 }
 
                 // calls the controller constructor
@@ -104,7 +118,7 @@ class RouteOrganizer
 
             // no need to run (check) anymore routes
             // echo'<pre>'; print_r(get_defined_vars()); exit;
-            exit;
+            ## exit;
         }
         else
         {

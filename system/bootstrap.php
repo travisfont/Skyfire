@@ -45,7 +45,7 @@ if (class_exists('cfg'))
         if (isset($errors[404][$_SERVER['REQUEST_METHOD']]->controller))
         {
             // calls the controller set for 404 within errors.ini
-            RouteOrganizer::CallController($errors[404][$_SERVER['REQUEST_METHOD']]->controller, FALSE, 404);
+            RouteOrganizer::CallController($errors[404][$_SERVER['REQUEST_METHOD']]->controller, 404);
         }
         exit;
     }
