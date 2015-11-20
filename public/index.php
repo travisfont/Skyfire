@@ -16,7 +16,7 @@ else
     spl_autoload_register(function ($class)
     {
         // only allows a class string through if the the first occurrence contains Whoops
-        if (strstr($class, '\\', TRUE) == 'Whoops');
+        if (strstr($class, '\\', TRUE) == 'Whoops')
         {
             $class = str_replace('\\', '/', $class);
             if (is_readable(WHOOPS_DIRECTORY.$class.'.php'))
