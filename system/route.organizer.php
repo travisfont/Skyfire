@@ -19,7 +19,7 @@ class RouteOrganizer
                 {
                     self::CallController($route['CONTROLLER'], 200, $route['MODELS']);
                     # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
-                    break; // end foreach loop
+                    return TRUE; // end foreach loop
                 }
                 // if (str_replace('/', '', ltrim(HOST_PATH, BASE_DIRECTORY)) === '')
 
@@ -42,7 +42,7 @@ class RouteOrganizer
                     # if (isset($route['MODELS']))
                     self::CallController($route['CONTROLLER'], 200, $route['MODELS']);
                     # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
-                    break; // end foreach loop
+                    return TRUE; // end foreach loop
                 }
 
                 // finds all url variables that are like {string}
@@ -55,6 +55,8 @@ class RouteOrganizer
                 // process CRUD controller by specific method
             }
         }
+
+        return FALSE;
     }
 
     public static function CallController($controller_name, $response_code = 200, $controller_models = NULL)
@@ -108,7 +110,7 @@ class RouteOrganizer
             }
             else
             {
-                die ('Controller class <strong>'.$object.'</strong> does not exist. Cannot continue.');
+                trigger_error('Controller class <strong>'.$object.'</strong> does not exist. Cannot continue.', E_USER_ERROR);
             }
             //$class  = new $object;echo '<pre>';
 
@@ -122,7 +124,7 @@ class RouteOrganizer
         }
         else
         {
-            die ('Controller <strong>'.$controller.'</strong> folder and/or index file doesn\'t exist!');
+            trigger_error('Controller <strong>'.$controller.'</strong> folder and/or index file doesn\'t exist!', E_USER_ERROR);
         }
     }
 }

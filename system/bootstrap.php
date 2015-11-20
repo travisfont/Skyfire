@@ -38,23 +38,23 @@ if (class_exists('cfg'))
         //var_dump($path); // $_SERVER['REQUEST_URI']
         //var_dump(ltrim($path, $_SERVER['HTTP_HOST'].'/'));
 
-        // Processing the routes with the current request
-        RouteOrganizer::Process($routes, $path, $parameters);
-
-        // the process completed and no active route was reached (defaukt behavior returns a 404 error
-        if (isset($errors[404][$_SERVER['REQUEST_METHOD']]->controller))
+        // Processing the routes with the current request (returns false if no routes were reached)
+        if (!RouteOrganizer::Process($routes, $path, $parameters))
         {
-            // calls the controller set for 404 within errors.ini
-            RouteOrganizer::CallController($errors[404][$_SERVER['REQUEST_METHOD']]->controller, 404);
+            // the process completed and no active route was reached (defaukt behavior returns a 404 error)
+            if (isset($errors[404][$_SERVER['REQUEST_METHOD']]->controller))
+            {
+                // calls the controller set for 404 within errors.ini
+                RouteOrganizer::CallController($errors[404][$_SERVER['REQUEST_METHOD']]->controller, 404);
+            }
         }
-        exit;
     }
     else
     {
-        die ('BASE_DIRECTORY path needs to be defined.');
+        trigger_error('BASE_DIRECTORY path needs to be defined.', E_USER_ERROR);
     }
 }
 else
 {
-    die ('Configuration library cannot be found and loaded. Cannot continue.');
+    trigger_error('Configuration library cannot be found and loaded. Cannot continue.', E_USER_ERROR);
 }
