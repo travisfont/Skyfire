@@ -17,7 +17,7 @@ class RouteOrganizer
                 // searching for '/' main route first
                 if ($path === '' && ltrim(HOST_PATH, BASE_DIRECTORY))
                 {
-                    self::CallController($route['CONTROLLER'], 200, $route['MODELS']);
+                    self::CallController($route['CONTROLLER'], 200, [], $route['MODELS']);
                     # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
                     return TRUE; // end foreach loop
                 }
@@ -40,7 +40,7 @@ class RouteOrganizer
                     #exit;
 
                     # if (isset($route['MODELS']))
-                    self::CallController($route['CONTROLLER'], 200, $route['MODELS']);
+                    self::CallController($route['CONTROLLER'], 200, self::parseParameters($route['REQUEST'], $live_url_parameters), $route['MODELS']);
                     # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
                     return TRUE; // end foreach loop
                 }
@@ -59,7 +59,7 @@ class RouteOrganizer
         return FALSE;
     }
 
-    public static function CallController($controller_name, $response_code = 200, $controller_models = NULL)
+    public static function CallController($controller_name, $response_code = 200, $parameters = array(), $controller_models = NULL)
     {
         // cleans the request controller string and removes anything that isn't alphanumeric
         $controller = preg_replace('#\W#', '', strtolower($controller_name));
@@ -106,7 +106,7 @@ class RouteOrganizer
                 http_response_code($response_code);
                 $_SERVER['REDIRECT_STATUS'] = $response_code;
 
-                new $object;
+                new $object((object) $parameters);
             }
             else
             {
@@ -126,5 +126,25 @@ class RouteOrganizer
         {
             trigger_error('Controller <strong>'.$controller.'</strong> folder and/or index file doesn\'t exist!', E_USER_ERROR);
         }
+    }
+
+    public static function parseParameters($route_request, $live_url_parameters)
+    {
+        $parameters = array();
+        $key        = 0;
+
+        foreach (explode('/', $route_request) as $request)
+        {
+            // looks for route request that begin with { and end with {
+            // TODO: regex on this condition here might be better
+            if ($request{0} == '{' && substr($request, -1) == '}')
+            {
+                // allows only characters A to a (lower and upper) and 1 to 2
+                $parameters[preg_replace('/[^A-Za-z0-9]/', '', $request)] = preg_replace('/[^A-Za-z0-9]/', '', $live_url_parameters[$key++]);
+            }
+        }
+
+        // return the buildt array from the route request
+        return $parameters;
     }
 }

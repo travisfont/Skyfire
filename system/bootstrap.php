@@ -30,7 +30,6 @@ if (class_exists('cfg'))
         // registering the users request parameters (url path)
         $path = trim(str_replace(strtolower(BASE_DIRECTORY).'/', '', HOST_PATH));
 
-
         #var_dump(HOST_PATH);
         #var_dump($_SERVER['REQUEST_URI']);
         //var_dump(BASE_DIRECTORY); // $_SERVER['REQUEST_URI']
