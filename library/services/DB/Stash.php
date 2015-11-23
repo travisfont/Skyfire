@@ -2,18 +2,27 @@
 
 class Stash
 {
+    public static $stash_dir;
+
     public static function getQuery($query_name, $directory)
     {
-        $file = PARENT_DIRECTORY.'/queries/'.$directory.'/'.$query_name.'.sql';
-        //$file = $_SERVER['DOCUMENT_ROOT'].APP_DIR.'queries/'.$directory.'/'.$query_name.'.sql';
-
-        if (file_exists($file))
+        if (isset(self::$stash_dir))
         {
-            return trim(file_get_contents($file));
+            $file = self::$stash_dir.'/queries/'.$directory.'/'.$query_name.'.sql';
+
+            if (file_exists($file))
+            {
+                return trim(file_get_contents($file));
+            }
+            else
+            {
+                throw new Exception($file.' doesn\'t exist.');
+            }
         }
         else
         {
-            die ($file.' doesn\'t exist.');
+            throw new Exception('DB::define(\'stash_dir\', \'\') is not defined. Stash Query folder cannot be located.');
         }
+
     }
 }
