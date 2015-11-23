@@ -3,9 +3,8 @@ composer.phar
 composer.lock
 
 # Skyfire Specific #
-#######################
+####################
 /library/packages/
-!/library/packages/filp/whoops/
 
 # Packages #
 ############
