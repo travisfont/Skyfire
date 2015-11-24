@@ -1,7 +1,7 @@
 <?php
 
 // Exit early with a warning if running an incompatible PHP version to avoid fatal errors (at least PHP 5.5).
-if (version_compare(PHP_VERSION, '5.4.0') < 0)
+if (version_compare(PHP_VERSION, '5.4.9') < 0)
 {
     trigger_error('Your PHP installation of version '.PHP_VERSION.' is too old and unsupported by Skyfire.', E_USER_ERROR);
 }
