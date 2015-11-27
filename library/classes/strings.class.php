@@ -190,4 +190,9 @@ class Strings extends Controller
     {
         return emoji($text);
     }
+
+    protected function remove_from_string($search, $string)
+    {
+        return remove_from_string($search, $string);
+    }
 }
