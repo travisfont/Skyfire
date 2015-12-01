@@ -10,18 +10,6 @@ class Misc extends Controller
         return color_abbr($abbr);
     }
 
-    // getAddressCoordinates
-    protected function get_address_coordinates($address)
-    {
-        return get_address_coordinates($address);
-    }
-
-    // getClientIp
-    protected function get_client_ip()
-    {
-        return get_client_ip();
-    }
-
     // getUserDefinedConstants
     protected function get_user_defined_constants()
     {
@@ -50,12 +38,6 @@ class Misc extends Controller
     protected function scale_image_to_width($filename, $target_width)
     {
         return scale_image_to_width($filename, $target_width);
-    }
-
-    // isSsl
-    protected function is_ssl()
-    {
-        return is_ssl();
     }
 
     // getClientLang
