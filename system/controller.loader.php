@@ -43,9 +43,16 @@ class DisplayWith
         }
     }
 
-    public function with(array $data)
+    public function with($data)
     {
-        return new ResponseStatusCode;
+        if (is_array($data) || is_object($data))
+        {
+            return new ResponseStatusCode;
+        }
+        else
+        {
+            trigger_error('Argument 1 passed to with() must be either an array or object type', E_USER_ERROR);
+        }
     }
 }
 
