@@ -7,9 +7,10 @@ class ResponseStatusCode
     public $view_name;
     public $data = array(); // pass along through the constructors each time
 
-    public function __construct($view_name = FALSE)
+    public function __construct($view_name = FALSE, array $data = array())
     {
         $this->view_name = $view_name;
+        $this->data = $data;
     }
 
     public function statusCode($code)
@@ -28,26 +29,77 @@ class ResponseStatusCode
     }
 }
 
+class lock
+{
+    private $key = FALSE;
+    private $code = 200;
+    public function __construct($view_name = FALSE, array $data = array())
+    {
+        $this->view_name = $view_name;
+        $this->data = $data;
+    }
+
+    public function statusCode($code = 200)
+    {
+        // if a view exist - load template
+        if ($this->view_name)
+        {
+            $this->key = TRUE;
+
+            $this->code = $code;
+            $view = new ResponseStatusCode($this->view_name, $this->data);
+
+            return $view->statusCode($code);
+        }
+    }
+
+    public function __destruct()
+    {
+        if ($this->key === FALSE)
+        {
+            $view = new ResponseStatusCode($this->view_name, $this->data);
+
+            return $view->statusCode($this->code);
+        }
+    }
+}
+
 class DisplayWith
 {
-    //public $view_name;
+    private $view_name;
+    private $data;
+
+    private $key = FALSE;
+    private $code = 200;
 
     public function __construct($view_name = FALSE)
     {
-        // if a view exist - load template
-        if ($view_name)
-        {
-            $view = new ResponseStatusCode($view_name);
+        $this->view_name = $view_name;
+    }
 
-            return $view->statusCode(200);
+    public function __destruct()
+    {
+        if ($this->key === FALSE)
+        {
+            $view = new ResponseStatusCode($this->view_name);
+
+            return $view->statusCode($this->code);
         }
+    }
+
+    public function statusCode()
+    {
+
     }
 
     public function with($data)
     {
         if (is_array($data) || is_object($data))
         {
-            return new ResponseStatusCode;
+            $this->key = TRUE;
+            $this->data = (array) $data;
+
+            return new lock($this->view_name, $this->data);
         }
         else
         {
