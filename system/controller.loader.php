@@ -4,8 +4,8 @@
 
 class ResponseStatusCode
 {
-    public $view_name;
-    public $data = array(); // pass along through the constructors each time
+    private $view_name;
+    private $data = array(); // pass along through the constructors each time
 
     public function __construct($view_name = FALSE, array $data = array())
     {
@@ -33,6 +33,10 @@ class lock
 {
     private $key = FALSE;
     private $code = 200;
+
+    private $view_name;
+    private $data;
+
     public function __construct($view_name = FALSE, array $data = array())
     {
         $this->view_name = $view_name;
