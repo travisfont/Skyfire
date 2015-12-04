@@ -10,8 +10,8 @@
  
 function days_diff($date1, $date2 = FALSE, $accuracy_day = FALSE)
 {
-    $date1 = is_int($date1)    ? $date1 : strtotime($date1);
-    $date2 = ($date2 == false) ? time() : (is_int($date2) ? $date2 : strtotime($date2));
+    $date1 = is_int($date1)     ? $date1 : strtotime($date1);
+    $date2 = ($date2 === FALSE) ? time() : (is_int($date2) ? $date2 : strtotime($date2));
 
     if ($accuracy_day)
     {

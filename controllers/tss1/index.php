@@ -23,13 +23,8 @@ class Tss1 extends Controller
         );
 
         ExecuteTime::end();
-        print_r(ExecuteTime::display());
+        echo ExecuteTime::display();
 
-        /*
-        Response::api('google')->with($parameters);
-        Response::view('contact')->with($parameters);
-        Response::json()->with($parameters);
-        Response::xml()->with($parameters);
-        */
+
     }
 }
