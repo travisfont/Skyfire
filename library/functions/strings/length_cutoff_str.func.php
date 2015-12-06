@@ -12,5 +12,3 @@ function length_cutoff_str($string, $limit, $subtext = '...')
 
 // or (for custom substitution text
 #echo str_length_cutoff('Michelle Lee Hammontree-Garcia', 26, '..');
-
-?>

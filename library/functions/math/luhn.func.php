@@ -34,5 +34,3 @@ function luhn($number)
 	// If the checksum is a multiple of 10, the number is valid
 	return ($checksum % 10 === 0);
 }
-	
-?>

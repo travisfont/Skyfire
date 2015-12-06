@@ -6,6 +6,7 @@ function get_page_title($url)
 	if (strlen($str) > 0)
 	{
 		preg_match("/\<title\>(.*)\<\/title\>/i", $str, $title);
+
 		return $title[1];
 	}
 	else

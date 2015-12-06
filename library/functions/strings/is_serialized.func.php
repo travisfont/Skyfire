@@ -2,7 +2,7 @@
 
 function is_serialized($string)
 {
-    return ($string == serialize(false) || @unserialize($string) !== false);
+    return ($string == serialize(FALSE) || @unserialize($string) !== FALSE);
 }
 
 /*

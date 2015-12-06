@@ -39,7 +39,7 @@ function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $c
 					// do nothing
 				// if tag is a closing tag
 				}
-                else if (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings))
+                elseif (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings))
                 {
 					// delete tag from $open_tags list
 					$pos = array_search($tag_matchings[1], $open_tags);
@@ -49,7 +49,7 @@ function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $c
                         unset($open_tags[$pos]);
 					}
 				} // if tag is an opening tag
-                else if (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings))
+                elseif (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings))
                 {
 					// add tag to the beginning of $open_tags list
 					array_unshift($open_tags, strtolower($tag_matchings[1]));
@@ -97,7 +97,7 @@ function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $c
 			}
             
 			// if the maximum length is reached, get off the loop
-			if($total_length >= $length)
+			if ($total_length >= $length)
             {
 				break;
 			}

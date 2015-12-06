@@ -9,4 +9,3 @@ function replace_p_to_br($string)
     
     return $string;
 }
-

@@ -128,7 +128,7 @@ function generate_creditcard_test_number($type = 'visa', $total = 1)
 		$result[] = $cc_number;
     }
 	
-	if (count($results) > 0)
+	if (count($result) > 0)
 	{
 		return $result;
 	}

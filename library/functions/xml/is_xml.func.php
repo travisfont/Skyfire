@@ -8,7 +8,7 @@ function is_xml(&$response)
     }
 
     libxml_clear_errors();
-    libxml_use_internal_errors(true);
+    libxml_use_internal_errors(TRUE);
 
     $doc = new DOMDocument('1.0', 'utf-8');
     $doc->loadXML($response);
@@ -19,12 +19,9 @@ function is_xml(&$response)
     {
         case (strlen($doc->saveXML()) < 100):
             return FALSE;
-            break;
         case (empty($errors)):
             return TRUE;
-            break;
         default:
             return FALSE;
-            break;
     }
 }

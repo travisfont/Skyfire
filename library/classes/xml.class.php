@@ -39,5 +39,4 @@ class XML extends Controller
     {
         return is_atom($feedxml);
     }
-
 }

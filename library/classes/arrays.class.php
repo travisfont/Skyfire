@@ -63,5 +63,4 @@ class Arrays extends Controller
     {
         return trim_explode($delimiter, $string, $trim, $limit);
     }
-
 }

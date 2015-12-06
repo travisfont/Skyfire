@@ -15,5 +15,3 @@ function clean_str($string)
 
 	return $string;
 }
-
-?>

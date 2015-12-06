@@ -1,6 +1,5 @@
 <?php
 
-
 // because i hate create left / right div table from scratch
 
 function create_div_table($html, $width, $style = FALSE)

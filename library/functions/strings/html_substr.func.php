@@ -42,7 +42,7 @@ function html_substr($text, $length, $ending = '...', $exact = TRUE, $consider_h
                     // do nothing
                     // if tag is a closing tag (f.e.)
                 }
-                else if (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings))
+                elseif (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings))
                 {
                     // delete tag from $open_tags list
                     $pos = array_search($tag_matchings[1], $open_tags);
@@ -52,7 +52,7 @@ function html_substr($text, $length, $ending = '...', $exact = TRUE, $consider_h
                         unset($open_tags[$pos]);
                     }
                 } // if tag is an opening tag (f.e. )
-                else if (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings))
+                elseif (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings))
                 {
                     // add tag to the beginning of $open_tags list
                     array_unshift($open_tags, strtolower($tag_matchings[1]));

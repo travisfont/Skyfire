@@ -3,6 +3,7 @@
 class SMS
 {
     public static $error = FALSE;
+
     public static function send($msg, $number, $provider)
     {
         // sendmail

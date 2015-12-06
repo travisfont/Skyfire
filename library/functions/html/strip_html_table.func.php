@@ -8,4 +8,3 @@ function strip_html_table($string)
 
     return preg_replace($pattern, $replace, $string);
 }
-

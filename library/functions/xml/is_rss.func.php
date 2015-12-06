@@ -2,14 +2,21 @@
 
 function is_rss($feedxml)
 {
-    @$feed = new SimpleXMLElement($feedxml); 
-
-    if ($feed->channel->item)
+    try
     {
-        return TRUE;
+        $feed = new SimpleXMLElement($feedxml);
+
+        if ($feed->channel->item)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
-    else
+    catch (Exception $e)
     {
         return FALSE;
-    } 
-} 
+    }
+}

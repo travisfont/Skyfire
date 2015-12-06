@@ -1,15 +1,22 @@
 <?php
 
 function is_atom($feedxml)
-{ 
-    @$feed = new SimpleXMLElement($feedxml); 
-
-    if ($feed->entry)
+{
+    try
     {
-        return TRUE;
+        $feed = new SimpleXMLElement($feedxml);
+
+        if ($feed->entry)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
-    else
+    catch (Exception $e)
     {
         return FALSE;
-    } 
-} 
+    }
+}
