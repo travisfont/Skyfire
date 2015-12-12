@@ -195,4 +195,14 @@ class Strings extends Controller
     {
         return remove_from_string($search, $string);
     }
+
+    protected function pad_left($string, $key)
+    {
+        return pad_left($string, $key);
+    }
+
+    protected function pad_right($string, $key)
+    {
+        return pad_right($string, $key);
+    }
 }
