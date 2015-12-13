@@ -43,4 +43,9 @@ class HTML extends Controller
     {
         return strip_html_table($string);
     }
+
+    protected function compress_html($content)
+    {
+        return compress_html($content);
+    }
 }
