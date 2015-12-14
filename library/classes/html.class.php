@@ -48,4 +48,19 @@ class HTML extends Controller
     {
         return compress_html($content);
     }
+
+    protected function minify_html($content)
+    {
+        return minify_html($content);
+    }
+
+    protected function minify_css($css)
+    {
+        return minify_css($css);
+    }
+
+    protected function minify_js($javascript)
+    {
+        return minify_js($javascript);
+    }
 }
