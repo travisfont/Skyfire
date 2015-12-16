@@ -146,4 +146,9 @@ class Debug extends Controller
         return get_define_constants($type);
     }
 
+    // getUserDefinedConstants
+    protected function get_user_defined_constants()
+    {
+        return get_user_defined_constants();
+    }
 }
