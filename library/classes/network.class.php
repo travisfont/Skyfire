@@ -26,4 +26,10 @@ class Network extends Controller
     {
         return whois($domain, $registrar);
     }
+
+    // getClientLang
+    protected function get_client_lang()
+    {
+        return get_client_lang();
+    }
 }
