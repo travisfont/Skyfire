@@ -205,4 +205,10 @@ class Strings extends Controller
     {
         return pad_right($string, $key);
     }
+
+    // colorAabbr
+    protected function color_abbr($abbr)
+    {
+        return color_abbr($abbr);
+    }
 }
