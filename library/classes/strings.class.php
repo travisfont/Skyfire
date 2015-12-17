@@ -211,4 +211,14 @@ class Strings extends Controller
     {
         return color_abbr($abbr);
     }
+
+    protected function decamelize($string)
+    {
+        return decamelize($string);
+    }
+
+    protected function camelize($string)
+    {
+        return camelize($string);
+    }
 }
