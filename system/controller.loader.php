@@ -107,7 +107,7 @@ class DisplayWith
         }
         else
         {
-            trigger_error('Argument 1 passed to with() must be either an array or object type', E_USER_ERROR);
+            return !trigger_error('Argument 1 passed to with() must be either an array or object type', E_USER_ERROR);
         }
     }
 }
