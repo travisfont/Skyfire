@@ -2,9 +2,48 @@
 
 class extender
 {
+    private $class;
+    private $function;
+
+    public function __construct($class)
+    {
+        $this->class    = $class;
+        $this->function = NULL;
+    }
+
     public function func($function_name)
     {
-        // load the seperate function and unset the class object
+        $this->function = $function_name;
+
+        // load the seperate function
+        if (is_file(PARENT_DIRECTORY.'/library/functions/'.strtolower($this->class).'/'.$function_name.'.func.php'))
+        {
+            if (!function_exists($function_name))
+            {
+                require_once PARENT_DIRECTORY.'/library/functions/'.strtolower($this->class).'/'.$function_name.'.func.php';
+            }
+        }
+    }
+
+    public function __destruct()
+    {
+        // a seperate function was set and was never unset
+        if (empty($this->function))
+        {
+            //$class = $this->class;
+            spl_autoload_register(function ($class)
+            {
+                // grouped alias of classes (special class names within a class)
+                if ($class == 'ExecuteTime') $class = 'Debug';
+
+                //$filename = PARENT_DIRECTORY.'/library/'.strtolower($class).'.class.php';
+                $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
+                if (is_readable($filename))
+                {
+                    require_once $filename;
+                }
+            }, TRUE, TRUE);
+        }
     }
 }
 
@@ -30,9 +69,12 @@ class load
 
     public static function library($class)
     {
-
+        /*  // HAD THIS ON BEFORE
         spl_autoload_register(function ($class)
         {
+            // grouped alias of classes (special class names within a class)
+            if ($class == 'ExecuteTime') $class = 'Debug';
+
             //$filename = PARENT_DIRECTORY.'/library/'.strtolower($class).'.class.php';
             $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
             if (is_readable($filename))
@@ -40,9 +82,9 @@ class load
                 require_once $filename;
             }
         }, TRUE, TRUE);
-        //});
+        */
 
-        return new extender();
+        return new extender($class);
     }
 
     // scan for a folder name and searches for skyfire.index.php
