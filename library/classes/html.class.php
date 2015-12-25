@@ -63,4 +63,29 @@ class HTML extends Controller
     {
         return minify_js($javascript);
     }
+
+    protected function is_input($html, $encoding = 'UTF-8')
+    {
+        return is_input($html, $encoding);
+    }
+
+    protected function is_select($html, $encoding = 'UTF-8')
+    {
+        return is_select($html, $encoding);
+    }
+
+    protected function get_element_all_attributes($tag_name, $html, $encoding = 'UTF-8')
+    {
+        return get_element_all_attributes($tag_name, $html, $encoding);
+    }
+
+    protected function parse_selector_values_by_name($name, $selector_html, $encoding = 'UTF-8')
+    {
+        return parse_selector_values_by_name($name, $selector_html, $encoding);
+    }
+
+    protected function parse_selector_values($selector_html, $encoding = 'UTF-8')
+    {
+        return parse_selector_values($selector_html, $encoding);
+    }
 }
