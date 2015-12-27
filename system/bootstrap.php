@@ -37,6 +37,11 @@ if (class_exists('cfg'))
         //var_dump($path); // $_SERVER['REQUEST_URI']
         //var_dump(ltrim($path, $_SERVER['HTTP_HOST'].'/'));
 
+        #var_dump($routes);
+        #var_dump($path);
+        #var_dump($parameters);
+        #var_dump('#####################################');
+
         // Processing the routes with the current request (returns false if no routes were reached)
         if (!RouteOrganizer::Process($routes, $path, $parameters))
         {

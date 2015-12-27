@@ -255,6 +255,7 @@ class Controller extends Display
 {
     //public $request;
     protected $DB;
+
     public static function __callStatic($function, $arguments)
     {
         $class = get_called_class();
@@ -275,7 +276,7 @@ class Controller extends Display
             }
             else
             {
-                // might not be supported in PHP 5.3
+                // requires PHP 5.4+
                 return $instance->$function();
             }
         }
