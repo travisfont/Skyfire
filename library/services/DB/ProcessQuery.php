@@ -59,9 +59,9 @@ class ProcessQuery extends DB_Connector
         try
         {
             // checking and establish a live db connector
-            if (empty(self::$db))
+            if (empty($this->dbh))
             {
-                self::$db = self::connect();
+                self::$db = $this->connect();
             }
 
             if ($this->sql_type == 'select')
@@ -97,7 +97,7 @@ class ProcessQuery extends DB_Connector
         }
         catch (PDOException $exception)
         {
-            echo self::PDOException($exception, self::DISPLAY_TEXT);
+            echo $this->PDOException($exception, self::DISPLAY_TEXT);
         }
     }
 
@@ -113,9 +113,9 @@ class ProcessQuery extends DB_Connector
         try
         {
             // checking and establish a live db connector
-            if (empty(self::$db))
+            if (empty($this->dbh))
             {
-                self::$db = self::connect();
+                self::$db = $this->connect();
             }
 
             $stmt = self::$db->prepare(Stash::getQuery($this->sql_file, $this->sql_type), array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));

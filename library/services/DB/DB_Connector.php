@@ -15,7 +15,9 @@ abstract class DB_Connector
     protected static $db;
       private static $charset = 'utf8';
 
-    protected static function PDOException(PDOException $exception, $display_type)
+    protected $dbh;
+
+    protected function PDOException(PDOException $exception, $display_type)
     {
         switch ($display_type)
         {
@@ -30,11 +32,11 @@ abstract class DB_Connector
         return FALSE;
     }
 
-    protected static function connect()
+    protected function connect()
     {
         try
         {
-            $dbh = new PDO('mysql:host='.self::$DATABASE_HOST.';dbname='.self::$DATABASE_NAME.';charset='.self::$charset, self::$DATABASE_USER, self::$DATABASE_PASSWORD);
+            $this->dbh = new PDO('mysql:host='.self::$DATABASE_HOST.';dbname='.self::$DATABASE_NAME.';charset='.self::$charset, self::$DATABASE_USER, self::$DATABASE_PASSWORD);
             //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $exception)
@@ -44,7 +46,7 @@ abstract class DB_Connector
             return FALSE;
         }
 
-        return $dbh;
+        return $this->dbh;
     }
 
     public static function define($name, $value)

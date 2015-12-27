@@ -20,9 +20,9 @@ class RawQuery extends DB_Connector
         try
         {
             // checking and establish a live db connector
-            if (empty(self::$db))
+            if (empty($this->dbh))
             {
-                self::$db = self::connect();
+                self::$db = $this->connect();
             }
 
             $stmt = self::$db->prepare($this->statement, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
@@ -46,7 +46,7 @@ class RawQuery extends DB_Connector
         }
         catch (PDOException $exception)
         {
-            echo self::PDOException($exception, self::DISPLAY_TEXT);
+            echo $this->PDOException($exception, self::DISPLAY_TEXT);
         }
     }
 }
