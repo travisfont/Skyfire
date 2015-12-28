@@ -73,4 +73,14 @@ class Math extends Controller
     {
         return absint($data);
     }
+
+    protected function is_even($number)
+    {
+        return is_even($number);
+    }
+
+    protected function is_odd($number)
+    {
+        return is_odd($number);
+    }
 }
