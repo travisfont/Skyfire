@@ -63,4 +63,9 @@ class Arrays extends Controller
     {
         return trim_explode($delimiter, $string, $trim, $limit);
     }
+
+    protected function array_depth(array $array)
+    {
+        return array_depth($array);
+    }
 }
