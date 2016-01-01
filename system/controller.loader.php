@@ -251,10 +251,61 @@ abstract class Display
 
 }
 
+class Functional_Returner
+{
+}
+
+class Functional_Parameters
+{
+    private $parameters;
+    private $function_name;
+
+    public function __construct(array $parameters, $function_name)
+    {
+        $this->parameters    = $parameters;
+        $this->function_name = $function_name;
+    }
+
+    public function with()
+    {
+        // http://php.net/manual/en/function.func-get-args.php
+    }
+}
+
+class Functional_Caller
+{
+    private $parameters;
+
+    public function __construct(array $parameters)
+    {
+        $this->parameters = $parameters;
+    }
+
+    public function call($function_name)
+    {
+        /*
+        var_dump($this->function_value); exit;
+        switch ($this->parameters)
+        {
+            case 'int8':
+        }
+        return $this->function_value;
+        */
+
+        return new Functional_Parameters($this->parameters, $function_name);
+    }
+}
+
 class Controller extends Display
 {
     //public $request;
     protected $DB;
+
+    // internal datatype functional call
+    protected static function parameters(array $parameters)
+    {
+        return new Functional_Caller($parameters);
+    }
 
     public static function __callStatic($function, $arguments)
     {
