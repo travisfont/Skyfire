@@ -4,38 +4,23 @@
 
 class Strings extends Controller
 {
-    /*
-    function __construct()
-    {
-        return self::defineInterface
-        (
-            'generate_password' => array
-            (
-                'return' => DT::STRING,
-                'param'  => array
-                (
-                    'length'   => DT::UTINYINT,
-                    'strength' => DT::UTINYINT
-                )
-            )
-        );
-    }
-    */
-
     // generatePassword
     protected function generate_password($length = 9, $strength = 4)
     {
-        /*
-        return self::param(array
+        return (string) self::parameters(array
         (
-            'length'   => DT::UTINYINT,
-            'strength' => DT::UTINYINT
-        ),
-        generate_password($length, $strength))
-        ->return(DT::STRING);
-        */
+            'length'   => DT::INT8,
+            'strength' => DT::INT8
+        ))->call(__FUNCTION__)
+            ->with($length, $strength);
+
+        /*
+         ))->call(__FUNCTION__)
+          ->with($length, $strength)
+          ->then_return(DT::STRING);
+         */
+
         // review: http://stackoverflow.com/questions/17455043/how-to-get-functions-parameters-names-in-php
-        return (string) generate_password($length, $strength);
     }
 
     // cleanStr
