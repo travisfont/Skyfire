@@ -28,7 +28,7 @@ class DT
 // Reference
 //https://en.wikipedia.org/wiki/Integer_(computer_science)
 
-class SF extends DT
+class SF
 {
     const GET    = 'GET';
     const POST   = 'POST';
