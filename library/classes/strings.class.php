@@ -11,16 +11,10 @@ class Strings extends Controller
         (
             'length'   => DT::INT8,
             'strength' => DT::INT8
-        ))->call(__FUNCTION__)
-            ->with($length, $strength);
-
-        /*
-         ))->call(__FUNCTION__)
-          ->with($length, $strength)
-          ->then_return(DT::STRING);
-         */
-
-        // review: http://stackoverflow.com/questions/17455043/how-to-get-functions-parameters-names-in-php
+        ))
+        ->call(__FUNCTION__)
+        ->with($length, $strength)
+        ->then_return(DT::STRING);
     }
 
     // cleanStr

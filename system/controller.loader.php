@@ -253,6 +253,26 @@ abstract class Display
 
 class Functional_Returner
 {
+    private $parameters;
+    private $arguments;
+    private $function_name;
+
+    public function __construct(array $parameters, array $arguments, $function_name)
+    {
+        $this->parameters    = $parameters;
+        $this->arguments     = $arguments;
+        $this->function_name = $function_name;
+    }
+
+    public function then_return($datatype)
+    {
+        var_dump($this->parameters);
+        var_dump($this->arguments);
+        var_dump($this->function_name);
+        var_dump($datatype);
+
+        return call_user_func_array($this->function_name, $this->arguments);
+    }
 }
 
 class Functional_Parameters
@@ -268,6 +288,11 @@ class Functional_Parameters
 
     public function with()
     {
+        // retrieves the argement values
+        $arguments = func_get_args();
+
+        return new Functional_Returner($this->parameters, $arguments, $this->function_name);
+
         // http://php.net/manual/en/function.func-get-args.php
     }
 }
