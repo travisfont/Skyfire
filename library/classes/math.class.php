@@ -83,4 +83,14 @@ class Math extends Controller
     {
         return is_odd($number);
     }
+
+    protected function int_min($datatype)
+    {
+        return int_min($datatype);
+    }
+
+    protected function int_max($datatype)
+    {
+        return int_max($datatype);
+    }
 }
