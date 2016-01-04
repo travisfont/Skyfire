@@ -2,21 +2,21 @@
 
 class DT
 {
-    const INT8     = 'int8';
-    const TINYINT  = 'int8';
-    const INT16    = 'int16';
-    const SMALLINT = 'int16';
-    const INT32    = 'int32';
-    const INT      = 'int32';
-    const INT64    = 'int64';
-    const LONGINT  = 'int64';
-    const BIGINT   = 'int64';
+    const INT8     = 'int8';  // -128 to 127
+    const TINYINT  = 'int8';  // -128 to 127
+    const INT16    = 'int16'; // -32,768 to 32,767
+    const SMALLINT = 'int16'; // -32,768 to 32,767
+    const INT32    = 'int32'; // -8,388,608 to 8,388,607
+    const INT      = 'int32'; // -8,388,608 to 8,388,607
+    const INT64    = 'int64'; // -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+    const LONGINT  = 'int64'; // -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+    const BIGINT   = 'int64'; // -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
 
-    const UINT8    = 'uint8';
-    const UTINYINT = 'uint8';
-    const UINT16   = 'uint16';
-    const UINT32   = 'uint32';
-    const UINT64   = 'uint64';
+    const UINT8    = 'uint8';  // 0 to 255
+    const UTINYINT = 'uint8';  // 0 to 255
+    const UINT16   = 'uint16'; // 0 to 65,535
+    const UINT32   = 'uint32'; // 0 to 16,777,215
+    const UINT64   = 'uint64'; // 0 to 18,446,744,073,709,551,615
 
     // const USHORT   = 'ushort';
     const STRING   = 'string';
