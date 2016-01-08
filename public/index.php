@@ -42,14 +42,15 @@ else
 
     // sysem files (all require to load)
     foreach (array
-             (
-                 'config.autoload',
-                 'global.constants',
-                 'route.organizer',
-                 'library.loader',
-                 'controller.loader',
-                 'bootstrap'
-             ) as $file)
+    (
+        'config.autoload',
+        'global.constants',
+        'route.organizer',
+        'library.loader',
+        'strict.type',
+        'controller.loader',
+        'bootstrap'
+    ) as $file)
     {
         require_once PARENT_DIRECTORY.'/system/'.$file.'.php';
     }
