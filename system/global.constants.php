@@ -12,14 +12,21 @@ class DT
     const LONGINT  = 'int64'; // -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
     const BIGINT   = 'int64'; // -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
 
-    const UINT8    = 'uint8';  // 0 to 255
-    const UTINYINT = 'uint8';  // 0 to 255
-    const UINT16   = 'uint16'; // 0 to 65,535
-    const UINT32   = 'uint32'; // 0 to 16,777,215
-    const UINT64   = 'uint64'; // 0 to 18,446,744,073,709,551,615
+    const UINT8     = 'uint8';  // 0 to 255
+    const UTINYINT  = 'uint8';  // 0 to 255
+    const UINT16    = 'uint16'; // 0 to 65,535
+    const USHORT    = 'uint16'; // 0 to 65,535
+    const USMALLINT = 'uint16'; // 0 to 65,535
+    const UINT      = 'uint32'; // 0 to 16,777,215
+    const UINT32    = 'uint32'; // 0 to 16,777,215
+    const UINT64    = 'uint64'; // 0 to 18,446,744,073,709,551,615
+    const ULONG     = 'uint64'; // 0 to 18,446,744,073,709,551,615
+    const UBIGINT   = 'uint64'; // 0 to 18,446,744,073,709,551,615
 
-    // const USHORT   = 'ushort';
-    const STRING   = 'string';
+    const STRING     = 'string';     // 255
+    const TEXT       = 'text';       // 65,535
+    const MEDIUMTEXT = 'mediumtext'; // 16,777,215
+    const LONGTEXT   = 'longtext';   // 4,294,967,295
 }
 
 // USE MATLAB REFERENCE:
