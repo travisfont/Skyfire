@@ -27,6 +27,8 @@ class DT
     const TEXT       = 'text';       // 65,535
     const MEDIUMTEXT = 'mediumtext'; // 16,777,215
     const LONGTEXT   = 'longtext';   // 4,294,967,295
+
+    const BOOL = 'bool';   // true or flase
 }
 
 // USE MATLAB REFERENCE:
