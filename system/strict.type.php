@@ -13,7 +13,7 @@ class Functional_Returner
         $this->function_name = $function_name;
     }
 
-    public function then_return($return_datatype)
+    public function returning($return_datatype)
     {
         /*
         var_dump($this->parameters);
