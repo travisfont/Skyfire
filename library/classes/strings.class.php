@@ -9,58 +9,102 @@ class Strings extends Controller
     {
         return (string) self::parameters(array
         (
-            'length'   => DT::INT8,
-            'strength' => DT::INT8
+            'length'   => DT::UINT8,
+            'strength' => DT::UINT8
         ))
         ->call(__FUNCTION__)
         ->with($length, $strength)
-        ->then_return(DT::STRING);
+        ->returning(DT::STRING);
     }
 
     // cleanStr
     protected function clean_str($string)
     {
-        return clean_str($string);
+        return (string) self::parameters(array
+        (
+            'string' => DT::TEXT
+        ))
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::TEXT);
     }
 
     // hexToRgb
     protected function hex_to_rgb($hex)
     {
-        return hex_to_rgb($hex);
+        return (string) self::parameters(array
+        (
+            'hex' => DT::STRING
+        ))
+        ->call(__FUNCTION__)
+        ->with($hex)
+        ->returning(DT::STRING);
     }
 
     // isHex
     protected function is_hex($hex)
     {
-        return is_hex($hex);
+        return (bool) self::parameters(array
+        (
+            'hex' => DT::STRING
+        ))
+        ->call(__FUNCTION__)
+        ->with($hex)
+        ->returning(DT::BOOL);
     }
 
     protected function is_utf8($str)
     {
-        return is_utf8($str);
+        return (bool) self::parameters(array
+        (
+            'str' => DT::STRING
+        ))
+        ->call(__FUNCTION__)
+        ->with($str)
+        ->returning(DT::BOOL);
     }
 
     protected function is_valid_url($url, $absolute = FALSE)
     {
-        return is_valid_url($url, $absolute);
+        return (bool) self::parameters(array
+        (
+            'url'      => DT::STRING,
+            'absolute' => DT::BOOL
+        ))
+        ->call(__FUNCTION__)
+        ->with($url, $absolute)
+        ->returning(DT::BOOL);
     }
 
     // isSerialized
     protected function is_serialized($string)
     {
-        return is_serialized($string);
+        return (bool) self::parameters(array
+        (
+            'string' => DT::TEXT
+        ))
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::BOOL);
     }
 
     // stripToNumeric
     protected function strip_to_numeric($string)
     {
+        // requires testing
         return strip_to_numeric($string);
     }
 
     // stripToInt
     protected function strip_to_int($string)
     {
-        return strip_to_int($string);
+        return (int) self::parameters(array
+        (
+            'string' => DT::STRING
+        ))
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::UBIGINT);
     }
 
     // strStartsUpperCase
@@ -90,7 +134,7 @@ class Strings extends Controller
     // strToSlug
     protected function str_to_slug($text, $strict = FALSE)
     {
-        return str_to_slug($text);
+        return str_to_slug($text, $strict);
     }
 
     // countStr
