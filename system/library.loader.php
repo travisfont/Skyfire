@@ -36,13 +36,22 @@ class extender
                 // grouped alias of classes (special class names within a class)
                 if ($class == 'ExecuteTime') $class = 'Debug';
 
-                //$filename = PARENT_DIRECTORY.'/library/'.strtolower($class).'.class.php';
-                $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
+                // camel case library checker
+                if (defined('CAMEL_CASE') && CAMEL_CASE == '1')
+                {
+                    $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/camelcase/'.strtolower($class).'.class.php';
+                }
+                else
+                {
+                    $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
+                }
+
                 if (is_readable($filename))
                 {
                     require_once $filename;
                 }
-            }, TRUE, TRUE);
+            },
+            TRUE, TRUE);
         }
     }
 }
