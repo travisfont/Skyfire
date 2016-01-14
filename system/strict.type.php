@@ -25,14 +25,27 @@ class Functional_Returner
         $key = 0;
         foreach ($this->parameters as $parameter => $datatype)
         {
-            switch ($datatype)
+            if (is_array($datatype))
             {
-                case 'uint8':
-
-                    if (!((int) $this->arguments[$key] >= 0) || !((int) $this->arguments[$key] <= 255))
-                    {
-                        trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not uint8. Function execution failed.', E_USER_ERROR);
-                    }
+                if (count($datatype) == 2)
+                {
+                    // multi data type check here
+                }
+                else
+                {
+                    trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' contains an invalid data type count. Must contain 1 or an array value of ONLY 2. Function execution failed.', E_USER_ERROR);
+                }
+            }
+            else
+            {
+                switch ($datatype)
+                {
+                    case 'uint8':
+                        if (!((int) $this->arguments[$key] >= 0) || !((int) $this->arguments[$key] <= 255))
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not uint8. Function execution failed.', E_USER_ERROR);
+                        }
+                }
             }
 
             $key++;
