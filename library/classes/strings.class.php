@@ -110,55 +110,127 @@ class Strings extends Controller
     // strStartsUpperCase
     protected function str_starts_uppercase($string)
     {
-        return str_starts_uppercase($string);
+        //return str_starts_uppercase($string);
+        return (bool) self::parameters(array
+        (
+            'string' => DT::STRING
+        ))
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::BOOL);
     }
 
     // removeDiacritics
     protected function remove_diacritics($string)
     {
-        return remove_diacritics($string);
+        //return remove_diacritics($string);
+        return (string) self::parameters(array
+        (
+            'string' => DT::STRING
+        ))
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::STRING);
     }
 
     // removeFirstLine
     protected function remove_first_line($string)
     {
-        return remove_first_line($string);
+        //return remove_first_line($string);
+        return (string) self::parameters(array
+        (
+            'string' => DT::TEXT
+        ))
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::TEXT);
     }
 
     // sstToSlug
     protected function sstr_to_slug($string)
     {
-        return sstr_to_slug($string);
-    }
+        //return sstr_to_slug($string);
+        return (string) self::parameters(array
+        (
+            'string' => DT::STRING
+        ))
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::STRING);
+}
 
     // strToSlug
     protected function str_to_slug($text, $strict = FALSE)
     {
-        return str_to_slug($text, $strict);
+        //return str_to_slug($text, $strict);
+        return (string) self::parameters(array
+        (
+            'text'   => DT::STRING,
+            'strict' => DT::BOOL
+        ))
+        ->call(__FUNCTION__)
+        ->with($text, $strict)
+        ->returning(DT::STRING);
     }
 
     // countStr
     protected function count_str($delimiter, $string)
     {
-        return count_str($delimiter, $string);
+        //return count_str($delimiter, $string);
+        return (int) self::parameters(
+        [
+            'delimiter' => DT::STRING,
+            'string'    => DT::TEXT
+        ])
+        ->call(__FUNCTION__)
+        ->with($delimiter, $string)
+        ->returning(DT::UINT16);
     }
 
     // csubstr
     protected function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
     {
-        return csubstr($string, $start, $length, $safe_quotes);
+        //return csubstr($string, $start, $length, $safe_quotes);
+        return (string) self::parameters(
+        [
+            'string'      =>  DT::TEXT,
+            'start'       =>  DT::UINT8,
+            'length'      => [DT::UINT8, DT::BOOL],
+            'safe_quotes' =>  DT::BOOL
+        ])
+        ->call(__FUNCTION__)
+        ->with($string, $start, $length, $safe_quotes)
+        ->returning(DT::TEXT);
     }
 
     // htmlSubstr
     protected function html_substr($text, $length, $ending = '...', $exact = TRUE, $consider_html = FALSE)
     {
-        return html_substr($text, $length, $ending, $exact, $consider_html);
+        //return html_substr($text, $length, $ending, $exact, $consider_html);
+        return (string) self::parameters(
+        [
+            'text'          => DT::TEXT,
+            'length'        => DT::UINT8,
+            '$ending'       => DT::STRING,
+            'exact'         => DT::BOOL,
+            'consider_html' => DT::BOOL
+        ])
+        ->call(__FUNCTION__)
+        ->with($text, $length, $ending = '...', $exact = TRUE, $consider_html = FALSE)
+        ->returning(DT::TEXT);
     }
 
     // stripCarriageReturns
     protected function strip_carriage_returns($string)
     {
-        return strip_carriage_returns($string);
+        //return strip_carriage_returns($string);
+        return (string) self::parameters(
+        [
+            'string' => DT::TEXT
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::TEXT);
     }
 
     // replcaeCarriageReturn
