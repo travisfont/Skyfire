@@ -13,7 +13,7 @@ function count_str($delimiter, $string)
         $array = explode($delimiter[0], $ready);
     }
 
-    return (count($array) - 1);
+    return (int) (count($array) - 1);
 }
 
 //$string = '<p>bla bla blah</p><p>dsdasdsadas<br/>the end</p>';

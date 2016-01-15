@@ -4,6 +4,6 @@
 
 function strip_carriage_returns($string)
 {
-    return preg_replace("/\r|\n/", '', $string);
+    return (string) preg_replace("/\r|\n/", '', $string);
     //return str_replace(array("\n\r", "\n", "\r"), '', $string);
 }

@@ -2,7 +2,7 @@
 
 function remove_first_line($string)
 {
-    return preg_replace('/^.+\n/', '', $string);
+    return (string) preg_replace('/^.+\n/', '', $string);
 }
 
 /*

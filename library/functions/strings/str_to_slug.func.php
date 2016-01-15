@@ -25,5 +25,5 @@ function str_to_slug($text, $strict = FALSE)
         $text = str_replace(".", "_", $text);
     }
 
-    return $text;
+    return (string) $text;
 }

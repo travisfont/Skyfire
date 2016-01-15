@@ -38,5 +38,5 @@ function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
         return $matched[0];
     }
 
-    return $string;
+    return (string) $string;
 }

@@ -144,5 +144,5 @@ function html_substr($text, $length, $ending = '...', $exact = TRUE, $consider_h
         }
     }
 
-    return $truncate;
+    return (string) $truncate;
 }

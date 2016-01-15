@@ -4,5 +4,5 @@
 
 function str_starts_uppercase($string)
 {
-    return ctype_upper($string[0]);
+    return (bool) ctype_upper($string[0]);
 }
