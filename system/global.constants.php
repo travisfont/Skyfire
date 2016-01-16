@@ -31,6 +31,11 @@ class DT
     const BOOL  = 'bool';  // true or flase
     const VOID  = 'void';  // no return
     const MIXED = 'mixed'; // multiple  values
+
+    const TYPE_ARRAY  = 'array'; // array type
+    const INT_ARRAY   = 'array'; // array integer
+    const FLOAT_ARRAY = 'array'; // array float
+    const CHAR_ARRAY  = 'array'; // array character
 }
 
 // USE MATLAB REFERENCE:
