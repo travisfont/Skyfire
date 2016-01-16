@@ -211,7 +211,7 @@ class Strings extends Controller
         [
             'text'          => DT::TEXT,
             'length'        => DT::UINT8,
-            '$ending'       => DT::STRING,
+            'ending'        => DT::STRING,
             'exact'         => DT::BOOL,
             'consider_html' => DT::BOOL
         ])
@@ -236,25 +236,56 @@ class Strings extends Controller
     // replcaeCarriageReturn
     protected function replace_carriage_return($replace, $string)
     {
-        return replace_carriage_return($replace, $string);
+        //return replace_carriage_return($replace, $string);
+        return (string) self::parameters(
+        [
+            'replace' => DT::STRING,
+            'string' => DT::TEXT
+        ])
+        ->call(__FUNCTION__)
+        ->with($replace, $string)
+        ->returning(DT::TEXT);
     }
 
     // stripTabspaces
     protected function strip_tabspaces($string)
     {
-        return strip_tabspaces($string);
+        //return strip_tabspaces($string);
+        return (string) self::parameters(
+        [
+            'string' => DT::TEXT
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::TEXT);
     }
 
     // removeFirstOccurrence
     protected function remove_first_occurrence($string, $search, $times)
     {
-        return remove_first_occurrence($string, $search, $times);
+        //return remove_first_occurrence($string, $search, $times);
+        return (string) self::parameters(
+        [
+            'string' => DT::TEXT,
+            'search' => DT::STRING,
+            'times'  => DT::UINT8
+        ])
+        ->call(__FUNCTION__)
+        ->with($string, $search, $times)
+        ->returning(DT::TEXT);
     }
 
     // SplitNumberStr
     protected function split_number_str($string)
     {
-        return split_number_str($string);
+        //return split_number_str($string);
+        return (string) self::parameters(
+        [
+            'string' => DT::TEXT
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::TYPE_ARRAY);
     }
 
     // splitNumberStrToArray
