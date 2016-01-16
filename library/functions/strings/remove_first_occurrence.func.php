@@ -22,7 +22,7 @@ function remove_first_occurrence($string, $search, $times)
         return $new_string;
     }
 
-    return $string;
+    return (string) $string;
 }
 
 // count the br - line breaks and loops through if pass 14 (then stops)

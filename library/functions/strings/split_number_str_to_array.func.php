@@ -5,7 +5,7 @@ function split_number_str_to_array($string)
 {
     preg_match_all('~^(.*?)(\d+)~m', $string, $matches);
 
-    return $matches;
+    return (array) $matches;
 }
 
 /*

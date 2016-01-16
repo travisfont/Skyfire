@@ -2,5 +2,5 @@
 
 function decamelize($string)
 {
-    return trim(strtolower(preg_replace('/[A-Z]/', '_$0', $string)), '_');
+    return (string) trim(strtolower(preg_replace('/[A-Z]/', '_$0', $string)), '_');
 }

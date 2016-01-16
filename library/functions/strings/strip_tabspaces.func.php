@@ -4,5 +4,5 @@
 
 function strip_tabspaces($string)
 {
-    return str_replace("\t", '', $string);
+    return (string) str_replace("\t", '', $string);
 }
