@@ -34,4 +34,10 @@ class Image extends Controller
     {
         return scale_image_to_width($filename, $target_width);
     }
+
+    // createImageFromBase64
+    protected function create_image_from_base64($data, $filename, $extension = 'jpg', $quality = 100)
+    {
+        return create_image_from_base64($data, $filename, $extension, $quality);
+    }
 }
