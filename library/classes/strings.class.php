@@ -279,7 +279,7 @@ class Strings extends Controller
     protected function split_number_str($string)
     {
         //return split_number_str($string);
-        return (string) self::parameters(
+        return (array) self::parameters(
         [
             'string' => DT::TEXT
         ])
@@ -291,19 +291,44 @@ class Strings extends Controller
     // splitNumberStrToArray
     protected function split_number_str_to_array($string)
     {
-        return split_number_str_to_array($string);
+        //return split_number_str_to_array($string);
+        return (array) self::parameters(
+        [
+            'string' => DT::TEXT
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::TYPE_ARRAY);
     }
 
     // lengthCutoffStr
     protected function length_cutoff_str($string, $limit, $subtext = '...')
     {
-        return length_cutoff_str($string, $limit, $subtext);
+        //return length_cutoff_str($string, $limit, $subtext);
+        return (string) self::parameters(
+        [
+            'string'  => DT::TEXT,
+            'limit'   => DT::UINT8,
+            'subtext' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string, $limit, $subtext)
+        ->returning(DT::TEXT);
     }
 
     // lengthCutoffWord
     protected function length_cutoff_word($string, $limit, $end_char = '...')
     {
-        return length_cutoff_word($string, $limit, $end_char);
+        //return length_cutoff_word($string, $limit, $end_char);
+        return (string) self::parameters(
+        [
+            'string'  => DT::STRING,
+            'limit'   => DT::UINT8,
+            'end_char' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string, $limit, $end_char)
+        ->returning(DT::STRING);
     }
 
     // joinNaturalLanguage
@@ -314,7 +339,14 @@ class Strings extends Controller
 
     protected function emoji($text)
     {
-        return emoji($text);
+        //return emoji($text);
+        return (string) self::parameters(
+        [
+            'text' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($text)
+        ->returning(DT::STRING);
     }
 
     protected function remove_from_string($search, $string)
