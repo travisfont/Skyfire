@@ -50,5 +50,5 @@ function emoji($text)
         ':?:'       => "\xe2\x9d\x93",
     );
 
-    return $emoji_list[strtolower(trim($text))];
+    return (string) $emoji_list[strtolower(trim($text))];
 }
