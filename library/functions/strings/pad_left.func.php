@@ -2,15 +2,15 @@
 
 // show left side of string
 
-function pad_left($string, $key)
+function pad_left($string, $divider)
 {
-    if (strstr($string, '/') !== FALSE)
+    if (strstr($string, $divider) !== FALSE)
     {
-        return strrev(strstr(strrev($string), $key, FALSE));
+        return (string) strrev(strstr(strrev($string), $divider, FALSE));
     }
     else
     {
-        return $string;
+        return (string) $string;
     }
 }
 
