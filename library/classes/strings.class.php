@@ -351,32 +351,77 @@ class Strings extends Controller
 
     protected function remove_from_string($search, $string)
     {
-        return remove_from_string($search, $string);
+        //return remove_from_string($search, $string);
+        return (string) self::parameters(
+        [
+            'search' => DT::STRING,
+            'string' => DT::TEXT
+        ])
+        ->call(__FUNCTION__)
+        ->with($search, $string)
+        ->returning(DT::TEXT);
     }
 
     protected function pad_left($string, $key)
     {
-        return pad_left($string, $key);
+        //return pad_left($string, $key);
+        return (string) self::parameters(
+        [
+            'string' => DT::STRING,
+            'key'    => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string, $key)
+        ->returning(DT::STRING);
     }
 
     protected function pad_right($string, $key)
     {
-        return pad_right($string, $key);
+        //return pad_right($string, $key);
+        return (string) self::parameters(
+        [
+            'string' => DT::STRING,
+            'key'    => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string, $key)
+        ->returning(DT::STRING);
     }
 
     // colorAabbr
     protected function color_abbr($abbr)
     {
-        return color_abbr($abbr);
+        //return color_abbr($abbr);
+        return (string) self::parameters(
+        [
+            'abbr' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($abbr)
+        ->returning(DT::STRING);
     }
 
     protected function decamelize($string)
     {
-        return decamelize($string);
+        //return decamelize($string);
+        return (string) self::parameters(
+        [
+            'string' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::STRING);
     }
 
     protected function camelize($string)
     {
-        return camelize($string);
+        return (string) self::parameters(
+        [
+            'string' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::STRING);
+        //return camelize($string);
     }
 }
