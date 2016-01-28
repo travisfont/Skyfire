@@ -12,5 +12,5 @@ function randomize_array($arr, $amount = 1)
         $r[] = $arr[$i];
     }
 	
-	return $r;
+	return (array) $r;
 }

@@ -1,6 +1,6 @@
 <?php
 
-function subsort_array($array, $subkey)
+function subsort_array(array $array, $subkey)
 {
 	$b = array(); $c = array();
 
@@ -15,7 +15,7 @@ function subsort_array($array, $subkey)
 		$c[] = $array[$key];
 	}
 
-	return $c;
+	return (array) $c;
 }
 
 // sorting through "created" element in the arrays
