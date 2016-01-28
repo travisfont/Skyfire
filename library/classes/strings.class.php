@@ -216,7 +216,7 @@ class Strings extends Controller
             'consider_html' => DT::BOOL
         ])
         ->call(__FUNCTION__)
-        ->with($text, $length, $ending = '...', $exact = TRUE, $consider_html = FALSE)
+        ->with($text, $length, $ending, $exact, $consider_html)
         ->returning(DT::TEXT);
     }
 
@@ -240,7 +240,7 @@ class Strings extends Controller
         return (string) self::parameters(
         [
             'replace' => DT::STRING,
-            'string' => DT::TEXT
+            'string'  => DT::TEXT
         ])
         ->call(__FUNCTION__)
         ->with($replace, $string)
@@ -322,8 +322,8 @@ class Strings extends Controller
         //return length_cutoff_word($string, $limit, $end_char);
         return (string) self::parameters(
         [
-            'string'  => DT::STRING,
-            'limit'   => DT::UINT8,
+            'string'   => DT::STRING,
+            'limit'    => DT::UINT8,
             'end_char' => DT::STRING
         ])
         ->call(__FUNCTION__)
@@ -415,6 +415,7 @@ class Strings extends Controller
 
     protected function camelize($string)
     {
+        //return camelize($string);
         return (string) self::parameters(
         [
             'string' => DT::STRING
@@ -422,6 +423,5 @@ class Strings extends Controller
         ->call(__FUNCTION__)
         ->with($string)
         ->returning(DT::STRING);
-        //return camelize($string);
     }
 }
