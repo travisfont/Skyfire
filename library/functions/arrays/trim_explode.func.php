@@ -6,5 +6,5 @@
 
 function trim_explode($delimiter, $string, $trim = 'trim', $limit = NULL)
 {
-    return array_map($trim, explode($delimiter, $string, $limit));
+    return (array) array_map($trim, explode($delimiter, $string, $limit));
 }

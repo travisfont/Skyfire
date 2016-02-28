@@ -1,13 +1,15 @@
 <?php
 
 // isAssociativeArray
-function is_associate_array($array)
+function is_associate_array(array $array)
 {
     if (!is_array($array))
     {
         return FALSE;
     }
+
     $keys = array_keys($array);
+
     foreach ($keys as $key)
     {
         if (is_string($key))

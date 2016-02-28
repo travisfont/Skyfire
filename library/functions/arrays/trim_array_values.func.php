@@ -1,7 +1,9 @@
 <?php
 
-function trim_array_values($array)
+function trim_array_values(array $array)
 {
+    $result = array();
+
     foreach ($array as $key => $subarray)
     {
         if (is_array($subarray))
