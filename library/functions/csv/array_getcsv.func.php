@@ -4,5 +4,5 @@
 
 function array_getcsv($data)
 {
-    return array_map('str_getcsv', file($data));
+    return (array) array_map('str_getcsv', file($data));
 }

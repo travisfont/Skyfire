@@ -2,5 +2,5 @@
 
 function csv_to_array($data)
 {
-    return array_map('str_getcsv', $data);
+    return (array) array_map('str_getcsv', $data);
 }
