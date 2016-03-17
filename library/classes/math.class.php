@@ -93,4 +93,9 @@ class Math extends Controller
     {
         return int_max($datatype);
     }
+
+    protected function convert_currency($amount, $from, $to)
+    {
+        return convert_currency($amount, $from, $to);
+    }
 }
