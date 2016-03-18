@@ -59,4 +59,9 @@ class Dates extends Controller
     {
         return mysql_now();
     }
+
+    protected function convert_month($number, array $args = array('lang' => 'fr', 'ucword' => FALSE, 'dots' => FALSE, 'long' => FALSE))
+    {
+        return convert_month($number, $args);
+    }
 }
