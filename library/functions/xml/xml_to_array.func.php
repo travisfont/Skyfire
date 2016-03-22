@@ -10,5 +10,5 @@ function xml_to_array($xml_object)
         $out[$index] = (is_object($node)) ? xml_to_array($node) : $node;
     }
 
-    return $out;
+    return (array) $out;
 }
