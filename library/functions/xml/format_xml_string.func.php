@@ -5,10 +5,10 @@ function format_xml_string($xml)
     if ($dom = new DOMDocument)
     {
         $dom->preserveWhiteSpace = FALSE;
+        $dom->formatOutput       = TRUE;
         $dom->loadXML('<root><foo><bar>baz</bar></foo></root>');
-        $dom->formatOutput = TRUE;
 
-        return $dom->saveXml();
+        return (string) $dom->saveXml();
     }
     else
     {
@@ -18,6 +18,7 @@ function format_xml_string($xml)
         $result     = '';
         $pad        = 0; 
         $matches    = array();
+
         while ($token !== FALSE)
         {
             if (preg_match('/.+<\/\w[^>]*>$/', $token, $matches))
@@ -44,7 +45,7 @@ function format_xml_string($xml)
             $pad    += $indent;
         }
 
-        return $result;
+        return (string) $result;
     
         // reference
         // http://www.daveperrett.com/articles/2007/04/05/format-xml-with-php/
