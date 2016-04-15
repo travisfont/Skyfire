@@ -32,6 +32,8 @@ class DT
     const VOID  = 'void';  // no return
     const MIXED = 'mixed'; // multiple  values
 
+    const STD = 'object'; // object type
+
     const TYPE_ARRAY  = 'array'; // array type
     const INT_ARRAY   = 'array'; // array integer
     const FLOAT_ARRAY = 'array'; // array float
