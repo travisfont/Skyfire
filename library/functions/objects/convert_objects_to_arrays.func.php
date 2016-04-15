@@ -25,5 +25,5 @@ function convert_objects_to_arrays($obj, &$arr)
         }
     }
 
-    return $arr;
+    return (array) $arr;
 }
