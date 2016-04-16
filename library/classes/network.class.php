@@ -24,12 +24,23 @@ class Network extends Controller
 
     protected function whois($domain, $registrar = FALSE)
     {
-        return whois($domain, $registrar);
+        //return whois($domain, $registrar);
+        return self::parameters(
+        [
+            'domain'    =>  DT::STRING,
+            'registrar' => [DT::STRING, DT::BOOL]
+        ])
+        ->call(__FUNCTION__)
+        ->with($domain, $registrar)
+        ->returning([DT::STRING, DT::BOOL]);
     }
 
-    // getClientLang
+    // getClientLang (TODO: THIS FUNCTION REQUIRES TESTING - VOID PARAMETERS)
     protected function get_client_lang()
     {
-        return get_client_lang();
+        //return get_client_lang();
+        return (string)
+                self::parameters()->call(__FUNCTION__)
+                                  ->returning(DT::STRING);
     }
 }
