@@ -84,6 +84,13 @@ class Functional_Parameters
 
         return new Functional_Returner($this->parameters, $arguments, $this->function_name);
     }
+
+    // mirrors returning() of Functional_Returner (REQUIRES TESTING)
+    public function returning($return_datatype)
+    {
+               $functional_returner = new Functional_Returner($this->parameters, array(), $this->function_name);
+        return $functional_returner->returning($return_datatype);
+    }
 }
 
 class Functional_Caller

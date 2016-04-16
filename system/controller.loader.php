@@ -257,7 +257,7 @@ class Controller extends Display
     protected $DB;
 
     // internal datatype functional call
-    protected static function parameters(array $parameters)
+    protected static function parameters(array $parameters = array())
     {
         return new Functional_Caller($parameters);
     }
