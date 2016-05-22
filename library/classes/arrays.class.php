@@ -153,4 +153,16 @@ class Arrays extends Controller
         ->with($array)
         ->returning(DT::UINT8);
     }
+
+    protected function fill_array_key_leading_zeros(array $array)
+    {
+        return fill_array_key_leading_zeros($array);
+        return (array) self::parameters(
+        [
+            'array' => DT::TYPE_ARRAY
+        ])
+        ->call(__FUNCTION__)
+        ->with($array)
+        ->returning(DT::TYPE_ARRAY);
+    }
 }
