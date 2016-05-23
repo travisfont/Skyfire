@@ -4,5 +4,13 @@
 
 function strip_to_int($string)
 {
-    return (int) preg_replace('/[^0-9]/', '', $string);
+    return (int) trim(preg_replace('/\d+/u', '', $string));
 }
+
+/*
+ $str = '(111) 111-1111';
+$str = strip_to_int($str);
+echo $str;
+OUTPUT:
+1111111111
+ */
