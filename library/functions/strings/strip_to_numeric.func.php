@@ -4,5 +4,5 @@
 
 function strip_to_numeric($string)
 {
-	return preg_replace("/[^0-9,.]/", "", $string);
+	return trim(preg_replace('/[^0-9,.]/', '', $string));
 }
