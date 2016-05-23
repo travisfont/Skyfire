@@ -424,4 +424,19 @@ class Strings extends Controller
         ->with($string)
         ->returning(DT::STRING);
     }
+
+    protected function add_leading_zeros($number)
+    {
+        //return add_leading_zeros($number);
+        return (string) self::parameters(
+        [
+            'number' => [DT::STRING|DT::UINT32]
+        ])
+        ->call(__FUNCTION__)
+        ->with($number)
+        ->returning(DT::STRING);
+    }
+
+
+
 }
