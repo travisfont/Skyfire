@@ -151,4 +151,9 @@ class Debug extends Controller
     {
         return get_user_defined_constants();
     }
+
+    protected function has_locale($locale)
+    {
+        return has_locale($locale);
+    }
 }
