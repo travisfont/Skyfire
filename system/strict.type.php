@@ -27,9 +27,29 @@ class Functional_Returner
         {
             if (is_array($datatype))
             {
-                if (count($datatype) == 2)
+                if (count($datatype) > 1)
                 {
+                    $valid_type = FALSE;
+
                     // multi data type check here
+                    foreach ($datatype as $type)
+                    {
+                        // create a case for each data type! eventually this will become a static class to keep codebase DRY
+                        switch ($type)
+                        {
+                            case 'uint8':
+                                if (((int) $this->arguments[$key] >= 0) && ((int) $this->arguments[$key] <= 255)) // is_uint8()
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                        }
+                    }
+
+                    if (!$valid_type)
+                    {
+                        trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' contains an invalid data type count. Must contain 1 or an array value of ONLY 2. Function execution failed.', E_USER_ERROR);
+                    }
                 }
                 else
                 {
@@ -38,10 +58,11 @@ class Functional_Returner
             }
             else
             {
+                // create a case for each data type! eventually this will become a static class to keep codebase DRY
                 switch ($datatype)
                 {
                     case 'uint8':
-                        if (!((int) $this->arguments[$key] >= 0) || !((int) $this->arguments[$key] <= 255))
+                        if (!((int) $this->arguments[$key] >= 0) || !((int) $this->arguments[$key] <= 255)) // is_uint8()
                         {
                             trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not uint8. Function execution failed.', E_USER_ERROR);
                         }
@@ -53,10 +74,11 @@ class Functional_Returner
 
         $return_data = call_user_func_array($this->function_name, $this->arguments);
 
+        // create a case for each data type! eventually this will become a static class to keep codebase DRY
         switch ($return_datatype)
         {
             case 'string':
-                if (!is_string($return_data) || !(strlen($return_data) <= 255))
+                if (!is_string($return_data) || !(strlen($return_data) <= 255)) // is_string()
                 {
                     trigger_error('Function: '.$this->function_name.'() return value is not string. Function execution failed.', E_USER_ERROR);
                 }
