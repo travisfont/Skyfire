@@ -437,6 +437,19 @@ class Strings extends Controller
         ->returning(DT::STRING);
     }
 
+    protected function safe_word_truncate($string = '', $chars = 255, $ellipsis = '...')
+    {
+        //return safe_word_truncate($string, $chars, $ellipsis);
+        return (string) self::parameters(
+        [
+            'string'   => DT::TEXT,
+            'chars'    => DT::UINT16,
+            'ellipsis' => DT::STRING,
+        ])
+        ->call(__FUNCTION__)
+        ->with($string, $chars, $ellipsis)
+        ->returning(DT::TEXT);
+    }
 
 
 }
