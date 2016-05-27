@@ -88,4 +88,14 @@ class HTML extends Controller
     {
         return parse_selector_values($selector_html, $encoding);
     }
+
+    protected function safe_truncate($input, $break = ' ', $end_text = '...', $limit = 255, $tidy_html = TRUE, $strip_html = FALSE)
+    {
+        return safe_truncate($input, $break, $end_text, $limit, $tidy_html, $strip_html);
+    }
+
+    protected function compress_css($buffer)
+    {
+        return compress_css($buffer);
+    }
 }
