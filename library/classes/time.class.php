@@ -109,6 +109,15 @@ class Time extends Controller
         return new DateTime("now", $serverDateTimeZone);
     }
 
+    protected function format_date($original_date, $date_format = 'Y-m-d\TH:i:sP')
+    {
+        return (string) format_date($original_date, $date_format);
+    }
+
+    protected function get_week_number($ddate)
+    {
+        return get_week_number($ddate);
+    }
 
 
 }
