@@ -119,6 +119,22 @@ class Time extends Controller
         return get_week_number($ddate);
     }
 
+    // convertMinsToHm
+    protected function convert_mins2hm($time, $format = '%02d:%02d')
+    {
+        return convert_mins2hm($time, $format);
+    }
+
+    // formatDateDiff
+    protected function format_date_diff($date1, $date2, $return_format = '%H:%I')
+    {
+        return (string) format_date_diff($date1, $date2, $return_format);
+    }
+
+    protected function current_date_state($date_string)
+    {
+        return (int) current_date_state($date_string);
+    }
 
 }
 
