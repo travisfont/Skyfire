@@ -136,6 +136,11 @@ class Time extends Controller
         return (int) current_date_state($date_string);
     }
 
+    protected function countdown($datetime, $sentence_format = FALSE)
+    {
+        return countdown($datetime, $sentence_format);
+    }
+
 }
 
 /*
