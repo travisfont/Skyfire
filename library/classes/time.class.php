@@ -141,6 +141,11 @@ class Time extends Controller
         return countdown($datetime, $sentence_format);
     }
 
+    protected function is_adult($day, $month, $year)
+    {
+        return is_adult($day, $month, $year);
+    }
+
 }
 
 /*
