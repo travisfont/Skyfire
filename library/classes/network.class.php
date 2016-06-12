@@ -43,4 +43,17 @@ class Network extends Controller
                 self::parameters()->call(__FUNCTION__)
                                   ->returning(DT::STRING);
     }
+
+    protected function is_email($string)
+    {
+        //return (bool) is_email($string);
+        return (bool) self::parameters(
+        [
+            'string' =>  DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::BOOL);
+    }
+
 }
