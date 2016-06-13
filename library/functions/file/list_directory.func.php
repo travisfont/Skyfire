@@ -1,6 +1,17 @@
 <?php
 
-// str_replace('.func.php', '', dirname(__FILE__))
+
+/**
+ * Lists contens of a given directory and returns array with entries
+ *
+ * @param   $directory  string. source path of the root directory
+ * @param   $recursive  bool.   to continue to return subdirectories
+ *
+ * @access  public
+ * @return  array  directory entries
+ * @author  Travis van der Font
+ */
+
 
 function list_directory($directory, $recursive = FALSE)
 {
@@ -31,7 +42,7 @@ function list_directory($directory, $recursive = FALSE)
         closedir($handle);
     }
 
-    return $array_items;
+    return (array) $array_items;
 }
 
 
