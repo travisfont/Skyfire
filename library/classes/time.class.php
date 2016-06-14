@@ -74,7 +74,15 @@ class Time extends Controller
 
     protected function convert_month($number, array $args = array('lang' => 'fr', 'ucword' => FALSE, 'dots' => FALSE, 'long' => FALSE))
     {
-        return convert_month($number, $args);
+        //return (string) convert_month($number, $args);
+        return (string) self::parameters(
+        [
+            'number' => DT::STRING,
+            'args'   => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($number, $args)
+        ->returning(DT::STRING);
     }
 
     public static function getUTCTimeZone()
@@ -111,39 +119,95 @@ class Time extends Controller
 
     protected function format_date($original_date, $date_format = 'Y-m-d\TH:i:sP')
     {
-        return (string) format_date($original_date, $date_format);
+        //return (string) format_date($original_date, $date_format);
+        return (string) self::parameters(
+        [
+            'original_date' => DT::STRING,
+            'date_format'   => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($original_date, $date_format)
+        ->returning(DT::STRING);
     }
 
     protected function get_week_number($ddate)
     {
-        return get_week_number($ddate);
+        //return get_week_number($ddate);
+        return self::parameters(
+        [
+            'date' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($ddate)
+        ->returning([DT::STRING, DT::BOOL]);
     }
 
     // convertMinsToHm
     protected function convert_mins2hm($time, $format = '%02d:%02d')
     {
-        return convert_mins2hm($time, $format);
+        //return convert_mins2hm($time, $format);
+        return self::parameters(
+        [
+            'time'   => DT::STRING,
+            'format' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($time, $format)
+        ->returning([DT::STRING, DT::BOOL]);
     }
 
     // formatDateDiff
     protected function format_date_diff($date1, $date2, $return_format = '%H:%I')
     {
-        return (string) format_date_diff($date1, $date2, $return_format);
+        //return (string) format_date_diff($date1, $date2, $return_format);
+        return (string) self::parameters(
+        [
+            'date1'         => DT::STRING,
+            'date2'         => DT::STRING,
+            'return_format' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($date1, $date2, $return_format)
+        ->returning(DT::STRING);
     }
 
     protected function current_date_state($date_string)
     {
-        return (int) current_date_state($date_string);
+        //return (int) current_date_state($date_string);
+        return (int) self::parameters(
+        [
+            'date_string' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($date_string)
+        ->returning(DT::INT8);
     }
 
     protected function countdown($datetime, $sentence_format = FALSE)
     {
-        return countdown($datetime, $sentence_format);
+        //return countdown($datetime, $sentence_format);
+        return self::parameters(
+        [
+            'datetime'         > DT::STRING,
+            'sentence_format' => DT::BOOL
+        ])
+        ->call(__FUNCTION__)
+        ->with($datetime, $sentence_format)
+        ->returning([DT::STRING, DT::TYPE_ARRAY, DT::BOOL]);
     }
 
     protected function is_adult($day, $month, $year)
     {
-        return is_adult($day, $month, $year);
+        //return (bool) is_adult($day, $month, $year);
+        return (bool) self::parameters(
+        [
+            'day'   => DT::UINT8,
+            'month' => DT::UINT8,
+            'year'  => DT::UINT8
+        ])
+        ->call(__FUNCTION__)
+        ->with($day, $month, $year)
+        ->returning(DT::BOOL);
     }
 
 }
