@@ -91,8 +91,14 @@ class Strings extends Controller
     // stripToNumeric
     protected function strip_to_numeric($string)
     {
-        // requires testing
-        return strip_to_numeric($string);
+        //return strip_to_numeric($string);
+        return self::parameters(array
+        (
+            'string' => DT::STRING
+        ))
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning([DT::INT64, DT::STRING, DT::BOOL]);
     }
 
     // stripToInt
