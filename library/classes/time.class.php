@@ -63,13 +63,23 @@ class Time extends Controller
 
     protected function format_mysql_datetime($date_string = FALSE)
     {
-        return format_mysql_datetime($date_string);
+        //return format_mysql_datetime($date_string);
+        return self::parameters(
+        [
+            'date_string' => [DT::STRING, DT::BOOL]
+        ])
+        ->call(__FUNCTION__)
+        ->with($date_string)
+        ->returning([DT::STRING, DT::BOOL]);
     }
 
     // MysqlNow
     protected function mysql_now()
     {
-        return mysql_now();
+        //return (string) mysql_now();
+        return (string)  self::parameters()
+            ->call(__FUNCTION__)
+            ->returning(DT::STRING);
     }
 
     protected function convert_month($number, array $args = array('lang' => 'fr', 'ucword' => FALSE, 'dots' => FALSE, 'long' => FALSE))
