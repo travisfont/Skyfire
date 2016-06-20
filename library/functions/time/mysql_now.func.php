@@ -5,5 +5,5 @@
 
 function mysql_now()
 {
-    return date('Y-m-d H:i:s');
+    return (string) date('Y-m-d H:i:s');
 }
