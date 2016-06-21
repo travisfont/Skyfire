@@ -325,6 +325,12 @@ class Controller extends Display
         return empty($var) ? $default : $var;
     }
 
+    public function is_enum() {}     // objects (enumerate array)
+    public function is_iterable($var) // arrays
+    {
+        return (bool) (is_array($var) || $var instanceof Traversable || $var instanceof stdClass);
+    }
+
     /* Examples:
     -------------
     $this->isNotSet(Input::post('user_value1'));        // returns value if not empty
