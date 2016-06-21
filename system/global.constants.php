@@ -1,6 +1,6 @@
 <?php
 
-class DT
+abstract class DT
 {
     const INT8     = 'int8';  // -128 to 127
     const TINYINT  = 'int8';  // -128 to 127
@@ -38,6 +38,12 @@ class DT
     const INT_ARRAY   = 'array'; // array integer
     const FLOAT_ARRAY = 'array'; // array float
     const CHAR_ARRAY  = 'array'; // array character
+
+    const ITERATOR = 'iterator'; // iterator array
+    const ENUM     = 'enum';     // enum     object
+
+    const IPV4 = 'ipv4'; // 32 bits (4 bytes)    [count . and convert to int]
+    const IPV6 = 'ipv6'; // 128 bits (16 bytes)  [count : and convert to int]
 }
 
 // USE MATLAB REFERENCE:
@@ -46,7 +52,7 @@ class DT
 // Reference
 //https://en.wikipedia.org/wiki/Integer_(computer_science)
 
-class SF
+abstract class SF
 {
     const GET    = 'GET';
     const POST   = 'POST';
