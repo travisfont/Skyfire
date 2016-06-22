@@ -122,6 +122,33 @@ class load
 
         return new load_as();
     }
+
+    public static function cache()
+    {
+        return new cacher();
+    }
+}
+
+// quick cache - super fast internal cacher
+// This method is faster than Redis, Memcache, APC, and other PHP caching solutions.
+// They all must first serialize and unserialize objects, generally using PHP’s serialize or json_encode functions.
+// By storing PHP objects in file cache memory across requests, this method avoids serialization completely!
+class cacher
+{
+    public function set($key, $val)
+    {
+        $val = var_export($val, TRUE);
+
+        // HHVM fails at __set_state, so just use object cast for now
+        file_put_contents('/system/tmp/'.$key, '<?php $val = '.str_replace('stdClass::__set_state', '(object)', $val).';');
+    }
+
+    public function get($key)
+    {
+        @include '/system/tmp/'.$key;
+
+        return isset($val) ? $val : FALSE;
+    }
 }
 
 class load_as
