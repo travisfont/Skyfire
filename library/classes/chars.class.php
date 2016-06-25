@@ -94,4 +94,6 @@ class Chars
     const EURO  = '&euro;';
 }
 
+// http://www.htmlhelp.com/reference/html40/entities/special.html
+// http://www.thesauruslex.com/typo/eng/enghtml.htm
 /* Reference: http://character-code.com/arrows-html-codes.php */

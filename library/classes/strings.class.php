@@ -457,5 +457,4 @@ class Strings extends Controller
         ->returning(DT::TEXT);
     }
 
-
 }
