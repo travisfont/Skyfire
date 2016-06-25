@@ -28,9 +28,12 @@ abstract class DT
     const MEDIUMTEXT = 'mediumtext'; // 16,777,215
     const LONGTEXT   = 'longtext';   // 4,294,967,295
 
-    const BOOL  = 'bool';  // true or flase
-    const VOID  = 'void';  // no return
-    const MIXED = 'mixed'; // multiple  values
+    const BOOL   = 'bool';  // true or flase
+    const VOID   = 'void';  // no return
+    const MIXED  = 'mixed'; // multiple values
+    const ANY    = 'any';   // unknown value
+    const NUMBER = 'int32'; // unknown number value
+    const FLOAT  = 'float'; // unknown decimal value
 
     const STD = 'object'; // object type
 
