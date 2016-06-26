@@ -7,19 +7,30 @@ class Network extends Controller
     // getAddressCoordinates
     protected function get_address_coordinates($address)
     {
-        return get_address_coordinates($address);
+        //return get_address_coordinates($address);
+        return self::parameters(
+        [
+            'address' =>  DT::STRING,
+        ])
+        ->call(__FUNCTION__)
+        ->with($address)
+        ->returning([DT::TYPE_ARRAY, DT::BOOL]);
     }
 
     // getClientIp
     protected function get_client_ip()
     {
-        return get_client_ip();
+        //return (string) get_client_ip();
+        return (string) self::parameters()->call(__FUNCTION__)
+                                          ->returning(DT::IPV4);
     }
 
     // isSsl
     protected function is_ssl()
     {
-        return is_ssl();
+        //return (bool) is_ssl();
+        return (bool) self::parameters()->call(__FUNCTION__)
+                                        ->returning(DT::BOOL);
     }
 
     protected function whois($domain, $registrar = FALSE)
@@ -39,9 +50,8 @@ class Network extends Controller
     protected function get_client_lang()
     {
         //return get_client_lang();
-        return (string)
-                self::parameters()->call(__FUNCTION__)
-                                  ->returning(DT::STRING);
+        return (string) self::parameters()->call(__FUNCTION__)
+                                          ->returning(DT::STRING);
     }
 
     protected function is_email($string)
