@@ -1,8 +1,8 @@
 <?php
 
-function date_yesterday($str)
+function date_yesterday($string)
 {
-	return date($str, time() - 60 * 60 * 24);
+	return date($string, time() - 60 * 60 * 24);
 }
 
 # date_yesterday("m/d/Y");

@@ -12,7 +12,7 @@ function datetime_diff($date1, $date2)
     $alt_diff->s      = floor( floor(abs($date1->format('U') - $date2->format('U'))) - ($alt_diff->y * 365*24*60*60) - ($alt_diff->m * 30 * 24 *60*60)  - ($alt_diff->d * 24 * 60*60) -  ($alt_diff->h * 60*60) -  ($alt_diff->i * 60) );
     $alt_diff->invert = (($date1->format('U') - $date2->format('U')) > 0)? 0 : 1 ;
 
-    return $alt_diff;
+    return (object) $alt_diff;
 } 
 
 /*

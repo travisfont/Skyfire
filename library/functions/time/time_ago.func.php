@@ -44,7 +44,7 @@ function time_ago($date)
         $periods[$j] .= 's';
     }
 
-    return $difference.' '.$periods[$j].' '.$tense;
+    return (string) $difference.' '.$periods[$j].' '.$tense;
 }
 
 /*
