@@ -16,51 +16,113 @@ class Time extends Controller
     const RSS     = "D, d M Y H:i:s O";
     const W3C     = "Y-m-d\TH:i:sP";
 
-    protected function date_yesterday($str)
+    protected function date_yesterday($string)
     {
-        return date_yesterday($str);
+        //return date_yesterday($string);
+        return self::parameters(
+        [
+            'string' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning([DT::BOOL, DT::STRING]);
     }
 
     protected function datetime_diff($date1, $date2)
     {
-        return datetime_diff($date1, $date2);
+        //return (object) datetime_diff($date1, $date2);
+        return (object) self::parameters(
+        [
+            'date1'        => DT::STRING,
+            'date2'        => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($date1, $date2)
+        ->returning(DT::STD);
     }
 
     protected function days_diff($date1, $date2 = FALSE, $accuracy_day = FALSE)
     {
-        return days_diff($date1, $date2, $accuracy_day);
+        //return (float) days_diff($date1, $date2, $accuracy_day);
+        return (float) self::parameters(
+        [
+            'date1'        => DT::STRING,
+            'date2'        => DT::STRING,
+            'accuracy_day' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($date1, $date2, $accuracy_day)
+        ->returning(DT::FLOAT);
     }
 
     protected function months_diff($date1, $date2 = FALSE)
     {
-        return months_diff($date1, $date2);
+        //return (int) months_diff($date1, $date2);
+        return (string) self::parameters(
+        [
+            'date1' => DT::STRING,
+            'date2' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($date1, $date2)
+        ->returning(DT::UINT32);
     }
 
-    protected function show_time_left($dbdate)
+    protected function show_time_left($dbdate, $short = TRUE)
     {
-        return show_time_left($dbdate);
+        //return (string) show_time_left($dbdate, $short);
+        return (string) self::parameters(
+        [
+            'dbdate' => DT::STRING,
+            'short'  => DT::BOOL
+        ])
+        ->call(__FUNCTION__)
+        ->with($dbdate, $short)
+        ->returning(DT::STRING);
     }
 
     // timeAge
     protected function time_ago($date)
     {
-        return time_ago($date);
+        //return time_ago($date);
+        return (string) self::parameters(
+        [
+            'date' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($date)
+        ->returning(DT::STRING);
     }
 
     // ConvertUtcOffsetAbbr()
     protected function convert_utc_offset_abbr($offset)
     {
-        return convert_utc_offset_abbr($offset);
+        //return (string) convert_utc_offset_abbr($offset);
+        return (string) self::parameters(
+        [
+            'offset' => [DT::STRING, DT::INT8]
+        ])
+        ->call(__FUNCTION__)
+        ->with($offset)
+        ->returning(DT::STRING);
     }
 
     //nextWeek
     protected function next_week($date, $weeks = 1, $format = 'Y-m-d\TH:i:sP')
     {
-        return next_week($date, $weeks, $format);
+        // return (string) next_week($date, $format, $weeks);
+        return (string) self::parameters(
+        [
+            'date'   => DT::STRING,
+            'format' => DT::STRING,
+            'weeks'  => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($date, $format, $weeks)
+        ->returning(DT::STRING);
     }
 
     // ideal naming convertion: MySQL_Datetime_Format
-
     protected function format_mysql_datetime($date_string = FALSE)
     {
         //return format_mysql_datetime($date_string);
@@ -77,9 +139,8 @@ class Time extends Controller
     protected function mysql_now()
     {
         //return (string) mysql_now();
-        return (string)  self::parameters()
-            ->call(__FUNCTION__)
-            ->returning(DT::STRING);
+        return (string)  self::parameters()->call(__FUNCTION__)
+                                           ->returning(DT::STRING);
     }
 
     protected function convert_month($number, array $args = array('lang' => 'fr', 'ucword' => FALSE, 'dots' => FALSE, 'long' => FALSE))
