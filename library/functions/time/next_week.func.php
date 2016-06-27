@@ -3,10 +3,10 @@
 // Note:
 // DateTime::ATOM
 
-function next_week($date, $weeks = 1, $format = 'Y-m-d\TH:i:sP')
+function next_week($date, $format = 'Y-m-d\TH:i:sP', $weeks = 1)
 {
            $date = new DateTime($date);
            $date->modify('+'.$weeks.' week');
 
-    return $date->format($format);
+    return (string) $date->format($format);
 }

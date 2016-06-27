@@ -8,16 +8,17 @@
  * @return FLOAT
  */
  
-function days_diff($date1, $date2 = FALSE, $accuracy_day = FALSE)
+function days_diff($date1, $date2 = NULL, $accuracy_day = NULL)
 {
     $date1 = is_int($date1)     ? $date1 : strtotime($date1);
-    $date2 = ($date2 === FALSE) ? time() : (is_int($date2) ? $date2 : strtotime($date2));
+    $date2 = ($date2 === NULL)  ? time() : (is_int($date2) ? $date2 : strtotime($date2));
 
-    if ($accuracy_day)
+    if (!empty($accuracy_day))
     {
         $date1 = strtotime(date('Y-m-d', $date1));
         $date2 = strtotime(date('Y-m-d', $date2));
     }
+
     $diff = $date2 - $date1;
 
     return ($diff - ($diff % 86400)) / 86400;
