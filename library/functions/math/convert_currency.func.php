@@ -1,8 +1,16 @@
 <?php
 
+/**
+ * Converts currency through Google API Finance converter
+ *
+ * @param   int     $amount amount to convert (either float or int)
+ * @param   string  $from   original currency (e.g. USD)
+ * @param   string  $to     return currency after conversion (e.e.g EUR)
+ *
+ * @return  string|bool
+ */
 function convert_currency($amount, $from, $to)
 {
-
     $url = 'http://www.google.com/finance/converter?'.
            'a='   .strip_tags(trim($amount)).'&'.
            'from='.strip_tags(trim($from))  .'&'.
@@ -38,8 +46,8 @@ function convert_currency($amount, $from, $to)
     }
     else
     {
-        return $converted;
+        return (string) $converted;
     }
 
-    return $response;
+    return (string) $response;
 }
