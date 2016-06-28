@@ -7,7 +7,7 @@
  * @return int a non-negative integer
  */
 
-function absint($data)
+function absint($number)
 {
-    return (int) abs(intval($data));
+    return (int) abs(intval($number));
 }
