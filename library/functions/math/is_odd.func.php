@@ -4,5 +4,5 @@
 
 function is_odd($number)
 {
-    return ($number % 2 != 0);
+    return (bool) (((int) $number) % 2 != 0);
 }
