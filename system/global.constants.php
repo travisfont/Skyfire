@@ -28,12 +28,12 @@ abstract class DT
     const MEDIUMTEXT = 'mediumtext'; // 16,777,215
     const LONGTEXT   = 'longtext';   // 4,294,967,295
 
-    const BOOL   = 'bool';  // true or flase
-    const VOID   = 'void';  // no return
-    const MIXED  = 'mixed'; // multiple values
-    const ANY    = 'any';   // unknown value
-    const NUMBER = 'int32'; // unknown number value
-    const FLOAT  = 'float'; // unknown decimal value
+    const BOOL   = 'bool';    // true or flase
+    const VOID   = 'void';    // no return
+    const MIXED  = 'mixed';   // multiple unknown values
+    const ANY    = 'any';     // unknown value
+    const NUMBER = 'numeric'; // unknown numeric value
+    const FLOAT  = 'float';   // unknown decimal value
 
     const STD = 'object'; // object type
 
@@ -64,6 +64,7 @@ abstract class SF
 
     const DEBUG     = 'debug';
     const SYSLOG    = 'syslog';
+    const NETWORK   = 'network';
     const CONSTANTS = 'constants';
     const MATH      = 'math';
     const STRINGS   = 'strings';
