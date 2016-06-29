@@ -3,12 +3,20 @@
 class extender
 {
     private $class;
+    private $classes = array();
     private $function;
 
     public function __construct($class)
     {
         $this->class    = $class;
         $this->function = NULL;
+
+        // adds the current called class to the classes array
+        // to be used later for checking
+        if (!empty($class))
+        {
+            array_push($this->classes, strtolower($class));
+        }
     }
 
     public function func($function_name)
@@ -27,7 +35,8 @@ class extender
 
     public function __destruct()
     {
-        // a seperate function was set and was never unset
+
+        // a seperate function was never set (load the entire library / class)
         if (empty($this->function))
         {
             //$class = $this->class;
@@ -36,19 +45,23 @@ class extender
                 // grouped alias of classes (special class names within a class)
                 if ($class == 'ExecuteTime') $class = 'Debug';
 
-                // camel case library checker
-                if (defined('CAMEL_CASE') && CAMEL_CASE == '1')
+                // checking if the current called class is already existing in the library loader
+                if (in_array(strtolower($class), $this->classes) === TRUE)
                 {
-                    $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/camelcase/'.strtolower($class).'.class.php';
-                }
-                else
-                {
-                    $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
-                }
+                    // camel case library checker
+                    if (defined('CAMEL_CASE') && CAMEL_CASE == '1')
+                    {
+                        $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/camelcase/'.strtolower($class).'.class.php';
+                    }
+                    else
+                    {
+                        $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/'.strtolower($class).'.class.php';
+                    }
 
-                if (is_readable($filename))
-                {
-                    require_once $filename;
+                    if (is_readable($filename))
+                    {
+                        require_once $filename;
+                    }
                 }
             },
             TRUE, TRUE);
