@@ -120,11 +120,7 @@ function format_currency($floatcurr, $curr = 'EUR')
         $dec = "";
         $pos = strpos($input, ".");
 
-        if ($pos === FALSE)
-        {
-            //no decimals
-        }
-        else
+        if ($pos !== FALSE)
         {
             //decimals
             $dec   = substr(round(substr($input, $pos), 2), 1);
@@ -141,17 +137,17 @@ function format_currency($floatcurr, $curr = 'EUR')
             $input = substr($input, 0, -2);
         }
 
-        return $num.$dec;
+        return (string) $num.$dec;
     }
 
 
     if ($curr == "INR")
     {
-        return formatinr($floatcurr);
+        return (string) formatinr($floatcurr);
     }
     else
     {
-        return number_format($floatcurr, $currencies[$curr][0], $currencies[$curr][1], $currencies[$curr][2]);
+        return (string) number_format($floatcurr, $currencies[$curr][0], $currencies[$curr][1], $currencies[$curr][2]);
     }
 }
 
