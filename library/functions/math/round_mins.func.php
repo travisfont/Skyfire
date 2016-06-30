@@ -1,6 +1,6 @@
 <?php
 
-function round_mins($hour, $minutes = '1', $format = 'H:i')
+function round_mins($hour, $minutes = 1, $format = 'H:i')
 {
     $seconds = strtotime($hour);
     $rounded = round($seconds / ($minutes * 60)) * ($minutes * 60);
