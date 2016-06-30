@@ -4,7 +4,7 @@
 
 function leading_zero($num, $places = 0)
 {
-    return str_pad($num, $places, '0', STR_PAD_LEFT);
+    return (string) str_pad($num, $places, '0', STR_PAD_LEFT);
 }
 
 // Example:

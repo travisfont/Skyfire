@@ -2,7 +2,7 @@
 
 function get_percentage_of($percentage, $number)
 {
-	return $number * ($percentage*.01);
+	return (float) $number * ($percentage*.01);
 }
 
 // 32% of 467 is:

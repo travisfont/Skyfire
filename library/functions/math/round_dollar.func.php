@@ -15,11 +15,11 @@ function round_dollar($amount)
 
     if ($diff_ceil >= $diff_floor)
     {
-        return $floor;
+        return (float) $floor;
     }
     else
     {
-        return $ceil;
+        return (float) $ceil;
     }
 }
 

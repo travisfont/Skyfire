@@ -2,7 +2,7 @@
 
 function calculate_age($date, $format = 'm/d/Y')
 {
-	return floor((strtotime(date($format)) - strtotime($date)) / 31556926);
+	return (float) floor((strtotime(date($format)) - strtotime($date)) / 31556926);
 }
 
 # calculate_age('6/12/1970');
