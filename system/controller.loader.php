@@ -296,8 +296,11 @@ class Controller extends Display
     protected function __construct()
     {
         load::service('DB');
-        
-        $this->DB = new DB;
+
+        if (is_null($this->DB))
+        {
+            $this->DB = new DB;
+        }
     }
 
     // in any controller: $this->installServices()
