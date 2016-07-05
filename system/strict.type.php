@@ -121,6 +121,7 @@ class Functional_Caller
 
     public function __construct(array $parameters)
     {
+        // TODO: remove $ if the first character of the key contains $
         $this->parameters = $parameters;
     }
 
