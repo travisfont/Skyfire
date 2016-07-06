@@ -30,6 +30,7 @@ abstract class DT
 
     const BOOL   = 'bool';    // true or flase
     const VOID   = 'void';    // no return
+    const NULL   = 'null';    // no return
     const MIXED  = 'mixed';   // multiple unknown values
     const ANY    = 'any';     // unknown value
     const NUMBER = 'numeric'; // unknown numeric value
