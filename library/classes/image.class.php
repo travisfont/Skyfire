@@ -40,7 +40,7 @@ class Image extends Controller
         return self::parameters(
         [
             'filename'   =>  DT::STRING,
-            'percentage' =>  DT::UINT8,
+            'percentage' =>  DT::UINT8
         ])
         ->call(__FUNCTION__)
         ->with($filename, $percentage)
@@ -51,18 +51,44 @@ class Image extends Controller
     // scaleImageToHeight
     protected function scale_image_to_height($filename, $target_height)
     {
-        return scale_image_to_height($filename, $target_height);
+        //return scale_image_to_height($filename, $target_height);
+        return self::parameters(
+        [
+            'filename'      =>  DT::STRING,
+            'target_height' =>  DT::UINT32
+        ])
+        ->call(__FUNCTION__)
+        ->with($filename, $target_height)
+        ->returning([DT::UINT32, DT::FLOAT]);
     }
 
     // ScaleImageToWidth
     protected function scale_image_to_width($filename, $target_width)
     {
-        return scale_image_to_width($filename, $target_width);
+        //return scale_image_to_width($filename, $target_width);
+        return self::parameters(
+        [
+            'filename'     =>  DT::STRING,
+            'target_width' =>  DT::UINT32
+        ])
+        ->call(__FUNCTION__)
+        ->with($filename, $target_width)
+        ->returning([DT::UINT32, DT::FLOAT]);
     }
 
     // createImageFromBase64
     protected function create_image_from_base64($data, $filename, $extension = 'jpg', $quality = 100)
     {
-        return create_image_from_base64($data, $filename, $extension, $quality);
+        //return create_image_from_base64($data, $filename, $extension, $quality);
+        return (bool) self::parameters(
+        [
+            'data'      =>  DT::LONGTEXT,
+            'filename'  =>  DT::STRING,
+            'extension' =>  DT::STRING,
+            'quality'   =>  DT::UINT8
+        ])
+        ->call(__FUNCTION__)
+        ->with($data, $filename, $extension, $quality)
+        ->returning(DT::BOOL);
     }
 }
