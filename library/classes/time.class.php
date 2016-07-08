@@ -33,8 +33,8 @@ class Time extends Controller
         //return (object) datetime_diff($date1, $date2);
         return (object) self::parameters(
         [
-            'date1'        => DT::STRING,
-            'date2'        => DT::STRING
+            'date1' => DT::STRING,
+            'date2' => DT::STRING
         ])
         ->call(__FUNCTION__)
         ->with($date1, $date2)
@@ -139,8 +139,8 @@ class Time extends Controller
     protected function mysql_now()
     {
         //return (string) mysql_now();
-        return (string)  self::parameters()->call(__FUNCTION__)
-                                           ->returning(DT::STRING);
+        return (string) self::parameters()->call(__FUNCTION__)
+                                          ->returning(DT::STRING);
     }
 
     protected function convert_month($number, array $args = array('lang' => 'fr', 'ucword' => FALSE, 'dots' => FALSE, 'long' => FALSE))
@@ -149,43 +149,51 @@ class Time extends Controller
         return (string) self::parameters(
         [
             'number' => DT::STRING,
-            'args'   => DT::STRING
+            'args'   => DT::TYPE_ARRAY
         ])
         ->call(__FUNCTION__)
         ->with($number, $args)
         ->returning(DT::STRING);
     }
 
-    public static function getUTCTimeZone()
+    // getUTCTimeZone
+    public static function get_utc_timezone()
     {
-        $UTCDateTimeZone = new DateTimeZone('UTC');
-        return new DateTime("now", $UTCDateTimeZone);
+        //return get_utc_timezone();
+        return self::parameters()->call(__FUNCTION__)
+                                 ->returning(DT::STD);
     }
 
-    public static function serverTimeZone_offset($userTimeZone = 'UTC')
+    public static function server_timezone_offset($user_timezone = 'UTC')
     {
-        $userDateTimeZone = new DateTimeZone($userTimeZone);
-        $userDateTime     = new DateTime("now", $userDateTimeZone);
-
-        $serverTimeZone     = date_default_timezone_get();
-        $serverDateTimeZone = new DateTimeZone($serverTimeZone);
-        $serverDateTime     = new DateTime("now", $serverDateTimeZone);
-
-        return $serverDateTimeZone->getOffset($userDateTime) - $userDateTimeZone->getOffset($userDateTime);
+        //return (int) server_timezone_offset($user_timezone);
+        return (int) self::parameters(
+        [
+            'user_timezone' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($user_timezone)
+        ->returning(DT::UINT8);
     }
 
-    public static function getDefineTimeZone($timezone)
+    // getDefineTimezone
+    public static function get_define_timezone($timezone)
     {
-        $userDateTimeZone = new DateTimeZone($timezone);
-        return new DateTime("now", $userDateTimeZone);
+        //return get_define_timezone($timezone);
+        return self::parameters(
+        [
+            'timezone' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($timezone)
+        ->returning(DT::STD);
     }
 
-    public static function getServerTimeZone()
+    public static function get_server_timezone()
     {
-        $serverTimeZone     = date_default_timezone_get();
-        $serverDateTimeZone = new DateTimeZone($serverTimeZone);
-
-        return new DateTime("now", $serverDateTimeZone);
+        //return get_server_timezone();
+        return self::parameters()->call(__FUNCTION__)
+                                 ->returning(DT::STD);
     }
 
     protected function format_date($original_date, $date_format = 'Y-m-d\TH:i:sP')
@@ -259,7 +267,7 @@ class Time extends Controller
         //return countdown($datetime, $sentence_format);
         return self::parameters(
         [
-            'datetime'         > DT::STRING,
+            'datetime'        => DT::STRING,
             'sentence_format' => DT::BOOL
         ])
         ->call(__FUNCTION__)
