@@ -140,5 +140,5 @@ function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $c
 		}
 	}
 
-	return $truncate;
+	return (string) $truncate;
 }

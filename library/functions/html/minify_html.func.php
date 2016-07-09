@@ -4,12 +4,15 @@
 
 function minify_html($html)
 {
-    if (trim($html) === '') return $html;
+    if (trim($html) === '')
+    {
+        return (string) $html;
+    }
 
     // Remove extra white-space(s) between HTML attribute(s)
     $html = preg_replace_callback('#<([^\/\s<>!]+)(?:\s+([^<>]*?)\s*|\s*)(\/?)>#s', function ($matches)
     {
-        return '<'.$matches[1].preg_replace('#([^\s=]+)(\=([\'"]?)(.*?)\3)?(\s+|$)#s', ' $1$2', $matches[2]).$matches[3].'>';
+        return (string) '<'.$matches[1].preg_replace('#([^\s=]+)(\=([\'"]?)(.*?)\3)?(\s+|$)#s', ' $1$2', $matches[2]).$matches[3].'>';
     },
     str_replace("\r", "", $html));
 
@@ -18,12 +21,12 @@ function minify_html($html)
     {
         $html = preg_replace_callback('#<([^<]+?)\s+style=([\'"])(.*?)\2(?=[\/\s>])#s', function ($matches)
         {
-            return '<'.$matches[1].' style='.$matches[2].minify_css($matches[3]).$matches[2];
+            return (string) '<'.$matches[1].' style='.$matches[2].minify_css($matches[3]).$matches[2];
         },
         $html);
     }
 
-    return trim(preg_replace(array
+    return (string) trim(preg_replace(array
     (
         // t = text
         // o = tag open

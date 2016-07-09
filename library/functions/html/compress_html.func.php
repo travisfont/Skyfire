@@ -12,5 +12,5 @@ function compress_html($content)
         $i++;
     }
 
-    return trim($content);
+    return (string) trim($content);
 }

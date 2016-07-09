@@ -18,7 +18,7 @@ function parse_selector_values($selector_html, $encoding = 'UTF-8')
         $result[$optionValue] = $optionContent;
     }
 
-    return $result;
+    return (array) $result;
 }
 
 //var_dump(parse_selector_values($html));

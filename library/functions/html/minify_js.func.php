@@ -4,9 +4,12 @@
 
 function minify_js($javascript)
 {
-    if (trim($javascript) === '') return $javascript;
+    if (trim($javascript) === '')
+    {
+        return $javascript;
+    }
 
-    return trim(preg_replace(array
+    return (string) trim(preg_replace(array
     (
         // Remove comment(s)
         '#\s*("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\')\s*|\s*\/\*(?!\!|@cc_on)(?>[\s\S]*?\*\/)\s*|\s*(?<![\:\=])\/\/.*(?=[\n\r]|$)|^\s*|\s*$#',

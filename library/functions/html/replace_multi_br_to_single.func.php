@@ -5,5 +5,5 @@
     
 function replace_multi_br_to_single($string)
 {
-    return preg_replace('#(<br */?>\s*)+#i', '<br />', $string);
+    return (string) preg_replace('#(<br */?>\s*)+#i', '<br />', $string);
 }

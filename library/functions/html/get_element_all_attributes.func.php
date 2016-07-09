@@ -11,7 +11,7 @@ function get_element_all_attributes($tag_name, $html, $encoding = 'UTF-8')
         $attributes[$attribute_name] = $attribute_node->nodeValue;
     }
 
-    return $attributes;
+    return (array) $attributes;
 }
 
 /* EXAMPLE CODE:

@@ -19,7 +19,7 @@ function parse_selector_values_by_name($name, $selector_html, $encoding = 'UTF-8
         $result[$optionValue] = $optionContent;
     }
 
-    return $result;
+    return (array) $result;
 }
 
 //var_dump(parse_selector_values_by_name('advertiser[]', $html));

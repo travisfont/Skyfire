@@ -2,7 +2,7 @@
 
 function strip_html_tag_styles($string)
 {
-    return preg_replace('/(<[^>]+) style=".*?"/i', '$1', $string);
+    return (string) preg_replace('/(<[^>]+) style=".*?"/i', '$1', $string);
 
     /*
     $domd = new DOMDocument();

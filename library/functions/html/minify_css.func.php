@@ -4,9 +4,12 @@
 
 function minify_css($css)
 {
-    if (trim($css) === '') return $css;
+    if (trim($css) === '')
+    {
+        return $css;
+    }
 
-    return trim(preg_replace(array
+    return (string) trim(preg_replace(array
     (
         // Remove comment(s)
         '#("(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\')|\/\*(?!\!)(?>.*?\*\/)|^\s*|\s*$#s',
