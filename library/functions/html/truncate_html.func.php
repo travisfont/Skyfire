@@ -8,13 +8,13 @@ Maintains HTML and complete words while trimming HTML strings.
 @param integer $length Length of returned string, including ellipsis.
 @param string $ending Ending to be appended to the trimmed string.
 @param boolean $exact If false, $text will not be cut mid-word
-@param boolean $considerHtml If true, HTML tags would be handled correctly
+@param boolean $consider_html If true, HTML tags would be handled correctly
 @return string Trimmed string.
 */
 
-function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $considerHtml = TRUE)
+function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $consider_html = TRUE)
 {
-	if ($considerHtml)
+	if ($consider_html)
     {
 		// if the plain text is shorter than the maximum length, return the whole text
 		if (strlen(preg_replace('/<.*?>/', '', $text)) <= $length)
@@ -131,7 +131,7 @@ function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $c
 	// add the defined ending to the text
 	$truncate .= $ending;
     
-	if ($considerHtml)
+	if ($consider_html)
     {
 		// close all unclosed html-tags
 		foreach ($open_tags as $tag)
