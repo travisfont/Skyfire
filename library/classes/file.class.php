@@ -63,7 +63,20 @@ class File extends Controller
     // getHttpResponseCode
     protected function get_http_response_code($url)
     {
-        //return (int) get_http_response_code($url);
+        return (int) get_http_response_code($url);
+        return (int) self::parameters(
+        [
+            'url' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($url)
+        ->returning(DT::UINT8);
+    }
+
+    // getHttpsResponseCode
+    protected function get_https_response_code($url)
+    {
+        //return (int) get_https_response_code($url);
         return (int) self::parameters(
         [
             'url' => DT::STRING
