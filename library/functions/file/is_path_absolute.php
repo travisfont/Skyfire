@@ -29,5 +29,5 @@ function is_path_absolute($path)
     }
 
     // path starting with / or \ is absolute; anything else is relative
-    return ($path[0] == '/' || $path[0] == '\\');
+    return (bool) ($path[0] == '/' || $path[0] == '\\');
 }

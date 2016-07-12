@@ -27,5 +27,5 @@ function get_current_page_url()
         $page_url .= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
     }
 
-    return $page_url;
+    return (string) $page_url;
 }

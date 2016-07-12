@@ -1,10 +1,11 @@
 <?
 
 // returns the HTTP response code (number) of the full path URL
+// TODO: create a function for HTTPS
 
 function get_http_response_code($url)
 {
     $headers = get_headers($url);
 
-    return substr($headers[0], 9, 3);
+    return (int) substr($headers[0], 9, 3);
 }
