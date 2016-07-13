@@ -126,34 +126,68 @@ ExecuteTime::end(); // ends the timer
 
 // displaying time results
 echo "This page was created in ".ExecuteTime::$display." seconds";
- */
+*/
 
 
 class Debug extends Controller
 {
     protected function pr($data, $exit = TRUE)
     {
-        return pr($data, $exit);
+        //return pr($data, $exit);
+        return self::parameters(
+        [
+            'data' => DT::ANY,
+            'exit' => DT::BOOL
+        ])
+        ->call(__FUNCTION__)
+        ->with($data, $exit)
+        ->returning(DT::VOID);
     }
 
     protected function ddf($data, $name, $display = FALSE, $file_type = 'txt')
     {
-        return ddf($data, $name, $display, $file_type);
+        //return ddf($data, $name, $display, $file_type);
+        return self::parameters(
+        [
+            'data'      => DT::ANY,
+            'name'      => DT::STRING,
+            'display'   => DT::BOOL,
+            'file_type' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($data, $name, $display, $file_type)
+        ->returning(DT::VOID);
     }
 
     protected function get_define_constants($type = 'user')
     {
-        return get_define_constants($type);
+        //return (array) get_define_constants($type);
+        return (array) self::parameters(
+        [
+            'type' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($type)
+        ->returning(DT::TYPE_ARRAY);
     }
 
     // getUserDefinedConstants
     protected function get_user_defined_constants()
     {
-        return get_user_defined_constants();
+        //return (array) get_user_defined_constants();
+        return (array) self::parameters()->call(__FUNCTION__)
+                                         ->returning(DT::TYPE_ARRAY);
     }
 
     protected function has_locale($locale)
     {
-        return has_locale($locale);
+        //return (bool) has_locale($locale);
+        return (bool) self::parameters(
+        [
+            'locale' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($locale)
+        ->returning(DT::BOOL);
     }
 }
