@@ -17,7 +17,11 @@ function ddf($data, $name, $display = FALSE, $file_type = 'txt')
                     $info['extension'];
     }
 
-    if ($display) print_r($data);
+    if ($display)
+    {
+        print_r($data);
+    }
+
     file_put_contents($fullpath, print_r($data, TRUE)); exit;
 }
 
