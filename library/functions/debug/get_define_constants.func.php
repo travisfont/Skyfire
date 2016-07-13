@@ -7,5 +7,5 @@ function get_define_constants($type = 'user')
 {
     $constants = get_defined_constants(TRUE);
 
-    return $constants[$type];
+    return (array) $constants[$type];
 }
