@@ -17,6 +17,19 @@ class Strings extends Controller
         ->returning(DT::STRING);
     }
 
+    // generateRandomString
+    protected function generate_random_str($length = 8)
+    {
+        //return (string) generate_random_str($length);
+        return (string) self::parameters(array
+        (
+            'length' => DT::UINT8
+        ))
+        ->call(__FUNCTION__)
+        ->with($length)
+        ->returning(DT::STRING);
+    }
+
     // cleanStr
     protected function clean_str($string)
     {
