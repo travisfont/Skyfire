@@ -79,7 +79,7 @@ class Image extends Controller
     // createImageFromBase64
     protected function create_image_from_base64($data, $filename, $extension = 'jpg', $quality = 100)
     {
-        //return create_image_from_base64($data, $filename, $extension, $quality);
+        //return (bool) create_image_from_base64($data, $filename, $extension, $quality);
         return (bool) self::parameters(
         [
             'data'      =>  DT::LONGTEXT,
@@ -90,5 +90,18 @@ class Image extends Controller
         ->call(__FUNCTION__)
         ->with($data, $filename, $extension, $quality)
         ->returning(DT::BOOL);
+    }
+
+    protected function convert_base64_jpg($base64_string, $output_file = FALSE)
+    {
+        //return (string) convert_base64_jpg($base64_string, $output_file);
+        return (string) self::parameters(
+        [
+            'base64_string' => DT::LONGTEXT,
+            'output_file'   => DT::BOOL
+        ])
+        ->call(__FUNCTION__)
+        ->with($base64_string, $output_file)
+        ->returning(DT::STRING);
     }
 }
