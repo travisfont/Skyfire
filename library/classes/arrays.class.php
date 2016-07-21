@@ -156,7 +156,7 @@ class Arrays extends Controller
 
     protected function fill_array_key_leading_zeros(array $array)
     {
-        return fill_array_key_leading_zeros($array);
+        //return fill_array_key_leading_zeros($array);
         return (array) self::parameters(
         [
             'array' => DT::TYPE_ARRAY
