@@ -9,10 +9,10 @@ function join_natural_language(array $list, $conjunction = 'and')
 
     if ($list)
     {
-        return implode(', ', $list).' '.$conjunction.' '.$last;
+        return (string) implode(', ', $list).' '.$conjunction.' '.$last;
     }
 
-    return $last;
+    return (string) $last;
 }
 
 /*
