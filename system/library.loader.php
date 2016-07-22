@@ -51,7 +51,7 @@ class extender
                     // camel case library checker
                     if (defined('CAMEL_CASE') && CAMEL_CASE == '1')
                     {
-                        $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/camelcase/'.strtolower($class).'.class.php';
+                        $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/classes/camelcase/'.strtolower($class).'.cc.class.php';
                     }
                     else
                     {
