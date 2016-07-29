@@ -2,6 +2,23 @@
 
 /* Main Skyfire System Library */
 
+final class fnCamelCase
+{
+    public static function _camelize($string)
+    {
+        return (string) trim($string = preg_replace_callback('/(^|_)([a-z])/', function ($m)
+        {
+            return strtoupper($m[2]);
+        },
+        $string), '_');
+    }
+
+    public static function _decamelize($string)
+    {
+        return (string) trim(strtolower(preg_replace('/[A-Z]/', '_$0', $string)), '_');
+    }
+}
+
 class ResponseStatusCode
 {
     private $view_name;
@@ -266,12 +283,20 @@ class Controller extends Display
     {
         $class = get_called_class();
 
+        // camel case is set to true - decamelize
+        if (defined('CAMEL_CASE') && CAMEL_CASE == '1')
+        {
+            $function = fnCamelCase::_decamelize($function);
+        }
+
         if (is_file(PARENT_DIRECTORY.'/library/functions/'.strtolower($class).'/'.$function.'.func.php'))
         {
             if (!function_exists($function))
             {
                 require_once PARENT_DIRECTORY.'/library/functions/'.strtolower($class).'/'.$function.'.func.php';
             }
+
+            // after the lowercase function is loaded - camelize the function for the class class
 
             $instance = new $class();
 
@@ -289,7 +314,7 @@ class Controller extends Display
         else
         {
             // return FALSE;
-            throw new Exception('Failed to load: functions/'.strtolower($class).'/'.$function.'.func.php');
+            throw new Exception('Failed to load: /library/functions/'.strtolower($class).'/'.$function.'.func.php');
         }
     }
 
