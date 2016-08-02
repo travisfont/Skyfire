@@ -16,270 +16,71 @@ class Time extends Controller
     const RSS     = "D, d M Y H:i:s O";
     const W3C     = "Y-m-d\TH:i:sP";
 
-
     protected function dateYesterday($string)
-    {
-        //return date_yesterday($string);
-        return self::parameters(
-        [
-            'string' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($string)
-        ->returning([DT::BOOL, DT::STRING]);
-    }
+    { return var_export(NULL); }
 
     protected function datetimeDiff($date1, $date2)
-    {
-        //return (object) datetime_diff($date1, $date2);
-        return (object) self::parameters(
-        [
-            'date1' => DT::STRING,
-            'date2' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($date1, $date2)
-        ->returning(DT::STD);
-    }
+    { return (object) NULL; }
 
     protected function daysDiff($date1, $date2 = FALSE, $accuracy_day = FALSE)
-    {
-        //return (float) days_diff($date1, $date2, $accuracy_day);
-        return (float) self::parameters(
-        [
-            'date1'        => DT::STRING,
-            'date2'        => DT::STRING,
-            'accuracy_day' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($date1, $date2, $accuracy_day)
-        ->returning(DT::FLOAT);
-    }
+    { return (float) NULL; }
 
     protected function monthsDiff($date1, $date2 = FALSE)
-    {
-        //return (int) months_diff($date1, $date2);
-        return (string) self::parameters(
-        [
-            'date1' => DT::STRING,
-            'date2' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($date1, $date2)
-        ->returning(DT::UINT32);
-    }
+    { return (int) NULL; }
 
     protected function showTimeLeft($dbdate, $short = TRUE)
-    {
-        //return (string) show_time_left($dbdate, $short);
-        return (string) self::parameters(
-        [
-            'dbdate' => DT::STRING,
-            'short'  => DT::BOOL
-        ])
-        ->call(__FUNCTION__)
-        ->with($dbdate, $short)
-        ->returning(DT::STRING);
-    }
+    { return (string) NULL; }
 
     protected function timeAge($date)
-    {
-        //return time_ago($date);
-        return (string) self::parameters(
-        [
-            'date' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($date)
-        ->returning(DT::STRING);
-    }
+    { return (string) NULL; }
 
     protected function convertUtcOffsetAbbr($offset)
-    {
-        //return (string) convert_utc_offset_abbr($offset);
-        return (string) self::parameters(
-        [
-            'offset' => [DT::STRING, DT::INT8]
-        ])
-        ->call(__FUNCTION__)
-        ->with($offset)
-        ->returning(DT::STRING);
-    }
+    { return (string) NULL; }
 
     protected function nextWeek($date, $weeks = 1, $format = 'Y-m-d\TH:i:sP')
-    {
-        // return (string) next_week($date, $format, $weeks);
-        return (string) self::parameters(
-        [
-            'date'   => DT::STRING,
-            'format' => DT::STRING,
-            'weeks'  => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($date, $format, $weeks)
-        ->returning(DT::STRING);
-    }
+    { return (string) NULL; }
 
     // ideal naming convertion: MySQL_Datetime_Format
     protected function formatMysqlDatetime($date_string = FALSE)
-    {
-        //return format_mysql_datetime($date_string);
-        return self::parameters(
-        [
-            'date_string' => [DT::STRING, DT::BOOL]
-        ])
-        ->call(__FUNCTION__)
-        ->with($date_string)
-        ->returning([DT::STRING, DT::BOOL]);
-    }
+    { return var_export(NULL); }
 
     protected function mysqlNow()
-    {
-        //return (string) mysql_now();
-        return (string) self::parameters()->call(__FUNCTION__)
-                                          ->returning(DT::STRING);
-    }
+    { return (string) NULL; }
 
     protected function convertMonth($number, array $args = array('lang' => 'fr', 'ucword' => FALSE, 'dots' => FALSE, 'long' => FALSE))
-    {
-        //return (string) convert_month($number, $args);
-        return (string) self::parameters(
-        [
-            'number' => DT::STRING,
-            'args'   => DT::TYPE_ARRAY
-        ])
-        ->call(__FUNCTION__)
-        ->with($number, $args)
-        ->returning(DT::STRING);
-    }
+    { return (string) NULL; }
 
     // getUTCTimeZone
     public static function getUtcTimeZone()
-    {
-        //return get_utc_timezone();
-        return self::parameters()->call(__FUNCTION__)
-                                 ->returning(DT::STD);
-    }
+    { return (object) NULL; }
 
     public static function serverTimezoneOffset($user_timezone = 'UTC')
-    {
-        //return (int) server_timezone_offset($user_timezone);
-        return (int) self::parameters(
-        [
-            'user_timezone' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($user_timezone)
-        ->returning(DT::UINT8);
-    }
+    { return (int) NULL; }
 
     public static function getDefineTimezone($timezone)
-    {
-        //return get_define_timezone($timezone);
-        return self::parameters(
-        [
-            'timezone' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($timezone)
-        ->returning(DT::STD);
-    }
+    { return (object) NULL; }
 
     public static function getServerTimezone()
-    {
-        //return get_server_timezone();
-        return self::parameters()->call(__FUNCTION__)
-                                 ->returning(DT::STD);
-    }
+    { return (object) NULL; }
 
     protected function formatDate($original_date, $date_format = 'Y-m-d\TH:i:sP')
-    {
-        //return (string) format_date($original_date, $date_format);
-        return (string) self::parameters(
-        [
-            'original_date' => DT::STRING,
-            'date_format'   => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($original_date, $date_format)
-        ->returning(DT::STRING);
-    }
+    { return (string) NULL; }
 
     protected function getWeekNumber($ddate)
-    {
-        //return get_week_number($ddate);
-        return self::parameters(
-        [
-            'date' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($ddate)
-        ->returning([DT::STRING, DT::BOOL]);
-    }
+    { return var_export(NULL); }
 
     protected function convertMinsToHm($time, $format = '%02d:%02d')
-    {
-        //return convert_mins2hm($time, $format);
-        return self::parameters(
-        [
-            'time'   => DT::STRING,
-            'format' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($time, $format)
-        ->returning([DT::STRING, DT::BOOL]);
-    }
+    { return var_export(NULL); }
 
     protected function formatDateDiff($date1, $date2, $return_format = '%H:%I')
-    {
-        //return (string) format_date_diff($date1, $date2, $return_format);
-        return (string) self::parameters(
-        [
-            'date1'         => DT::STRING,
-            'date2'         => DT::STRING,
-            'return_format' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($date1, $date2, $return_format)
-        ->returning(DT::STRING);
-    }
+    { return (string) NULL; }
 
     protected function currentDateState($date_string)
-    {
-        //return (int) current_date_state($date_string);
-        return (int) self::parameters(
-        [
-            'date_string' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($date_string)
-        ->returning(DT::INT8);
-    }
+    { return (int) NULL; }
 
     protected function countdown($datetime, $sentence_format = FALSE)
-    {
-        //return countdown($datetime, $sentence_format);
-        return self::parameters(
-        [
-            'datetime'        => DT::STRING,
-            'sentence_format' => DT::BOOL
-        ])
-        ->call(__FUNCTION__)
-        ->with($datetime, $sentence_format)
-        ->returning([DT::STRING, DT::TYPE_ARRAY, DT::BOOL]);
-    }
+    { return var_export(NULL); }
 
     protected function isAdult($day, $month, $year)
-    {
-        //return (bool) is_adult($day, $month, $year);
-        return (bool) self::parameters(
-        [
-            'day'   => DT::UINT8,
-            'month' => DT::UINT8,
-            'year'  => DT::UINT8
-        ])
-        ->call(__FUNCTION__)
-        ->with($day, $month, $year)
-        ->returning(DT::BOOL);
-    }
+    { return (bool) NULL; }
 }
