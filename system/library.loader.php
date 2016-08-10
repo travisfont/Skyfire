@@ -121,7 +121,7 @@ class load
         spl_autoload_register(function ($service) use ($class)
         {
             // class alias (conversion to locate folder)
-            $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/services/'.trim($class).'/index.php';
+            $filename = __DIR__.DIRECTORY_SEPARATOR.'../library/services/'.strtoupper(trim($class)).'/index.php';
             if (is_readable($filename))
             {
                 require_once $filename;
