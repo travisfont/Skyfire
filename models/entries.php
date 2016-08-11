@@ -2,11 +2,9 @@
 
 class Entries extends Model
 {
-
     public static function getData()
     {
-        $self = new Static();
-
+        //return self::Entries()->DB->select('get.AllHomeTextData')->execute();
         return DB::select('get.AllHomeTextData')->execute();
     }
 }
