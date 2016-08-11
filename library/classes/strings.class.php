@@ -111,7 +111,7 @@ class Strings extends Controller
         ))
         ->call(__FUNCTION__)
         ->with($string)
-        ->returning([DT::INT64, DT::STRING, DT::BOOL]);
+        ->returning([DT::INT64, DT::FLOAT, DT::BOOL]);
     }
 
     // stripToInt
