@@ -29,7 +29,7 @@ class Strings extends Controller
     { return (bool) NULL; }
 
     protected function stripToNumeric($string)
-    { return var_export(NULL); }
+    { return (TRUE ? (int) NULL :  FALSE ? (float) NULL : (bool) NULL); }
 
     protected function stripToInt($string)
     { return (int) NULL; }
