@@ -4,10 +4,10 @@
 
 class File extends Controller
 {
-    static public function includeIfExist($path)      {} // $this->includeIfExist()
-    static public function includ_onceIfExist($path)  {} // $this->includ_onceIfExist()
-    static public function requireIfExist($path)      {} // $this->requireIfExist()
-    static public function require_onceIfExist($path) {} // $this->require_onceIfExist()
+    static public function include_if_exist($path)      {} // $this->include_if_exist()
+    static public function include_once_if_exist($path) {} // $this->include_once_if_exist()
+    static public function require_if_exist($path)      {} // $this->require_if_exist()
+    static public function require_once_if_exist($path) {} // $this->require_once_if_exist()
 
     protected function write_log_error($text, $log_file)
     {
