@@ -12,4 +12,7 @@ class Debug extends Controller
 
     protected function hasLocale($locale)
     { return (bool) NULL; }
+
+    protected function varInfo($value)
+    { return (string) NULL; }
 }

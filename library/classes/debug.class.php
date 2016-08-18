@@ -171,7 +171,6 @@ class Debug extends Controller
         ->returning(DT::TYPE_ARRAY);
     }
 
-    // getUserDefinedConstants
     protected function get_user_defined_constants()
     {
         //return (array) get_user_defined_constants();
@@ -189,5 +188,24 @@ class Debug extends Controller
         ->call(__FUNCTION__)
         ->with($locale)
         ->returning(DT::BOOL);
+    }
+
+    /**
+     * Get human-readable info about the type of the value.
+     *
+     * @param  mixed $value The value to get the info for.
+     *
+     * @return string The info about the value as string.
+     */
+    protected function var_info($value)
+    {
+        //return (string) var_info($value);
+        return (string) self::parameters(
+        [
+            'value' => DT::ANY
+        ])
+        ->call(__FUNCTION__)
+        ->with($value)
+        ->returning(DT::STRING);
     }
 }
