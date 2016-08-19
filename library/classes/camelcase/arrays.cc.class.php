@@ -39,4 +39,7 @@ class Arrays extends Controller
 
     protected function fillArrayKeyLeadingZeros(array $array)
     { return (array) NULL; }
+
+    protected function arrayKeysExist(array $needles, array $haystack)
+    { return (bool) NULL; }
 }

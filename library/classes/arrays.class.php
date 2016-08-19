@@ -165,4 +165,17 @@ class Arrays extends Controller
         ->with($array)
         ->returning(DT::TYPE_ARRAY);
     }
+
+    protected function array_keys_exist(array $needles, array $haystack)
+    {
+        //return (bool) array_keys_exist($needles, $haystack);
+        return (bool) self::parameters(
+        [
+            'needles'  => DT::TYPE_ARRAY,
+            'haystack' => DT::TYPE_ARRAY
+        ])
+        ->call(__FUNCTION__)
+        ->with($needles, $haystack)
+        ->returning(DT::BOOL);
+    }
 }
