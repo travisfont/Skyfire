@@ -58,11 +58,13 @@ abstract class DT
 
 abstract class SF
 {
+    // responses
     const GET    = 'GET';
     const POST   = 'POST';
     const PUT    = 'PUT';
     const DELETE = 'DELETE';
 
+    // libaries
     const DEBUG     = 'debug';
     const SYSLOG    = 'syslog';
     const NETWORK   = 'network';
@@ -78,4 +80,13 @@ abstract class SF
     const TIME      = 'time';
     const XML       = 'xml';
     const DB        = 'db';
+
+    // services
+    const HTTP      = 'http';
+    const VALIDATOR = 'validator';
+    const DATETIME  = 'datetime';
+    const STRING    = 'string';
+    const EMAIL     = 'email';
+    const HTM_PHP   = 'htm-php';
+    const HTML2PDF  = 'html2pdf';
 }
