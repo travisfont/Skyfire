@@ -4,7 +4,19 @@
 
 class Arrays extends Controller
 {
-    // randomizeArray
+    protected function clear_empty_values(array $array, $keep_zero = TRUE)
+    {
+        //return (array) clear_empty_values($array, $keep_zero);
+        return (array) self::parameters(
+        [
+            'array'     => DT::TYPE_ARRAY,
+            'keep_zero' => DT::BOOL
+        ])
+        ->call(__FUNCTION__)
+        ->with($array, $keep_zero)
+        ->returning(DT::TYPE_ARRAY);
+    }
+
     protected function randomize_array(array $arr, $amount = 1)
     {
         //return randomize_array($arr, $amount);

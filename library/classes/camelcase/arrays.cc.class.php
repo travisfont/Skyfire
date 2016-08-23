@@ -4,6 +4,9 @@
 
 class Arrays extends Controller
 {
+    protected function clearEmptyValues(array $array, $keep_zero = TRUE)
+    { return (array) NULL; }
+
     protected function randomizeArray(array $arr, $amount = 1)
     { return (array) NULL; }
 
