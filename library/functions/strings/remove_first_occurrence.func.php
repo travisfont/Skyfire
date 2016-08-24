@@ -19,7 +19,7 @@ function remove_first_occurrence($string, $search, $times)
             $line_count++;
         }
 
-        return $new_string;
+        return (string) $new_string;
     }
 
     return (string) $string;

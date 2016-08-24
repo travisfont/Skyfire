@@ -13,8 +13,8 @@ class Strings extends Controller
     protected function cleanStr($string)
     { return (string) NULL; }
 
-    protected function hexToRgb($hex)
-    { return (string) NULL; }
+    protected function hexToRgb($hex, $string)
+    { return (NULL) ? (string) NULL : (array) NULL; }
 
     protected function isHex($hex)
     { return (bool) NULL; }
