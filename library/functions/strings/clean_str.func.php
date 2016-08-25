@@ -13,5 +13,5 @@ function clean_str($string)
 	//Trim the string
 	$string = trim($string);
 
-	return $string;
+	return (string) $string;
 }
