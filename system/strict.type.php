@@ -22,11 +22,18 @@ class Functional_Returner
         var_dump($return_datatype);
         */
 
+        #var_dump('@@@@');
+        #var_dump($this->parameters);
+        #var_dump($this->arguments);
+
+        #var_dump('----------');
         $key = 0;
         foreach ($this->parameters as $parameter => $datatype)
         {
+            // mutliple values have been set as argument (via array)
             if (is_array($datatype))
             {
+                // more than one data type
                 if (count($datatype) > 1)
                 {
                     $valid_type = FALSE;
@@ -56,15 +63,31 @@ class Functional_Returner
                     trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' contains an invalid data type count. Must contain 1 or an array value of ONLY 2. Function execution failed.', E_USER_ERROR);
                 }
             }
-            else
+            else // single value has been set an argument
             {
+                #var_dump($datatype);
                 // create a case for each data type! eventually this will become a static class to keep codebase DRY
                 switch ($datatype)
                 {
                     case 'uint8':
-                        if (!((int) $this->arguments[$key] >= 0) || !((int) $this->arguments[$key] <= 255)) // is_uint8()
+                        if (is_int($this->arguments[$key]) === FALSE || ((int) $this->arguments[$key]) < 0 || ((int) $this->arguments[$key]) > 255) // is_uint8()
                         {
                             trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not uint8. Function execution failed.', E_USER_ERROR);
+                        }
+                    case 'uint16':
+                        if (is_int($this->arguments[$key]) === FALSE || ((int) $this->arguments[$key]) < 0 || ((int) $this->arguments[$key]) > 65535) // is_uint16()
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not uint16. Function execution failed.', E_USER_ERROR);
+                        }
+                    case 'uint32':
+                        if (is_int($this->arguments[$key]) === FALSE || ((int) $this->arguments[$key]) < 0 || ((int) $this->arguments[$key]) > 16777215) // is_uint32()
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not uint32. Function execution failed.', E_USER_ERROR);
+                        }
+                    case 'uint64':
+                        if (is_int($this->arguments[$key]) === FALSE || ((int) $this->arguments[$key]) < 0 || ((int) $this->arguments[$key]) > 18446744073709551615) // is_uint64()
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not uint64 Function execution failed.', E_USER_ERROR);
                         }
                 }
             }
