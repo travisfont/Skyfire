@@ -45,4 +45,7 @@ class Arrays extends Controller
 
     protected function arrayKeysExist(array $needles, array $haystack)
     { return (bool) NULL; }
+
+    function pregArrayKeyExists($pattern, array $array)
+    { return (int) NULL; }
 }

@@ -190,4 +190,17 @@ class Arrays extends Controller
         ->with($needles, $haystack)
         ->returning(DT::BOOL);
     }
+
+    function preg_array_key_exists($pattern, array $array)
+    {
+        //return (int) preg_array_key_exists($pattern, $array);
+        return (int) self::parameters(
+        [
+            'pattern' => DT::STRING,
+            'array'   => DT::TYPE_ARRAY
+        ])
+        ->call(__FUNCTION__)
+        ->with($pattern, $array)
+        ->returning(DT::UINT8);
+    }
 }
