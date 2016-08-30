@@ -8,7 +8,7 @@ function strip_to_numeric($string)
 
 	$keep_negative = NULL;
 
-	if ($string{0} == '-')
+	if (isset($string{0}) && $string{0} == '-')
 	{
 		$keep_negative = '-';
 	}
