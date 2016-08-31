@@ -645,7 +645,7 @@ class Strings extends Controller
         {
             return (string) self::parameters(
             [
-                'number' => [DT::STRING|DT::UINT32]
+                'number' => [DT::STRING,DT::UINT32]
             ])
             ->call(__FUNCTION__)
             ->with($number)
