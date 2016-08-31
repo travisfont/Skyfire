@@ -52,9 +52,6 @@ class Strings extends Controller
     protected function countStr($delimiter, $string)
     { return (int) NULL; }
 
-    protected function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
-    { return (string) NULL; }
-
     protected function htmlSubstr($text, $length, $ending = '...', $exact = TRUE, $consider_html = FALSE)
     { return (string) NULL; }
 
