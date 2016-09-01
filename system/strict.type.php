@@ -126,62 +126,90 @@ class Functional_Returner
                     case 'string':
                         if (is_string($this->arguments[$key]) === FALSE || strlen($this->arguments[$key]) > 255)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not string. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not string. Function execution failed.', E_USER_ERROR);
                         }
                     case 'text':
                         if (is_string($this->arguments[$key]) === FALSE || strlen($this->arguments[$key]) > 65535)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not text. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not text. Function execution failed.', E_USER_ERROR);
                         }
                         break;
                     case 'mediumtext':
                         if (is_string($this->arguments[$key]) === FALSE || strlen($this->arguments[$key]) > 16777215)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not mediumtext. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not mediumtext. Function execution failed.', E_USER_ERROR);
                         }
                         break;
                     case 'longtext':
                         if (is_string($this->arguments[$key]) === FALSE || strlen($this->arguments[$key]) > 4294967295)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not longtext. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not longtext. Function execution failed.', E_USER_ERROR);
                         }
                         break;
                     case 'bool':
                         if (is_bool($this->arguments[$key]) === FALSE)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not boolean. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not boolean. Function execution failed.', E_USER_ERROR);
                         }
                         break;
                     case 'void':
                         if (isset($this->arguments[$key]))
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not void. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not void. Function execution failed.', E_USER_ERROR);
                         }
                         break;
                     case 'null':
                         if ($this->arguments[$key] !== NULL)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not null. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not null. Function execution failed.', E_USER_ERROR);
                         }
                         break;
                     case 'numeric':
                         if (is_numeric($this->arguments[$key]) === FALSE)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not numeric. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not numeric. Function execution failed.', E_USER_ERROR);
                         }
                         break;
                     case 'float':
                         if (is_float($this->arguments[$key]) === FALSE)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not float. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not float. Function execution failed.', E_USER_ERROR);
                         }
                         break;
                     case 'object':
                         if (is_object($this->arguments[$key]) === FALSE)
                         {
-                            trigger_error('Function: '.$this->function_name.'() return value is not object. Function execution failed.', E_USER_ERROR);
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not object. Function execution failed.', E_USER_ERROR);
                         }
                         break;
+                    case 'array':
+                        if (is_array($this->arguments[$key]) === FALSE)
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not array. Function execution failed.', E_USER_ERROR);
+                        }
+                        break;
+                    case 'iterator':
+                        if (is_array($this->arguments[$key]) === FALSE)
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not iterator. Function execution failed.', E_USER_ERROR);
+                        }
+                        break;
+                    case 'enum':
+                        if (is_object($this->arguments[$key]) === FALSE)
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not enum. Function execution failed.', E_USER_ERROR);
+                        }
+                        break;
+                    case 'ipv4':
+                        if (filter_var($this->arguments[$key], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === FALSE)
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\' is not ipv4. Function execution failed.', E_USER_ERROR);
+                        }
+                    case 'ipv6':
+                        if (filter_var($this->arguments[$key], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === FALSE)
+                        {
+                            trigger_error('Function: '.$this->function_name.'() at parameter \''.$parameter.'\'is not ipv6. Function execution failed.', E_USER_ERROR);
+                        }
                     case 'any':
                     case 'mixed':
                         break;
@@ -236,17 +264,143 @@ class Functional_Returner
         // create a case for each data type! eventually this will become a static class to keep codebase DRY
         switch ($return_datatype)
         {
+            case 'uint8':
+                if (is_int($return_data) === FALSE || ((int) $return_data) < 0 || ((int) $return_data) > 255)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not uint8. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'uint16':
+                if (is_int($return_data) === FALSE || ((int) $return_data) < 0 || ((int) $return_data) > 65535)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not uint16. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'uint32':
+                if (is_int($return_data) === FALSE || ((int) $return_data) < 0 || ((int) $return_data) > 16777215)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not uint32. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'uint64':
+                if (is_int($return_data) === FALSE || ((int) $return_data) < 0 || ((int) $return_data) > 18446744073709551615)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not uint64 Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'int8':
+                if (is_int($return_data) === FALSE || ((int) $return_data) < -128 || ((int) $return_data) > 127)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not int8. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'int16':
+                if (is_int($return_data) === FALSE || ((int) $return_data) < -32768 || ((int) $return_data) > 32767)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not int16. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'int32':
+                if (is_int($return_data) === FALSE || ((int) $return_data) < -8388608 || ((int) $return_data) > 8388607)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not int32. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'int64':
+                if (is_int($return_data) === FALSE || ((int) $return_data) < -9223372036854775808  || ((int) $return_data) > 9223372036854775807)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not int64 Function execution failed.', E_USER_ERROR);
+                }
+                break;
             case 'string':
                 if (is_string($return_data) === FALSE || strlen($return_data) > 255)
                 {
                     trigger_error('Function: '.$this->function_name.'() return value is not string. Function execution failed.', E_USER_ERROR);
                 }
-                break;
             case 'text':
                 if (is_string($return_data) === FALSE || strlen($return_data) > 65535)
                 {
                     trigger_error('Function: '.$this->function_name.'() return value is not text. Function execution failed.', E_USER_ERROR);
                 }
+                break;
+            case 'mediumtext':
+                if (is_string($return_data) === FALSE || strlen($return_data) > 16777215)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not mediumtext. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'longtext':
+                if (is_string($return_data) === FALSE || strlen($return_data) > 4294967295)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not longtext. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'bool':
+                if (is_bool($return_data) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not boolean. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'void':
+                if (isset($return_data))
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not void. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'null':
+                if ($return_data !== NULL)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not null. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'numeric':
+                if (is_numeric($return_data) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not numeric. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'float':
+                if (is_float($return_data) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not float. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'object':
+                if (is_object($return_data) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not object. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'array':
+                if (is_array($return_data) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not array. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'iterator':
+                if (is_array($return_data) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not iterator. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'enum':
+                if (is_object($return_data) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not enum. Function execution failed.', E_USER_ERROR);
+                }
+                break;
+            case 'ipv4':
+                if (filter_var($return_data, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not ipv4. Function execution failed.', E_USER_ERROR);
+                }
+            case 'ipv6':
+                if (filter_var($return_data, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === FALSE)
+                {
+                    trigger_error('Function: '.$this->function_name.'() return value is not ipv6. Function execution failed.', E_USER_ERROR);
+                }
+            case 'any':
+            case 'mixed':
                 break;
         }
 
