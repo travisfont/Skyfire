@@ -25,7 +25,7 @@ class Strings extends Controller
     protected function isValidUrl($url, $absolute = FALSE)
     { return (bool) NULL; }
 
-    protected function isSerialized($string)
+    protected function isSerialized($string, $hardcheck = FALSE)
     { return (bool) NULL; }
 
     protected function stripToNumeric($string)
@@ -107,5 +107,8 @@ class Strings extends Controller
     { return (string) NULL; }
 
     protected function safeWordTruncate($string = '', $chars = 255, $ellipsis = '...')
+    { return (string) NULL; }
+
+    protected function repairSerializeStr($string, $mb_strlen = FALSE)
     { return (string) NULL; }
 }

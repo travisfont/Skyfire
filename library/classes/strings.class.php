@@ -133,21 +133,22 @@ class Strings extends Controller
         }
     }
 
-    protected function is_serialized($string)
+    protected function is_serialized($string, $hardcheck = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (bool) self::parameters(array
             (
-                'string' => DT::TEXT
+                'string'    => DT::TEXT,
+                'hardcheck' => DT::BOOL
             ))
             ->call(__FUNCTION__)
-            ->with($string)
+            ->with($string, $hardcheck)
             ->returning(DT::BOOL);
         }
         else
         {
-            return (bool) is_serialized($string);
+            return (bool) is_serialized($string, $hardcheck);
         }
     }
 
@@ -674,6 +675,25 @@ class Strings extends Controller
         else
         {
             return (string) safe_word_truncate($string, $chars, $ellipsis);
+        }
+    }
+
+    protected function repair_serialize_str($string, $mb_strlen = FALSE)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'string'    => DT::TEXT,
+                'mb_strlen' => DT::BOOL
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $mb_strlen)
+            ->returning(DT::TEXT);
+        }
+        else
+        {
+            return (string) repair_serialize_str($string, $mb_strlen);
         }
     }
 }
