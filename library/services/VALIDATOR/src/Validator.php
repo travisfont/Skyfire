@@ -153,7 +153,7 @@ class Validator
     }
 
     /**
-     * retrieve error messages after validation
+     * retrieve error messages after validation (if any exist;)
      *
      * @return array
      */
