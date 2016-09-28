@@ -250,4 +250,16 @@ class HTML extends Controller
         ->with($buffer)
         ->returning(DT::TEXT);
     }
+
+    protected function br2nl($input)
+    {
+        //return (string) br2nl($input);
+        return (string) self::parameters(
+        [
+            'input' => DT::TEXT
+        ])
+        ->call(__FUNCTION__)
+        ->with($input)
+        ->returning(DT::TEXT);
+    }
 }
