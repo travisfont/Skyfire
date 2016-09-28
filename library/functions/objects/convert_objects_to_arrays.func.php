@@ -2,7 +2,7 @@
 
 //  converts multi-dim objects into multi-arrays
 
-function convert_objects_to_arrays($obj, &$arr)
+function convert_objects_to_arrays($obj, &$arr = array())
 {
     if (!is_object($obj) && !is_array($obj))
     {
