@@ -4,22 +4,49 @@
 
 class File extends Controller
 {
-    static public function include_if_exist($path)      {} // $this->include_if_exist()
-    static public function include_once_if_exist($path) {} // $this->include_once_if_exist()
-    static public function require_if_exist($path)      {} // $this->require_if_exist()
-    static public function require_once_if_exist($path) {} // $this->require_once_if_exist()
-
-    protected function write_log_error($text, $log_file)
+    protected function check_file_ext($file_name, $extensions)
     {
-        //return write_log_error($text, $log_file);
-        return self::parameters(
+        //return (bool) check_file_ext($file_name, $extensions);
+        return (bool) self::parameters(
         [
-            'text'     => DT::TEXT,
-            'log_file' => DT::STRING
+            'file_name'  =>  DT::STRING,
+            'extensions' => [DT::STRING, DT::TYPE_ARRAY]
         ])
         ->call(__FUNCTION__)
-        ->with($text, $log_file)
+        ->with($file_name, $extensions)
+        ->returning(DT::BOOL);
+    }
+
+    protected function convert_ini_file_to_constants($path)
+    {
+        //return convert_ini_file_to_constants($path);
+        return self::parameters(
+        [
+            'path' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($path)
         ->returning(DT::VOID);
+    }
+
+    protected function file_contents_exist($url, $response_code = 200)
+    {
+        //return (bool) file_contents_exist($url, $response_code);
+        return (bool) self::parameters(
+        [
+            'url'           => DT::STRING,
+            'response_code' => DT::UINT8
+        ])
+        ->call(__FUNCTION__)
+        ->with($url, $response_code)
+        ->returning(DT::BOOL);
+    }
+
+    protected function get_current_page_url()
+    {
+        //return (string) get_current_page_url();
+        return (string) self::parameters()->call(__FUNCTION__)
+                                          ->returning(DT::STRING);
     }
 
     protected function get_file_ext($filename)
@@ -34,17 +61,67 @@ class File extends Controller
         ->returning(DT::VOID);
     }
 
-    // convertIniFileToConstants
-    protected function convert_ini_file_to_constants($path)
+    protected function get_file_uri_scheme($uri)
     {
-        //return convert_ini_file_to_constants($path);
+        //return get_file_uri_scheme($uri);
         return self::parameters(
+        [
+            'uri' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($uri)
+        ->returning([DT::BOOL, DT::STRING]);
+    }
+
+    protected function get_file_uri_target($uri)
+    {
+        //return get_file_uri_target($uri);
+        return self::parameters(
+        [
+            'uri' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($uri)
+        ->returning([DT::BOOL, DT::STRING]);
+    }
+
+    protected function get_http_response_code($url)
+    {
+        //return (int) get_http_response_code($url);
+        return (int) self::parameters(
+        [
+            'url' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($url)
+        ->returning(DT::UINT8);
+    }
+
+    protected function get_https_response_code($url)
+    {
+        //return (int) get_https_response_code($url);
+        return (int) self::parameters(
+        [
+            'url' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($url)
+        ->returning(DT::UINT8);
+    }
+
+    protected function include_if_exist($path)      {} // $this->include_if_exist()
+    protected function include_once_if_exist($path) {} // $this->include_once_if_exist()
+
+    protected function is_path_absolute($path)
+    {
+        //return is_path_absolute($path);
+        return (bool) self::parameters(
         [
             'path' => DT::STRING
         ])
         ->call(__FUNCTION__)
         ->with($path)
-        ->returning(DT::VOID);
+        ->returning(DT::BOOL);
     }
 
     protected function list_directory($directory, $recursive = FALSE)
@@ -60,104 +137,19 @@ class File extends Controller
         ->returning(DT::TYPE_ARRAY);
     }
 
-    // getHttpResponseCode
-    protected function get_http_response_code($url)
-    {
-        return (int) get_http_response_code($url);
-        return (int) self::parameters(
-        [
-            'url' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($url)
-        ->returning(DT::UINT8);
-    }
+    protected function require_if_exist($path)      {} // $this->require_if_exist()
+    protected function require_once_if_exist($path) {} // $this->require_once_if_exist()
 
-    // getHttpsResponseCode
-    protected function get_https_response_code($url)
+    protected function write_log_error($text, $log_file)
     {
-        //return (int) get_https_response_code($url);
-        return (int) self::parameters(
-        [
-            'url' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($url)
-        ->returning(DT::UINT8);
-    }
-
-    // fileContentsExist
-    protected function file_contents_exist($url, $response_code = 200)
-    {
-        //return (bool) file_contents_exist($url, $response_code);
-        return (bool) self::parameters(
-        [
-            'url'           => DT::STRING,
-            'response_code' => DT::UINT8
-        ])
-        ->call(__FUNCTION__)
-        ->with($url, $response_code)
-        ->returning(DT::BOOL);
-    }
-
-    // checkFileExt
-    protected function check_file_ext($file_name, $extensions)
-    {
-        //return (bool) check_file_ext($file_name, $extensions);
-        return (bool) self::parameters(
-        [
-            'file_name'  =>  DT::STRING,
-            'extensions' => [DT::STRING, DT::TYPE_ARRAY]
-        ])
-        ->call(__FUNCTION__)
-        ->with($file_name, $extensions)
-        ->returning(DT::BOOL);
-    }
-
-    // getFileUriScheme
-    protected function get_file_uri_scheme($uri)
-    {
-        //return get_file_uri_scheme($uri);
+        //return write_log_error($text, $log_file);
         return self::parameters(
         [
-            'uri' => DT::STRING
+            'text'     => DT::TEXT,
+            'log_file' => DT::STRING
         ])
         ->call(__FUNCTION__)
-        ->with($uri)
-        ->returning([DT::BOOL, DT::STRING]);
-    }
-
-    // getFileUriTarget
-    protected function get_file_uri_target($uri)
-    {
-        //return get_file_uri_target($uri);
-        return self::parameters(
-        [
-            'uri' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($uri)
-        ->returning([DT::BOOL, DT::STRING]);
-    }
-
-    // isPathAbsolute
-    protected function is_path_absolute($path)
-    {
-        //return is_path_absolute($path);
-        return (bool) self::parameters(
-        [
-            'path' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($path)
-        ->returning(DT::BOOL);
-    }
-
-    // getCurrentPageUrl
-    protected function get_current_page_url()
-    {
-        //return (string) get_current_page_url();
-        return (string) self::parameters()->call(__FUNCTION__)
-                                          ->returning(DT::STRING);
+        ->with($text, $log_file)
+        ->returning(DT::VOID);
     }
 }
