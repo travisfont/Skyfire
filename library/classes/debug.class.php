@@ -131,32 +131,19 @@ echo "This page was created in ".ExecuteTime::$display." seconds";
 
 class Debug extends Controller
 {
-    protected function pr($data, $exit = TRUE)
-    {
-        //return pr($data, $exit);
-        return self::parameters(
-        [
-            'data' => DT::ANY,
-            'exit' => DT::BOOL
-        ])
-        ->call(__FUNCTION__)
-        ->with($data, $exit)
-        ->returning(DT::VOID);
-    }
-
     protected function ddf($data, $name, $display = FALSE, $file_type = 'txt')
     {
         //return ddf($data, $name, $display, $file_type);
         return self::parameters(
-        [
-            'data'      => DT::ANY,
-            'name'      => DT::STRING,
-            'display'   => DT::BOOL,
-            'file_type' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($data, $name, $display, $file_type)
-        ->returning(DT::VOID);
+            [
+                'data'      => DT::ANY,
+                'name'      => DT::STRING,
+                'display'   => DT::BOOL,
+                'file_type' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($data, $name, $display, $file_type)
+            ->returning(DT::VOID);
     }
 
     protected function get_define_constants($type = 'user')
@@ -188,6 +175,19 @@ class Debug extends Controller
         ->call(__FUNCTION__)
         ->with($locale)
         ->returning(DT::BOOL);
+    }
+
+    protected function pr($data, $exit = TRUE)
+    {
+        //return pr($data, $exit);
+        return self::parameters(
+            [
+                'data' => DT::ANY,
+                'exit' => DT::BOOL
+            ])
+            ->call(__FUNCTION__)
+            ->with($data, $exit)
+            ->returning(DT::VOID);
     }
 
     /**
