@@ -4,7 +4,6 @@
 
 class Csv extends Controller
 {
-    // arrayGetCsv
     /**
      * @var    file
      * @return array
@@ -21,7 +20,6 @@ class Csv extends Controller
         ->returning(DT::TYPE_ARRAY);
     }
 
-    // CsvToArray
     protected function csv_to_array($data)
     {
         //return csv_to_array($data);
@@ -34,7 +32,6 @@ class Csv extends Controller
         ->returning(DT::TYPE_ARRAY);
     }
 
-    // CsvToAssocArray
     protected function csv_to_assoc_array($data)
     {
         //return csv_to_assoc_array($data);
@@ -47,7 +44,6 @@ class Csv extends Controller
         ->returning(DT::TYPE_ARRAY);
     }
 
-    // cvsFileToAssocArray
     protected function cvs_file_to_assoc_array($filename, $delimiter = ',')
     {
         //return cvs_file_to_assoc_array($filename, $delimiter);
@@ -60,5 +56,4 @@ class Csv extends Controller
         ->with($filename, $delimiter)
         ->returning([DT::TYPE_ARRAY, DT::BOOL]);
     }
-
 }
