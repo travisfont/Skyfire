@@ -59,5 +59,5 @@ function valid_email($email)
 		}
 	}
 
-	return $isValid;
+	return (bool) $isValid;
 }

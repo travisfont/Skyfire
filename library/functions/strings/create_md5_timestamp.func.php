@@ -2,5 +2,5 @@
 
 function create_md5_timestamp()
 {
-    return md5(time());
+    return (string) md5(time());
 }
