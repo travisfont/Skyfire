@@ -16,7 +16,8 @@ class Strings extends Controller
     protected function countStr($delimiter, $string)
     { return (int) NULL; }
 
-    protected function createMd5Timestamp() {}
+    protected function createMd5Timestamp()
+    { return (string) NULL; }
 
     protected function generatePassword($length = 9, $strength = 4)
     { return (string) NULL; }
@@ -39,7 +40,8 @@ class Strings extends Controller
     protected function isUtf8($str)
     { return (bool) NULL; }
 
-    protected function isValidIp() {}
+    protected function isValidIp($address)
+    { return (bool) NULL; }
 
     protected function isValidUrl($url, $absolute = FALSE)
     { return (bool) NULL; }
@@ -80,7 +82,8 @@ class Strings extends Controller
     protected function safeWordTruncate($string = '', $chars = 255, $ellipsis = '...')
     { return (string) NULL; }
 
-    protected function simpleAddressVerify() {}
+    protected function simpleAddressVerify($address)
+    { return (bool) NULL; }
 
     protected function splitNumberStr($string)
     { return (array) NULL; }
@@ -100,7 +103,8 @@ class Strings extends Controller
     protected function stripCarriageReturns($string)
     { return (string) NULL; }
 
-    protected function stripFileExt() {}
+    protected function stripFileExt()
+    { return NULL; } // mixed
 
     protected function stripTabspaces($string)
     { return (string) NULL; }
@@ -111,5 +115,6 @@ class Strings extends Controller
     protected function stripToNumeric($string)
     { return (TRUE ? (int) NULL :  FALSE ? (float) NULL : (bool) NULL); }
 
-    protected function validEmail() {}
+    protected function validEmail($email)
+    { return (bool) NULL; }
 }

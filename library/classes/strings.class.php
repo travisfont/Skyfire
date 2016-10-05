@@ -27,12 +27,12 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string' => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::STRING);
+            [
+                'string' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -44,13 +44,13 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (string) self::parameters(array
-            (
+            return (string) self::parameters(
+            [
                 'string' => DT::TEXT
-            ))
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::TEXT);
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -63,12 +63,12 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'abbr' => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($abbr)
-                ->returning(DT::STRING);
+            [
+                'abbr' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($abbr)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -81,13 +81,13 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (int) self::parameters(
-                [
-                    'delimiter' => DT::STRING,
-                    'string'    => DT::TEXT
-                ])
-                ->call(__FUNCTION__)
-                ->with($delimiter, $string)
-                ->returning(DT::UINT16);
+            [
+                'delimiter' => DT::STRING,
+                'string'    => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($delimiter, $string)
+            ->returning(DT::UINT16);
         }
         else
         {
@@ -95,22 +95,33 @@ class Strings extends Controller
         }
     }
 
-    protected function create_md5_timestamp() {}
+    protected function create_md5_timestamp()
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters()->call(__FUNCTION__)
+                                              ->returning(DT::STRING);
+        }
+        else
+        {
+            return (string) create_md5_timestamp();
+        }
+    }
 
     protected function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string'      =>  DT::TEXT,
-                    'start'       =>  DT::UINT8,
-                    'length'      => [DT::UINT8, DT::BOOL],
-                    'safe_quotes' =>  DT::BOOL
-                ])
-                ->call(__FUNCTION__)
-                ->with($string, $start, $length, $safe_quotes)
-                ->returning(DT::TEXT);
+            [
+                'string'      =>  DT::TEXT,
+                'start'       =>  DT::UINT8,
+                'length'      => [DT::UINT8, DT::BOOL],
+                'safe_quotes' =>  DT::BOOL
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $start, $length, $safe_quotes)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -123,12 +134,12 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string' => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::STRING);
+            [
+                'string' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -141,12 +152,12 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'text' => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($text)
-                ->returning(DT::STRING);
+            [
+                'text' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($text)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -158,14 +169,14 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (string) self::parameters(array
-            (
+            return (string) self::parameters(
+            [
                 'length'   => DT::UINT8,
                 'strength' => DT::UINT8
-            ))
-                ->call(__FUNCTION__)
-                ->with($length, $strength)
-                ->returning(DT::STRING);
+            ])
+            ->call(__FUNCTION__)
+            ->with($length, $strength)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -177,10 +188,10 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (string) self::parameters(array
-            (
+            return (string) self::parameters(
+            [
                 'length' => DT::UINT8
-            ))
+            ])
             ->call(__FUNCTION__)
             ->with($length)
             ->returning(DT::STRING);
@@ -195,11 +206,11 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return self::parameters(array
-            (
+            return self::parameters(
+            [
                 'hex' => DT::STRING,
                 'hex' => DT::BOOL,
-            ))
+            ])
             ->call(__FUNCTION__)
             ->with($hex)
             ->returning([DT::STRING, DT::TYPE_ARRAY]);
@@ -215,16 +226,16 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'text'          => DT::TEXT,
-                    'length'        => DT::UINT8,
-                    'ending'        => DT::STRING,
-                    'exact'         => DT::BOOL,
-                    'consider_html' => DT::BOOL
-                ])
-                ->call(__FUNCTION__)
-                ->with($text, $length, $ending, $exact, $consider_html)
-                ->returning(DT::TEXT);
+            [
+                'text'          => DT::TEXT,
+                'length'        => DT::UINT8,
+                'ending'        => DT::STRING,
+                'exact'         => DT::BOOL,
+                'consider_html' => DT::BOOL
+            ])
+            ->call(__FUNCTION__)
+            ->with($text, $length, $ending, $exact, $consider_html)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -236,10 +247,10 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (bool) self::parameters(array
-            (
+            return (bool) self::parameters(
+            [
                 'hex' => DT::STRING
-            ))
+            ])
             ->call(__FUNCTION__)
             ->with($hex)
             ->returning(DT::BOOL);
@@ -254,11 +265,11 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (bool) self::parameters(array
-            (
+            return (bool) self::parameters(
+            [
                 'string'    => DT::TEXT,
                 'hardcheck' => DT::BOOL
-            ))
+            ])
                 ->call(__FUNCTION__)
                 ->with($string, $hardcheck)
                 ->returning(DT::BOOL);
@@ -273,10 +284,10 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (bool) self::parameters(array
-            (
+            return (bool) self::parameters(
+            [
                 'str' => DT::STRING
-            ))
+            ])
             ->call(__FUNCTION__)
             ->with($str)
             ->returning(DT::BOOL);
@@ -287,17 +298,33 @@ class Strings extends Controller
         }
     }
 
-    protected function is_valid_ip() {}
+    protected function is_valid_ip($address)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (bool) self::parameters(
+            [
+                'address' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($address)
+            ->returning(DT::BOOL);
+        }
+        else
+        {
+            return (booL) is_valid_ip($address);
+        }
+    }
 
     protected function is_valid_url($url, $absolute = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (bool) self::parameters(array
-            (
+            return (bool) self::parameters(
+            [
                 'url'      => DT::STRING,
                 'absolute' => DT::BOOL
-            ))
+            ])
             ->call(__FUNCTION__)
             ->with($url, $absolute)
             ->returning(DT::BOOL);
@@ -313,13 +340,13 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'list'        => DT::TYPE_ARRAY,
-                    'conjunction' => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($list, $conjunction)
-                ->returning(DT::STRING);
+            [
+                'list'        => DT::TYPE_ARRAY,
+                'conjunction' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($list, $conjunction)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -332,14 +359,14 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string'  => DT::TEXT,
-                    'limit'   => DT::UINT8,
-                    'subtext' => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($string, $limit, $subtext)
-                ->returning(DT::TEXT);
+            [
+                'string'  => DT::TEXT,
+                'limit'   => DT::UINT8,
+                'subtext' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $limit, $subtext)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -352,14 +379,14 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string'   => DT::STRING,
-                    'limit'    => DT::UINT8,
-                    'end_char' => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($string, $limit, $end_char)
-                ->returning(DT::STRING);
+            [
+                'string'   => DT::STRING,
+                'limit'    => DT::UINT8,
+                'end_char' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $limit, $end_char)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -372,13 +399,13 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string' => DT::STRING,
-                    'key'    => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($string, $key)
-                ->returning(DT::STRING);
+            [
+                'string' => DT::STRING,
+                'key'    => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $key)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -391,13 +418,13 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string' => DT::STRING,
-                    'key'    => DT::STRING
-                ])
-                ->call(__FUNCTION__)
-                ->with($string, $key)
-                ->returning(DT::STRING);
+            [
+                'string' => DT::STRING,
+                'key'    => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $key)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -409,13 +436,13 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (string) self::parameters(array
-            (
+            return (string) self::parameters(
+            [
                 'string' => DT::STRING
-            ))
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::STRING);
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -427,13 +454,14 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (string) self::parameters(array
-            (
+            return (string) self::parameters(
+            [
+
                 'string' => DT::TEXT
-            ))
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::TEXT);
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -446,14 +474,14 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string' => DT::TEXT,
-                    'search' => DT::STRING,
-                    'times'  => DT::UINT8
-                ])
-                ->call(__FUNCTION__)
-                ->with($string, $search, $times)
-                ->returning(DT::TEXT);
+            [
+                'string' => DT::TEXT,
+                'search' => DT::STRING,
+                'times'  => DT::UINT8
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $search, $times)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -466,13 +494,13 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'search' => DT::STRING,
-                    'string' => DT::TEXT
-                ])
-                ->call(__FUNCTION__)
-                ->with($search, $string)
-                ->returning(DT::TEXT);
+            [
+                'search' => DT::STRING,
+                'string' => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($search, $string)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -485,13 +513,13 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string'    => DT::TEXT,
-                    'mb_strlen' => DT::BOOL
-                ])
-                ->call(__FUNCTION__)
-                ->with($string, $mb_strlen)
-                ->returning(DT::TEXT);
+            [
+                'string'    => DT::TEXT,
+                'mb_strlen' => DT::BOOL
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $mb_strlen)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -504,13 +532,13 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'replace' => DT::STRING,
-                    'string'  => DT::TEXT
-                ])
-                ->call(__FUNCTION__)
-                ->with($replace, $string)
-                ->returning(DT::TEXT);
+            [
+                'replace' => DT::STRING,
+                'string'  => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($replace, $string)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -523,14 +551,14 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string'   => DT::TEXT,
-                    'chars'    => DT::UINT16,
-                    'ellipsis' => DT::STRING,
-                ])
-                ->call(__FUNCTION__)
-                ->with($string, $chars, $ellipsis)
-                ->returning(DT::TEXT);
+            [
+                'string'   => DT::TEXT,
+                'chars'    => DT::UINT16,
+                'ellipsis' => DT::STRING,
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $chars, $ellipsis)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -538,19 +566,35 @@ class Strings extends Controller
         }
     }
 
-    protected function simple_address_verify() {}
+    protected function simple_address_verify($address)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (bool) self::parameters(
+            [
+                'address' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($address)
+            ->returning(DT::BOOL);
+        }
+        else
+        {
+            return (bool) simple_address_verify($address);
+        }
+    }
 
     protected function split_number_str($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (array) self::parameters(
-                [
-                    'string' => DT::TEXT
-                ])
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::TYPE_ARRAY);
+            [
+                'string' => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::TYPE_ARRAY);
         }
         else
         {
@@ -563,12 +607,12 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (array) self::parameters(
-                [
-                    'string' => DT::TEXT
-                ])
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::TYPE_ARRAY);
+            [
+                'string' => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::TYPE_ARRAY);
         }
         else
         {
@@ -580,13 +624,14 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (string) self::parameters(array
-            (
+            return (string) self::parameters(
+            [
+
                 'string' => DT::STRING
-            ))
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::STRING);
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -598,13 +643,14 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (bool) self::parameters(array
-            (
+            return (bool) self::parameters(
+            [
+
                 'string' => DT::STRING
-            ))
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::BOOL);
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::BOOL);
         }
         else
         {
@@ -616,14 +662,14 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (string) self::parameters(array
-            (
+            return (string) self::parameters(
+            [
                 'text'   => DT::STRING,
                 'strict' => DT::BOOL
-            ))
-                ->call(__FUNCTION__)
-                ->with($text, $strict)
-                ->returning(DT::STRING);
+            ])
+            ->call(__FUNCTION__)
+            ->with($text, $strict)
+            ->returning(DT::STRING);
         }
         else
         {
@@ -636,12 +682,12 @@ class Strings extends Controller
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string' => DT::TEXT
-                ])
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::TEXT);
+            [
+                'string' => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -649,19 +695,35 @@ class Strings extends Controller
         }
     }
 
-    protected function strip_file_ext() {}
+    protected function strip_file_ext($filename)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return self::parameters(
+            [
+                'filename' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($filename)
+            ->returning(DT::MIXED);
+        }
+        else
+        {
+            return strip_file_ext($filename);
+        }
+    }
 
     protected function strip_tabspaces($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
-                [
-                    'string' => DT::TEXT
-                ])
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::TEXT);
+            [
+                'string' => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::TEXT);
         }
         else
         {
@@ -673,13 +735,13 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (int) self::parameters(array
-            (
+            return (int) self::parameters(
+            [
                 'string' => DT::STRING
-            ))
-                ->call(__FUNCTION__)
-                ->with($string)
-                ->returning(DT::UBIGINT);
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::UBIGINT);
         }
         else
         {
@@ -691,10 +753,10 @@ class Strings extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return self::parameters(array
-            (
+            return self::parameters(
+            [
                 'string' => DT::STRING
-            ))
+            ])
             ->call(__FUNCTION__)
             ->with($string)
             ->returning([DT::INT64, DT::FLOAT, DT::BOOL]);
@@ -705,5 +767,21 @@ class Strings extends Controller
         }
     }
 
-    protected function valid_email() {}
+    protected function valid_email($email)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (bool) self::parameters(
+            [
+                '$email' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($email)
+            ->returning(DT::BOOL);
+        }
+        else
+        {
+            return valid_email($email);
+        }
+    }
 }
