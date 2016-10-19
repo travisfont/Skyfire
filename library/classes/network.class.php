@@ -4,7 +4,6 @@
 
 class Network extends Controller
 {
-    // getAddressCoordinates
     protected function get_address_coordinates($address)
     {
         //return get_address_coordinates($address);
@@ -17,7 +16,6 @@ class Network extends Controller
         ->returning([DT::TYPE_ARRAY, DT::BOOL]);
     }
 
-    // getClientIp
     protected function get_client_ip()
     {
         //return (string) get_client_ip();
@@ -25,7 +23,25 @@ class Network extends Controller
                                           ->returning(DT::IPV4);
     }
 
-    // isSsl
+    protected function get_client_lang()
+    {
+        //return get_client_lang();
+        return (string) self::parameters()->call(__FUNCTION__)
+                                         ->returning(DT::STRING);
+    }
+
+    protected function is_email($string)
+    {
+        //return (bool) is_email($string);
+        return (bool) self::parameters(
+        [
+            'string' =>  DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($string)
+        ->returning(DT::BOOL);
+    }
+
     protected function is_ssl()
     {
         //return (bool) is_ssl();
@@ -45,25 +61,4 @@ class Network extends Controller
         ->with($domain, $registrar)
         ->returning([DT::STRING, DT::BOOL]);
     }
-
-    // getClientLang (TODO: THIS FUNCTION REQUIRES TESTING - VOID PARAMETERS)
-    protected function get_client_lang()
-    {
-        //return get_client_lang();
-        return (string) self::parameters()->call(__FUNCTION__)
-                                          ->returning(DT::STRING);
-    }
-
-    protected function is_email($string)
-    {
-        //return (bool) is_email($string);
-        return (bool) self::parameters(
-        [
-            'string' =>  DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($string)
-        ->returning(DT::BOOL);
-    }
-
 }
