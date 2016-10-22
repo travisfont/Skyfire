@@ -4,6 +4,12 @@
 
 class Image extends Controller
 {
+    protected function convertBase64Jpg($base64_string, $output_file = FALSE)
+    { return (string) NULL; }
+
+    protected function createImageFromBase64($data, $filename, $extension = 'jpg', $quality = 100)
+    { return (bool) NULL; }
+
     protected function darkerHex($hex, $amount = 30)
     { return var_export(NULL); }
 
@@ -18,10 +24,4 @@ class Image extends Controller
 
     protected function ScaleImageToWidth($filename, $target_width)
     { return var_export(NULL); }
-
-    protected function createImageFromBase64($data, $filename, $extension = 'jpg', $quality = 100)
-    { return (bool) NULL; }
-
-    protected function convertBase64Jpg($base64_string, $output_file = FALSE)
-    { return (string) NULL; }
 }
