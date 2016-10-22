@@ -20,6 +20,19 @@ class Csv extends Controller
         ->returning(DT::TYPE_ARRAY);
     }
 
+    protected function cvs_file_to_assoc_array($filename, $delimiter = ',')
+    {
+        //return cvs_file_to_assoc_array($filename, $delimiter);
+        return self::parameters(
+            [
+                'filename'  => DT::STRING,
+                'delimiter' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($filename, $delimiter)
+            ->returning([DT::TYPE_ARRAY, DT::BOOL]);
+    }
+
     protected function csv_to_array($data)
     {
         //return csv_to_array($data);
@@ -42,18 +55,5 @@ class Csv extends Controller
         ->call(__FUNCTION__)
         ->with($data)
         ->returning(DT::TYPE_ARRAY);
-    }
-
-    protected function cvs_file_to_assoc_array($filename, $delimiter = ',')
-    {
-        //return cvs_file_to_assoc_array($filename, $delimiter);
-        return self::parameters(
-        [
-            'filename'  => DT::STRING,
-            'delimiter' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($filename, $delimiter)
-        ->returning([DT::TYPE_ARRAY, DT::BOOL]);
     }
 }
