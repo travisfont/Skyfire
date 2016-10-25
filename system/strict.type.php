@@ -41,11 +41,54 @@ class Functional_Returner
                     // multi data type check here
                     foreach ($datatype as $type)
                     {
+                        // parameters - multiple data types:
                         // create a case for each data type! eventually this will become a static class to keep codebase DRY
                         switch ($type)
                         {
                             case 'uint8':
                                 if (is_int($this->arguments[$key]) === TRUE && ((int) $this->arguments[$key] >= 0) && ((int) $this->arguments[$key] <= 255))
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'uint16':
+                                if (is_int($this->arguments[$key]) === TRUE && ((int) $this->arguments[$key] >= 0) && ((int) $this->arguments[$key] <= 65535))
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'uint32':
+                                if (is_int($this->arguments[$key]) === TRUE && ((int) $this->arguments[$key] >= 0) && ((int) $this->arguments[$key] <= 16777215))
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'uint64':
+                                if (is_int($this->arguments[$key]) === TRUE && ((int) $this->arguments[$key] >= 0) && ((int) $this->arguments[$key] <= 18446744073709551615))
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'int8':
+                                if (is_int($this->arguments[$key]) === TRUE && ((int) $this->arguments[$key] >= -128) && ((int) $this->arguments[$key] <= 127))
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'int16':
+                                if (is_int($this->arguments[$key]) === TRUE && ((int) $this->arguments[$key] >= -32768) && ((int) $this->arguments[$key] <= 32767))
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'int32':
+                                if (is_int($this->arguments[$key]) === TRUE && ((int) $this->arguments[$key] >= -8388608) && ((int) $this->arguments[$key] <= 8388607))
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'int64':
+                                if (is_int($this->arguments[$key]) === TRUE && ((int) $this->arguments[$key] >= -9223372036854775808) && ((int) $this->arguments[$key] <= 9223372036854775807))
                                 {
                                     $valid_type = TRUE;
                                 }
