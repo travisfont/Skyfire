@@ -11,7 +11,7 @@ function generate_password($length = 9, $strength = 4)
     }
     if ($strength & 2)
     {
-        $vowels .= "AEUY";
+        $vowels .= 'AEUY';
     }
     if ($strength & 4)
     {
