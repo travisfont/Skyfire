@@ -93,8 +93,84 @@ class Functional_Returner
                                     $valid_type = TRUE;
                                 }
                                 break;
+                            case 'string':
+                                if (is_string($this->arguments[$key]) === TRUE && strlen($this->arguments[$key]) <= 255)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                            case 'text':
+                                if (is_string($this->arguments[$key]) === TRUE && strlen($this->arguments[$key]) <= 65535)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'mediumtext':
+                                if (is_string($this->arguments[$key]) === TRUE && strlen($this->arguments[$key]) <= 16777215)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'longtext':
+                                if (is_string($this->arguments[$key]) === TRUE && strlen($this->arguments[$key]) <= 4294967295)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
                             case 'bool':
                                 if (is_bool($this->arguments[$key]) === TRUE)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'null':
+                                if ($this->arguments[$key] === NULL)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'numeric':
+                                if (is_numeric($this->arguments[$key]) === TRUE)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'float':
+                                if (is_float($this->arguments[$key]) === TRUE)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'object':
+                                if (is_object($this->arguments[$key]) === TRUE)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'array':
+                                if (is_array($this->arguments[$key]) === TRUE)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'iterator':
+                                if (is_array($this->arguments[$key]) === TRUE)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'enum':
+                                if (is_object($this->arguments[$key]) === TRUE)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                                break;
+                            case 'ipv4':
+                                if (filter_var($this->arguments[$key], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== TRUE)
+                                {
+                                    $valid_type = TRUE;
+                                }
+                            case 'ipv6':
+                                if (filter_var($this->arguments[$key], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== TRUE)
                                 {
                                     $valid_type = TRUE;
                                 }
