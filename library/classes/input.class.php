@@ -182,24 +182,15 @@ class Input
 
     // field validator
     // @$rules - array
-    public static function validate($rules)
+    public static function validate(array $rules)
     {
-        // call the validate class
+        // call the validator service
     }
+
+    // gets the requested body from a JSON POST
+    function request_payload($as_array = FALSE)
+    {
+        return json_decode(file_get_contents('php://input'), $as_array);
+    }
+
 }
-
-// $data = Input::post();
-// $data['value'];
-
-/*
-$rules = array
-(
-    'file_name' => 'required',
-    'username ' => 'min:3',
-    'username ' => 'string',
-    'id'        => 'required',
-    'id'        => 'int', // alias: number, numeric
-    'desc'      => 'max:255'
-);
-Input::validate(); // if all the rules are met from the form it will return true, if not then a false.
-*/
