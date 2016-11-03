@@ -188,9 +188,13 @@ class Input
     }
 
     // gets the requested body from a JSON POST
-    function request_payload($as_array = FALSE)
+    public static function request_payload($as_array = FALSE)
     {
         return json_decode(file_get_contents('php://input'), $as_array);
     }
 
+    public static function has_payload()
+    {
+        return (bool) (!empty(file_get_contents('php://input')));
+    }
 }
