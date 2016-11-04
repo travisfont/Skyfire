@@ -175,6 +175,10 @@ class Functional_Returner
                                     $valid_type = TRUE;
                                 }
                                 break;
+                            case 'any':
+                            case 'mixed':
+                                $valid_type = TRUE;
+                                break;
                         }
                     }
 
@@ -483,6 +487,10 @@ class Functional_Returner
                             {
                                 $valid_type = TRUE;
                             }
+                            break;
+                        case 'any':
+                        case 'mixed':
+                            $valid_type = TRUE;
                             break;
                     }
                 }
