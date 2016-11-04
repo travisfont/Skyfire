@@ -360,8 +360,126 @@ class Functional_Returner
                                 $valid_type = TRUE;
                             }
                             break;
+                        case 'uint16':
+                            if (is_int($return_data) === TRUE && ((int) $return_data >= 0) && ((int) $return_data <= 65535))
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'uint32':
+                            if (is_int($return_data) === TRUE && ((int) $return_data >= 0) && ((int) $return_data <= 16777215))
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'uint64':
+                            if (is_int($return_data) === TRUE && ((int) $return_data >= 0) && ((int) $return_data <= 18446744073709551615))
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'int8':
+                            if (is_int($return_data) === TRUE && ((int) $return_data >= -128) && ((int) $return_data <= 127))
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'int16':
+                            if (is_int($return_data) === TRUE && ((int) $return_data >= -32768) && ((int) $return_data <= 32767))
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'int32':
+                            if (is_int($return_data) === TRUE && ((int) $return_data >= -8388608) && ((int) $return_data <= 8388607))
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'int64':
+                            if (is_int($return_data) === TRUE && ((int) $return_data >= -9223372036854775808) && ((int) $return_data <= 9223372036854775807))
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'string':
+                            if (is_string($return_data) === TRUE && strlen($return_data) <= 255)
+                            {
+                                $valid_type = TRUE;
+                            }
+                        case 'text':
+                            if (is_string($return_data) === TRUE && strlen($return_data) <= 65535)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'mediumtext':
+                            if (is_string($return_data) === TRUE && strlen($return_data) <= 16777215)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'longtext':
+                            if (is_string($return_data) === TRUE && strlen($return_data) <= 4294967295)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
                         case 'bool':
                             if (is_bool($return_data) === TRUE)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'null':
+                            if ($return_data === NULL)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'numeric':
+                            if (is_numeric($return_data) === TRUE)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'float':
+                            if (is_float($return_data) === TRUE)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'object':
+                            if (is_object($return_data) === TRUE)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'array':
+                            if (is_array($return_data) === TRUE)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'iterator':
+                            if (is_array($return_data) === TRUE)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'enum':
+                            if (is_object($return_data) === TRUE)
+                            {
+                                $valid_type = TRUE;
+                            }
+                            break;
+                        case 'ipv4':
+                            if (filter_var($return_data, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== TRUE)
+                            {
+                                $valid_type = TRUE;
+                            }
+                        case 'ipv6':
+                            if (filter_var($return_data, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== TRUE)
                             {
                                 $valid_type = TRUE;
                             }
