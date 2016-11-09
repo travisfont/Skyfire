@@ -48,6 +48,7 @@ else
         'route.organizer',
         'library.loader',
         'strict.type',
+        'enum.type',
         'controller.loader',
         'bootstrap'
     ) as $file)
