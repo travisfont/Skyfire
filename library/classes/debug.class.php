@@ -181,13 +181,13 @@ class Debug extends Controller
     {
         //return pr($data, $exit);
         return self::parameters(
-            [
-                'data' => DT::ANY,
-                'exit' => DT::BOOL
-            ])
-            ->call(__FUNCTION__)
-            ->with($data, $exit)
-            ->returning(DT::VOID);
+        [
+            'data' => DT::ANY,
+            'exit' => DT::BOOL
+        ])
+        ->call(__FUNCTION__)
+        ->with($data, $exit)
+        ->returning(DT::VOID);
     }
 
     /**

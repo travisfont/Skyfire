@@ -24,13 +24,13 @@ class Csv extends Controller
     {
         //return cvs_file_to_assoc_array($filename, $delimiter);
         return self::parameters(
-            [
-                'filename'  => DT::STRING,
-                'delimiter' => DT::STRING
-            ])
-            ->call(__FUNCTION__)
-            ->with($filename, $delimiter)
-            ->returning([DT::TYPE_ARRAY, DT::BOOL]);
+        [
+            'filename'  => DT::STRING,
+            'delimiter' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($filename, $delimiter)
+        ->returning([DT::TYPE_ARRAY, DT::BOOL]);
     }
 
     protected function csv_to_array($data)

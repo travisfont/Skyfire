@@ -249,12 +249,12 @@ class Time extends Controller
     {
         //return (int) server_timezone_offset($user_timezone);
         return (int) self::parameters(
-            [
-                'user_timezone' => DT::STRING
-            ])
-            ->call(__FUNCTION__)
-            ->with($user_timezone)
-            ->returning(DT::UINT8);
+        [
+            'user_timezone' => DT::STRING
+        ])
+        ->call(__FUNCTION__)
+        ->with($user_timezone)
+        ->returning(DT::UINT8);
     }
 
     protected function show_time_left($dbdate, $short = TRUE)

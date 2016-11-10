@@ -9,11 +9,11 @@ class Objects extends Controller
     {
         //return convert_objects_to_arrays($obj, $arr);
 
-        return (array) self::parameters(array
-        (
+        return (array) self::parameters(
+        [
             'obj' => DT::STD,
             'arr' => DT::TYPE_ARRAY
-        ))
+        ])
         ->call(__FUNCTION__)
         ->with($obj, $arr)
         ->returning(DT::STRING);
