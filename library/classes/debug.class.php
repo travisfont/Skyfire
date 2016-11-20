@@ -133,8 +133,9 @@ class Debug extends Controller
 {
     protected function ddf($data, $name, $display = FALSE, $file_type = 'txt')
     {
-        //return ddf($data, $name, $display, $file_type);
-        return self::parameters(
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return self::parameters(
             [
                 'data'      => DT::ANY,
                 'name'      => DT::STRING,
@@ -144,50 +145,79 @@ class Debug extends Controller
             ->call(__FUNCTION__)
             ->with($data, $name, $display, $file_type)
             ->returning(DT::VOID);
+        }
+        else
+        {
+            return ddf($data, $name, $display, $file_type);
+        }
     }
 
     protected function get_define_constants($type = 'user')
     {
-        //return (array) get_define_constants($type);
-        return (array) self::parameters(
-        [
-            'type' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($type)
-        ->returning(DT::TYPE_ARRAY);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (array) self::parameters(
+            [
+                'type' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($type)
+            ->returning(DT::TYPE_ARRAY);
+        }
+        else
+        {
+            return (array) get_define_constants($type);
+        }
     }
 
     protected function get_user_defined_constants()
     {
-        //return (array) get_user_defined_constants();
-        return (array) self::parameters()->call(__FUNCTION__)
-                                         ->returning(DT::TYPE_ARRAY);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (array) self::parameters()->call(__FUNCTION__)
+                                             ->returning(DT::TYPE_ARRAY);
+        }
+        else
+        {
+            return (array) get_user_defined_constants();
+        }
     }
 
     protected function has_locale($locale)
     {
-        //return (bool) has_locale($locale);
-        return (bool) self::parameters(
-        [
-            'locale' => DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($locale)
-        ->returning(DT::BOOL);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (bool) self::parameters(
+            [
+                'locale' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($locale)
+            ->returning(DT::BOOL);
+        }
+        else
+        {
+            return (bool) has_locale($locale);
+        }
     }
 
     protected function pr($data, $exit = TRUE)
     {
-        //return pr($data, $exit);
-        return self::parameters(
-        [
-            'data' => DT::ANY,
-            'exit' => DT::BOOL
-        ])
-        ->call(__FUNCTION__)
-        ->with($data, $exit)
-        ->returning(DT::VOID);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return self::parameters(
+            [
+                'data' => DT::ANY,
+                'exit' => DT::BOOL
+            ])
+            ->call(__FUNCTION__)
+            ->with($data, $exit)
+                ->returning(DT::VOID);
+        }
+        else
+        {
+            return pr($data, $exit);
+        }
     }
 
     /**
@@ -199,13 +229,19 @@ class Debug extends Controller
      */
     protected function var_info($value)
     {
-        //return (string) var_info($value);
-        return (string) self::parameters(
-        [
-            'value' => DT::ANY
-        ])
-        ->call(__FUNCTION__)
-        ->with($value)
-        ->returning(DT::STRING);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'value' => DT::ANY
+            ])
+            ->call(__FUNCTION__)
+            ->with($value)
+            ->returning(DT::STRING);
+        }
+        else
+        {
+            return (string) var_info($value);
+        }
     }
 }
