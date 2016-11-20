@@ -2,6 +2,8 @@
 
 /* Main Skyfire System Library */
 
+if (!defined('CAMEL_CASE')) define('CAMEL_CASE', NULL);
+
 final class fnCamelCase
 {
     public static function _camelize($string)
