@@ -6,59 +6,97 @@ class Network extends Controller
 {
     protected function get_address_coordinates($address)
     {
-        //return get_address_coordinates($address);
-        return self::parameters(
-        [
-            'address' =>  DT::STRING,
-        ])
-        ->call(__FUNCTION__)
-        ->with($address)
-        ->returning([DT::TYPE_ARRAY, DT::BOOL]);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return self::parameters(
+            [
+                'address' =>  DT::STRING,
+            ])
+            ->call(__FUNCTION__)
+            ->with($address)
+            ->returning([DT::TYPE_ARRAY, DT::BOOL]);
+        }
+        else
+        {
+            return get_address_coordinates($address);
+        }
     }
 
     protected function get_client_ip()
     {
-        //return (string) get_client_ip();
-        return (string) self::parameters()->call(__FUNCTION__)
-                                          ->returning(DT::IPV4);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters()->call(__FUNCTION__)
+                                              ->returning(DT::IPV4);
+        }
+        else
+        {
+            return (string) get_client_ip();
+        }
     }
 
     protected function get_client_lang()
     {
-        //return get_client_lang();
-        return (string) self::parameters()->call(__FUNCTION__)
-                                         ->returning(DT::STRING);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters()->call(__FUNCTION__)
+                                              ->returning(DT::STRING);
+        }
+        else
+        {
+            return (string) get_client_lang();
+        }
     }
 
     protected function is_email($string)
     {
-        //return (bool) is_email($string);
-        return (bool) self::parameters(
-        [
-            'string' =>  DT::STRING
-        ])
-        ->call(__FUNCTION__)
-        ->with($string)
-        ->returning(DT::BOOL);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (bool) self::parameters(
+            [
+                'string' =>  DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::BOOL);
+        }
+        else
+        {
+            return (bool) is_email($string);
+        }
+
     }
 
     protected function is_ssl()
     {
-        //return (bool) is_ssl();
-        return (bool) self::parameters()->call(__FUNCTION__)
-                                        ->returning(DT::BOOL);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (bool) self::parameters()->call(__FUNCTION__)
+                                            ->returning(DT::BOOL);
+        }
+        else
+        {
+            return (bool) is_ssl();
+        }
+
     }
 
     protected function whois($domain, $registrar = FALSE)
     {
-        //return whois($domain, $registrar);
-        return self::parameters(
-        [
-            'domain'    =>  DT::STRING,
-            'registrar' => [DT::STRING, DT::BOOL]
-        ])
-        ->call(__FUNCTION__)
-        ->with($domain, $registrar)
-        ->returning([DT::STRING, DT::BOOL]);
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return self::parameters(
+            [
+                'domain'    =>  DT::STRING,
+                'registrar' => [DT::STRING, DT::BOOL]
+            ])
+            ->call(__FUNCTION__)
+            ->with($domain, $registrar)
+            ->returning([DT::STRING, DT::BOOL]);
+        }
+        else
+        {
+            return whois($domain, $registrar);
+        }
     }
 }
