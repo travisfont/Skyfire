@@ -71,7 +71,7 @@ abstract class SF
     const CONSTANTS = 'constants';
     const MATH      = 'math';
     const STRINGS   = 'strings';
-    const ARRAYS    = 'arrays';
+    const ARRAY     = 'array';
     const CSV       = 'csv';
     const FILE      = 'file';
     const OBJECTS   = 'objects';
