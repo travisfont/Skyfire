@@ -2,7 +2,7 @@
 
 // String interface for IDE
 
-class Strings extends Controller
+class SF_String extends Controller
 {
     protected function addLeadingZeros($number)
     { return (string) NULL; }

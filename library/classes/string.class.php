@@ -2,7 +2,7 @@
 
 // String interface and function into object inherence
 
-class Strings extends Controller
+class SF_String extends Controller
 {
     protected function add_leading_zeros($number)
     {
