@@ -2,7 +2,7 @@
 
 // CSV interface and function into object inherence
 
-class Csv extends Controller
+class SF_Csv extends Controller
 {
     /**
      * @var    file

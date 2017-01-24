@@ -37,15 +37,15 @@ class Tss1 extends Controller
         load::library(SF::NETWORK);
 
         #$test_string = Strings::generate_password(4);
-        $test_string = Strings::generatePassword(4);
+        $test_string = SF_String::generatePassword(4);
         var_dump($test_string);
 
         $numeric_test = (int) '-abc12.3edf'; // this SHOULD FALL AND THROW AN ERROR
         #var_dump(Strings::strip_to_numeric($numeric_test));
-        var_dump(Strings::StripToNumeric($numeric_test));
+        var_dump(SF_String::StripToNumeric($numeric_test));
 
         #var_dump(Network::get_client_lang());
-        var_dump(Network::getClientLang());
+        var_dump(SF_Network::getClientLang());
 
         exit;
 
