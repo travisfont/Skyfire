@@ -2,7 +2,7 @@
 
 // Array interface and function into object inherence
 
-class SF_Array extends Controller
+class ArrayList extends Controller
 {
     protected function array_depth(array $array)
     {
