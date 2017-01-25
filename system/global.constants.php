@@ -70,8 +70,8 @@ abstract class SF
     const NETWORK   = 'network';
     const CONSTANTS = 'constants';
     const MATH      = 'math';
-    const STRINGS   = 'strings';
-    const ARRAY     = 'array';
+    const STRINGSET = 'stringset';
+    const ARRAYLIST = 'arraylist';
     const CSV       = 'csv';
     const FILE      = 'file';
     const OBJECTS   = 'objects';
