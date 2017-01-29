@@ -2,7 +2,7 @@
 
 // Network interface and function into object inherence
 
-class SF_Network extends Controller
+class Network extends Controller
 {
     protected function getAddressCoordinates($address)
     { return (NULL) ? (array) NULL : (bool) NULL; }
