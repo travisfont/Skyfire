@@ -74,7 +74,7 @@ abstract class SF
     const ARRAYLIST = 'arraylist';
     const CSV       = 'csv';
     const FILE      = 'file';
-    const OBJECTS   = 'objects';
+    const OBJECT    = 'object';
     const DATES     = 'dates';
     const CURL      = 'curl';
     const TIME      = 'time';
