@@ -1,7 +1,7 @@
 <?php
 
 // Character Class (HTML Character Entities)
-class Chars
+class Char
 {
     private static function process($key, $arrows)
     {
