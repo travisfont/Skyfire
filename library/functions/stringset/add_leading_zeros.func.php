@@ -1,8 +1,8 @@
 <?php
 
-function add_leading_zeros($number)
+function add_leading_zeros($number, $strlen, $leading = 0)
 {
-    return (string) str_pad($number, 2, '0', STR_PAD_LEFT);
+    return (string) str_pad($number, ($strlen + $leading), '0', STR_PAD_LEFT);
 }
 
 
@@ -11,4 +11,7 @@ function add_leading_zeros($number)
 
 //Note that each integer becomes a string.
 
-// print_r(add_leading_zeros(range(1,100)));
+/*
+$number = range(1, 100);
+print_r(add_leading_zeros($number, 5));
+*/

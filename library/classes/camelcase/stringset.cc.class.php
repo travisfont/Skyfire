@@ -4,7 +4,7 @@
 
 class StringSet extends Controller
 {
-    protected function addLeadingZeros($number)
+    protected function addLeadingZeros($number, $strlen, $leading = 0)
     { return (string) NULL; }
 
     protected function cleanStr($string)

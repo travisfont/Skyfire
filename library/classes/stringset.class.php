@@ -4,21 +4,23 @@
 
 class StringSet extends Controller
 {
-    protected function add_leading_zeros($number)
+    protected function add_leading_zeros($number, $strlen, $leading = 0)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
             [
-                'number' => [DT::STRING,DT::UINT32]
+                'number'  => [DT::STRING,DT::UINT32],
+                'strlen'  =>  DT::UINT32,
+                'leading' =>  DT::UINT32
             ])
             ->call(__FUNCTION__)
-            ->with($number)
+            ->with($number, $strlen, $leading)
             ->returning(DT::STRING);
         }
         else
         {
-            return (string) add_leading_zeros($number);
+            return (string) add_leading_zeros($number, $strlen, $leading);
         }
     }
 
