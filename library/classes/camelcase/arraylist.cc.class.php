@@ -28,6 +28,9 @@ class ArrayList extends Controller
     protected function multiExplode(array $delimiters, $string)
     { return (array) NULL; }
 
+    protected function multiAsort(array &$array)
+    { return; }
+
     function pregArrayKeyExists($pattern, array $array)
     { return (int) NULL; }
 

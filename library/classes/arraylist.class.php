@@ -153,6 +153,24 @@ class ArrayList extends Controller
         }
     }
 
+    protected function multi_asort(array &$array)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return self::parameters(
+            [
+                'array' => DT::TYPE_ARRAY
+            ])
+            ->call(__FUNCTION__)
+            ->with($array)
+            ->returning(DT::VOID);
+        }
+        else
+        {
+            return multi_asort($array);
+        }
+    }
+
     function preg_array_key_exists($pattern, array $array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
