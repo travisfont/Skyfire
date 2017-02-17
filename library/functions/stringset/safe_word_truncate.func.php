@@ -16,3 +16,15 @@ function safe_word_truncate($string = '', $chars = 255, $ellipsis = '...')
 
     return (string) ($ellipsis) ? $new_string.'...' : $new_string;
 }
+
+/*
+function safe_word_truncate($string, $chars, $ellipsis = '...')
+{
+    if (strlen($string) > $chars)
+    {
+        return (string) preg_replace('/\s+?(\S+)?$/', '', substr($string, 0, $chars)).$ellipsis;
+    }
+
+    return $string.$ellipsis;
+}
+*/
