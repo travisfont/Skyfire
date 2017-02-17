@@ -42,7 +42,9 @@ function list_directory($directory, $recursive = FALSE)
         closedir($handle);
     }
 
-    return (array) $array_items;
+    asort($array_items);
+
+    return (array) array_values($array_items);
 }
 
 
