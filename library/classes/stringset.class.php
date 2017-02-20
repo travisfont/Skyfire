@@ -786,4 +786,23 @@ class StringSet extends Controller
             return valid_email($email);
         }
     }
+
+    protected function word_truncate($string, $word_count)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'string'     => DT::TEXT,
+                'word_count' => DT::UINT
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $word_count)
+            ->returning(DT::TEXT);
+        }
+        else
+        {
+            return (string) word_truncate($string, $word_count);
+        }
+    }
 }

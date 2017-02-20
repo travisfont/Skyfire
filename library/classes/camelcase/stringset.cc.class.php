@@ -117,4 +117,7 @@ class StringSet extends Controller
 
     protected function validEmail($email)
     { return (bool) NULL; }
+
+    protected function wordTruncate($string, $word_count)
+    { return (string) NULL; }
 }
