@@ -48,6 +48,12 @@ abstract class DT
 
     const IPV4 = 'ipv4'; // 32 bits (4 bytes)    [count . and convert to int]
     const IPV6 = 'ipv6'; // 128 bits (16 bytes)  [count : and convert to int]
+
+    const REGEXP = 'regexp'; // valid regular expression (string)
+
+    const EXPONENT    = 'exponent'; // exponential float (decimal value)
+    const HEXADECIMAL = 'hex';      // hexadecimal base-16 notation (string)
+    const OCTAL       = 'octal';    // octal notation (string)
 }
 
 // USE MATLAB REFERENCE:
