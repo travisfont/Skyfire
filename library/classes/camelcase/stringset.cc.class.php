@@ -113,7 +113,7 @@ class StringSet extends Controller
     { return (int) NULL; }
 
     protected function stripToNumeric($string)
-    { return (TRUE ? (int) NULL :  FALSE ? (float) NULL : (bool) NULL); }
+    { return (TRUE ? (int) NULL : FALSE ? (float) NULL : (bool) NULL); }
 
     protected function validEmail($email)
     { return (bool) NULL; }
