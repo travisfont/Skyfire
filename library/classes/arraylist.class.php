@@ -64,17 +64,17 @@ class ArrayList extends Controller
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return self::parameters(
+            return (object) self::parameters(
             [
                 'array' => DT::TYPE_ARRAY
             ])
             ->call(__FUNCTION__)
             ->with($array)
-            ->returning(DT::MIXED);
+            ->returning(DT::STD);
         }
         else
         {
-            return convert_array_to_object($array);
+            return (object) convert_array_to_object($array);
         }
     }
 
@@ -219,7 +219,7 @@ class ArrayList extends Controller
             ])
             ->call(__FUNCTION__)
             ->with($array)
-            ->returning(DT::MIXED);
+            ->returning([DT::STRING, DT::TYPE_ARRAY]);
         }
         else
         {

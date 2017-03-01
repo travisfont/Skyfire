@@ -14,7 +14,7 @@ class ArrayList extends Controller
     { return (array) NULL; }
 
     protected function convertArrayToObject(array $array)
-    { return var_export(NULL); }
+    { return (object) NULL; }
 
     protected function fillArrayKeyLeadingZeros(array $array)
     { return (array) NULL; }
@@ -38,7 +38,7 @@ class ArrayList extends Controller
     { return (array) NULL; }
 
     protected function randomizeArrayElement(array $array)
-    { return var_export(NULL); }
+    { return (NULL) ? (string) NULL : (array) NULL; }
 
     protected function subsortArray(array $array, $subkey)
     { return (array) NULL; }
