@@ -27,5 +27,5 @@ function cvs_file_to_assoc_array($filename, $delimiter = ',')
         fclose($handle);
     }
 
-    return $data;
+    return (array) $data;
 }

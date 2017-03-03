@@ -12,7 +12,7 @@ class Csv extends Controller
     { return (array) NULL; }
 
     protected function cvsFileToAssocArray($filename, $delimiter = ',')
-    { return var_export(NULL); }
+    { return (NULL) ? (bool) NULL : (array) NULL; }
 
     protected function CsvToArray($data)
     { return (array) NULL; }
