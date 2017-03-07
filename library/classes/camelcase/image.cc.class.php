@@ -11,17 +11,17 @@ class Image extends Controller
     { return (bool) NULL; }
 
     protected function darkerHex($hex, $amount = 30)
-    { return var_export(NULL); }
+    { return (NULL) ? (bool) NULL : (string) NULL; }
 
     protected function getImageScaleSize($filename, $max_w = 100, $max_h = NULL)
-    { return var_export(NULL); }
+    { return (TRUE ? NULL : FALSE ? (bool) NULL : (object) NULL); }
 
     protected function getImageSizePercentage($filename, $percentage)
-    { return var_export(NULL); }
+    { return (TRUE ? NULL : FALSE ? (bool) NULL : (object) NULL); }
 
     protected function scaleImageToHeight($filename, $target_height)
-    { return var_export(NULL); }
+    { return (NULL) ? (float) NULL : (int) NULL; }
 
     protected function ScaleImageToWidth($filename, $target_width)
-    { return var_export(NULL); }
+    { return (NULL) ? (float) NULL : (int) NULL; }
 }
