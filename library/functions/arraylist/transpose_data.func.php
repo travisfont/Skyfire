@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param array $array
+ *
+ * @return array
+ */
 function transpose_data(array $array)
 {
     $rebuilt_array = array();

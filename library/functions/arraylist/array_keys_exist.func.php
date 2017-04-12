@@ -8,7 +8,6 @@
  *
  * @return bool
  */
-
 function array_keys_exist(array $needles, array $haystack)
 {
     return (bool) count(array_intersect($needles, array_keys($haystack))) === count($needles);

@@ -1,8 +1,13 @@
 <?php
 
-// Randomize a value from an array.
-// THe return can be either a string for a single array or another array from a multiple dimensional array.
-
+/**
+ * Randomize a value from an array.
+ * THe return can be either a string for a single array or another array from a multiple dimensional array.
+ *
+ * @param array $array
+ *
+ * @return mixed
+ */
 function randomize_array_element(array $array)
 {
 	shuffle($array);

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param array $array
+ *
+ * @return array
+ */
 function trim_array_values(array $array)
 {
     $result = array();

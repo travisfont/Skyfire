@@ -1,6 +1,10 @@
 <?php
 
-// isAssociativeArray
+/**
+ * @param array $array
+ *
+ * @return bool
+ */
 function is_associate_array(array $array)
 {
     if (!is_array($array))

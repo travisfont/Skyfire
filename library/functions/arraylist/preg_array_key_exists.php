@@ -1,14 +1,14 @@
 <?php
 
+/**
+ * @param $pattern
+ * @param array $array
+ *
+ * @return int
+ */
 function preg_array_key_exists($pattern, array $array)
 {
-    // extract the keys
-    $keys = array_keys($array);    
-
-    // convert the preg_grep() returned array to int.. and return
-    // the ret value of preg_grep() will be an array of values
-    // that match the pattern
-    return (int) preg_grep($pattern, $keys);
+    return (int) preg_grep($pattern, array_keys($array));
 }
 
 /* example:

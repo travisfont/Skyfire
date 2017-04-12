@@ -1,9 +1,17 @@
 <?php
 
-// Array interface and function into object inherence
-
+/**
+ * Class ArrayList - Skyfire PHP
+ *
+ * Array interface and function into object inherence
+ */
 class ArrayList extends Controller
 {
+    /**
+     * @param array $array
+     *
+     * @return int
+     */
     protected function array_depth(array $array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -22,6 +30,12 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $needles
+     * @param array $haystack
+     *
+     * @return bool
+     */
     protected function array_keys_exist(array $needles, array $haystack)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -41,6 +55,12 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $array
+     * @param bool $keep_zero
+     *
+     * @return array
+     */
     protected function clear_empty_values(array $array, $keep_zero = TRUE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -60,6 +80,11 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $array
+     *
+     * @return object
+     */
     protected function convert_array_to_object(array $array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -78,6 +103,11 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $array
+     *
+     * @return array
+     */
     protected function fill_array_key_leading_zeros(array $array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -96,6 +126,13 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param $needle
+     * @param $haystack
+     * @param bool $strict
+     *
+     * @return bool
+     */
     protected function in_multi_array($needle, $haystack, $strict = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -116,6 +153,11 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param $array
+     *
+     * @return bool
+     */
     protected function is_associate_array($array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -134,6 +176,12 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $delimiters
+     * @param $string
+     *
+     * @return array
+     */
     protected function multi_explode(array $delimiters, $string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -153,6 +201,11 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $array
+     *
+     * @return null
+     */
     protected function multi_asort(array &$array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -171,7 +224,13 @@ class ArrayList extends Controller
         }
     }
 
-    function preg_array_key_exists($pattern, array $array)
+    /**
+     * @param $pattern
+     * @param array $array
+     *
+     * @return int
+     */
+    protected function preg_array_key_exists($pattern, array $array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
@@ -190,6 +249,12 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $arr
+     * @param int $amount
+     *
+     * @return array
+     */
     protected function randomize_array(array $arr, $amount = 1)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -209,6 +274,11 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $array
+     *
+     * @return mixed
+     */
     protected function randomize_array_element(array $array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -227,6 +297,12 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $array
+     * @param $subkey
+     *
+     * @return array
+     */
     protected function subsort_array(array $array, $subkey)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -246,6 +322,11 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param array $array
+     *
+     * @return array
+     */
     protected function transpose_data(array $array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -264,6 +345,11 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param $array
+     *
+     * @return array
+     */
     protected function trim_array_values($array)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -282,6 +368,14 @@ class ArrayList extends Controller
         }
     }
 
+    /**
+     * @param $delimiter
+     * @param $string
+     * @param string $trim
+     * @param null $limit
+     *
+     * @return array
+     */
     protected function trim_explode($delimiter, $string, $trim = 'trim', $limit = NULL)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')

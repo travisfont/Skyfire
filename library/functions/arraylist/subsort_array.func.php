@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param array $array
+ * @param $subkey
+ *
+ * @return array
+ */
 function subsort_array(array $array, $subkey)
 {
 	$b = array(); $c = array();

@@ -1,7 +1,13 @@
 <?php
 
-// returns random element(s) from array
-
+/**
+ * returns random element(s) from array
+ *
+ * @param $arr
+ * @param int $amount
+ *
+ * @return array
+ */
 function randomize_array($arr, $amount = 1)
 {
     shuffle($arr);

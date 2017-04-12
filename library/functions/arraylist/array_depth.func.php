@@ -1,7 +1,12 @@
 <?php
 
-// display (int) the number of dimensions (depth) within an array (ignores recusion arrays)
-
+/**
+ * display (int) the number of dimensions (depth) within an array (ignores recusion arrays)
+ *
+ * @param array $array
+ *
+ * @return int
+ */
 function array_depth(array $array)
 {
     $max_depth = 1;

@@ -1,6 +1,10 @@
 <?php
 
-// multi-dimensional array sort by values [is a void]
+/**
+ * @param array $array
+ *
+ * @return null
+ */
 function multi_asort(array &$array)
 {
     asort($array);
@@ -12,4 +16,6 @@ function multi_asort(array &$array)
             multi_asort($value);
         }
     }
+
+    return NULL;
 }

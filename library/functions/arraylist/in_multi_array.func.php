@@ -1,7 +1,14 @@
 <?php
 
-// in_array version of multi-dim arrays
-
+/**
+ * in_array version of multi-dim arrays
+ *
+ * @param $needle
+ * @param array $haystack
+ * @param bool $strict
+ *
+ * @return bool
+ */
 function in_multi_array($needle, array $haystack, $strict = FALSE)
 {
     foreach ($haystack as $item)
