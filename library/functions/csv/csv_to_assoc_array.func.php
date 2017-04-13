@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $data
+ *
+ * @return array
+ */
 function csv_to_assoc_array($data)
 {
     $array = array();

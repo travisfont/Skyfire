@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $filename
+ * @param string $delimiter
+ *
+ * @return array|bool
+ */
 function cvs_file_to_assoc_array($filename, $delimiter = ',')
 {
     if (!file_exists($filename) || !is_readable($filename))

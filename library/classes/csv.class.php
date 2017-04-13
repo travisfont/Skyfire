@@ -1,11 +1,16 @@
 <?php
 
-// CSV interface and function into object inherence
-
+/**
+ * Class Csv - Skyfire PHP
+ *
+ * CSV interface and function into object inherence
+ */
 class Csv extends Controller
 {
+
     /**
-     * @var    file
+     * @param $data
+     *
      * @return array
      */
     protected function array_getcsv($data)
@@ -26,6 +31,12 @@ class Csv extends Controller
         }
     }
 
+    /**
+     * @param $filename
+     * @param string $delimiter
+     *
+     * @return array|bool
+     */
     protected function cvs_file_to_assoc_array($filename, $delimiter = ',')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -45,6 +56,11 @@ class Csv extends Controller
         }
     }
 
+    /**
+     * @param $data
+     *
+     * @return array
+     */
     protected function csv_to_array($data)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -63,6 +79,11 @@ class Csv extends Controller
         }
     }
 
+    /**
+     * @param $data
+     *
+     * @return array
+     */
     protected function csv_to_assoc_array($data)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
