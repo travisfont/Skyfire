@@ -1,9 +1,18 @@
 <?php
 
-// Object interface and function into object inherence
-
+/*
+ * Class Objects - Skyfire PHP
+ *
+ * Array interface and function into object inherence
+ */
 class Objects extends Controller
 {
+    /**
+     * @param $obj
+     * @param $arr
+     *
+     * @return array
+     */
     protected function convert_objects_to_arrays($obj, &$arr)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
