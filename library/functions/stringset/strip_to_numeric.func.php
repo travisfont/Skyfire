@@ -1,7 +1,12 @@
 <?php
 
-// removes any non-numeric characters from a string
-
+/**
+ * removes any non-numeric characters from a string
+ *
+ * @param $string
+ *
+ * @return bool|float|int
+ */
 function strip_to_numeric($string)
 {
 	$string = trim(preg_replace('/[^0-9,.-]/', '', $string));
@@ -33,5 +38,4 @@ function strip_to_numeric($string)
 	{
 		return FALSE;
 	}
-
 }

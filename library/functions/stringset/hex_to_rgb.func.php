@@ -1,5 +1,13 @@
-<?php 
+<?php
 
+/**
+ * returns the rgb values separated by commas or an array with the rgb values
+ *
+ * @param $hex
+ * @param bool $string
+ *
+ * @return array|string
+ */
 function hex_to_rgb($hex, $string = FALSE)
 {
 	$hex = str_replace('#', '', $hex);
@@ -21,10 +29,10 @@ function hex_to_rgb($hex, $string = FALSE)
 
 	if ($string)
 	{
-	   return (string) implode(",", $rgb); // returns the rgb values separated by commas
+	   return (string) implode(",", $rgb);
 	}
 	else
 	{
-		return (array) $rgb; // returns an array with the rgb values
+		return (array) $rgb;
 	}
 }

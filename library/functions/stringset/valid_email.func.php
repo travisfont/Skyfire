@@ -1,15 +1,14 @@
 <?php
 
 /**
- * Validate the user's email address.
- * Courtesy LinuxJournal.com : http://www.linuxjournal.com/article/9585?page=0,3
+ * Validate the user's email address
  *
- * @param   $email      The email address to validate.
+ * @param  $email he email address to validate
  */
 function valid_email($email)
 {
 	$isValid = TRUE;
-	$atIndex = strrpos($email, "@");
+	$atIndex = strrpos($email, '@');
 
 	if (is_bool($atIndex) && !$atIndex)
 	{

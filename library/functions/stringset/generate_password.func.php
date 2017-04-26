@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param int $length
+ * @param int $strength
+ *
+ * @return string
+ */
 function generate_password($length = 9, $strength = 4)
 {
     $vowels     = 'aeuy';

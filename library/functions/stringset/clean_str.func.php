@@ -1,7 +1,12 @@
 <?php
 
-// Function to clean the string of tags and html entities
-
+/**
+ * Function to clean the string of tags and html entities
+ *
+ * @param $string
+ *
+ * @return string
+ */
 function clean_str($string)
 {
 	//Get rid of tags

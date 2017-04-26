@@ -1,16 +1,26 @@
 <?php
 
-// String interface and function into object inherence
-
+/**
+ * Class StringSet  - Skyfire PHP
+ *
+ * String interface and function into object inherence
+ */
 class StringSet extends Controller
 {
+    /**
+     * @param $number
+     * @param $strlen
+     * @param int $leading
+     *
+     * @return string
+     */
     protected function add_leading_zeros($number, $strlen, $leading = 0)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return (string) self::parameters(
             [
-                'number'  => [DT::STRING,DT::UINT32],
+                'number'  => [DT::STRING, DT::UINT32],
                 'strlen'  =>  DT::UINT32,
                 'leading' =>  DT::UINT32
             ])
@@ -24,6 +34,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function camelize($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -42,6 +57,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function clean_str($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -60,6 +80,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $abbr
+     *
+     * @return string
+     */
     protected function color_abbr($abbr)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -78,6 +103,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $delimiter
+     * @param $string
+     *
+     * @return int
+     */
     protected function count_str($delimiter, $string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -97,6 +128,9 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @return string
+     */
     protected function create_md5_timestamp()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -110,6 +144,14 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $start
+     * @param bool $length
+     * @param bool $safe_quotes
+     *
+     * @return string
+     */
     protected function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -131,6 +173,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function decamelize($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -149,6 +196,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $text
+     *
+     * @return string
+     */
     protected function emoji($text)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -167,6 +219,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param int $length
+     * @param int $strength
+     *
+     * @return string
+     */
     protected function generate_password($length = 9, $strength = 4)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -186,6 +244,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param int $length
+     *
+     * @return string
+     */
     protected function generate_random_str($length = 8)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -204,17 +267,23 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $hex
+     * @param bool $string
+     *
+     * @return array|mixed|string
+     */
     protected function hex_to_rgb($hex, $string = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
             return self::parameters(
             [
-                'hex' => DT::STRING,
-                'hex' => DT::BOOL,
+                'hex'    => DT::STRING,
+                'string' => DT::BOOL,
             ])
             ->call(__FUNCTION__)
-            ->with($hex)
+            ->with($hex, $string)
             ->returning([DT::STRING, DT::TYPE_ARRAY]);
         }
         else
@@ -223,6 +292,20 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * Substr for HTML
+     *
+     * Cuts a string to the length of $length and replaces the last characters
+     * with the ending if the text is longer than length.
+     *
+     * @param string $text String to truncate.
+     * @param integer $length Length of returned string, including ellipsis.
+     * @param string $ending Ending to be appended to the trimmed string.
+     * @param boolean $exact If false, $text will not be cut mid-word
+     * @param boolean $consider_html If true, HTML tags would be handled correctly
+     *
+     * @return string Trimmed string.
+     */
     protected function html_substr($text, $length, $ending = '...', $exact = TRUE, $consider_html = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -245,6 +328,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $hex
+     *
+     * @return bool
+     */
     protected function is_hex($hex)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -263,6 +351,14 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * Check whether string is serialized data
+     *
+     * @param string $string Serialized data
+     * @param bool $hardcheck to use the actual serialize function
+     *
+     * @return bool False if not a serialized string, true if it is
+     */
     protected function is_serialized($string, $hardcheck = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -282,6 +378,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $str
+     *
+     * @return bool
+     */
     protected function is_utf8($str)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -300,6 +401,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $address
+     *
+     * @return bool
+     */
     protected function is_valid_ip($address)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -318,6 +424,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $url
+     * @param bool $absolute
+     *
+     * @return bool
+     */
     protected function is_valid_url($url, $absolute = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -337,6 +449,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param array $list
+     * @param string $conjunction
+     *
+     * @return string
+     */
     protected function join_natural_language(array $list, $conjunction = 'and')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -356,6 +474,13 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $limit
+     * @param string $subtext
+     *
+     * @return string
+     */
     protected function length_cutoff_str($string, $limit, $subtext = '...')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -376,6 +501,13 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $limit
+     * @param string $end_char
+     *
+     * @return string
+     */
     protected function length_cutoff_word($string, $limit, $end_char = '...')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -396,6 +528,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $key
+     *
+     * @return string
+     */
     protected function pad_left($string, $key)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -415,6 +553,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $key
+     *
+     * @return string
+     */
     protected function pad_right($string, $key)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -434,6 +578,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function remove_diacritics($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -452,6 +601,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function remove_first_line($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -471,6 +625,13 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $search
+     * @param $times
+     *
+     * @return string
+     */
     protected function remove_first_occurrence($string, $search, $times)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -491,6 +652,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $search
+     * @param $string
+     *
+     * @return string
+     */
     protected function remove_from_string($search, $string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -510,6 +677,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param bool $mb_strlen
+     *
+     * @return string
+     */
     protected function repair_serialize_str($string, $mb_strlen = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -529,6 +702,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $replace
+     * @param $string
+     *
+     * @return string
+     */
     protected function replace_carriage_return($replace, $string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -548,6 +727,13 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param string $string the input string
+     * @param int $chars the length of characters wanted
+     * @param string $ellipsis the ellipsis to be used, defaults to '...'
+     *
+     * @return string
+     */
     protected function safe_word_truncate($string = '', $chars = 255, $ellipsis = '...')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -568,6 +754,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $address
+     *
+     * @return bool
+     */
     protected function simple_address_verify($address)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -586,6 +777,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return array
+     */
     protected function split_number_str($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -604,6 +800,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return array
+     */
     protected function split_number_str_to_array($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -622,6 +823,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function sstr_to_slug($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -641,6 +847,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return bool
+     */
     protected function str_starts_uppercase($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -660,6 +871,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $text
+     * @param bool $strict
+     *
+     * @return string
+     */
     protected function str_to_slug($text, $strict = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -679,6 +896,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function strip_carriage_returns($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -697,6 +919,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $filename
+     *
+     * @return mixed
+     */
     protected function strip_file_ext($filename)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -715,6 +942,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function strip_tabspaces($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -733,6 +965,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return int
+     */
     protected function strip_to_int($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -751,6 +988,11 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return bool|float|int|mixed
+     */
     protected function strip_to_numeric($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -769,6 +1011,10 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param  $email he email address to validate
+     * @return bool
+     */
     protected function valid_email($email)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -787,6 +1033,12 @@ class StringSet extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $word_count
+     *
+     * @return string
+     */
     protected function word_truncate($string, $word_count)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')

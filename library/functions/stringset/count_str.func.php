@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $delimiter
+ * @param $string
+ *
+ * @return int
+ */
 function count_str($delimiter, $string)
 {
     if (is_string($delimiter))

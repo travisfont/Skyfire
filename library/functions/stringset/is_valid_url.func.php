@@ -6,12 +6,13 @@
  * This function should only be used on actual URLs. It should not be used for
  * Drupal menu paths, which can contain arbitrary characters.
  * Valid values per RFC 3986.
+ *
  * @param $url
  *   The URL to verify.
- * @param $absolute
+ * @param bool $absolute
  *   Whether the URL is absolute (beginning with a scheme such as "http:").
  *
- * @return
+ * @return bool
  *   TRUE if the URL is in a valid format.
  */
 function is_valid_url($url, $absolute = FALSE)

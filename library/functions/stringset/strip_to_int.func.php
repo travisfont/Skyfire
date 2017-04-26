@@ -1,7 +1,12 @@
 <?php
 
-// removes any non-int characters from a string (only allows integers)
-
+/**
+ * removes any non-int characters from a string (only allows integers)
+ *
+ * @param $string
+ *
+ * @return int
+ */
 function strip_to_int($string)
 {
     return (int) trim(preg_replace('/\d+/u', '', $string));

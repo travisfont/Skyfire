@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $address
+ *
+ * @return bool
+ */
 function simple_address_verify($address)
 {
 	if (

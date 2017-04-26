@@ -1,7 +1,12 @@
 <?php
 
-// Strings::str_length_cutoff()
-
+/**
+ * @param $string
+ * @param $limit
+ * @param string $subtext
+ *
+ * @return string
+ */
 function length_cutoff_str($string, $limit, $subtext = '...')
 {
     return (string) (strlen($string) > $limit) ? substr($string, 0, ($limit - strlen($subtext))).$subtext : $string;

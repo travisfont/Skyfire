@@ -1,6 +1,12 @@
 <?php
 
-// splits (seperates) numbers and strings within a string into a complex array
+/**
+ * splits (seperates) numbers and strings within a string into a complex array
+ *
+ * @param $string
+ *
+ * @return array
+ */
 function split_number_str_to_array($string)
 {
     preg_match_all('~^(.*?)(\d+)~m', $string, $matches);

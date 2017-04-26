@@ -1,7 +1,13 @@
 <?php
 
-// show left side of string
-
+/**
+ * show left side of string
+ *
+ * @param $string
+ * @param $divider
+ *
+ * @return string
+ */
 function pad_left($string, $divider)
 {
     if (strstr($string, $divider) !== FALSE)

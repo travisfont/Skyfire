@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * @param $string
+ *
+ * @return int
+ */
 function is_utf8($string)
 {
     return preg_match('%^(?:

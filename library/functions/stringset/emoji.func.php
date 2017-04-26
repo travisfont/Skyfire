@@ -1,7 +1,12 @@
 <?php
 
-// converts normal text into emoji unicodes
-
+/**
+ * converts normal text into emoji unicodes
+ *
+ * @param $text
+ *
+ * @return string
+ */
 function emoji($text)
 {
     $emoji_list = array

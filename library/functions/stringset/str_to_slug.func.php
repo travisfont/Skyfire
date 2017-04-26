@@ -1,5 +1,11 @@
-<?php 
+<?php
 
+/**
+ * @param $text
+ * @param bool $strict
+ *
+ * @return string
+ */
 function str_to_slug($text, $strict = FALSE)
 {
     $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');

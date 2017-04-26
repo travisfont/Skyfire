@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param int $length
+ *
+ * @return string
+ */
 function generate_random_str($length = 8)
 {
     if (!$string = bin2hex(openssl_random_pseudo_bytes($length)))

@@ -1,14 +1,13 @@
 <?php 
 
 /**
- * Converts all accent characters to ASCII characters.
- *
- * If there are no accent characters, then the string given is just returned.
+ * Converts all accent characters to ASCII characters
+ * If there are no accent characters, then the string given is just returned
  *
  * @param string $string Text that might have accent characters
- * @return string Filtered string with replaced "nice" characters.
+ *
+ * @return string Filtered string with replaced "nice" characters
  */
- 
 function remove_diacritics($string)
 {
     if (!preg_match('/[\x80-\xff]/', $string))

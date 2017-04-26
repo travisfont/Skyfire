@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @param $string
+ * @param $search
+ * @param $times
+ *
+ * @return string
+ */
 function remove_first_occurrence($string, $search, $times)
 {
     if (substr_count($string, $search) > $times)

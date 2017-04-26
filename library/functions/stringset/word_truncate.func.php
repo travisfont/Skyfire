@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $string
+ * @param $word_count
+ *
+ * @return string
+ */
 function word_truncate($string, $word_count)
 {
     $retval = $string;

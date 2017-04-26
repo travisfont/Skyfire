@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $string
+ *
+ * @return string
+ */
 function remove_first_line($string)
 {
     return (string) preg_replace('/^.+\n/', '', $string);

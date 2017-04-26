@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @param $string
+ * @param $limit
+ * @param string $end_char
+ *
+ * @return string
+ */
 function length_cutoff_word($string, $limit, $end_char = '...')
 {
     if (trim($string) == '')

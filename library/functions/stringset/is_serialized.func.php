@@ -5,7 +5,8 @@
  *
  * @param string $string Serialized data
  * @param bool $hardcheck to use the actual serialize function
- * @return bool False if not a serialized string, true if it is.
+ *
+ * @return bool False if not a serialized string, true if it is
  */
 function is_serialized($string, $hardcheck = FALSE)
 {

@@ -11,9 +11,9 @@
  * @param string $ending Ending to be appended to the trimmed string.
  * @param boolean $exact If false, $text will not be cut mid-word
  * @param boolean $consider_html If true, HTML tags would be handled correctly
+ *
  * @return string Trimmed string.
  */
-
 function html_substr($text, $length, $ending = '...', $exact = TRUE, $consider_html = FALSE)
 {
     if ($consider_html)

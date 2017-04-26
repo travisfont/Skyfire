@@ -1,7 +1,12 @@
 <?php
 
-//abbreviations and acronym
-
+/**
+ * abbreviations and acronym
+ *
+ * @param $abbr
+ *
+ * @return string
+ */
 function color_abbr($abbr)
 {
 	switch (strtoupper($abbr))

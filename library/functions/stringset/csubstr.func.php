@@ -1,8 +1,8 @@
 <?php
 
-// substr that doesn't count bbcode and html code within the string
-
 /**
+ * A substr that doesn't count bbcode and html code within the string
+ *
  * @param string string
  * @param int start
  * @param int length
@@ -10,7 +10,6 @@
  *
  * @return string
  */
-
 function csubstr($string, $start, $length = FALSE, $safe_quotes = FALSE)
 {
     $pattern = '/(\[\w+[^\]]*?\]|\[\/\w+\]|<\w+[^>]*?>|<\/\w+>)/i';

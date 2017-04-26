@@ -2,6 +2,11 @@
 
 /**
  * Join a string with a natural language conjunction at the end.
+ *
+ * @param array $list
+ * @param string $conjunction
+ *
+ * @return string
  */
 function join_natural_language(array $list, $conjunction = 'and')
 {

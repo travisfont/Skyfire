@@ -1,7 +1,13 @@
 <?php
 
-//  fix broken serialize string using following function, with multibyte character handling.
-
+/**
+ * fix broken serialize string using following function, with multibyte character handling
+ *
+ * @param $string
+ * @param bool $mb_strlen
+ *
+ * @return string
+ */
 function repair_serialize_str($string, $mb_strlen = FALSE)
 {
     return (string) preg_replace_callback('!s:(\d+):"(.*?)";!', function ($match) use ($mb_strlen)
