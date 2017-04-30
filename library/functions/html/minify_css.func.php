@@ -1,7 +1,12 @@
 <?php
 
-// CSS Minifier
-
+/**
+ * CSS Minifier
+ *
+ * @param $css
+ *
+ * @return string
+ */
 function minify_css($css)
 {
     if (trim($css) === '')

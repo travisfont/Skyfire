@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @param $tag_name
+ * @param $html
+ * @param string $encoding
+ *
+ * @return array
+ */
 function get_element_all_attributes($tag_name, $html, $encoding = 'UTF-8')
 {
     $dom = new DOMDocument('1.0', $encoding);

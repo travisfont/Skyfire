@@ -1,7 +1,14 @@
 <?php
 
-// retrieves all the values from a selector by it's name by parsing its HTML
-
+/**
+ * retrieves all the values from a selector by it's name by parsing its HTML
+ *
+ * @param $name
+ * @param $selector_html
+ * @param string $encoding
+ *
+ * @return array
+ */
 function parse_selector_values_by_name($name, $selector_html, $encoding = 'UTF-8')
 {
     $dom = new DOMDocument('1.0', $encoding);

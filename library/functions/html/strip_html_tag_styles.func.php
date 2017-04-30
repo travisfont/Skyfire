@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $string
+ *
+ * @return string
+ */
 function strip_html_tag_styles($string)
 {
     return (string) preg_replace('/(<[^>]+) style=".*?"/i', '$1', $string);

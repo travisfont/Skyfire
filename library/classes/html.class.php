@@ -1,11 +1,19 @@
 <?php
 
-// HTML interface and function into object inherence
-
+/**
+ * Class HTML - Skyfire PHP
+ *
+ * HTML interface and function into object inherence
+ */
 class HTML extends Controller
 {
     protected function append_missing_tag() {}
 
+    /**
+     * @param $input
+     *
+     * @return string
+     */
     protected function br2nl($input)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -24,6 +32,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $buffer
+     *
+     * @return string
+     */
     protected function compress_css($buffer)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -42,6 +55,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $content
+     *
+     * @return string
+     */
     protected function compress_html($content)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -63,6 +81,13 @@ class HTML extends Controller
     protected function count_html_output_lines() {}
     protected function create_div_table() {}
 
+    /**
+     * @param $tag_name
+     * @param $html
+     * @param string $encoding
+     *
+     * @return array
+     */
     protected function get_element_all_attributes($tag_name, $html, $encoding = 'UTF-8')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -85,6 +110,12 @@ class HTML extends Controller
 
     protected function get_page_title() {}
 
+    /**
+     * @param $html
+     * @param string $encoding
+     *
+     * @return bool
+     */
     protected function is_input($html, $encoding = 'UTF-8')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -104,6 +135,12 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $html
+     * @param string $encoding
+     *
+     * @return bool
+     */
     protected function is_select($html, $encoding = 'UTF-8')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -123,6 +160,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function left_trim_br_tag($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -141,6 +183,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $css
+     *
+     * @return string
+     */
     protected function minify_css($css)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -159,6 +206,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $content
+     *
+     * @return string
+     */
     protected function minify_html($content)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -177,6 +229,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $javascript
+     *
+     * @return string
+     */
     protected function minify_js($javascript)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -195,6 +252,12 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $selector_html
+     * @param string $encoding
+     *
+     * @return array
+     */
     protected function parse_selector_values($selector_html, $encoding = 'UTF-8')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -214,6 +277,13 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $name
+     * @param $selector_html
+     * @param string $encoding
+     *
+     * @return array
+     */
     protected function parse_selector_values_by_name($name, $selector_html, $encoding = 'UTF-8')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -234,6 +304,13 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $tag
+     * @param string $replace
+     *
+     * @return string
+     */
     protected function replace_html_tag($string, $tag, $replace = '')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -254,6 +331,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function replace_multi_br_to_single($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -272,6 +354,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function replace_p_to_br($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -290,6 +377,16 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $input
+     * @param string $break
+     * @param string $end_text
+     * @param int $limit
+     * @param bool $tidy_html
+     * @param bool $strip_html
+     *
+     * @return string
+     */
     protected function safe_truncate($input, $break = ' ', $end_text = '...', $limit = 255, $tidy_html = TRUE, $strip_html = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -313,6 +410,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function strip_html_table($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -331,6 +433,12 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $string
+     * @param $tag
+     *
+     * @return string
+     */
     protected function strip_html_tag($string, $tag)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -350,6 +458,11 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function strip_html_tag_styles($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -368,6 +481,15 @@ class HTML extends Controller
         }
     }
 
+    /**
+     * @param string $text String to truncate
+     * @param int $length Length of returned string, including ellipsis.
+     * @param string $ending Ending to be appended to the trimmed string.
+     * @param bool $exact If false, $text will not be cut mid-word
+     * @param bool $consider_html If true, HTML tags would be handled correctly
+     *
+     * @return string Trimmed string
+     */
     protected function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $consider_html = TRUE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')

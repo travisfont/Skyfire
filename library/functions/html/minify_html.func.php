@@ -1,7 +1,12 @@
 <?php
 
-// HTML Minifier
-
+/**
+ * HTML Minifier
+ *
+ * @param $html
+ *
+ * @return string
+ */
 function minify_html($html)
 {
     if (trim($html) === '')

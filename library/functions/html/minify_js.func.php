@@ -1,7 +1,12 @@
 <?php
 
-// JavaScript Minifier
-
+/**
+ * JavaScript Minifier
+ *
+ * @param $javascript
+ *
+ * @return string
+ */
 function minify_js($javascript)
 {
     if (trim($javascript) === '')

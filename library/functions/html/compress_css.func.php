@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $buffer
+ *
+ * @return string
+ */
 function compress_css($buffer)
 {
     /* remove comments in css file */

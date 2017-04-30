@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $content
+ *
+ * @return string
+ */
 function compress_html($content)
 {
     $i       = 0;

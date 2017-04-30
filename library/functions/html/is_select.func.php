@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $html
+ * @param string $encoding
+ *
+ * @return bool
+ */
 function is_select($html, $encoding = 'UTF-8')
 {
     $dom = new DOMDocument('1.0', $encoding);

@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-// replaces any p tag (paragraphs) with a br tag (new line) 
-
+/**
+ * replaces any p tag (paragraphs) with a br tag (new line)
+ *
+ * @param $string
+ *
+ * @return string
+ */
 function replace_p_to_br($string)
 {
     $string = preg_replace("/<p[^>]*?>/", "", $string);

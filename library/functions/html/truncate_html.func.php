@@ -1,17 +1,17 @@
-<?php 
+<?php
 
-/*
-Truncating an HTML string without breaking the HTML code!
-Maintains HTML and complete words while trimming HTML strings.
-
-@param string $text String to truncate.
-@param integer $length Length of returned string, including ellipsis.
-@param string $ending Ending to be appended to the trimmed string.
-@param boolean $exact If false, $text will not be cut mid-word
-@param boolean $consider_html If true, HTML tags would be handled correctly
-@return string Trimmed string.
-*/
-
+/**
+ * Truncating an HTML string without breaking the HTML code!
+ * Maintains HTML and complete words while trimming HTML strings.
+ *
+ * @param string $text String to truncate
+ * @param int $length Length of returned string, including ellipsis.
+ * @param string $ending Ending to be appended to the trimmed string.
+ * @param bool $exact If false, $text will not be cut mid-word
+ * @param bool $consider_html If true, HTML tags would be handled correctly
+ *
+ * @return string Trimmed string
+ */
 function truncate_html($text, $length = 100, $ending = '...', $exact = FALSE, $consider_html = TRUE)
 {
 	if ($consider_html)
