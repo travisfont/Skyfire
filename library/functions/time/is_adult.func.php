@@ -5,7 +5,6 @@
  *
  * @return boolean
  **/
-
 function is_adult($day, $month, $year)
 {
     if ($month <= 0 || $day <= 0 || $year <= 0)

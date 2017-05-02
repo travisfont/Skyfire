@@ -1,7 +1,14 @@
 <?php
 
-// get the a datetime in the "X time ago" format
-
+/**
+ * get the a datetime in the "X time ago" format
+ *
+ * @param $date
+ *
+ * @return string
+ *
+ * @throws Exception
+ */
 function time_ago($date)
 {
     if (empty($date))

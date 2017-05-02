@@ -2,12 +2,13 @@
 
 /**
  * Days difference between two dates
- * @param MIXED $date1	(timestamp, or string compatible to strtotime() )
- * @param MIXED $date2	Opt.; def:false => now() (timestamp, or string compatible to strtotime() )
+ *
+ * @param mixed $date1	(timestamp, or string compatible to strtotime() )
+ * @param mixed $date2	Opt.; def:false => now() (timestamp, or string compatible to strtotime() )
  * @param bool $accuracy_day Use accuracy level based on full days!
- * @return FLOAT
+ *
+ * @return float
  */
- 
 function days_diff($date1, $date2 = NULL, $accuracy_day = NULL)
 {
     $date1 = is_int($date1)     ? $date1 : strtotime($date1);

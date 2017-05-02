@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @return DateTime
+ */
 function get_server_timezone()
 {
     $server_timezone     = date_default_timezone_get();

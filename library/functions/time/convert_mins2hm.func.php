@@ -1,7 +1,12 @@
 <?php
 
-// Convert Minutes to Hours & Minutes
-
+/**
+ * Convert Minutes to Hours & Minutes
+ *
+ * @param $time
+ * @param string $format
+ * @return bool|string
+ */
 function convert_mins2hm($time, $format = '%02d:%02d')
 {
     if ($time < 1)

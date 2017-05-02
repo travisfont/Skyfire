@@ -17,6 +17,12 @@ class Time extends Controller
     const W3C     = "Y-m-d\TH:i:sP";
 
 
+    /**
+     * @param $time
+     * @param string $format
+     *
+     * @return bool|string
+     */
     protected function convert_mins2hm($time, $format = '%02d:%02d')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -36,6 +42,12 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $number
+     * @param array $args
+     *
+     * @return string
+     */
     protected function convert_month($number, array $args = array('lang' => 'fr', 'ucword' => FALSE, 'dots' => FALSE, 'long' => FALSE))
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -55,6 +67,11 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $offset
+     *
+     * @return string
+     */
     protected function convert_utc_offset_abbr($offset)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -73,6 +90,12 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $datetime
+     * @param bool $sentence_format
+     *
+     * @return array|bool|string
+     */
     protected function countdown($datetime, $sentence_format = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -92,6 +115,11 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $date_string
+     *
+     * @return int
+     */
     protected function current_date_state($date_string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -110,6 +138,11 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return false|string
+     */
     protected function date_yesterday($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -128,6 +161,12 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $date1
+     * @param $date2
+     *
+     * @return object
+     */
     protected function datetime_diff($date1, $date2)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -147,6 +186,13 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param mixed $date1	(timestamp, or string compatible to strtotime() )
+     * @param mixed $date2	Opt.; def:false => now() (timestamp, or string compatible to strtotime() )
+     * @param bool $accuracy_day Use accuracy level based on full days!
+     *
+     * @return float
+     */
     protected function days_diff($date1, $date2 = FALSE, $accuracy_day = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -167,6 +213,12 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $original_date
+     * @param string $date_format
+     *
+     * @return string
+     */
     protected function format_date($original_date, $date_format = 'Y-m-d\TH:i:sP')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -186,6 +238,13 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $date1
+     * @param $date2
+     * @param string $return_format
+     *
+     * @return string
+     */
     protected function format_date_diff($date1, $date2, $return_format = '%H:%I')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -207,6 +266,12 @@ class Time extends Controller
     }
 
     // ideal naming convertion: MySQL_Datetime_Format
+
+    /**
+     * @param bool $date_string
+     *
+     * @return false|string
+     */
     protected function format_mysql_datetime($date_string = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -225,6 +290,11 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $timezone
+     *
+     * @return DateTime|mixed
+     */
     public static function get_define_timezone($timezone)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -243,6 +313,9 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @return DateTime|mixed
+     */
     public static function get_server_timezone()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -256,6 +329,9 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @return DateTime|mixed
+     */
     public static function get_utc_timezone()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -269,6 +345,11 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $ddate
+     *
+     * @return bool|string
+     */
     protected function get_week_number($ddate)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -287,6 +368,13 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $day
+     * @param $month
+     * @param $year
+     *
+     * @return bool
+     */
     protected function is_adult($day, $month, $year)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -307,11 +395,17 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param mixed $date1  (timestamp, or string compatible to strtotime() )
+     * @param mixed $date2  Opt.; def:false => now() (timestamp, or string compatible to strtotime() )
+     *
+     * @return int
+     */
     protected function months_diff($date1, $date2 = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
-            return (string) self::parameters(
+            return (int) self::parameters(
             [
                 'date1' => DT::STRING,
                 'date2' => DT::STRING
@@ -326,6 +420,9 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @return string
+     */
     protected function mysql_now()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -339,6 +436,13 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $date
+     * @param int $weeks
+     * @param string $format
+     *
+     * @return string
+     */
     protected function next_week($date, $weeks = 1, $format = 'Y-m-d\TH:i:sP')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -359,6 +463,11 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param string $user_timezone
+     *
+     * @return int
+     */
     public static function server_timezone_offset($user_timezone = 'UTC')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -377,6 +486,12 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $dbdate
+     * @param bool $short
+     *
+     * @return string
+     */
     protected function show_time_left($dbdate, $short = TRUE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -396,6 +511,13 @@ class Time extends Controller
         }
     }
 
+    /**
+     * @param $date
+     *
+     * @return string
+     *
+     * @throws Exception
+     */
     protected function time_ago($date)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')

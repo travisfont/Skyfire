@@ -1,7 +1,12 @@
 <?php
 
-//  returns the week number by date
-
+/**
+ * returns the week number by date
+ *
+ * @param $ddate
+ *
+ * @return bool|string
+ */
 function get_week_number($ddate)
 {
     if ($date = new DateTime($ddate))

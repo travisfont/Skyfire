@@ -1,7 +1,12 @@
 <?php
 
-// returns if a date is in the past, present, or future
-
+/**
+ * returns if a date is in the past, present, or future
+ *
+ * @param $date_string
+ *
+ * @return int
+ */
 function current_date_state($date_string)
 {
     if (strtotime($date_string) < time())

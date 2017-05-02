@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @return DateTime
+ */
 function get_utc_timezone()
 {
     if ($utc_date_timezone = new DateTimeZone('UTC'))

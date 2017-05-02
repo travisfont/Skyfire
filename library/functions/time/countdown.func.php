@@ -1,7 +1,13 @@
 <?php
 
-// takes a date and tells how many days and hours are remaining until the aforementioned date
-
+/**
+ * takes a date and tells how many days and hours are remaining until the aforementioned date
+ *
+ * @param $datetime
+ * @param bool $sentence_format
+ *
+ * @return array|bool|string
+ */
 function countdown($datetime, $sentence_format = FALSE)
 {
     $dt_end = new DateTime($datetime);

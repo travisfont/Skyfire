@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $number
+ * @param array $args
+ *
+ * @return string
+ */
 function convert_month($number, array $args = array('lang' => 'fr', 'ucword' => FALSE, 'dots' => FALSE, 'long' => FALSE))
 {
     if (is_int($number))

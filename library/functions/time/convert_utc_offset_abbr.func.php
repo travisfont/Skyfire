@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-// converts UTC offset (+2:00) to a Timezone Name Abbreviation
-
+/**
+ * converts UTC offset (+2:00) to a Timezone Name Abbreviation
+ *
+ * @param $offset
+ *
+ * @return string
+ */
 function convert_utc_offset_abbr($offset)
 {
     $timezone = (int) preg_replace('/[^0-9]/', '', $offset);

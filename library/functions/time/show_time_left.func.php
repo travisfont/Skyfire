@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $dbdate
+ * @param bool $short
+ *
+ * @return string
+ */
 function show_time_left($dbdate, $short = TRUE)
 {
 	$end_time = strtotime($dbdate);

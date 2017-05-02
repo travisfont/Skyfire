@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $date1
+ * @param $date2
+ *
+ * @return object
+ */
 function datetime_diff($date1, $date2)
 {
 
