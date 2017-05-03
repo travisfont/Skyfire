@@ -1,9 +1,18 @@
 <?php
 
-// Dates interface and function into object inherence
-
+/**
+ * Class File -Skyfire PHP
+ *
+ * File interface and function into object inherence
+ */
 class File extends Controller
 {
+    /**
+     * @param $file_name
+     * @param $extensions
+     *
+     * @return bool
+     */
     protected function check_file_ext($file_name, $extensions)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -23,6 +32,11 @@ class File extends Controller
         }
     }
 
+    /**
+     * @param $path
+     *
+     * @return void
+     */
     protected function convert_ini_file_to_constants($path)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -41,6 +55,12 @@ class File extends Controller
         }
     }
 
+    /**
+     * @param $url
+     * @param int $response_code
+     *
+     * @return bool
+     */
     protected function file_contents_exist($url, $response_code = 200)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -60,6 +80,9 @@ class File extends Controller
         }
     }
 
+    /**
+     * @return string
+     */
     protected function get_current_page_url()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -73,6 +96,10 @@ class File extends Controller
         }
     }
 
+    /**
+     * @param $filename
+     * @return bool|string
+     */
     protected function get_file_ext($filename)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -91,6 +118,15 @@ class File extends Controller
         }
     }
 
+    /**
+     * Returns the scheme of a URI (e.g. a stream)
+     *
+     * @param $uri A stream, referenced as "scheme://target".
+     *
+     * @return bool|string
+     * A string containing the name of the scheme, or FALSE if none. For example,
+     *   the URI "public://example.txt" would return "public".
+     */
     protected function get_file_uri_scheme($uri)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -109,6 +145,17 @@ class File extends Controller
         }
     }
 
+    /**
+     * Returns the part of a URI after the schema.
+     *
+     * @param $uri
+     *   A stream, referenced as "scheme://target".
+     *
+     * @return
+     *   A string containing the target (path), or FALSE if none.
+     *   For example, the URI "public://sample/test.txt" would return
+     *   "sample/test.txt".
+     */
     protected function get_file_uri_target($uri)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -127,6 +174,11 @@ class File extends Controller
         }
     }
 
+    /**
+     * @param $url
+     *
+     * @return int
+     */
     protected function get_http_response_code($url)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -145,6 +197,11 @@ class File extends Controller
         }
     }
 
+    /**
+     * @param $url
+     *
+     * @return int
+     */
     protected function get_https_response_code($url)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -166,6 +223,14 @@ class File extends Controller
     protected function include_if_exist($path)      {} // $this->include_if_exist()
     protected function include_once_if_exist($path) {} // $this->include_once_if_exist()
 
+    /**
+     * Test if a give filesystem path is absolute
+     * For example, '/foo/bar', or 'c:\windows'
+     *
+     * @param string $path File path
+     *
+     * @return bool True if path is absolute, false is not absolute
+     */
     protected function is_path_absolute($path)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -184,6 +249,14 @@ class File extends Controller
         }
     }
 
+    /**
+     * Lists contens of a given directory and returns array with entries
+     *
+     * @param   $directory  string source path of the root directory
+     * @param   $recursive  bool   to continue to return subdirectories
+     *
+     * @return  array  directory entries
+     */
     protected function list_directory($directory, $recursive = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -206,6 +279,12 @@ class File extends Controller
     protected function require_if_exist($path)      {} // $this->require_if_exist()
     protected function require_once_if_exist($path) {} // $this->require_once_if_exist()
 
+    /**
+     * @param $text
+     * @param $log_file
+     *
+     * @return void
+     */
     protected function write_log_error($text, $log_file)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')

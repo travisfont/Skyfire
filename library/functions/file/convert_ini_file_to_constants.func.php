@@ -1,5 +1,8 @@
-<?php 
+<?php
 
+/**
+ * @param $path
+ */
 function convert_ini_file_to_constants($path)
 {
     foreach (parse_ini_file($path) as $element => $value)

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @param $file_name
+ * @param $extensions
+ *
+ * @return bool
+ *
+ * @throws Exception
+ */
 function check_file_ext($file_name, $extensions)
 {
     if (is_string($extensions) || is_array($extensions))

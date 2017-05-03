@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @return string
+ */
 function get_current_page_url()
 {
     $page_url = 'http';

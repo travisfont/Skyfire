@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Test if a give filesystem path is absolute.
+ * Test if a give filesystem path is absolute
  * For example, '/foo/bar', or 'c:\windows'
  *
  * @param string $path File path
+ *
  * @return bool True if path is absolute, false is not absolute
  */
-
 function is_path_absolute($path)
 {
     // path is definitive

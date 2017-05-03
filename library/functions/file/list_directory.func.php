@@ -1,18 +1,13 @@
 <?php
 
-
 /**
  * Lists contens of a given directory and returns array with entries
  *
- * @param   $directory  string. source path of the root directory
- * @param   $recursive  bool.   to continue to return subdirectories
+ * @param   $directory  string source path of the root directory
+ * @param   $recursive  bool   to continue to return subdirectories
  *
- * @access  public
  * @return  array  directory entries
- * @author  Travis van der Font
  */
-
-
 function list_directory($directory, $recursive = FALSE)
 {
     $array_items = array();
