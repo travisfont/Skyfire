@@ -1,9 +1,17 @@
 <?php
 
-// XML interface and function into object inherence
-
+/**
+ * Class XML - Skyfire PHP
+ *
+ * XML interface and function into object inherence
+ */
 class XML extends Controller
 {
+    /**
+     * @param $xml
+     *
+     * @return string
+     */
     protected function format_xml_string($xml)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -22,6 +30,11 @@ class XML extends Controller
         }
     }
 
+    /**
+     * @param $feedxml
+     *
+     * @return bool
+     */
     protected function is_atom($feedxml)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -40,6 +53,11 @@ class XML extends Controller
         }
     }
 
+    /**
+     * @param $feedxml
+     *
+     * @return bool
+     */
     protected function is_rss($feedxml)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -58,6 +76,11 @@ class XML extends Controller
         }
     }
 
+    /**
+     * @param $response
+     *
+     * @return bool
+     */
     protected function is_xml(&$response)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -76,6 +99,12 @@ class XML extends Controller
         }
     }
 
+    /**
+     * @param $xml
+     * @param $node
+     *
+     * @return void
+     */
     protected function remove_parent_xml_node(&$xml, $node)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -95,6 +124,11 @@ class XML extends Controller
         }
     }
 
+    /**
+     * @param $xml_object
+     *
+     * @return array
+     */
     protected function xml_to_array($xml_object)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')

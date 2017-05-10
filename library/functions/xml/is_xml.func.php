@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $response
+ *
+ * @return bool
+ */
 function is_xml(&$response)
 {
     if (strlen($response) < 2)

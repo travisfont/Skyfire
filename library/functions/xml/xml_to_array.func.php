@@ -1,6 +1,12 @@
 <?php
 
-// as a string
+/**
+ * as a string
+ *
+ * @param $xml_object
+ *
+ * @return array
+ */
 function xml_to_array($xml_object)
 {
     $out = array();

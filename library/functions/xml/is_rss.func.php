@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $feedxml
+ *
+ * @return bool
+ */
 function is_rss($feedxml)
 {
     try

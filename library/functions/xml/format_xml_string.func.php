@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $xml
+ *
+ * @return string
+ */
 function format_xml_string($xml)
 {
     if ($dom = new DOMDocument)
@@ -12,7 +17,6 @@ function format_xml_string($xml)
     }
     else
     {
-    
         $xml        = preg_replace('/(>)(<)(\/*)/', "$1\n$2$3", $xml);
         $token      = strtok($xml, "\n");
         $result     = '';
