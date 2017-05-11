@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $hex
+ * @param int $amount
+ *
+ * @return bool|string
+ */
 function darker_hex($hex, $amount = 30)
 {
     $new_hex = '';

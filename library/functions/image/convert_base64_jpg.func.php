@@ -1,7 +1,13 @@
 <?php
 
-// creates the image within a directory (unless creating a image string) from Base64
-
+/**
+ * creates the image within a directory (unless creating a image string) from Base64
+ *
+ * @param $base64_string
+ * @param bool $output_file
+ *
+ * @return string
+ */
 function convert_base64_jpg($base64_string, $output_file = FALSE)
 {
     function _generate_random_str($length = 8)

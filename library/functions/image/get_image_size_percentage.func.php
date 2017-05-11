@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $filename
+ * @param $percentage
+ *
+ * @return null|object
+ */
 function get_image_size_percentage($filename, $percentage)
 {
     function file_contents_exist($url)

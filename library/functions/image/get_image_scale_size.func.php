@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @param $filename
+ * @param int $max_w
+ * @param null $max_h
+ *
+ * @return null|object
+ */
 function get_image_scale_size($filename, $max_w = 100, $max_h = NULL)
 {
     function file_contents_exist($url)

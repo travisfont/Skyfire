@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $filename
+ * @param $target_width
+ *
+ * @return float
+ */
 function scale_image_to_width($filename, $target_width)
 {
     $size = getimagesize($filename);

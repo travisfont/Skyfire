@@ -1,9 +1,18 @@
 <?php
 
-// Image interface and function into object inherence
-
+/**
+ * Class Image - Skyfire PHP
+ *
+ * Image interface and function into object inherence
+ */
 class Image extends Controller
 {
+    /**
+     * @param $base64_string
+     * @param bool $output_file
+     *
+     * @return string
+     */
     protected function convert_base64_jpg($base64_string, $output_file = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -23,6 +32,14 @@ class Image extends Controller
         }
     }
 
+    /**
+     * @param $data
+     * @param $filename
+     * @param string $extension
+     * @param int $quality
+     *
+     * @return bool
+     */
     protected function create_image_from_base64($data, $filename, $extension = 'jpg', $quality = 100)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -44,6 +61,12 @@ class Image extends Controller
         }
     }
 
+    /**
+     * @param $hex
+     * @param int $amount
+     *
+     * @return bool|string
+     */
     protected function darker_hex($hex, $amount = 30)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -63,6 +86,13 @@ class Image extends Controller
         }
     }
 
+    /**
+     * @param $filename
+     * @param int $max_w
+     * @param null $max_h
+     *
+     * @return null|object
+     */
     protected function get_image_scale_size($filename, $max_w = 100, $max_h = NULL)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -83,6 +113,12 @@ class Image extends Controller
         }
     }
 
+    /**
+     * @param $filename
+     * @param $percentage
+     *
+     * @return null|object
+     */
     protected function get_image_size_percentage($filename, $percentage)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -102,6 +138,12 @@ class Image extends Controller
         }
     }
 
+    /**
+     * @param $filename
+     * @param $target_height
+     *
+     * @return float
+     */
     protected function scale_image_to_height($filename, $target_height)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -121,6 +163,12 @@ class Image extends Controller
         }
     }
 
+    /**
+     * @param $filename
+     * @param $target_width
+     *
+     * @return float
+     */
     protected function scale_image_to_width($filename, $target_width)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
