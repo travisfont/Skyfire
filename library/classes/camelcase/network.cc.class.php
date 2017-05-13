@@ -1,7 +1,10 @@
 <?php
 
-// Network interface and function into object inherence
-
+/**
+ * Class Network - Skyfire PHP
+ *
+ * Network interface and function into object inherence
+ */
 class Network extends Controller
 {
     /**
