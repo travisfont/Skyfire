@@ -4,6 +4,11 @@
 
 class Network extends Controller
 {
+    /**
+     * @param $address
+     *
+     * @return array|bool
+     */
     protected function get_address_coordinates($address)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -22,6 +27,9 @@ class Network extends Controller
         }
     }
 
+    /**
+     * @return string
+     */
     protected function get_client_ip()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -35,6 +43,9 @@ class Network extends Controller
         }
     }
 
+    /**
+     * @return string
+     */
     protected function get_client_lang()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -48,6 +59,11 @@ class Network extends Controller
         }
     }
 
+    /**
+     * @param $string
+     *
+     * @return bool
+     */
     protected function is_email($string)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -67,6 +83,9 @@ class Network extends Controller
 
     }
 
+    /**
+     * @return bool True if SSL, false if not used
+     */
     protected function is_ssl()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -81,6 +100,12 @@ class Network extends Controller
 
     }
 
+    /**
+     * @param $domain
+     * @param bool $registrar
+     *
+     * @return bool|string
+     */
     protected function whois($domain, $registrar = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')

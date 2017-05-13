@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @return string
+ */
 function get_client_ip()
 {
     if (!empty($_SERVER['HTTP_CLIENT_IP']))

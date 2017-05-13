@@ -1,7 +1,13 @@
 <?php
 
-// Whois sever lookup function
-
+/**
+ * Whois sever lookup function
+ *
+ * @param $domain
+ * @param bool $registrar
+ *
+ * @return bool|string
+ */
 function whois($domain, $registrar = FALSE)
 {
     // fixing the domain name format

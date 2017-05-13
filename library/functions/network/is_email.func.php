@@ -4,9 +4,9 @@
  * Validates if a string is an email
  *
  * @param string $string
+ *
  * @return boolean
  */
-
 function is_email($string)
 {
     if (empty($string))

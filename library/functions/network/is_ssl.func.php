@@ -1,11 +1,10 @@
 <?php
 
 /**
- * Determine if SSL is used.
+ * Determine if SSL is used
  *
- * @return bool True if SSL, false if not used.
+ * @return bool True if SSL, false if not used
  */
-
 function is_ssl()
 {
     if (isset($_SERVER['HTTPS']))
