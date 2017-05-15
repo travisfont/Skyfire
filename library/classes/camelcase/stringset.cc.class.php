@@ -120,4 +120,7 @@ class StringSet extends Controller
 
     protected function wordTruncate($string, $word_count)
     { return (string) NULL; }
+
+    protected function substrExtract($string, $token)
+    { return (string) NULL; }
 }

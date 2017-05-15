@@ -1057,4 +1057,29 @@ class StringSet extends Controller
             return (string) word_truncate($string, $word_count);
         }
     }
+
+    /**
+     * @param $string
+     * @param $token
+     *
+     * @return string
+     */
+    protected  function substr_extract($string, $token)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'string' => DT::TEXT,
+                'token'  => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $token)
+            ->returning(DT::TEXT);
+        }
+        else
+        {
+            return (string) substr_extract($string, $token);
+        }
+    }
 }
