@@ -128,9 +128,20 @@ ExecuteTime::end(); // ends the timer
 echo "This page was created in ".ExecuteTime::$display." seconds";
 */
 
-
+/**
+ * Class Debug - Skyfire PHP
+ *
+ * Debug interface and function into object inherence
+ */
 class Debug extends Controller
 {
+    /**
+     * @param $data
+     * @param $name
+     * @param bool $display
+     *
+     * @param string $file_type
+     */
     protected function ddf($data, $name, $display = FALSE, $file_type = 'txt')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -152,6 +163,11 @@ class Debug extends Controller
         }
     }
 
+    /**
+     * @param string $type
+     *
+     * @return array
+     */
     protected function get_define_constants($type = 'user')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -170,6 +186,9 @@ class Debug extends Controller
         }
     }
 
+    /**
+     * @return array
+     */
     protected function get_user_defined_constants()
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -183,6 +202,11 @@ class Debug extends Controller
         }
     }
 
+    /**
+     * @param $locale
+     *
+     * @return bool
+     */
     protected function has_locale($locale)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -201,6 +225,12 @@ class Debug extends Controller
         }
     }
 
+    /**
+     * @param $data
+     * @param bool $exit
+     *
+     * @return void
+     */
     protected function pr($data, $exit = TRUE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -221,11 +251,9 @@ class Debug extends Controller
     }
 
     /**
-     * Get human-readable info about the type of the value.
+     * @param $value mixed $value The value to get the info for
      *
-     * @param  mixed $value The value to get the info for.
-     *
-     * @return string The info about the value as string.
+     * @return string The info about the value as string
      */
     protected function var_info($value)
     {

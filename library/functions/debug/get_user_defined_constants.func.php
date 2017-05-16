@@ -1,5 +1,8 @@
-<?php 
+<?php
 
+/**
+ * @return array
+ */
 function get_user_defined_constants()
 {
     $constants = get_defined_constants(TRUE);

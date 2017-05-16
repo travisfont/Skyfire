@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Get human-readable info about the type of the value
+ *
+ * @param $value mixed $value The value to get the info for
+ *
+ * @return string The info about the value as string
+ */
 function var_info($value)
 {
     if ($value === NULL)

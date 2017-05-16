@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * checks if a locate is isntalled on the system. If not, returns FALSE
+ *
+ * @param $locale
+ *
+ * @return bool
+ */
 function has_locale($locale)
 {
     setlocale(LC_TIME, $locale);
@@ -28,5 +35,3 @@ function has_locale($locale)
         return FALSE;
     }
 }
-
-// checks if a locate is isntalled on the system. If not, returns FALSE.

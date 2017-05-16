@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @param $data
+ * @param $name
+ * @param bool $display
+ *
+ * @param string $file_type
+ */
 function ddf($data, $name, $display = FALSE, $file_type = 'txt')
 {
     $additional = '1';
