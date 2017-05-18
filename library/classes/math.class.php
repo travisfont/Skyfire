@@ -1,9 +1,16 @@
 <?php
 
-// Math interface and function into object inherence
-
+/**
+ * Class Math - Skyfire PHP
+ *
+ * Math interface and function into object inherence
+ */
 class Math extends Controller
 {
+    /**
+     * @param $number $data data to converted into a non-negative integer
+     * @return int a non-negative integer
+     */
     protected function absint($number)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -22,6 +29,12 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $date
+     * @param string $format
+     *
+     * @return float
+     */
     protected function calculate_age($date, $format = 'm/d/Y')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -41,6 +54,15 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $lat1
+     * @param $lng1
+     * @param $lat2
+     * @param $lng2
+     * @param bool $miles
+     *
+     * @return float
+     */
     protected function calculate_distance($lat1, $lng1, $lat2, $lng2, $miles = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -63,6 +85,13 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param   int     $amount amount to convert (either float or int)
+     * @param   string  $from   original currency (e.g. USD)
+     * @param   string  $to     return currency after conversion (e.e.g EUR)
+     *
+     * @return  string|bool
+     */
     protected function convert_currency($amount, $from, $to)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -83,6 +112,12 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param flatcurr  float   integer to convert
+     * @param curr  string of desired currency format
+     *
+     * @return formatted number
+     */
     protected function format_currency($floatcurr, $curr = 'USD')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -102,6 +137,12 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $percentage
+     * @param $number
+     *
+     * @return float
+     */
     protected function get_percentage_of($percentage, $number)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -121,6 +162,11 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $datatype
+     *
+     * @return bool|int
+     */
     protected function int_max($datatype)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -139,6 +185,11 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $datatype
+     *
+     * @return bool|int
+     */
     protected function int_min($datatype)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -157,6 +208,11 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $number
+     *
+     * @return bool
+     */
     protected function is_even($number)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -175,6 +231,11 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $number
+     *
+     * @return bool
+     */
     protected function is_odd($number)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -193,6 +254,12 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $num
+     * @param int $places
+     *
+     * @return string
+     */
     protected function leading_zero($num, $places = 0)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -212,6 +279,11 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $number
+     *
+     * @return bool
+     */
     protected function luhn($number)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -230,6 +302,12 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $digits
+     * @param bool $leading_zeros
+     *
+     * @return int|string
+     */
     protected function random_number($digits, $leading_zeros = FALSE)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -249,6 +327,12 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $min
+     * @param $max
+     *
+     * @return int
+     */
     protected function randomize_crypto($min, $max)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -268,6 +352,11 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $amount
+     *
+     * @return float
+     */
     protected function round_dollar($amount)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -286,6 +375,13 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $hour
+     * @param int $minutes
+     * @param string $format
+     *
+     * @return false|string
+     */
     protected function round_mins($hour, $minutes = 1, $format = "H:i")
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -306,6 +402,12 @@ class Math extends Controller
         }
     }
 
+    /**
+     * @param $original_price
+     * @param $current_price
+     *
+     * @return string
+     */
     protected function saved_percentage($original_price, $current_price)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
@@ -325,3 +427,9 @@ class Math extends Controller
         }
     }
 }
+
+// TODO: make new functions:
+// valid_creditcard
+// generate_creditcard_test_number
+// get_percentage
+// is_creditcard

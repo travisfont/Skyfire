@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $number
+ *
+ * @return bool
+ */
 function luhn($number)
 {
 	$number = (string) $number;

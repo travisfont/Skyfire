@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $percentage
+ * @param $number
+ *
+ * @return float
+ */
 function get_percentage_of($percentage, $number)
 {
 	return (float) $number * ($percentage*.01);

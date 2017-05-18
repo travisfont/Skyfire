@@ -2,11 +2,12 @@
 
 /**
  * 'formatcurrency' Function to convert your floating int into a
+ *
  * @param flatcurr  float   integer to convert
  * @param curr  string of desired currency format
+ *
  * @return formatted number
  */
-
 function format_currency($floatcurr, $curr = 'EUR')
 {
     $currencies['ARS'] = array(2, ',', '.');          //  Argentine Peso

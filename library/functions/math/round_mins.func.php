@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @param $hour
+ * @param int $minutes
+ * @param string $format
+ *
+ * @return false|string
+ */
 function round_mins($hour, $minutes = 1, $format = 'H:i')
 {
     $seconds = strtotime($hour);

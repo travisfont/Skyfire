@@ -1,7 +1,12 @@
 <?php
 
-// find the maximum value for a define bit signed or unsigned integer
-
+/**
+ * find the maximum value for a define bit signed or unsigned integer
+ *
+ * @param $datatype
+ *
+ * @return bool|int
+ */
 function int_max($datatype)
 {
     switch ($datatype)

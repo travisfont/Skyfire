@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $digits
+ * @param bool $leading_zeros
+ *
+ * @return int|string
+ */
 function random_number($digits, $leading_zeros = FALSE)
 {
 	if ($leading_zeros === FALSE)

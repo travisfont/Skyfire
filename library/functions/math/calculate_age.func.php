@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $date
+ * @param string $format
+ *
+ * @return float
+ */
 function calculate_age($date, $format = 'm/d/Y')
 {
 	return (float) floor((strtotime(date($format)) - strtotime($date)) / 31556926);

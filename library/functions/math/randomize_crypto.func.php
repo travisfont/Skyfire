@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $min
+ * @param $max
+ *
+ * @return int
+ */
 function randomize_crypto($min, $max)
 {
     $range = $max - $min;

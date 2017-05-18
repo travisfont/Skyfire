@@ -1,7 +1,12 @@
 <?php
 
-// find the minimum value for a define bit signed or unsigned integer
-
+/**
+ * find the minimum value for a define bit signed or unsigned integer
+ *
+ * @param $datatype
+ *
+ * @return bool|int
+ */
 function int_min($datatype)
 {
     switch ($datatype)

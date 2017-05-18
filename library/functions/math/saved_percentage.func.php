@@ -1,5 +1,11 @@
 <?php
- 
+
+/**
+ * @param $original_price
+ * @param $current_price
+ *
+ * @return string
+ */
 function saved_percentage($original_price, $current_price)
 {
 	$saved = ceil(100-(($current_price / $original_price) * 100));

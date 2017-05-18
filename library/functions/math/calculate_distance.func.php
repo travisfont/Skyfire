@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * @param $lat1
+ * @param $lng1
+ * @param $lat2
+ * @param $lng2
+ * @param bool $miles
+ *
+ * @return float
+ */
 function calculate_distance($lat1, $lng1, $lat2, $lng2, $miles = FALSE)
 {
 	$pi80  = M_PI / 180;

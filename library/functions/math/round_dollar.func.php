@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $amount
+ *
+ * @return float
+ */
 function round_dollar($amount)
 {
     (float) $amount = str_replace('$', '', $amount);
