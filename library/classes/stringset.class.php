@@ -1012,7 +1012,8 @@ class StringSet extends Controller
     }
 
     /**
-     * @param  $email he email address to validate
+     * @param  $email string the email address to validate
+     *
      * @return bool
      */
     protected function valid_email($email)

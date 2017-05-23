@@ -3,7 +3,7 @@
 /**
  * Validate the user's email address
  *
- * @param  $email he email address to validate
+ * @param  $email string the email address to validate
  */
 function valid_email($email)
 {
