@@ -7,6 +7,7 @@ class Input
      *
      * @param $key
      * @param bool $clean_xss
+     *
      * @return array|string
      */
     public static function post($key = NULL, $clean_xss = TRUE)
@@ -48,6 +49,7 @@ class Input
      *
      * @param $key
      * @param bool $clean_xss
+     *
      * @return array|string
      */
     public static function get($key = NULL, $clean_xss = TRUE)
@@ -84,6 +86,7 @@ class Input
     /**
      * @param $key
      * @param bool $clean_xss
+     *
      * @return mixed
      */
     public static function request($key, $clean_xss = TRUE)
@@ -122,6 +125,7 @@ class Input
      *
      * @param string $method
      * @param $clean_xss
+     *
      * @return array|string
      */
     public function all($method = 'request', $clean_xss = TRUE)
@@ -141,6 +145,7 @@ class Input
 
     /**
      * @param $var
+     *
      * @return array|string
      */
     private static function clean($var)
@@ -162,6 +167,7 @@ class Input
      * if a field value is not empty
      *
      * @param $key
+     *
      * @return bool
      */
     public static function has($key)
@@ -173,6 +179,7 @@ class Input
      * if the field exist
      *
      * @param $key
+     *
      * @return bool
      */
     public static function exists($key)
@@ -187,12 +194,21 @@ class Input
         // call the validator service
     }
 
-    // gets the requested body from a JSON POST
+    /**
+     * gets the requested body from a JSON POST
+     *
+     * @param bool $as_array
+     *
+     * @return mixed
+     */
     public static function request_payload($as_array = FALSE)
     {
         return json_decode(file_get_contents('php://input'), $as_array);
     }
 
+    /**
+     * @return bool
+     */
     public static function has_payload()
     {
         return (bool) (!empty(file_get_contents('php://input')));
