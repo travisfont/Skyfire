@@ -1,7 +1,10 @@
 <?php
 
-// Time interface and function into object inherence
-
+/**
+ * Class Time  - Skyfire PHP
+ *
+ * Time interface and function into object inherence
+ */
 class Time extends Controller
 {
     const ATOM    = "Y-m-d\TH:i:sP";
