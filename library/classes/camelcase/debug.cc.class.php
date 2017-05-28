@@ -30,6 +30,16 @@ class Debug extends Controller
     { return (bool) NULL; }
 
     /**
+     * @param $boolean
+     * @param $exception
+     * @param string $message
+     *
+     * @throws Exception following the first paremter if true or false
+     */
+    protected function throwIf($boolean, $exception, $message = '')
+    { return NULL; }
+
+    /**
      * @param $value mixed $value The value to get the info for
      *
      * @return string The info about the value as string

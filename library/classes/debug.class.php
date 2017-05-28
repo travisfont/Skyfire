@@ -251,6 +251,33 @@ class Debug extends Controller
     }
 
     /**
+     * @param $boolean
+     * @param $exception
+     * @param string $message
+     *
+     * @throws Exception following the first paremter if true or false
+     */
+    protected function throw_if($boolean, $exception, $message = '')
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return self::parameters(
+                [
+                    'boolean'   =>  DT::BOOL,
+                    'exception' => [DT::EXC,DT::STRING],
+                    'message'   =>  DT::STRING,
+                ])
+                ->call(__FUNCTION__)
+                ->with($boolean, $exception, $message = '')
+                ->returning(DT::VOID);
+        }
+        else
+        {
+            return throw_if($boolean, $exception, $message);
+        }
+    }
+
+    /**
      * @param $value mixed $value The value to get the info for
      *
      * @return string The info about the value as string
