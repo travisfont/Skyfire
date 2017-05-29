@@ -50,6 +50,7 @@ abstract class DT
     const IPV6 = 'ipv6'; // 128 bits (16 bytes)  [count : and convert to int]
 
     const REGEXP = 'regexp'; // valid regular expression (string)
+    const EXC    = 'exception'; // exception (throw class)
 
     const EXPONENT    = 'exponent'; // exponential float (decimal value)
     const HEXADECIMAL = 'hex';      // hexadecimal base-16 notation (string)
