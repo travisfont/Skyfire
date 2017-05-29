@@ -89,6 +89,14 @@ class Math extends Controller
     { return (bool) NULL; }
 
     /**
+     * @param $number
+     *
+     * @return bool
+     */
+    protected function isPrime($number)
+    { return (bool) NULL; }
+
+    /**
      * @param $num
      * @param int $places
      *

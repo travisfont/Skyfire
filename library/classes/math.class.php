@@ -255,6 +255,29 @@ class Math extends Controller
     }
 
     /**
+     * @param $number
+     *
+     * @return bool
+     */
+    protected function is_prime($number)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (bool) self::parameters(
+            [
+                'number' => DT::NUMBER
+            ])
+            ->call(__FUNCTION__)
+            ->with($number)
+            ->returning(DT::BOOL);
+        }
+        else
+        {
+            return (bool) is_prime($number);
+        }
+    }
+
+    /**
      * @param $num
      * @param int $places
      *
