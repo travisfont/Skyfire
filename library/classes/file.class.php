@@ -220,8 +220,9 @@ class File extends Controller
         }
     }
 
-    protected function include_if_exist($path)      {} // $this->include_if_exist()
-    protected function include_once_if_exist($path) {} // $this->include_once_if_exist()
+    protected function include_if_exist($path)         {} // $this->include_if_exist()
+    protected function include_once_if_exist($path)    {} // $this->include_once_if_exist()
+    protected function include_once_when($path, $true) {}
 
     /**
      * Test if a give filesystem path is absolute
@@ -276,8 +277,10 @@ class File extends Controller
         }
     }
 
-    protected function require_if_exist($path)      {} // $this->require_if_exist()
-    protected function require_once_if_exist($path) {} // $this->require_once_if_exist()
+    protected function require_if_exist($path)         {} // $this->require_if_exist()
+    protected function require_once_if_exist($path)    {} // $this->require_once_if_exist()
+    protected function require_when($path, $true)      {}
+    protected function require_once_when($path, $true) {}
 
     /**
      * @param $text
@@ -303,4 +306,5 @@ class File extends Controller
             return write_log_error($text, $log_file);
         }
     }
+
 }
