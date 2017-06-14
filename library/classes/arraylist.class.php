@@ -127,6 +127,31 @@ class ArrayList extends Controller
     }
 
     /**
+     * @param $glue
+     * @param $array
+     *
+     * @return string
+     */
+    protected function implode_all($glue, $array)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'glue'  => DT::STRING,
+                'array' => DT::TYPE_ARRAY
+            ])
+            ->call(__FUNCTION__)
+            ->with($glue, $array)
+            ->returning(DT::TEXT);
+        }
+        else
+        {
+            return (string) implode_all($glue, $array);
+        }
+    }
+
+    /**
      * @param $needle
      * @param $haystack
      * @param bool $strict

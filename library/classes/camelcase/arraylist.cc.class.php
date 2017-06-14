@@ -50,6 +50,15 @@ class ArrayList extends Controller
     { return (array) NULL; }
 
     /**
+     * @param $glue
+     * @param $array
+     *
+     * @return string
+     */
+    protected function implodeAll($glue, $array)
+    { return (string) NULL; }
+
+    /**
      * @param $needle
      * @param $haystack
      * @param bool $strict
