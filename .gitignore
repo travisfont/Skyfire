@@ -4,7 +4,12 @@ composer.lock
 
 # Skyfire Specific #
 ####################
-/library/packages/
+library/packages/
+
+#!library/
+#library/*
+#!library/packages/
+#library/packages/*
 
 # Packages #
 ############
