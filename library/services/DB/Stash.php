@@ -3,26 +3,40 @@
 class Stash
 {
     public static $stash_dir;
+    const query_types = array('select', 'update', 'insert', 'delete');
 
-    public static function getQuery($query_name, $directory)
+    public static function getQuery($query_name, $directory, $original_text = FALSE)
     {
-        if (isset(self::$stash_dir))
+        if (in_array($directory, self::query_types))
         {
-            $file = self::$stash_dir.'/queries/'.$directory.'/'.$query_name.'.sql';
-
-            if (file_exists($file))
+            if (isset(self::$stash_dir))
             {
-                return trim(file_get_contents($file));
+                $file = self::$stash_dir.'/queries/'.$directory.'/'.$query_name.'.sql';
+
+                if (file_exists($file))
+                {
+                    if ($original_text === FALSE)
+                    {
+                        return preg_replace("/[\r\n]+/", " ", trim(file_get_contents($file)));
+                    }
+                    else
+                    {
+                        return trim(file_get_contents($file));
+                    }
+                }
+                else
+                {
+                    die ($file.' doesn\'t exist.');
+                }
             }
             else
             {
-                throw new Exception($file.' doesn\'t exist.');
+                die ('DB::define(\'stash_dir\', \'\') is not defined. Stash Query folder cannot be located.');
             }
         }
         else
         {
-            throw new Exception('DB::define(\'stash_dir\', \'\') is not defined. Stash Query folder cannot be located.');
+            die ('DB::TYPE is not valid.');
         }
-
     }
 }

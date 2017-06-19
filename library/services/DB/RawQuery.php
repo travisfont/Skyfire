@@ -5,7 +5,7 @@ class RawQuery extends DB_Connector
     private $statement;
     private $parameters;
 
-    public function __construct($statement, $parameters = NULL)
+    public function __construct($statement, $parameters = NULL, DB $dbh)
     {
         $this->statement  = $statement;
 
@@ -13,19 +13,19 @@ class RawQuery extends DB_Connector
         {
             $this->parameters = $parameters;
         }
+
+        if ($this->dbh == NULL)
+        {
+            $this->dbh = $dbh;
+        }
     }
 
     public function execute()
     {
         try
         {
-            // checking and establish a live db connector
-            if (empty($this->dbh))
-            {
-                self::$db = $this->connect();
-            }
+            $stmt = $this->dbh->dbh->prepare($this->statement, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
 
-            $stmt = self::$db->prepare($this->statement, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
             if ($stmt->execute($this->parameters))
             {
                 // allow multiple queries
@@ -41,7 +41,19 @@ class RawQuery extends DB_Connector
                     $data[] = $row;
                 }
 
+                $stmt->closeCursor(); // closing
+                $stmt = NULL;
+
                 return $data;
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                print_r($this->dbh->dbh->errorInfo());
+
+                $stmt = NULL; // closing
+
+                return FALSE;
             }
         }
         catch (PDOException $exception)

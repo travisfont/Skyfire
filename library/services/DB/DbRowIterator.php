@@ -1,13 +1,18 @@
 <?php
 
+// Iterating Class
+
 class DbRowIterator implements Iterator
 {
     /** @var PDOStatement $pdoStatement The PDO Statement to execute */
     protected $pdoStatement;
+
     /** @var int $key The cursor pointer */
     protected $key;
     /** @var  bool|\stdClass The resultset for a single row */
+
     protected $result;
+
     /** @var  bool $valid Flag indicating there's a valid resource or not */
     protected $valid = TRUE;
 

@@ -1,5 +1,7 @@
 <?php
 
+// SPL Iterating Filter CLass
+
 class LastIterator extends FilterIterator
 {
     //protected $period;

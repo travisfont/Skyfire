@@ -4,6 +4,7 @@ class ProcessQuery extends DB_Connector
 {
     private $sql_file;
     private $sql_type;
+    private $inject_vars;
 
     /**
      * Replaces any parameter placeholders in a query with the value of that
@@ -16,6 +17,11 @@ class ProcessQuery extends DB_Connector
      */
     private function interpolateQuery($query, $params)
     {
+        if (empty($params))
+        {
+            return (string) $query;
+        }
+
         $keys   = array();
         $values = $params;
 
@@ -45,54 +51,211 @@ class ProcessQuery extends DB_Connector
         // Walk the array to see if we can add single-quotes to strings
         array_walk($values, create_function('&$v, $k', 'if (!is_numeric($v) && $v!="NULL") $v = "\'".$v."\'";'));
 
-        return preg_replace($keys, $values, $query, 1, $count);
+        return (string) preg_replace($keys, $values, $query, 1, $count);
     }
 
-    public function __construct($sql_file, $sql_type)
+    // replace any non-ascii character with its hex code - supports multi-byte characters
+    private function escape($value)
+    {
+        $return = '';
+
+        for ($i = 0; $i < strlen($value); ++$i)
+        {
+            $char = $value[$i];
+            $ord  = ord($char);
+
+            if ($char !== "'" && $char !== "\"" && $char !== '\\' && $ord >= 32 && $ord <= 126)
+            {
+                $return .= $char;
+            }
+            else
+            {
+                $return .= '\\x' . dechex($ord);
+            }
+
+        }
+
+        return (string) $return;
+    }
+
+    public function __construct($sql_file = NULL, $sql_type = NULL, DB $dbh)
     {
         $this->sql_file = $sql_file;
         $this->sql_type = $sql_type;
+
+        if ($this->dbh == NULL)
+        {
+            $this->dbh = $dbh;
+        }
     }
 
-    public function prepare($parameters)
+    public function inject($parameters)
+    {
+        $this->inject_vars = $parameters;
+
+        return $this;
+    }
+
+    public function prepare(array $parameters)
     {
         try
         {
-            // checking and establish a live db connector
-            if (empty($this->dbh))
-            {
-                self::$db = $this->connect();
-            }
-
             if ($this->sql_type == 'select')
             {
-                $stmt = self::$db->prepare(Stash::getQuery($this->sql_file, $this->sql_type), array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+                $query = Stash::getQuery($this->sql_file, $this->sql_type);
 
-                if ($stmt->execute($parameters))
+                if (!empty($this->inject_vars))
                 {
-                    //return $stmt->fetchAll(PDO::FETCH_CLASS);
-                    $data = array();
-                    foreach (new LastIterator(new DbRowIterator($stmt)) as $row)
+                    foreach ($this->inject_vars as $var => $value)
                     {
-                        $data[] = $row;
+                        //$value = strip_tags(stripslashes($this->escape($value)));
+                        $value = strip_tags(stripslashes($value));
+                        //$value = html_entity_decode($value, ENT_COMPAT, 'UTF-8');
+                        $query = str_replace('$'.$var, $value, $query);
+                    }
+                }
+
+                $stmt = $this->dbh->dbh->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+
+                if (!$stmt)
+                {
+                    echo "\nPDO::errorInfo():\n";
+                    print_r($this->dbh->dbh->errorInfo());
+
+                    return FALSE;
+                }
+                else
+                {
+                    // TODO: THIS NEEDS TO BE TESTED
+                    foreach ($parameters as $key => $element)
+                    {
+                        switch (TRUE)
+                        {
+                            case is_int($element):
+                                $param = PDO::PARAM_INT;
+                                break;
+                            case is_bool($element):
+                                $param = PDO::PARAM_BOOL;
+                                break;
+                            case is_null($element):
+                                $param = PDO::PARAM_NULL;
+                                break;
+                            default:
+                                $param = PDO::PARAM_STR;
+                                break;
+                        }
+
+                        $stmt->bindValue(sprintf(':%s', $key), $element, $param);
                     }
 
-                    return $data;
+                    //if ($stmt->execute($parameters))
+                    if ($stmt->execute())
+                    {
+                        //return $stmt->fetchAll(PDO::FETCH_CLASS);
+                        $data = array();
+
+                        foreach (new LastIterator(new DbRowIterator($stmt)) as $row)
+                        {
+                            $data[] = $row;
+                        }
+
+                        $stmt->closeCursor();  // closing
+                        $stmt = NULL;
+
+                        return $data;
+                    }
+                    else
+                    {
+                        echo "\nPDO::errorInfo():\n";
+                        print_r($this->dbh->dbh->errorInfo());
+
+                        $stmt = NULL; // closing
+
+                        return FALSE;
+                    }
                 }
             }
             else
             {
-                #self::$db->beginTransaction();
-                #try { // prepare + execute here
-                #self::$db->commit(); } catch (PDOException $e) {
-                #return $e->getMessage(); }
+                $query = Stash::getQuery($this->sql_file, $this->sql_type);
 
-                $stmt = self::$db->prepare(Stash::getQuery($this->sql_file, $this->sql_type));
-                $exec = $stmt->execute($parameters);
-                        $stmt->closeCursor();
+                if (!empty($this->inject_vars))
+                {
+                    foreach ($this->inject_vars as $var => $value)
+                    {
+                        //$value = strip_tags(stripslashes($this->escape($value)));
+                        $value = strip_tags(stripslashes($value));
+                        //$value = html_entity_decode($value, ENT_COMPAT, 'UTF-8');
+                        $query = str_replace('$'.$var, $value, $query);
+                    }
+                }
 
-                return $exec;
-                //return $stmt->rowCount();
+                try
+                {
+                            $this->dbh->dbh->beginTransaction();
+                    $stmt = $this->dbh->dbh->prepare($query);
+
+                    if (!$stmt)
+                    {
+                        echo "\nPDO::errorInfo():\n";
+                        print_r($this->dbh->dbh->errorInfo());
+
+                        return FALSE;
+                    }
+                    else
+                    {
+                        if ($exec = $stmt->execute($parameters))
+                        {
+                            if ($this->sql_type == 'insert' && $exec === TRUE)
+                            {
+                                $lastInsertId = $this->dbh->dbh->lastInsertId();
+                            }
+
+                            $stmt->closeCursor();
+                            $this->dbh->dbh->commit();
+
+                            if (isset($lastInsertId))
+                            {
+                                $stmt = NULL; // closing
+
+                                return $lastInsertId;
+                            }
+                            else
+                            {
+                                if ($this->sql_type == 'update')
+                                {
+                                    $rowCount = $stmt->rowCount();
+                                    $stmt     = NULL; // closing
+
+                                    return $rowCount;
+                                }
+                                else
+                                {
+                                    $stmt = NULL; // closing
+
+                                    return $exec;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            echo "\nPDO::errorInfo():\n";
+                            print_r($this->dbh->dbh->errorInfo());
+
+                            $stmt = NULL; // closing
+
+                            return FALSE;
+                        }
+                    }
+
+                }
+                catch (PDOException $e)
+                {
+                    $this->dbh->dbh->rollBack();
+
+                    return $e->getMessage();
+                }
+
             }
         }
         catch (PDOException $exception)
@@ -104,7 +267,20 @@ class ProcessQuery extends DB_Connector
     // prints the query string in plain text
     public function text($parameters = FALSE)
     {
-        return $this->interpolateQuery(Stash::getQuery($this->sql_file, $this->sql_type), $parameters);
+        $query = Stash::getQuery($this->sql_file, $this->sql_type, TRUE);
+
+        if (!empty($this->inject_vars))
+        {
+            foreach ($this->inject_vars as $var => $value)
+            {
+                //$value = strip_tags(stripslashes($this->escape($value)));
+                $value = strip_tags(stripslashes($value));
+                //$value = html_entity_decode($value, ENT_COMPAT, 'UTF-8');
+                $query = str_replace('$'.$var, $value, $query);
+            }
+        }
+
+        return $this->interpolateQuery($query, $parameters);
     }
 
     // plain queries without any prepare data
@@ -112,24 +288,44 @@ class ProcessQuery extends DB_Connector
     {
         try
         {
-            // checking and establish a live db connector
-            if (empty($this->dbh))
+            $query = Stash::getQuery($this->sql_file, $this->sql_type);
+
+            if (!empty($this->inject_vars))
             {
-                self::$db = $this->connect();
+                foreach ($this->inject_vars as $var => $value)
+                {
+                    //$value = strip_tags(stripslashes($this->escape($value)));
+                    $value = strip_tags(stripslashes($value));
+                    //$value = html_entity_decode($value, ENT_COMPAT, 'UTF-8');
+                    $query = str_replace('$'.$var, $value, $query);
+                }
             }
 
-            $stmt = self::$db->prepare(Stash::getQuery($this->sql_file, $this->sql_type), array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+            $stmt = $this->dbh->dbh->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
 
             if ($stmt->execute())
             {
                 //return $stmt->fetchAll(PDO::FETCH_CLASS);
                 $data = array();
+
                 foreach (new LastIterator(new DbRowIterator($stmt)) as $row)
                 {
                     $data[] = $row;
                 }
 
+                $stmt->closeCursor(); // closing
+                $stmt = NULL;
+
                 return $data;
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                print_r($this->dbh->dbh->errorInfo());
+
+                $stmt = NULL; // closing
+
+                return FALSE;
             }
         }
         catch (PDOException $exception)

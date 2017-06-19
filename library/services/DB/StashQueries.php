@@ -21,6 +21,7 @@ spl_autoload_register(function ($classname)
     // __DIR__ is only in PHP 5.3+
     // closures / anonymous functions only in PHP 5.3+
     $filename = dirname(__FILE__).DIRECTORY_SEPARATOR.$classname.'.php';
+
     if (is_readable($filename))
     {
         require_once $filename;
@@ -31,6 +32,38 @@ final class DB extends DB_Connector
 {
     public static $exceptionType;
 
+    public function __construct()
+    {
+        if ($this->dbh == NULL)
+        {
+            try
+            {
+                if (self::$persistent === TRUE)
+                {
+                    $this->dbh = new PDO('mysql:host='.self::$DATABASE_HOST.';dbname='.self::$DATABASE_NAME.';charset='.self::$charset, self::$DATABASE_USER, self::$DATABASE_PASSWORD, array(PDO::ATTR_PERSISTENT => TRUE, PDO::MYSQL_ATTR_FOUND_ROWS => TRUE));
+
+                }
+                else
+                {
+                    $this->dbh = new PDO('mysql:host='.self::$DATABASE_HOST.';dbname='.self::$DATABASE_NAME.';charset='.self::$charset, self::$DATABASE_USER, self::$DATABASE_PASSWORD, array(PDO::MYSQL_ATTR_FOUND_ROWS => TRUE));
+                }
+
+                if (self::$errmode === TRUE)
+                {
+                    $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                }
+            }
+            catch (PDOException $exception)
+            {
+                echo self::PDOException($exception, self::DISPLAY_TEXT);
+
+                return FALSE;
+            }
+        }
+
+        return $this->dbh;
+    }
+
     public static function utf8($text)
     {
         return mb_convert_encoding($text, "HTML-ENTITIES", 'UTF-8');
@@ -38,17 +71,42 @@ final class DB extends DB_Connector
 
     public static function query($statement, array $parameters = NULL)
     {
-        return new RawQuery($statement, $parameters);
+        if (self::$db == NULL)
+        {
+            self::$db = new self();
+        }
+
+        return new RawQuery($statement, $parameters, self::$db);
     }
 
     public static function select($sql_file)
     {
-        return new ProcessQuery($sql_file, 'select');
+        if (self::$db == NULL)
+        {
+            self::$db = new self();
+        }
+
+        return new ProcessQuery($sql_file, 'select', self::$db);
     }
 
     public static function update($sql_file)
     {
-        return new ProcessQuery($sql_file, 'update');
+        if (self::$db == NULL)
+        {
+            self::$db = new self();
+        }
+
+        return new ProcessQuery($sql_file, 'update', self::$db);
+    }
+
+    public static function insert($sql_file)
+    {
+        if (self::$db == NULL)
+        {
+            self::$db = new self();
+        }
+
+        return new ProcessQuery($sql_file, 'insert', self::$db);
     }
 
     public static function drop($table_name) {}
