@@ -103,6 +103,24 @@ class Network extends Controller
 
     }
 
+    protected function redirect_subdomain($subdomain)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return self::parameters(
+            [
+                'subdomain' => DT::STRING,
+            ])
+            ->call(__FUNCTION__)
+            ->with($subdomain)
+            ->returning(DT::VOID);
+        }
+        else
+        {
+            return redirect_subdomain($subdomain);
+        }
+    }
+
     /**
      * @param $domain
      * @param bool $registrar

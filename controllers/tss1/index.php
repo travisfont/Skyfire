@@ -3,11 +3,15 @@
 class Tss1 extends Controller
 {
     /**
+     * Tss1 constructor
+     *
      * @func   void
+     *
      * @return void
      */
     public function __construct()
     {
+
         echo 'tss1 controller works<br/>';
 
         /*
@@ -33,31 +37,39 @@ class Tss1 extends Controller
         }
         */
 
-        load::library(SF::STRINGS);
-        load::library(SF::NETWORK);
+        echo 'here i am';
 
-        #$test_string = Strings::generate_password(4);
-        $test_string = SF_String::generatePassword(4);
+        load::library(SF::STRINGSET);
+        load::library(SF::NETWORK);
+        
+        #$test_string = StringSet::generate_password(4);
+        $test_string = StringSet::generatePassword(4);
         var_dump($test_string);
 
-        $numeric_test = (int) '-abc12.3edf'; // this SHOULD FALL AND THROW AN ERROR
+
+        #$numeric_test = (int) '-abc12.3edf'; // this SHOULD FALL AND THROW AN ERROR
+        $numeric_test = '-abc12.3edf'; // this SHOULD FALL AND THROW AN ERROR
         #var_dump(Strings::strip_to_numeric($numeric_test));
-        var_dump(SF_String::StripToNumeric($numeric_test));
+        var_dump(StringSet::StripToNumeric($numeric_test));
+
 
         #var_dump(Network::get_client_lang());
-        var_dump(SF_Network::getClientLang());
+        var_dump(Network::getClientLang());
 
-        exit;
+
+        load::library(SF::DEBUG)->func('pr'); // will only load clean_str()
 
         // database testing
         $data = Entries::getData();
-        var_dump($data);
+        pr($data);
+
+        //Network::redirectSubdomain('.www');
+
         /*
         load::library(SF::DEBUG);
-        //load::library(SF::DEBUG)->func('pr'); // will only load clean_str()
 
+        // testing;
         ExecuteTime::start();
-
         $parameters = array
         (
             'key'      => '1e46165dsa5ds4a',
@@ -65,9 +77,10 @@ class Tss1 extends Controller
             'userid'   => 1234998,
             'keywords' => 'test'
         );
-
         ExecuteTime::end();
+
         echo ExecuteTime::display();
         */
     }
 }
+
