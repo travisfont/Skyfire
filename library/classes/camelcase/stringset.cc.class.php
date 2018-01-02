@@ -18,6 +18,15 @@ class StringSet extends Controller
     { return (string) NULL; }
 
     /**
+     * @param array $values
+     * @param int $valid_integer
+     *
+     * @return string
+     */
+    protected function allocateValuesToStringlist($values = array(), $valid_integer = 1)
+    { return (string) NULL; }
+
+    /**
      * @param $string
      *
      * @return string

@@ -35,6 +35,31 @@ class StringSet extends Controller
     }
 
     /**
+     * @param array $values
+     * @param int $valid_integer
+     *
+     * @return string
+     */
+    protected function allocate_values_to_stringlist($values = array(), $valid_integer = 1)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'values'        => DT::TYPE_ARRAY,
+                'valid_integer' => DT::UINT32
+            ])
+            ->call(__FUNCTION__)
+            ->with($values, $valid_integer)
+            ->returning(DT::STRING);
+        }
+        else
+        {
+            return (string) allocate_values_to_stringlist($values, $valid_integer);
+        }
+    }
+
+    /**
      * @param $string
      *
      * @return string
