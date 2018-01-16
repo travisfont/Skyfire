@@ -404,6 +404,31 @@ class StringSet extends Controller
     }
 
     /**
+     * Check whether string is a valid SHA-1
+     *
+     * @param string $string SHA-1 string to validate
+     *
+     * @return bool False if not a SHA-1 string, true if it is
+     */
+    protected function is_sha1($string)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (bool) self::parameters(
+            [
+                'string'    => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::BOOL);
+        }
+        else
+        {
+            return (bool) s_sha1($string);
+        }
+    }
+
+    /**
      * @param $str
      *
      * @return bool

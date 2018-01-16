@@ -113,6 +113,14 @@ class StringSet extends Controller
     { return (bool) NULL; }
 
     /**
+     * @param $string
+     *
+     * @return bool
+     */
+    protected function isSha1($string)
+    { return (bool) NULL; }
+
+    /**
      * @param $str
      *
      * @return bool
