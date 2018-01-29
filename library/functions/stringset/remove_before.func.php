@@ -1,7 +1,7 @@
 <?php
 
 /**
- * remove all characters after a specific string or character
+ * remove all characters before a specific string or character
  *
  * @param $string
  * @param $separator
