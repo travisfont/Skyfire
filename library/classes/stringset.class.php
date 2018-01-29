@@ -634,6 +634,31 @@ class StringSet extends Controller
      *
      * @return string
      */
+    protected function remove_after($string, $separator)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'string' => DT::STRING,
+                'separator' => DT::STRING,
+            ])
+            ->call(__FUNCTION__)
+            ->with($string, $separator)
+            ->returning(DT::STRING);
+        }
+        else
+        {
+            return (string) remove_after($string, $separator);
+        }
+    }
+
+    /**
+     * @param $string
+     * @param $separator
+     *
+     * @return string
+     */
     protected function remove_before($string, $separator)
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')

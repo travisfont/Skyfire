@@ -198,6 +198,16 @@ class StringSet extends Controller
      *
      * @return string
      */
+    protected function removeAfter($string, $separator)
+    { return (string) NULL; }
+
+
+    /**
+     * @param $string
+     * @param $separator
+     *
+     * @return string
+     */
     protected function removeBefore($string, $separator)
     { return (string) NULL; }
 
