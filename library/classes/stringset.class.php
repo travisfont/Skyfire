@@ -934,7 +934,6 @@ class StringSet extends Controller
         {
             return (string) self::parameters(
             [
-
                 'string' => DT::STRING
             ])
             ->call(__FUNCTION__)
@@ -944,6 +943,29 @@ class StringSet extends Controller
         else
         {
             return (string) sstr_to_slug($string);
+        }
+    }
+
+    /**
+     * @param $string
+     *
+     * @return string
+     */
+    protected function st12_hash($string)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'string' => DT::STRING
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::STRING);
+        }
+        else
+        {
+            return (string) st12_hash($string);
         }
     }
 

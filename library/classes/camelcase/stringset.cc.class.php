@@ -320,6 +320,14 @@ class StringSet extends Controller
      *
      * @return string
      */
+    protected function st12Hash($string)
+    { return (int) NULL; }
+
+    /**
+     * @param $string
+     *
+     * @return string
+     */
     protected function stripTabspaces($string)
     { return (string) NULL; }
 
