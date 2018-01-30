@@ -77,6 +77,14 @@ class ArrayList extends Controller
     { return (bool) NULL; }
 
     /**
+     * @param array $array
+     *
+     * @return null
+     */
+    protected function multiAsort(array &$array)
+    { return NULL; }
+
+    /**
      * @param array $delimiters
      * @param $string
      *
@@ -84,14 +92,6 @@ class ArrayList extends Controller
      */
     protected function multiExplode(array $delimiters, $string)
     { return (array) NULL; }
-
-    /**
-     * @param array $array
-     *
-     * @return null
-     */
-    protected function multiAsort(array &$array)
-    { return NULL; }
 
     /**
      * @param $pattern
