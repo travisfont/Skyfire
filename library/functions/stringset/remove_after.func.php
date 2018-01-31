@@ -10,5 +10,10 @@
  */
 function remove_after($string, $separator)
 {
-    return (string) strstr($string, $separator, TRUE);
+    if (strpos($string, $separator) === FALSE)
+    {
+        return (string) $string;
+    }
+    
+    return (string) strstr($string, $separator, TRUE);   
 }

@@ -10,5 +10,10 @@
  */
 function remove_before($string, $separator)
 {
+    if (strpos($string, $separator) === FALSE)
+    {
+        return (string) $string;
+    }
+    
     return (string) ltrim(strstr($string, $separator), $separator);
 }
