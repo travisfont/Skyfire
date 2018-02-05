@@ -12,7 +12,7 @@ class Debug extends Controller
      *
      * @return array
      */
-    protected function getDefineConstants($type = 'user')
+    protected function getDefinedConstants($type = 'user')
     { return (array) NULL; }
 
     /**

@@ -168,7 +168,7 @@ class Debug extends Controller
      *
      * @return array
      */
-    protected function get_define_constants($type = 'user')
+    protected function get_defined_constants($type = 'user')
     {
         if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
         {
@@ -182,7 +182,7 @@ class Debug extends Controller
         }
         else
         {
-            return (array) get_define_constants($type);
+            return (array) get_defined_constants($type);
         }
     }
 

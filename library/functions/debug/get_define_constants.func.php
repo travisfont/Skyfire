@@ -8,7 +8,7 @@
  *
  * @return array
  */
-function get_define_constants($type = 'user')
+function get_defined_constants($type = 'user')
 {
     $constants = get_defined_constants(TRUE);
 
