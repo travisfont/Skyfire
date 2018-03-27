@@ -299,7 +299,7 @@ class StringSet extends Controller
     { return (array) NULL; }
 
     /* TODO: remove these functions below
-    protected function sstToSlug($string)
+    protected function sstrToSlug($string)
     { return (string) NULL; }
 
     protected function strStartsUpperCase($string)
@@ -348,6 +348,15 @@ class StringSet extends Controller
     { return (TRUE ? (int) NULL : FALSE ? (float) NULL : (bool) NULL); }
 
     /**
+     * @param $string
+     * @param $token
+     *
+     * @return string
+     */
+    protected function substrExtract($string, $token)
+    { return (string) NULL; }
+
+    /**
      * @param $email
      *
      * @return bool
@@ -364,12 +373,5 @@ class StringSet extends Controller
     protected function wordTruncate($string, $word_count)
     { return (string) NULL; }
 
-    /**
-     * @param $string
-     * @param $token
-     *
-     * @return string
-     */
-    protected function substrExtract($string, $token)
-    { return (string) NULL; }
+
 }

@@ -36,14 +36,14 @@ class Network extends Controller
     { return (bool) NULL; }
 
     /**
-     * @param $subdomain
-     */
-    protected function redirectSubdomain($subdomain)
-    { return; }
-
-    /**
      * @return bool
      */
     protected function isSsl()
     { return (bool) NULL; }
+
+    /**
+     * @param $subdomain
+     */
+    protected function redirectSubdomain($subdomain)
+    { return; }
 }
