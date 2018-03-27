@@ -194,6 +194,6 @@ class Time extends Controller
      *
      * @return string
      */
-    protected function timeAge($date)
+    protected function timeAgo($date)
     { return (string) NULL; }
 }
