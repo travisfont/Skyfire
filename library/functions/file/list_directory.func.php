@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Lists contens of a given directory and returns array with entries
+ * Lists files of a given directory and returns an array with entries
  *
  * @param   $directory  string source path of the root directory
  * @param   $recursive  bool   to continue to return subdirectories
@@ -41,11 +41,3 @@ function list_directory($directory, $recursive = FALSE)
 
     return (array) array_values($array_items);
 }
-
-
-/*
-// Example:
-$diretory = list_directory('.', TRUE);
-echo '<pre>';
-print_r($diretory);
-*/
