@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Function to clean the string of tags and html entities
+ * Remove tags and html entities from a string.
  *
  * @param $string
  *
@@ -9,13 +9,13 @@
  */
 function clean_str($string)
 {
-	//Get rid of tags
+	// get rid of tags
 	$string = strip_tags($string);
 
-	//Get rid of html entities
+	// get rid of html entities
 	$string = preg_replace("/&#?[a-z0-9]+;/i", "", $string);
 
-	//Trim the string
+	// trim the string
 	$string = trim($string);
 
 	return (string) $string;
