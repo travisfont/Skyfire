@@ -855,6 +855,29 @@ class StringSet extends Controller
     }
 
     /**
+     * @param $string
+     *
+     * @return string
+     */
+    protected function sanitize($string)
+    {
+        if (defined('STRICT_TYPES') && CAMEL_CASE == '1')
+        {
+            return (string) self::parameters(
+            [
+                'string' => DT::TEXT
+            ])
+            ->call(__FUNCTION__)
+            ->with($string)
+            ->returning(DT::TEXT);
+        }
+        else
+        {
+            return (string) sanitize($string);
+        }
+    }
+
+    /**
      * @param $address
      *
      * @return bool
