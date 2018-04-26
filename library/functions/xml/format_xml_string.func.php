@@ -11,7 +11,7 @@ function format_xml_string($xml)
     {
         $dom->preserveWhiteSpace = FALSE;
         $dom->formatOutput       = TRUE;
-        $dom->loadXML('<root><foo><bar>baz</bar></foo></root>');
+        $dom->loadXML(trim($xml));
 
         return (string) $dom->saveXml();
     }
