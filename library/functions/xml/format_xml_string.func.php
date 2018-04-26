@@ -31,12 +31,12 @@ function format_xml_string($xml)
             }
             elseif (preg_match('/^<\/\w/', $token, $matches))
             {
-                $pad--;
+                $pad -=3;
                 $indent = 0;
             }
             elseif (preg_match('/^<\w[^>]*[^\/]>.*$/', $token, $matches))
             {
-                $indent = 1;
+                $indent = 2;
             }
             else
             {
@@ -50,8 +50,5 @@ function format_xml_string($xml)
         }
 
         return (string) $result;
-    
-        // reference
-        // http://www.daveperrett.com/articles/2007/04/05/format-xml-with-php/
     }
 }
