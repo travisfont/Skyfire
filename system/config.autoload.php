@@ -59,6 +59,7 @@ class cfg
     public static function registerErrorsConfig()
     {
         $errors = array();
+
         foreach (parse_ini_file(PARENT_DIRECTORY.'/config/errors.ini', TRUE) as $label => $config_values)
         {
             if (isset($config_values['REQUEST']) && isset($config_values['METHOD']) && isset($config_values['CONTROLLER']))

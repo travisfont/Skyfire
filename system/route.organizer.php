@@ -2,25 +2,39 @@
 
 class RouteOrganizer
 {
-    public static function Process($routes, $path, $parameters)
+    public static function Process(array $routes, string $path, array $parameters)
     {
+
         foreach ($routes as $route)
         {
             // if a define method exist in the specific route (else look for a CRUD)
-            if (isset($route['METHOD']) && ($route['METHOD'] == $_SERVER['REQUEST_METHOD']))
+            // default request will be GET
+            if (isset($route['METHOD']) && ($route['METHOD'] === $_SERVER['REQUEST_METHOD']))
             {
+
                 if (!isset($route['MODELS']))
                 {
                     $route['MODELS'] = NULL;
                 }
 
+               /* var_dump([
+                    $routes,
+                    $path
+                ]);
+                exit;*/
+
+
+                #var_dump(ltrim(HOST_PATH, BASE_DIRECTORY)); exit;
+               #var_dump($path); exit;
+
                 // searching for '/' main route first
-                if ($path === '' && ltrim(HOST_PATH, BASE_DIRECTORY))
+                if ($path === '' && ltrim(HOST_PATH, BASE_DIRECTORY)) // TODO: become a enum
                 {
                     self::CallController($route['CONTROLLER'], 200, [], $route['MODELS']);
                     # self::CallController($route['CONTROLLER'], preg_split('/\s*,\s*/', trim($route['MODELS'])))); //<-- brenchmark this
                     return TRUE; // end foreach loop
                 }
+
                 // if (str_replace('/', '', ltrim(HOST_PATH, BASE_DIRECTORY)) === '')
 
                 //$removed_variables_url = (string) rtrim(preg_replace("/{[^}]*}/", '', ltrim($route['REQUEST'], '/')), '/');
@@ -43,6 +57,7 @@ class RouteOrganizer
 
                     #var_dump($route['CONTROLLER']);
                     #exit;
+
 
                     # if (isset($route['MODELS']))
                     self::CallController($route['CONTROLLER'], 200, self::parseParameters($route['REQUEST'], $live_url_parameters), $route['MODELS']);
@@ -142,14 +157,15 @@ class RouteOrganizer
         {
             // looks for route request that begin with { and end with {
             // TODO: regex on this condition here might be better
-            if ($request{0} == '{' && substr($request, -1) == '}')
+            // checking the first character and last character
+           if ($request[0] == '{' && substr($request, -1) == '}')
             {
                 // allows only characters A to a (lower and upper) and 1 to 2
                 $parameters[preg_replace('/[^A-Za-z0-9]/', '', $request)] = preg_replace('/[^A-Za-z0-9]/', '', $live_url_parameters[$key++]);
             }
         }
 
-        // return the buildt array from the route request
+        // return the build an array from the route request
         return $parameters;
     }
 }

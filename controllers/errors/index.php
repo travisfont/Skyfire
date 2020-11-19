@@ -1,5 +1,6 @@
 <?php
 
+// TODO: this class should be added to the coresystem.
 class Errors extends Controller
 {
     public function __construct()

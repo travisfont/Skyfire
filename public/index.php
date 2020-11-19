@@ -16,7 +16,7 @@ else
     spl_autoload_register(function ($class)
     {
         // only allows a class string through if the the first occurrence contains Whoops
-        if (strstr($class, '\\', TRUE) == 'Whoops')
+        if (strstr($class, '\\', TRUE) === 'Whoops')
         {
             $class = str_replace('\\', '/', $class);
             if (is_readable(WHOOPS_DIRECTORY.$class.'.php'))
@@ -28,10 +28,12 @@ else
                     require_once WHOOPS_DIRECTORY.'Whoops\Util\Misc.php';
                     require_once WHOOPS_DIRECTORY.'Whoops\Exception\Formatter.php';
                 }
+
                 require_once WHOOPS_DIRECTORY.$class.'.php';
             }
         }
     });
+
 
     if (class_exists('\Whoops\Run'))
     {
@@ -40,9 +42,8 @@ else
         $whoops->register();
     }
 
-    // sysem files (all require to load)
-    foreach (array
-    (
+    // core files (all required to be loaded in specific order)
+    foreach ([
         'config.autoload',
         'global.constants',
         'route.organizer',
@@ -51,8 +52,10 @@ else
         'enum.type',
         'controller.loader',
         'bootstrap'
-    ) as $file)
+    ] as $file)
     {
         require_once PARENT_DIRECTORY.'/system/'.$file.'.php';
     }
+
+
 }
