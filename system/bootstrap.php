@@ -24,9 +24,9 @@ if (class_exists('cfg'))
     {
         define('HOST_PATH', $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
-
-        if (strtoupper(BASE_DIRECTORY) !== strtoupper($_SERVER['HTTP_HOST'])) {
-            trigger_error('Base_Directory in enviroments.ini does not match your current host: '.
+        if (strtoupper(BASE_DIRECTORY) !== strtoupper($_SERVER['HTTP_HOST']))
+        {
+            trigger_error('Base_Directory in environments.ini does not match your current host: '.
                 BASE_DIRECTORY.' on '.$_SERVER['HTTP_HOST'],
             E_USER_ERROR);
         }
@@ -36,18 +36,6 @@ if (class_exists('cfg'))
 
         // registering the users request parameters (url path)
         $path = trim(str_replace(strtolower(BASE_DIRECTORY).'/', '', HOST_PATH));
-
-        #var_dump(HOST_PATH);
-        #var_dump($_SERVER['REQUEST_URI']);
-        //var_dump(BASE_DIRECTORY); // $_SERVER['REQUEST_URI']
-        //var_dump($_SERVER); // $_SERVER['REQUEST_URI']
-        //var_dump($path); // $_SERVER['REQUEST_URI']
-        //var_dump(ltrim($path, $_SERVER['HTTP_HOST'].'/'));
-
-        #var_dump($routes);
-        #var_dump($path);
-        #var_dump($parameters);
-        #var_dump('#####################################');
 
         // Processing the routes with the current request (returns false if no routes were reached)
         if (isset($routes) && !RouteOrganizer::Process($routes, $path, $parameters))
