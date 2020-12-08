@@ -27,6 +27,11 @@ class PlainTextHandler extends Handler
     protected $logger;
 
     /**
+     * @var callable
+     */
+    protected $dumper;
+
+    /**
      * @var bool
      */
     private $addTraceToOutput = true;
@@ -44,12 +49,7 @@ class PlainTextHandler extends Handler
     /**
      * @var bool
      */
-    private $onlyForCommandLine = false;
-
-    /**
-     * @var bool
-     */
-    private $outputOnlyIfCommandLine = true;
+    private $addPreviousToOutput = true;
 
     /**
      * @var bool
@@ -94,6 +94,17 @@ class PlainTextHandler extends Handler
     }
 
     /**
+     * Set var dumper callback function.
+     *
+     * @param  callable $dumper
+     * @return void
+     */
+    public function setDumper(callable $dumper)
+    {
+        $this->dumper = $dumper;
+    }
+
+    /**
      * Add error trace to output.
      * @param  bool|null  $addTraceToOutput
      * @return bool|$this
@@ -105,6 +116,21 @@ class PlainTextHandler extends Handler
         }
 
         $this->addTraceToOutput = (bool) $addTraceToOutput;
+        return $this;
+    }
+
+    /**
+     * Add previous exceptions to output.
+     * @param  bool|null $addPreviousToOutput
+     * @return bool|$this
+     */
+    public function addPreviousToOutput($addPreviousToOutput = null)
+    {
+        if (func_num_args() == 0) {
+            return $this->addPreviousToOutput;
+        }
+
+        $this->addPreviousToOutput = (bool) $addPreviousToOutput;
         return $this;
     }
 
@@ -139,6 +165,27 @@ class PlainTextHandler extends Handler
     }
 
     /**
+     * Create plain text response and return it as a string
+     * @return string
+     */
+    public function generateResponse()
+    {
+        $exception = $this->getException();
+        $message = $this->getExceptionOutput($exception);
+
+        if ($this->addPreviousToOutput) {
+            $previous = $exception->getPrevious();
+            while ($previous) {
+                $message .= "\n\nCaused by\n" . $this->getExceptionOutput($previous);
+                $previous = $previous->getPrevious();
+            }
+        }
+
+
+        return $message . $this->getTraceOutput() . "\n";
+    }
+
+    /**
      * Get the size limit in bytes of frame arguments var_dump output.
      * If the limit is reached, the var_dump output is discarded.
      * Prevent memory limit errors.
@@ -147,34 +194,6 @@ class PlainTextHandler extends Handler
     public function getTraceFunctionArgsOutputLimit()
     {
         return $this->traceFunctionArgsOutputLimit;
-    }
-
-    /**
-     * Restrict error handling to command line calls.
-     * @param  bool|null $onlyForCommandLine
-     * @return null|bool
-     */
-    public function onlyForCommandLine($onlyForCommandLine = null)
-    {
-        if (func_num_args() == 0) {
-            return $this->onlyForCommandLine;
-        }
-        $this->onlyForCommandLine = (bool) $onlyForCommandLine;
-    }
-
-    /**
-     * Output the error message only if using command line.
-     * else, output to logger if available.
-     * Allow to safely add this handler to web pages.
-     * @param  bool|null $outputOnlyIfCommandLine
-     * @return null|bool
-     */
-    public function outputOnlyIfCommandLine($outputOnlyIfCommandLine = null)
-    {
-        if (func_num_args() == 0) {
-            return $this->outputOnlyIfCommandLine;
-        }
-        $this->outputOnlyIfCommandLine = (bool) $outputOnlyIfCommandLine;
     }
 
     /**
@@ -192,31 +211,12 @@ class PlainTextHandler extends Handler
     }
 
     /**
-     * Check, if possible, that this execution was triggered by a command line.
-     * @return bool
-     */
-    private function isCommandLine()
-    {
-        return PHP_SAPI == 'cli';
-    }
-
-    /**
-     * Test if handler can process the exception..
-     * @return bool
-     */
-    private function canProcess()
-    {
-        return $this->isCommandLine() || !$this->onlyForCommandLine();
-    }
-
-    /**
      * Test if handler can output to stdout.
      * @return bool
      */
     private function canOutput()
     {
-        return ($this->isCommandLine() || ! $this->outputOnlyIfCommandLine())
-            && ! $this->loggerOnly();
+        return !$this->loggerOnly();
     }
 
     /**
@@ -234,7 +234,7 @@ class PlainTextHandler extends Handler
 
         // Dump the arguments:
         ob_start();
-        var_dump($frame->getArgs());
+        $this->dump($frame->getArgs());
         if (ob_get_length() > $this->getTraceFunctionArgsOutputLimit()) {
             // The argument var_dump is to big.
             // Discarded to limit memory usage.
@@ -246,9 +246,25 @@ class PlainTextHandler extends Handler
             );
         }
 
-        return sprintf("\n%s",
+        return sprintf(
+            "\n%s",
             preg_replace('/^/m', self::VAR_DUMP_PREFIX, ob_get_clean())
         );
+    }
+
+    /**
+     * Dump variable.
+     *
+     * @param mixed $var
+     * @return void
+     */
+    protected function dump($var)
+    {
+        if ($this->dumper) {
+            call_user_func($this->dumper, $var);
+        } else {
+            var_dump($var);
+        }
     }
 
     /**
@@ -293,23 +309,27 @@ class PlainTextHandler extends Handler
     }
 
     /**
+     * Get the exception as plain text.
+     * @param \Throwable $exception
+     * @return string
+     */
+    private function getExceptionOutput($exception)
+    {
+        return sprintf(
+            "%s: %s in file %s on line %d",
+            get_class($exception),
+            $exception->getMessage(),
+            $exception->getFile(),
+            $exception->getLine()
+        );
+    }
+
+    /**
      * @return int
      */
     public function handle()
     {
-        if (! $this->canProcess()) {
-            return Handler::DONE;
-        }
-
-        $exception = $this->getException();
-
-        $response = sprintf("%s: %s in file %s on line %d%s\n",
-                get_class($exception),
-                $exception->getMessage(),
-                $exception->getFile(),
-                $exception->getLine(),
-                $this->getTraceOutput()
-            );
+        $response = $this->generateResponse();
 
         if ($this->getLogger()) {
             $this->getLogger()->error($response);
@@ -319,13 +339,16 @@ class PlainTextHandler extends Handler
             return Handler::DONE;
         }
 
-        if (class_exists('\Whoops\Util\Misc')
-            && \Whoops\Util\Misc::canSendHeaders()) {
-            header('Content-Type: text/plain');
-        }
-
         echo $response;
 
         return Handler::QUIT;
+    }
+
+    /**
+     * @return string
+     */
+    public function contentType()
+    {
+        return 'text/plain';
     }
 }

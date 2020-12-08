@@ -6,64 +6,113 @@
 
 namespace Whoops;
 
-use Exception;
 use InvalidArgumentException;
+use Throwable;
 use Whoops\Exception\ErrorException;
 use Whoops\Exception\Inspector;
 use Whoops\Handler\CallbackHandler;
 use Whoops\Handler\Handler;
 use Whoops\Handler\HandlerInterface;
+use Whoops\Util\Misc;
+use Whoops\Util\SystemFacade;
 
-class Run
+final class Run implements RunInterface
 {
-    const EXCEPTION_HANDLER = "handleException";
-    const ERROR_HANDLER     = "handleError";
-    const SHUTDOWN_HANDLER  = "handleShutdown";
+    /**
+     * @var bool
+     */
+    private $isRegistered;
 
-    protected $isRegistered;
-    protected $allowQuit       = true;
-    protected $sendOutput      = true;
+    /**
+     * @var bool
+     */
+    private $allowQuit       = true;
+
+    /**
+     * @var bool
+     */
+    private $sendOutput      = true;
 
     /**
      * @var integer|false
      */
-    protected $sendHttpCode    = 500;
+    private $sendHttpCode    = 500;
 
     /**
      * @var HandlerInterface[]
      */
-    protected $handlerStack = array();
-
-    protected $silencedPatterns = array();
+    private $handlerStack = [];
 
     /**
-     * Pushes a handler to the end of the stack
+     * @var array
+     * @psalm-var list<array{patterns: string, levels: int}>
+     */
+    private $silencedPatterns = [];
+
+    /**
+     * @var SystemFacade
+     */
+    private $system;
+
+    /**
+     * In certain scenarios, like in shutdown handler, we can not throw exceptions.
      *
-     * @throws InvalidArgumentException  If argument is not callable or instance of HandlerInterface
-     * @param  Callable|HandlerInterface $handler
+     * @var bool
+     */
+    private $canThrowExceptions = true;
+
+    public function __construct(SystemFacade $system = null)
+    {
+        $this->system = $system ?: new SystemFacade;
+    }
+
+    /**
+     * Explicitly request your handler runs as the last of all currently registered handlers.
+     *
+     * @param HandlerInterface $handler
+     *
      * @return Run
      */
-    public function pushHandler($handler)
+    public function appendHandler($handler)
     {
-        if (is_callable($handler)) {
-            $handler = new CallbackHandler($handler);
-        }
-
-        if (!$handler instanceof HandlerInterface) {
-            throw new InvalidArgumentException(
-                  "Argument to " . __METHOD__ . " must be a callable, or instance of"
-                . "Whoops\\Handler\\HandlerInterface"
-            );
-        }
-
-        $this->handlerStack[] = $handler;
+        array_unshift($this->handlerStack, $this->resolveHandler($handler));
         return $this;
     }
 
     /**
-     * Removes the last handler in the stack and returns it.
-     * Returns null if there"s nothing else to pop.
-     * @return null|HandlerInterface
+     * Explicitly request your handler runs as the first of all currently registered handlers.
+     *
+     * @param HandlerInterface $handler
+     *
+     * @return Run
+     */
+    public function prependHandler($handler)
+    {
+        return $this->pushHandler($handler);
+    }
+
+    /**
+     * Register your handler as the last of all currently registered handlers (to be executed first).
+     * Prefer using appendHandler and prependHandler for clarity.
+     *
+     * @param Callable|HandlerInterface $handler
+     *
+     * @return Run
+     *
+     * @throws InvalidArgumentException If argument is not callable or instance of HandlerInterface.
+     */
+    public function pushHandler($handler)
+    {
+        $this->handlerStack[] = $this->resolveHandler($handler);
+        return $this;
+    }
+
+    /**
+     * Removes and returns the last handler pushed to the handler stack.
+     *
+     * @see Run::removeFirstHandler(), Run::removeLastHandler()
+     *
+     * @return HandlerInterface|null
      */
     public function popHandler()
     {
@@ -71,8 +120,28 @@ class Run
     }
 
     /**
-     * Returns an array with all handlers, in the
-     * order they were added to the stack.
+     * Removes the first handler.
+     *
+     * @return void
+     */
+    public function removeFirstHandler()
+    {
+        array_pop($this->handlerStack);
+    }
+
+    /**
+     * Removes the last handler.
+     *
+     * @return void
+     */
+    public function removeLastHandler()
+    {
+        array_shift($this->handlerStack);
+    }
+
+    /**
+     * Returns an array with all handlers, in the order they were added to the stack.
+     *
      * @return array
      */
     public function getHandlers()
@@ -81,27 +150,19 @@ class Run
     }
 
     /**
-     * Clears all handlers in the handlerStack, including
-     * the default PrettyPage handler.
+     * Clears all handlers in the handlerStack, including the default PrettyPage handler.
+     *
      * @return Run
      */
     public function clearHandlers()
     {
-        $this->handlerStack = array();
+        $this->handlerStack = [];
         return $this;
     }
 
     /**
-     * @param  Exception $exception
-     * @return Inspector
-     */
-    protected function getInspector(Exception $exception)
-    {
-        return new Inspector($exception);
-    }
-
-    /**
      * Registers this instance as an error handler.
+     *
      * @return Run
      */
     public function register()
@@ -114,9 +175,9 @@ class Run
             class_exists("\\Whoops\\Exception\\Frame");
             class_exists("\\Whoops\\Exception\\Inspector");
 
-            set_error_handler(array($this, self::ERROR_HANDLER));
-            set_exception_handler(array($this, self::EXCEPTION_HANDLER));
-            register_shutdown_function(array($this, self::SHUTDOWN_HANDLER));
+            $this->system->setErrorHandler([$this, self::ERROR_HANDLER]);
+            $this->system->setExceptionHandler([$this, self::EXCEPTION_HANDLER]);
+            $this->system->registerShutdownFunction([$this, self::SHUTDOWN_HANDLER]);
 
             $this->isRegistered = true;
         }
@@ -125,14 +186,15 @@ class Run
     }
 
     /**
-     * Unregisters all handlers registered by this Whoops\Run instance
+     * Unregisters all handlers registered by this Whoops\Run instance.
+     *
      * @return Run
      */
     public function unregister()
     {
         if ($this->isRegistered) {
-            restore_exception_handler();
-            restore_error_handler();
+            $this->system->restoreExceptionHandler();
+            $this->system->restoreErrorHandler();
 
             $this->isRegistered = false;
         }
@@ -142,7 +204,9 @@ class Run
 
     /**
      * Should Whoops allow Handlers to force the script to quit?
-     * @param  bool|int $exit
+     *
+     * @param bool|int $exit
+     *
      * @return bool
      */
     public function allowQuit($exit = null)
@@ -155,10 +219,12 @@ class Run
     }
 
     /**
-     * Silence particular errors in particular files
-     * @param  array|string $patterns List or a single regex pattern to match
-     * @param  int          $levels   Defaults to E_STRICT | E_DEPRECATED
-     * @return \Whoops\Run
+     * Silence particular errors in particular files.
+     *
+     * @param array|string $patterns List or a single regex pattern to match.
+     * @param int          $levels   Defaults to E_STRICT | E_DEPRECATED.
+     *
+     * @return Run
      */
     public function silenceErrorsInPaths($patterns, $levels = 10240)
     {
@@ -166,24 +232,38 @@ class Run
             $this->silencedPatterns,
             array_map(
                 function ($pattern) use ($levels) {
-                    return array(
+                    return [
                         "pattern" => $pattern,
                         "levels" => $levels,
-                    );
+                    ];
                 },
                 (array) $patterns
             )
         );
+
         return $this;
     }
 
-    /*
+    /**
+     * Returns an array with silent errors in path configuration.
+     *
+     * @return array
+     */
+    public function getSilenceErrorsInPaths()
+    {
+        return $this->silencedPatterns;
+    }
+
+    /**
      * Should Whoops send HTTP error code to the browser if possible?
      * Whoops will by default send HTTP code 500, but you may wish to
      * use 502, 503, or another 5xx family code.
      *
      * @param bool|int $code
+     *
      * @return int|false
+     *
+     * @throws InvalidArgumentException
      */
     public function sendHttpCode($code = null)
     {
@@ -201,7 +281,7 @@ class Run
 
         if ($code < 400 || 600 <= $code) {
             throw new InvalidArgumentException(
-                 "Invalid status code '$code', must be 4xx or 5xx"
+                "Invalid status code '$code', must be 4xx or 5xx"
             );
         }
 
@@ -210,8 +290,10 @@ class Run
 
     /**
      * Should Whoops push output directly to the client?
-     * If this is false, output will be returned by handleException
-     * @param  bool|int $send
+     * If this is false, output will be returned by handleException.
+     *
+     * @param bool|int $send
+     *
      * @return bool
      */
     public function writeToOutput($send = null)
@@ -224,13 +306,13 @@ class Run
     }
 
     /**
-     * Handles an exception, ultimately generating a Whoops error
-     * page.
+     * Handles an exception, ultimately generating a Whoops error page.
      *
-     * @param  Exception $exception
-     * @return string    Output generated by handlers
+     * @param Throwable $exception
+     *
+     * @return string Output generated by handlers.
      */
-    public function handleException(Exception $exception)
+    public function handleException($exception)
     {
         // Walk the registered handlers in the reverse order
         // they were registered, and pass off the exception
@@ -239,45 +321,55 @@ class Run
         // Capture output produced while handling the exception,
         // we might want to send it straight away to the client,
         // or return it silently.
-        ob_start();
+        $this->system->startOutputBuffering();
 
         // Just in case there are no handlers:
         $handlerResponse = null;
+        $handlerContentType = null;
 
-        foreach (array_reverse($this->handlerStack) as $handler) {
-            $handler->setRun($this);
-            $handler->setInspector($inspector);
-            $handler->setException($exception);
+        try {
+            foreach (array_reverse($this->handlerStack) as $handler) {
+                $handler->setRun($this);
+                $handler->setInspector($inspector);
+                $handler->setException($exception);
 
-            // The HandlerInterface does not require an Exception passed to handle()
-            // and neither of our bundled handlers use it.
-            // However, 3rd party handlers may have already relied on this parameter,
-            // and removing it would be possibly breaking for users.
-            $handlerResponse = $handler->handle($exception);
+                // The HandlerInterface does not require an Exception passed to handle()
+                // and neither of our bundled handlers use it.
+                // However, 3rd party handlers may have already relied on this parameter,
+                // and removing it would be possibly breaking for users.
+                $handlerResponse = $handler->handle($exception);
 
-            if (in_array($handlerResponse, array(Handler::LAST_HANDLER, Handler::QUIT))) {
-                // The Handler has handled the exception in some way, and
-                // wishes to quit execution (Handler::QUIT), or skip any
-                // other handlers (Handler::LAST_HANDLER). If $this->allowQuit
-                // is false, Handler::QUIT behaves like Handler::LAST_HANDLER
-                break;
+                // Collect the content type for possible sending in the headers.
+                $handlerContentType = method_exists($handler, 'contentType') ? $handler->contentType() : null;
+
+                if (in_array($handlerResponse, [Handler::LAST_HANDLER, Handler::QUIT])) {
+                    // The Handler has handled the exception in some way, and
+                    // wishes to quit execution (Handler::QUIT), or skip any
+                    // other handlers (Handler::LAST_HANDLER). If $this->allowQuit
+                    // is false, Handler::QUIT behaves like Handler::LAST_HANDLER
+                    break;
+                }
             }
+
+            $willQuit = $handlerResponse == Handler::QUIT && $this->allowQuit();
+        } finally {
+            $output = $this->system->cleanOutputBuffer();
         }
-
-        $willQuit = $handlerResponse == Handler::QUIT && $this->allowQuit();
-
-        $output = ob_get_clean();
 
         // If we're allowed to, send output generated by handlers directly
         // to the output, otherwise, and if the script doesn't quit, return
         // it so that it may be used by the caller
         if ($this->writeToOutput()) {
             // @todo Might be able to clean this up a bit better
-            // If we're going to quit execution, cleanup all other output
-            // buffers before sending our own output:
             if ($willQuit) {
-                while (ob_get_level() > 0) {
-                    ob_end_clean();
+                // Cleanup all other output buffers before sending our output:
+                while ($this->system->getOutputBufferLevel() > 0) {
+                    $this->system->endOutputBuffering();
+                }
+
+                // Send any headers if needed:
+                if (Misc::canSendHeaders() && $handlerContentType) {
+                    header("Content-Type: {$handlerContentType}");
                 }
             }
 
@@ -285,35 +377,38 @@ class Run
         }
 
         if ($willQuit) {
-            flush(); // HHVM fix for https://github.com/facebook/hhvm/issues/4055
-            exit(1);
+            // HHVM fix for https://github.com/facebook/hhvm/issues/4055
+            $this->system->flushOutputBuffer();
+
+            $this->system->stopExecution(1);
         }
 
         return $output;
     }
 
     /**
-     * Converts generic PHP errors to \ErrorException
-     * instances, before passing them off to be handled.
+     * Converts generic PHP errors to \ErrorException instances, before passing them off to be handled.
      *
      * This method MUST be compatible with set_error_handler.
      *
-     * @param int    $level
-     * @param string $message
-     * @param string $file
-     * @param int    $line
+     * @param int         $level
+     * @param string      $message
+     * @param string|null $file
+     * @param int|null    $line
      *
      * @return bool
+     *
      * @throws ErrorException
      */
     public function handleError($level, $message, $file = null, $line = null)
     {
-        if ($level & error_reporting()) {
+        if ($level & $this->system->getErrorReportingLevel()) {
             foreach ($this->silencedPatterns as $entry) {
                 $pathMatches = (bool) preg_match($entry["pattern"], $file);
                 $levelMatches = $level & $entry["levels"];
                 if ($pathMatches && $levelMatches) {
                     // Ignore the error, abort handling
+                    // See https://github.com/filp/whoops/issues/418
                     return true;
                 }
             }
@@ -337,6 +432,8 @@ class Run
 
     /**
      * Special case to deal with Fatal errors and the like.
+     *
+     * @return void
      */
     public function handleShutdown()
     {
@@ -345,10 +442,11 @@ class Run
         // to the exception handler. Pass that information along.
         $this->canThrowExceptions = false;
 
-        $error = error_get_last();
-        if ($error && $this->isLevelFatal($error['type'])) {
+        $error = $this->system->getLastError();
+        if ($error && Misc::isLevelFatal($error['type'])) {
             // If there was a fatal error,
             // it was not handled in handleError yet.
+            $this->allowQuit = false;
             $this->handleError(
                 $error['type'],
                 $error['message'],
@@ -359,50 +457,57 @@ class Run
     }
 
     /**
-     * In certain scenarios, like in shutdown handler, we can not throw exceptions
-     * @var bool
+     * @param Throwable $exception
+     *
+     * @return Inspector
      */
-    private $canThrowExceptions = true;
+    private function getInspector($exception)
+    {
+        return new Inspector($exception);
+    }
 
     /**
-     * Echo something to the browser
-     * @param  string $output
-     * @return $this
+     * Resolves the giving handler.
+     *
+     * @param HandlerInterface $handler
+     *
+     * @return HandlerInterface
+     *
+     * @throws InvalidArgumentException
+     */
+    private function resolveHandler($handler)
+    {
+        if (is_callable($handler)) {
+            $handler = new CallbackHandler($handler);
+        }
+
+        if (!$handler instanceof HandlerInterface) {
+            throw new InvalidArgumentException(
+                "Handler must be a callable, or instance of "
+                . "Whoops\\Handler\\HandlerInterface"
+            );
+        }
+
+        return $handler;
+    }
+
+    /**
+     * Echo something to the browser.
+     *
+     * @param string $output
+     *
+     * @return Run
      */
     private function writeToOutputNow($output)
     {
-        if ($this->sendHttpCode() && \Whoops\Util\Misc::canSendHeaders()) {
-            $httpCode   = $this->sendHttpCode();
-
-            if (function_exists('http_response_code')) {
-                http_response_code($httpCode);
-            } else {
-                // http_response_code is added in 5.4.
-                // For compatibility with 5.3 we use the third argument in header call
-                // First argument must be a real header.
-                // If it is empty, PHP will ignore the third argument.
-                // If it is invalid, such as a single space, Apache will handle it well,
-                // but the PHP development server will hang.
-                // Setting a full status line would require us to hardcode
-                // string values for all different status code, and detect the protocol.
-                // which is an extra error-prone complexity.
-                header('X-Ignore-This: 1', true, $httpCode);
-            }
+        if ($this->sendHttpCode() && Misc::canSendHeaders()) {
+            $this->system->setHttpResponseCode(
+                $this->sendHttpCode()
+            );
         }
 
         echo $output;
 
         return $this;
-    }
-
-    private static function isLevelFatal($level)
-    {
-        $errors = E_ERROR;
-        $errors |= E_PARSE;
-        $errors |= E_CORE_ERROR;
-        $errors |= E_CORE_WARNING;
-        $errors |= E_COMPILE_ERROR;
-        $errors |= E_COMPILE_WARNING;
-        return ($level & $errors) > 0;
     }
 }
