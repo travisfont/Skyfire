@@ -4,12 +4,10 @@ class Contact extends Controller
 {
     public function __construct($parameters)
     {
-        $this->view('test')->with($parameters)->statusCode(201);
+        $data = Entries::getData($parameters);
 
-        echo '<br/>contact controller works';
-
-        // database testing
-        $data = Entries::getData();
-        var_dump($data);
+        $this->view('test')
+             ->with($data)
+             ->statusCode(201);
     }
 }
