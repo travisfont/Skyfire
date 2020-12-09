@@ -30,6 +30,7 @@ class ResponseStatusCode
         $this->data = $data;
     }
 
+    // TODO: return with status code
     public function statusCode($code)
     {
         if (is_readable(PARENT_DIRECTORY.'/library/packages/twig/twig/lib/Twig/Autoloader.php'))
@@ -40,6 +41,7 @@ class ResponseStatusCode
         Twig_Autoloader::register();
 
         $loader = new Twig_Loader_Filesystem(PARENT_DIRECTORY.'/views');
+        // TODO: if 'PARENT_DIRECTORY.'/views/_cache' doesn't exist, create the folder or throw a permission error
         $twig   = new Twig_Environment($loader, array('cache' => PARENT_DIRECTORY.'/views/_cache', 'auto_reload' => TRUE));
 
         echo $twig->render($this->view_name.'.twig.php', $this->data);
@@ -95,6 +97,15 @@ class DisplayWith
 
     public function __construct($view_name = FALSE)
     {
+        // checking if Twig is installed by checking the Twig folders in the library packages
+        if (!dir(PARENT_DIRECTORY.'/library/packages/twig/twig/lib/Twig'))
+        {
+            trigger_error(
+                'Twig is not installed. Please run composer or install Twig in /library/packages/',
+                E_USER_ERROR
+            );
+        }
+
         $this->view_name = $view_name;
     }
 
@@ -295,7 +306,6 @@ class Controller extends Display
             {
                 require_once PARENT_DIRECTORY.'/library/functions/'.strtolower($class).'/'.$function.'.func.php';
             }
-
             // after the lowercase function is loaded - camelize the function for the class class
 
             $instance = new $class();
