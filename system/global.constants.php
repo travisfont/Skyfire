@@ -71,14 +71,14 @@ abstract class SF
     const PUT    = 'PUT';
     const DELETE = 'DELETE';
 
-    // libaries
+    // libraries
     const DEBUG     = 'debug';
     const SYSLOG    = 'syslog';
     const NETWORK   = 'network';
     const CONSTANTS = 'constants';
     const MATH      = 'math';
-    const STRINGSET = 'stringset';
-    const ARRAYLIST = 'arraylist';
+    const STRINGSET = 'stringset'; // BinaryString
+    const ARRAYLIST = 'arraylist'; // ArraySet
     const CSV       = 'csv';
     const FILE      = 'file';
     const OBJECT    = 'object';

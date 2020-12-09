@@ -16,6 +16,7 @@ class Model
                 self::$instance = new self();
             }
 
+            // returns a new DB connection
             return self::$instance;
         }
     }
@@ -30,7 +31,7 @@ class Model
             $this->DB = new DB;
         }
 
-        // returning the connector class
+        // returning the connector class self::DB
         return $this;
     }
 }
