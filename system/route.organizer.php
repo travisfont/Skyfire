@@ -38,6 +38,21 @@ class RouteOrganizer
             elseif (isset($route['CRUD']))
             {
                 // TODO: process CRUD controller by specific method
+                # /houses = index
+                # /houses/{id} GET
+                # /houses/{id} POST
+                # /houses/{id} DELETE
+                /*
+                In this controller will create seven methods by default as bellow methods:
+
+                GET - index() = Display a listing of the resource (get all resources)
+                GET - create() = Show the form for creating a new resource.
+                POST - store(Request $formPostData) = Store a newly created resource in storage (includes validation)
+                GET - show($id) = Display the specified resource.
+                GET/POST - edit($id) = Show the form for editing the specified resource.
+                PATCH/POST - update(Request $formPostData, $id) = Update the specified resource in storage.
+                DELETE/POST - destroy($id) = Remove the specified resource from storage (soft or hard delete)
+                 */
             }
         }
 
