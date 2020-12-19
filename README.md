@@ -1,4 +1,4 @@
-# Skyfire
+# Claritie
 
 ***A simple yet elegant and progressive PHP Framework.***
 
@@ -13,3 +13,7 @@ And if you want, feel free to learn these advance concepts and implement them as
 Claritie is not the most advanced MVC framework there is, but rather progressive! It's the fastest to pick up and is ideal for quick and rapid development with little to no learning curve. Creating an ideal initial MVC framework for developers.
 
 Including, Claritie does interrupt the global namespace in PHP but is highly modular and extensive.
+
+---
+
+IN-DEPTH DOCUMENTATION COMING SOON. PLEASE FOLLOW! 🚀
